@@ -1,0 +1,17 @@
+\path (CELL5) +(.7*\xr ,0) coordinate (A) ;
+\node[draw,circle,dotted,color=blue,fill=red,opacity=.20,minimum size=1cm] (b) at (A) {} ;
+
+
+\path (CELL55) +(.7*\xr ,0) coordinate (B) ;
+\node[draw,circle,dotted,color=blue,fill=red,opacity=.20,minimum size=1cm] (b) at (B) {} ;
+
+\node (C) at ($(A)!0.5!(B)$) {};
+\path(C) ++(\xr,0) coordinate(D) ;
+
+\node[color=red](b) at (D) { !!! } ;
+
+%\node[draw,circle,dotted,color=blue,fill=red] (b) at (C) {} ;
+%\node[draw,circle,dotted,color=blue,fill=red] (b) at (D) {} ;
+
+
+\draw[dotted](A) --(D) -- (B) ;

@@ -1,0 +1,84 @@
+files:
+  lilypond: []
+  tex: []
+  wav: []
+info:
+  title: "Lonely Boy"
+  author: Black Keys
+  tempo: 86
+  time_signature: null
+meta:
+  date: "2025-10-26"
+  digest: 64abf92fcb9b3675cd54e7bf1f9d97e7
+structure:
+  - id: riff1
+    item: !Chords
+      title: riff A
+      type: riff
+      section_body: null
+      rows:
+        - Em | Em |Em |Em |
+  - id: riff2
+    item: !Chords
+      title: riff B
+      type: riff
+      section_body: null
+      rows:
+        - Em | A |Em |A |
+  - id: riff3
+    item: !Chords
+      title: riff C
+      type: riff
+      section_body: null
+      rows:
+        - Em | Em |Em |Em |
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: null
+      rows:
+        - Em | G A |Em |G A |x2
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - Em | G A |Em |G A |x2
+  - id: riff-c2
+    item: !Ref
+      title: riff C
+      section_body: null
+      type: riff
+      link: riff3
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: riff-a2
+    item: !Ref
+      title: riff A
+      section_body: null
+      type: riff
+      link: riff2
+  - id: riff-b2
+    item: !Ref
+      title: riff B
+      section_body: null
+      type: riff
+      link: riff2
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      section_body: null
+      type: refrain
+      link: refrain1

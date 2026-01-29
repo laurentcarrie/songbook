@@ -1,0 +1,26 @@
+title: Jolene
+author: Dolly Parton ( cover xxx )
+cell_width: 60
+cell_height: 30
+chord_glyph_scale: 2
+texfiles:
+  - lyrics.tex
+lilypondfiles: []
+wavfiles: []
+sections:
+  - name: couplet
+    rows:
+      -
+        - G#m
+        - B
+        - E
+        - G#m
+        - E
+  - name: refrain
+    rows:
+      -
+        - G#m
+        - B
+        - E
+        - G#
+        - E

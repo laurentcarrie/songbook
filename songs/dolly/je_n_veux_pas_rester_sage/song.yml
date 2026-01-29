@@ -1,0 +1,95 @@
+files:
+  lilypond: []
+  tex: []
+  wav: []
+info:
+  title: Je N'Veux Pas Rester Sage
+  author: Dolly
+  tempo: 98
+  time_signature: null
+meta:
+  date: "2025-10-26"
+  digest: 3715f66b0aed6eeae4af4bb74bff2350
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: null
+      rows:
+        - Gm Bf | F | Gm Bf | F |
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: null
+      rows:
+        - Gm Bf | F | Gm Bf | F | x2
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - 'Ef | Ef | F | F '
+        - 'Ef | Ef | F | HRest '
+  - id: fill1
+    item: !Chords
+      title: fill1
+      type: fill
+      section_body: null
+      rows:
+        - Gm Bf | F | Gm Bf | F |
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: couplet4
+    item: !Ref
+      title: couplet 4
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: interlude
+    item: !Chords
+      title: interlude
+      type: pont
+      section_body: null
+      rows:
+        - Am|C|D|F|x2
+        - Am|Am|Am|Am
+  - id: couplet5
+    item: !Chords
+      title: couplet 5
+      type: couplet2
+      section_body: null
+      rows:
+        - Am C|G|Am C|G|x2
+  - id: refrain3
+    item: !Chords
+      title: refrain 3
+      type: refrainb
+      section_body: null
+      rows:
+        - F |F|G|G|x4
+  - id: solo
+    item: !Chords
+      title: solo
+      type: solo
+      section_body: null
+      rows:
+        - F |F|G|G|x4

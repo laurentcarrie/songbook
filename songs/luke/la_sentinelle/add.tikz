@@ -1,0 +1,43 @@
+\path (CELL2) +(.5*\xr ,-.5*\yr) coordinate (A) ;
+\node[anchor=south,draw,ellipse,dotted,fill=blue!10,opacity=.5,minimum width=1.3cm,minimum height=.5cm](b) at (A)  {
+        {                                \cursive\bfseries
+    \fontsize{10pt}{10pt}\selectfont\color{red} guitare seule }
+} ;
+
+
+\path (CELL10) +(.3*\xr ,-.3*\yr) coordinate (A) ;
+\node[anchor=south,draw,ellipse,dotted,fill=blue!10,opacity=.8,minimum width=.8cm,minimum height=.5cm,rotate=45](b) at (A)  {
+        {                                \cursive\bfseries
+    \fontsize{6pt}{6pt}\selectfont\color{red} 2 temps }
+} ;
+
+\path (CELL16) +(.3*\xr ,-.3*\yr) coordinate (A) ;
+\node[anchor=south,draw,ellipse,dotted,fill=blue!10,opacity=.8,minimum width=.8cm,minimum height=.5cm,rotate=45](b) at (A)  {
+        {                                \cursive\bfseries
+    \fontsize{6pt}{6pt}\selectfont\color{red} 2 temps }
+} ;
+
+\path (CELL32) +(.3*\xr ,-.3*\yr) coordinate (A) ;
+\node[anchor=south,draw,ellipse,dotted,fill=blue!10,opacity=.8,minimum width=.8cm,minimum height=.5cm,rotate=45](b) at (A)  {
+        {                                \cursive\bfseries
+    \fontsize{6pt}{6pt}\selectfont\color{red} 2 temps }
+} ;
+
+\path (CELL37) +(.3*\xr ,-.3*\yr) coordinate (A) ;
+\node[anchor=south,draw,ellipse,dotted,fill=blue!10,opacity=.8,minimum width=.8cm,minimum height=.5cm,rotate=45](b) at (A)  {
+        {                                \cursive\bfseries
+    \fontsize{6pt}{6pt}\selectfont\color{red} 2 temps }
+} ;
+
+\path (CELL65) +(.3*\xr ,-.3*\yr) coordinate (A) ;
+\node[anchor=south,draw,ellipse,dotted,fill=blue!10,opacity=.8,minimum width=.8cm,minimum height=.5cm,rotate=45](b) at (A)  {
+        {                                \cursive\bfseries
+    \fontsize{6pt}{6pt}\selectfont\color{red} 2 temps }
+} ;
+
+
+\path (CELL20) +(.3*\xr ,-.2*\yr) coordinate (A) ;
+\node[anchor=west,draw,ellipse,dotted,fill=blue!10,opacity=.8,minimum width=.8cm,minimum height=.5cm](b) at (A)  {
+        {                                \cursive\bfseries
+    \fontsize{6pt}{6pt}\selectfont\color{red}  stop sur 3}
+} ;

@@ -1,0 +1,7 @@
+\path(CELL1) ++(.5*\xr,-.5*\yr) coordinate (A) ;
+\node[anchor=south](b) at (A) {\color{red} d seulement} ;
+%\node[draw,circle,fill=green](b) at (CELL1) {} ;
+
+
+\path(CELL31) ++(.5*\xr,-.5*\yr) coordinate (A) ;
+\node[anchor=south](b) at (A) {\color{red} d seulement} ;

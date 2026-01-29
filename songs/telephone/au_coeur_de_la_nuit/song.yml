@@ -1,0 +1,62 @@
+files:
+  lilypond: []
+  tex: []
+  wav: []
+info:
+  title: Au Coeur De La Nuit
+  author: Telephone
+  tempo: 164
+  time_signature: null
+meta:
+  date: "2025-10-26"
+  digest: 08a817f09753d5612daca374871734ad
+structure:
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: null
+      rows:
+        - Em | Em | C | C |
+        - 'D | D | A | C '
+        - Em | Em | C | C |
+        - 'D | D | A | C '
+        - Em | Em | C | C |
+        - 'D | D | A | C '
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - G|A|C|C|x3
+        - C A|G|C A|G|
+        - C G|A|D|C
+  - id: interlude
+    item: !Chords
+      title: interlude
+      type: pont
+      section_body: null
+      rows:
+        - Em | Em | C | C
+        - D | D | A | C
+  - id: nc
+    item: NewColumn
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      section_body: null
+      type: null
+      link: couplet1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      section_body: null
+      type: null
+      link: refrain1
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      section_body: null
+      type: null
+      link: refrain1

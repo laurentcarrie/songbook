@@ -1,0 +1,3 @@
+\path (SECTION_refrain4) +(+2*\xr   ,-.25 * \yr) coordinate (A) ;
+
+\node[anchor=west](b) at (A) {puis fade...} ;

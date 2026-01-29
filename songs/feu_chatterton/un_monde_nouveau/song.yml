@@ -1,0 +1,58 @@
+files:
+  lilypond:
+  tex:
+  wav:
+hash: 0
+info:
+  title: Un Monde Nouveau
+  author: Feu Chatterton
+  tempo: 107
+  time_signature: null
+meta:
+  date: "2025-11-06"
+  digest: e8cd85b85f95331de4df5b3e67bf7f69
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      rows:
+        - B | Gsm | E | Cs7
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      rows:
+        - B | Gsm | E | Cs7 | x2
+  - id: prerefrain1
+    item: !Chords
+      title: pré refrain 1
+      type: prerefrain
+      rows:
+        - Gsm | Gsm7 | Gsm6 | E7M | x2
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      rows:
+        - B | Gsm | E | Cs7 | x3
+        - Gsm | Gsm7 | Gsm6 | E7M
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      link: couplet1
+  - id: prerefrain2
+    item: !Ref
+      title: pré refrain 2
+      link: prerefrain1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      link: refrain1
+  - id: interlude
+    item: !Chords
+      title: interlude
+      type: interlude
+      rows:
+        - B | Gsm | E | Cs7 | x2
+        - Gsm | Gsm7 | Gsm6 | E7M

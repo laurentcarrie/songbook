@@ -1,0 +1,52 @@
+%\path(SECTION_couplet1) ++(5*\xr,-.5*\yr) coordinate(A) ;
+%\node[anchor=west](b) at (A) { \color{red} {guitare 1 seule, stop derniere mesure temps \#3} } ;
+
+\path(CELL18) ++(0,-.4*\yr) coordinate(A) ;
+\node[circle,dotted,color=blue,fill=red,inner sep=2pt,minimum size=.3cm](b) at (A) { } ;
+
+%\path(SECTION_refrain1) ++(5*\xr,-.5*\yr) coordinate(A) ;
+%\node[anchor=west](b) at (A) { \color{red} {sur deuxième ligne stop mesure \#2 temps \#1} } ;
+
+%\path(SECTION_couplet2a) ++(5*\xr,-.5*\yr) coordinate(A) ;
+%node[anchor=west](b) at (A) { \color{red} {reggae} } ;
+
+%\path(SECTION_couplet2b) ++(5*\xr,-.5*\yr) coordinate(A) ;
+%\node[anchor=west](b) at (A) { \color{red} {pas de guitare} } ;
+
+%\path(SECTION_couplet2c) ++(5*\xr,-.5*\yr) coordinate(A) ;
+%\node[anchor=west](b) at (A) { \color{red} {soft brossé} } ;
+
+
+\path(SECTION_couplet3a) ++(5*\xr,-.5*\yr) coordinate(A) ;
+\node[anchor=west](b) at (A) { \color{red} {riff, sauf 2 dernières mesures} } ;
+
+\path(SECTION_couplet3b) ++(5*\xr,-.5*\yr) coordinate(A) ;
+\node[anchor=west](b) at (A) { \color{red} {pas de guitare} } ;
+
+
+\path(SECTION_interlude) ++(5*\xr,-.5*\yr) coordinate(A) ;
+\node[anchor=west](b) at (A) { \color{red} {riff 2 lignes, puis ... } } ;
+
+\path (SECTION_couplet2a) +(2*\xr,-\yr) coordinate (A) ;
+\node[color=white,opacity=.9,fill=blue,anchor=south](b) at (A) { reggae } ;
+
+\path (SECTION_couplet2b) +(2*\xr,-\yr) coordinate (A) ;
+\node[color=white,opacity=.9,fill=blue,anchor=south](b) at (A) { pas de guitare } ;
+
+\path (SECTION_couplet2c) +(2*\xr,-\yr) coordinate (A) ;
+\node[color=white,opacity=.9,fill=blue,anchor=south](b) at (A) { soft brossé } ;
+
+%
+% \path(CELL109) ++(-.4*\xr,-.4*\yr) coordinate(A) ;
+% \node[circle,dotted,color=blue,fill=red,inner sep=2pt,minimum size=.3cm](b) at (A) { } ;
+% \path(A) ++(.15*\xr,0) coordinate(A) ;
+% \node[circle,dotted,color=blue,fill=red,inner sep=2pt,minimum size=.3cm](b) at (A) { } ;
+%
+%
+% \path(CELL110) ++(-.4*\xr,-.4*\yr) coordinate(A) ;
+% \node[circle,dotted,color=blue,fill=red,inner sep=2pt,minimum size=.3cm](b) at (A) { } ;
+% \path(A) ++(.15*\xr,0) coordinate(A) ;
+% \node[circle,dotted,color=blue,fill=red,inner sep=2pt,minimum size=.3cm](b) at (A) { } ;
+%
+% \path(CELL111) ++(-.4*\xr,-.4*\yr) coordinate(A) ;
+% \node[circle,dotted,color=blue,fill=red,inner sep=2pt,minimum size=.3cm](b) at (A) { } ;

@@ -1,0 +1,24 @@
+\tikzmath{\xxxratio=0.4;} ;
+
+\path (CELL15) +(0    ,-\yr*\xxxratio) coordinate (A) ;
+\node[circle,fill=red,opacity=.9](b) at (A) {} ;
+
+\path (SECTION_refrain2) +(1.5*\xr    ,-.4*\yr) coordinate (A) ;
+\node[circle,fill=red,opacity=.9](b) at (A) { } ;
+
+\path (CELL75) +(0    ,-\yr*\xxxratio) coordinate (A) ;
+\node[circle,fill=red,opacity=.9](b) at (A) {} ;
+
+\path (SECTION_refrain4) +(1.5*\xr    ,-.4*\yr) coordinate (A) ;
+\node[circle,fill=red](b) at (A) { } ;
+
+
+\path (CELL42) +(\xr/2,-\yr/2) coordinate (A) ;
+\node[color=white,opacity=.5,fill=blue,anchor=south](b) at (A) { cool ... } ;
+
+
+
+\path (SECTION_refrain2) +(0    ,-1*\yr) coordinate (A) ;
+\node[circle,fill=red,opacity=.9](b) at (A) {  } ;
+\path (A) +(1.5*\xr    ,0) coordinate (B) ;
+\node[fill=red,opacity=.9](b) at (B) { STOP on beat 1 7th bar ! } ;

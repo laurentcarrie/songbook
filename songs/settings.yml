@@ -1,0 +1,15 @@
+# Default colors for section types (x11 color names)
+intro: LavenderBlush2
+couplet: Wheat1
+couplet2: MistyRose2
+couplet3: MistyRose2
+prerefrain: blue
+prerefrain1: blue
+refrain: Coral1
+refrainb: MistyRose2
+pont: NavajoWhite2
+outro: Aquamarine2
+solo: red
+interlude: orange
+riff: blue
+fill: Aquamarine2!10

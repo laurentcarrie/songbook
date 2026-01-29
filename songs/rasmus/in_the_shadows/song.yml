@@ -1,0 +1,94 @@
+files:
+  lilypond: []
+  tex: []
+  wav: []
+info:
+  title: In The Shadows
+  author: The Rasmus
+  tempo: 106
+  time_signature: null
+meta:
+  date: "2025-11-29"
+  digest: 56d48fd9318d55a2ba498a3eb1f8419a
+structure:
+  - id: pad
+    item: !Chords
+      title: pad
+      type: intro
+      section_body: null
+      rows:
+        - 'E | E '
+  - id: padg
+    item: !Chords
+      title: pad+g
+      type: intro
+      section_body: null
+      rows:
+        - E | Gsm | Csm | Gsm |
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: null
+      rows:
+        # - D | Fsm | Bm | Fsm | x2
+        - E | Gsm | Csm | Gsm | x2
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      rows:
+        # - Bm | Fsm | Bm | Fsm | x2
+        # - D |Fsm | Bm | Fsm | x2        
+        - E  | Gsm | Csm | Gsm | x4
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      rows:
+        # - D | Fsm | Bm | Fsm | x2
+        - E | Gsm | Csm | Gsm | x2
+  - id: interlude
+    item: !Chords
+      title: interlude
+      type: interlude
+      rows:
+        # - D | Fsm | Bm | Fsm | x2
+        - E | Gsm | Csm | Gsm | x2
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      type: couplet
+      link: couplet1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      type: refrain
+      link: refrain1
+  - id: pont
+    item: !Chords
+      title: pont
+      type: pont
+      rows:
+        # - D | D | E Fsm | Fsm A |
+        # - Bm | Bm | Fsm | Fsm       
+        - E | E | Fs Gsm | Gsm B |
+        - Csm | Csm | Gsm | Gsm
+  - id: fill
+    item: !Chords
+      title: 1/2
+      type: fill
+      rows:
+        - ' HRest '
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      link: refrain1
+  - id: refrain4
+    item: !Ref
+      title: refrain 4
+      link: refrain1
+  - id: interlude2
+    item: !Ref
+      title: interlude 2
+      link: interlude

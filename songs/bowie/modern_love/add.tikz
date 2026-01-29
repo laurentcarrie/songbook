@@ -1,0 +1,13 @@
+\path(SECTION_intro) ++(4*\xr,-.5*\yr) coordinate(A) ;
+\node[anchor=west](b) at (A) { \songly{chordsrefrain} } ;
+\node[circle,fill=green](b) at (SECTION_intro) {} ;
+\node[circle,fill=red](b) at (A) {} ;
+
+\path(SECTION_pont) ++(2*\xr,-.25*\yr) coordinate(A) ;
+\node[anchor=west](b) at (A) { idem intro  } ;
+
+
+\path(SECTION_solo) ++(2*\xr,-.25*\yr) coordinate(A) ;
+\node[anchor=west](b) at (A) { même grille que couplet  } ;
+%\node[circle,fill=green](b) at (SECTION_solo) {} ;
+%\node[circle,fill=red](b) at (A) {} ;

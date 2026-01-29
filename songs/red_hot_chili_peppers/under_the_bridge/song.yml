@@ -1,0 +1,83 @@
+files:
+  lilypond: []
+  tex: []
+  wav: []
+info:
+  title: Under The Bridge
+  author: Red Hot Chili Peppers
+  tempo: 84
+  time_signature: null
+meta:
+  date: "2025-10-26"
+  digest: 57e73ab61685e95f07b79dc9863ac0e5
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: null
+      rows:
+        - D
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: null
+      rows:
+        - E|B|Csm|A
+        - E|B|Csm|A
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      section_body: null
+      type: null
+      link: couplet1
+  - id: refrain1
+    item: !Chords
+      title: refrain
+      type: refrain
+      section_body: null
+      rows:
+        - Fsm|A|E|B
+        - Fsm|A|E|B
+        - Fsm|A|E|B
+        - Csm|A|E|B
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      section_body: null
+      type: null
+      link: couplet1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      section_body: null
+      type: null
+      link: refrain1
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      section_body: null
+      type: null
+      link: couplet1
+  - id: pont
+    item: !Chords
+      title: pont
+      type: pont
+      section_body: null
+      rows:
+        - A|Am|G|F|x3
+        - F7M|E7|G|G
+  - id: final1
+    item: !Chords
+      title: final 1
+      type: couplet2
+      section_body: null
+      rows:
+        - A|Am|G|F|x4
+  - id: final2
+    item: !Ref
+      title: final 2
+      section_body: null
+      type: null
+      link: final1

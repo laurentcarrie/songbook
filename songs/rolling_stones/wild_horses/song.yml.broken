@@ -1,0 +1,58 @@
+title: Wild Horses
+author: Rolling Stones
+cell_width: 60
+cell_height: 30
+chord_glyph_scale: 2
+texfiles:
+  - lyrics.tex
+lilypondfiles: []
+wavfiles: []
+sections:
+  - name: intro
+    rows:
+      -
+        - G
+        - Am7
+        - G
+        - Am7
+        - G
+  - name: couplet
+    rows:
+      -
+        - Bm
+        - G
+        - Bm
+        - G
+      -
+        - Am
+        - C D
+        - G
+        - D
+      -
+        - Bm
+        - G
+        - Bm
+        - G
+      -
+        - Am
+        - C D
+        - G
+        - D
+      -
+        - Am
+        - C D
+        - G F
+        - C
+      -
+        - Am
+        - C D
+        - G F
+        - C
+#          Am The things yo Am/B u wanted C      D I   G broug G4 ht them  for G  you    D      D2        D
+#          Bm Graceless la G dy     G4     yo Bm u know who I am   G      G4
+#          Am You know I ca Am/B n't let yo C u       D slid G e th G4 rough my hand G s    D      D2       D
+#
+#
+#          Am Wild  Am/B         C   horse D s    G  couldn't  F drag me a- way    C         Bm
+#          Am Wild  Am/B wild    C  horses D      G couldn't dr F ag me a- way        C
+#

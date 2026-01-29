@@ -1,0 +1,17 @@
+\path(SECTION_intro) ++(5*\xr,-.5*\yr) coordinate (A) ;
+\node[anchor=west](b) at (A) {\color{red} tout le monde} ;
+
+\path(SECTION_padg) ++(5*\xr,-.5*\yr) coordinate (A) ;
+\node[anchor=west](b) at (A) {\color{red} RIFF !} ;
+
+\path(SECTION_refrain1) ++(5*\xr,-.5*\yr) coordinate (A) ;
+\node[anchor=west](b) at (A) {\color{red} pas de riff sur refrain} ;
+
+\path(SECTION_interlude) ++(5*\xr,-.5*\yr) coordinate (A) ;
+\node[anchor=west](b) at (A) {\color{red} guitare + pad : RIFF !} ;
+
+\path(SECTION_interlude2) ++(5*\xr,-0.25*\yr) coordinate (A) ;
+\node[anchor=west](b) at (A) {\color{red} fin en note tenue sur le 1 de la mesure suivante } ;
+
+\path(SECTION_fill) ++(5*\xr,-0.5*\yr) coordinate (A) ;
+\node[anchor=west](b) at (A) {\color{red} 1/2 mesure } ;

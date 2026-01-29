@@ -1,0 +1,82 @@
+files:
+  lilypond:
+    - riff1.ly
+    - riff2.ly
+  tex: []
+  wav: []
+hash: 0
+info:
+  title: Coups Et Blessures
+  author: BB Brunes
+  tempo: 120
+  time_signature: null
+meta:
+  date: "2025-11-06"
+  digest: f256d32d3f39516acd1c98c5fc3e6473
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      rows:
+        - D | D | Bm | Bm |
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      rows:
+        - D | D | Bm | Bm | x2
+        - G |  A | Bm | A |
+        - G | A | D | HRest |
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      rows:
+        - G  A | D | G A | Bm
+        - A | A | G | G |
+  - id: pont1
+    item: !Chords
+      title: pont 1
+      type: pont
+      rows:
+        - D | D | Bm | Bm | x2
+  - id: nr
+    item: !NewColumn
+  - id: couplet2
+    item: !Chords
+      title: couplet 2
+      type: couplet2
+      rows:
+        - D | D | Bm | Bm | x2
+        - G  A | Bm Em | G A | Bm Em |
+        - G  A | Bm Em | G A | D |
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      link: refrain1
+  - id: pont2
+    item: !Ref
+      title: pont 2
+      link: pont1
+  - id: interlude
+    item: !Chords
+      title: interlude
+      type: interlude
+      rows:
+        - G A  | Bm Em |  G A  |  Bm D
+        - G A  | Bm Em |  G A  |  HRest
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      link: refrain1
+  - id: pont3
+    item: !Ref
+      title: pont 3
+      link: pont1
+  - id: outtro
+    item: !Chords
+      title: final
+      type: intro
+      rows:
+        - G | A | Bm | D| x4

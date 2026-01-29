@@ -1,0 +1,75 @@
+files:
+  lilypond:
+    - solo.ly
+  tex: []
+  wav: []
+info:
+  title: Because The Night
+  author: Patty Smith
+  tempo: 96
+  time_signature: null
+meta:
+  date: "2025-11-02"
+  digest: bc988bde1359922c8f32e87dd6010a37
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      rows:
+        - Bm D | A Bm | Bm D | A Bm
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      rows:
+        - Bm D | A Bm | Bm D | A Bm | x2
+  - id: prerefrain1
+    item: !Chords
+      title: pré refrain 1
+      type: prerefrain
+      rows:
+        - G A | D A | Bm G |G  A
+        - D G | D A| C |Bm |
+        - Fs |Fs
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      rows:
+        - Bm G | G A | Bm G | G A | x2
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      link: couplet1
+  - id: prerefrain2
+    item: !Ref
+      title: pré refrain 2
+      link: prerefrain1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      link: refrain1
+  - id: solo
+    item: !Chords
+      title: solo
+      type: solo
+      rows:
+        - G  A    | D   A   | Bm G    | G   A   |
+        - D  G    | G   A   | G       | G
+  - id: pont
+    item: !Chords
+      title: pont
+      type: pont
+      rows:
+        - D    A    |     D       A      |         Bm       A | D A
+        - Bm        A  |      D        A | G D | G |
+        - Bm       |     D     |        G       |   Fs
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      link: refrain1
+  - id: refrain4
+    item: !Ref
+      title: refrain 4
+      link: refrain1

@@ -1,0 +1,92 @@
+\version "2.23.1"
+\include "macros.ly"
+
+
+lead = {
+  \absolute  {
+    \override Score.SpacingSpanner.shortest-duration-space = #4.0
+
+
+    % les numeros de mesure ici commencent
+
+
+    \set Score.currentBarNumber = 29
+    % mes 1
+    \repeat percent 2 {
+    < a\3 d'\2 fis'\1>8
+    < a\3 d'\2 fis'\1>8
+    r8
+    < a\3 d'\2 g'\1>8
+    < a\3 d'\2 g'\1>8
+    r8
+    < g\3 d'\2 a'\1>8
+    < g\3 d'\2 g'\1>8
+    |
+    < a\3 d'\2 fis'\1>8
+    < a\3 d'\2 fis'\1>8
+    r8
+    < a\3 d'\2 g'\1>8
+    < a\3 d'\2 g'\1>8
+    r8
+    < g\3 d'\2 a'\1>8
+    < g\3 d'\2 g'\1>8
+    |
+    <fis\4 b\3 d'\2 fis'\1>8
+    <fis\4 b\3 d'\2 fis'\1>8
+    r8
+    <g\4 b\3 d'\2 fis'\1>8
+    <g\4 b\3 d'\2 fis'\1>8
+    r8
+    <g\4 b\3 d'\2 a'\1>8
+    r8
+    |
+    <fis\4 b\3 d'\2 fis'\1>8
+    <fis\4 b\3 d'\2 fis'\1>8
+    r8
+    <g\4 b\3 d'\2 fis'\1>8
+    <g\4 b\3 d'\2 fis'\1>8
+    r8
+    <g\4 b\3 d'\2 a'\1>8
+    r8
+    
+    }
+
+  }
+
+}
+
+
+
+\paper {
+  #(include-special-characters)
+  indent = 0\mm
+  line-width = 180\mm
+  oddHeaderMarkup = ""
+  evenHeaderMarkup = ""
+  oddFooterMarkup = ""
+  evenFooterMarkup = ""
+
+  #(add-text-replacements!
+    '(
+       ("100" . "hundred")
+       ("dpi" . "dots per inch")
+       ))
+
+}
+
+
+\score {
+  <<
+    \new TabStaff {
+      \tempo 4 = \songtempo
+      \tabFullNotation
+      \override Score.BarNumber.break-visibility = ##(#t #t #t)
+      \lead
+    }
+
+  >>
+
+  \layout {}
+}
+
+

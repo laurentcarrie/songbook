@@ -1,0 +1,113 @@
+files:
+  lilypond: []
+  tex: []
+  wav: []
+info:
+  title: Bohemian Like You
+  author: Dandy Warhols
+  tempo: 132
+  time_signature: null
+meta:
+  date: "2025-10-26"
+  digest: 89f75d6a3df95d4925fd5b34fb12ed3e
+structure:
+  - id: introb
+    item: !Chords
+      title: intro b
+      type: intro
+      section_body: null
+      rows:
+        - ' HRest | HRest | HRest | HRest | x2'
+  - id: introg
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: null
+      rows:
+        - ' B | D | A | E | x2'
+  - id: fill
+    item: !Chords
+      title: fill
+      type: fill
+      section_body: null
+      rows:
+        - B|B|B|B
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: null
+      rows:
+        - ' B | D | A | E | x2'
+  - id: fill2
+    item: !Ref
+      title: fill
+      section_body: null
+      type: fill
+      link: fill
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: prerefrain1
+    item: !Chords
+      title: pré refrain 1
+      type: prerefrain
+      section_body: null
+      rows:
+        - ' B | D | A | E | x2'
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - ' B | D | A | E | x2'
+  - id: fill2
+    item: !Chords
+      title: fill
+      type: fill
+      section_body: null
+      rows:
+        - B|B|B|HRest
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: prerefrain2
+    item: !Ref
+      title: pré refrain 2
+      section_body: null
+      type: prerefrain
+      link: prerefrain1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: pont
+    item: !Chords
+      title: pont
+      type: pont
+      section_body: null
+      rows:
+        - B|D|A|E|x4
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: outtro
+    item: !Chords
+      title: outtro
+      type: fill
+      section_body: null
+      rows:
+        - B|B|B|B
+        - B HRest|B HRest

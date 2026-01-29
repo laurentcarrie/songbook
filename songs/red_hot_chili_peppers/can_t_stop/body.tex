@@ -1,0 +1,29 @@
+
+\iftoggle{lyricsonly}{
+
+}{
+	\input{song.tikz}
+
+
+	\newpage
+	\begin{multicols}{2}
+		\songlyrics
+	\end{multicols}
+}
+
+
+\newpage
+% \subimport{chordsrefrain.output/}{chordsrefrain}
+\songly{chordsrefrain}
+
+% \subimport{intro.output/}{intro}
+\songly{intro}
+
+\section*{riff couplet}
+\subimport{riff_a.output/}{riff_a}
+
+la derni\`ere fois :
+
+\subimport{riff_b.output/}{riff_b}
+
+

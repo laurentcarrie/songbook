@@ -1,0 +1,108 @@
+files:
+  lilypond:
+    - intro.ly
+    - refrain1.ly
+    - refrain2.ly
+    - interlude.ly
+  tex:
+    - body.tex
+  wav: []
+info:
+  title: Ca me vexe
+  author: Mademoiselle K
+  tempo: 140
+  time_signature: null
+meta:
+  date: "2025-10-27"
+  digest: 94fb533e610b0d2149efc55bde56d7d6
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: null
+      rows:
+        - Em|Em|Em|G
+        - Em|G|C7|G
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: null
+      rows:
+        - Em|G|Am|C7|x2
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - Em|G|Am|C7|x3
+  - id: couplet2a
+    item: !Chords
+      title: couplet 2a
+      type: couplet
+      section_body: null
+      rows:
+        - Em|G|Am|C7|x2
+  - id: couplet2b
+    item: !Chords
+      title: couplet 2b
+      type: couplet2
+      section_body: null
+      rows:
+        - Em|G|Am|C7|
+  - id: couplet2c
+    item: !Chords
+      title: couplet 2c
+      type: couplet
+      section_body: null
+      rows:
+        - Em|G|Am|C7|x2
+  - id: refrain2
+    item: !Chords
+      title: refrain 2
+      type: refrain
+      section_body: null
+      rows:
+        - Em|G|Am|C|x2
+  - id: nc
+    item: !NewColumn
+  - id: couplet3a
+    item: !Chords
+      title: couplet 3a
+      type: couplet
+      section_body: null
+      rows:
+        - Em|G|Am|C7|x3
+  - id: couplet3b
+    item: !Chords
+      title: couplet 3b
+      type: couplet2
+      section_body: null
+      rows:
+        - Em|G|Am|C7|x2
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      section_body: null
+      type: null
+      link: refrain1
+  - id: lh
+    item: !HRule 100
+  - id: interlude
+    item: !Chords
+      title: interlude
+      type: pont
+      section_body: null
+      rows:
+        - HRest|Em|G|Am|
+        - Em|G|Am|C7|x3
+  - id: final
+    item: !Chords
+      title: final
+      type: couplet
+      section_body: null
+      rows:
+        - Em|G|Am|C7|
+        - Em|G|A|C7|

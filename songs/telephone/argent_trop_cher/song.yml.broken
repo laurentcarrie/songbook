@@ -1,0 +1,41 @@
+title: Argent Trop Cher
+author: Téléphone
+cell_width: 30
+cell_height: 20
+chord_glyph_scale: 1
+texfiles:
+  - lyrics.tex
+lilypondfiles: []
+#  - solo.ly
+wavfiles: []
+#  - solo.wav
+
+#path:
+#  XX/YY
+sections:
+  - name: intro-1
+    rows:
+      -
+        - E
+        - F#m C#m
+        - E
+        - F#m C#m
+  - name: intro-2
+    rows: []
+  - name: couplet
+    rows:
+      -
+        - Bm
+        - Em7
+        - E7
+        - Bm
+      -
+        - Bm
+        - Em7
+        - E7
+        - Bm
+      -
+        - E
+        - D
+        - F#
+        - F#

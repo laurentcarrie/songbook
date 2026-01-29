@@ -1,0 +1,127 @@
+files:
+  lilypond:
+    - couplet1.ly
+  tex: []
+  wav: []
+info:
+  title: La Sentinelle
+  author: Luke
+  tempo: 94
+  time_signature: null
+meta:
+  date: "2025-10-26"
+  digest: c7907ceece45412d235d0ca2b83e25cd
+structure:
+  - id: introg
+    item: !Chords
+      title: intro g
+      type: intro
+      section_body: null
+      rows:
+        - Em Bm|Em Bm|Em Bm |Em Bm|
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: null
+      rows:
+        - Em Bm|Em Bm|Em Bm |Em Bm|
+  - id: couplet1
+    item: !Chords
+      title: couplet1
+      type: couplet
+      section_body: null
+      rows:
+        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|Em Bm|
+        - Em Bm|Em HRest|Em Bm |Em Bm
+  - id: prerefrain1
+    item: !Chords
+      title: pré refrain 1
+      type: prerefrain
+      section_body: null
+      rows:
+        - G|G HRest
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - Em Am|G Bm|Em Am|G Bm
+        - 'Em Am|G Bm|C|Am '
+  - id: fill1
+    item: !Chords
+      title: fill 1
+      type: pont
+      section_body: null
+      rows:
+        - Em Bm|Em Bm|
+  - id: nc
+    item: NewColumn
+  - id: couplet2
+    item: !Chords
+      title: couplet 2
+      type: couplet
+      section_body: null
+      rows:
+        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|
+        - Em Bm|Em HRest|Em Bm |Em Bm
+  - id: prerefrain2
+    item: !Ref
+      title: pré refrain 2
+      section_body: null
+      type: prerefrain
+      link: prerefrain1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      section_body: null
+      type: null
+      link: refrain1
+  - id: solo
+    item: !Ref
+      title: solo
+      section_body: null
+      type: solo
+      link: refrain1
+  - id: fill2
+    item: !Ref
+      title: fill2
+      section_body: null
+      type: null
+      link: fill1
+  - id: interlude
+    item: !Chords
+      title: interlude
+      type: pont
+      section_body: null
+      rows:
+        - D Em|D Em|D Em|C
+  - id: couplet2
+    item: !Chords
+      title: couplet 3
+      type: couplet
+      section_body: null
+      rows:
+        - Em Bm|Em HRest|Em Bm |Em Bm
+  - id: prerefrain3
+    item: !Ref
+      title: pré refrain 3
+      section_body: null
+      type: prerefrain
+      link: prerefrain1
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      section_body: null
+      type: null
+      link: refrain1
+  - id: outtro
+    item: !Chords
+      title: outtro
+      type: intro
+      section_body: null
+      rows:
+        - Em Bm|Em Bm|Em Bm |Em Bm

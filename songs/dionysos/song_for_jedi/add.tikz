@@ -1,0 +1,10 @@
+\path(CELL1) ++(\xr/2,-\yr/2) coordinate(A) ;
+\node[anchor=south](b) at (A) { \color{red}{guitare seulement} } ;
+
+
+%\path(CELL16) ++(0,-\yr/2) coordinate(A) ;
+%\node[anchor=south](b) at (A) { \color{red}{stop sur \#1} } ;
+%
+
+\path(CELL22) ++(0,-\yr/2) coordinate(A) ;
+\node[anchor=south](b) at (A) { \color{red}{stop sur \#1} } ;

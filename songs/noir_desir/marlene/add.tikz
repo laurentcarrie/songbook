@@ -1,0 +1,24 @@
+
+\path (SECTION_couplet3) ++(2*\xr,0) coordinate (A) ;
+\node[anchor=north west] at (A)   { \songbookcomment{instrumental} } ;
+%\node[draw,circle,fill=red] at (A)   {  } ;
+
+
+\path (SECTION_couplet4) ++(2*\xr,0) coordinate (A) ;
+\node[anchor=north west] at (A)   { \songbookcomment{cool} } ;
+
+
+\path (SECTION_couplet5) ++(2*\xr,0) coordinate (A) ;
+\node[anchor=north west] at (A)   { \songbookcomment{énervé} } ;
+
+\path (SECTION_couplet6) ++(2*\xr,0) coordinate (A) ;
+\node[anchor=north west] at (A)   { \songbookcomment{énervé} } ;
+
+
+\path (SECTION_couplet7) ++(2*\xr,0) coordinate (A) ;
+\node[anchor=north west] at (A)   { \songbookcomment{allemand} } ;
+%\node[draw,circle,fill=red] at (A)   {  } ;
+
+
+%\node[draw,circle,fill=red] at (SECTION_couplet1)   {  } ;
+%\node[draw,circle,fill=red] at (SECTION_couplet2)   {  } ;

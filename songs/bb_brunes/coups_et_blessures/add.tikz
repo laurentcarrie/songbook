@@ -1,0 +1,13 @@
+\path(CELL19) ++(0,-\yr/2) coordinate(A) ;
+\node[anchor=south](b) at (A) { \color{red} {stop \#1} } ;
+
+
+%\path(CELL47) ++(0,-\yr/2) coordinate(A) ;
+%\node[anchor=south](b) at (A) { \color{red} {stop \#1} } ;
+
+
+\path (CELL51) +(0,-\yr/2) coordinate (A) ;
+\node[color=white,opacity=.9,fill=blue,anchor=south](b) at (A) { stop \#1 } ;
+
+\path (CELL51) +(2*\xr,0) coordinate (A) ;
+\node[color=white,opacity=.9,fill=blue,anchor=south](b) at (A) { stop \#1 } ;

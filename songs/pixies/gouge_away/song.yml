@@ -1,0 +1,54 @@
+files:
+  lilypond:
+    - basse.ly
+  tex: []
+  wav: []
+info:
+  title: Gouge Away
+  author: Pixies
+  tempo: 126
+  time_signature: null
+meta:
+  date: "2025-10-26"
+  digest: c3f230572e0551053395a44c307543a4
+structure:
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: null
+      rows:
+        - Fsm | A |D |Fsm |D|x4
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - Fsm | A |D |Fsm |D|
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: couplet3
+    item: !Chords
+      title: couplet 3
+      type: couplet
+      section_body: null
+      rows:
+        - Fsm | A |D |Fsm |D|x3
+  - id: final
+    item: !Chords
+      title: final
+      type: refrain
+      section_body: null
+      rows:
+        - Fsm | A |D |Fsm |D|x3

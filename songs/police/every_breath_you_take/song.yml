@@ -1,0 +1,101 @@
+files:
+  lilypond: []
+  tex: []
+  wav: []
+info:
+  title: Every Breath You Take
+  author: Police
+  tempo: 117
+  time_signature: null
+meta:
+  date: "2025-10-26"
+  digest: fd4252426f71b3fd1aa440c1dcebeb36
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: ''
+      rows:
+        - Bf|Bf|Gm|Gm
+        - Ef|F|Bf|Bf
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: ''
+      rows:
+        - Bf|Bf|Gm|Gm
+        - Ef|F|Gm|Gm
+  - id: couplet2
+    item: !Chords
+      title: couplet 2
+      type: couplet2
+      section_body: \songbookcomment{idem couplet1 sauf 2 dernières mesures}
+      rows:
+        - Bf|Bf|Gm|Gm
+        - Ef|F|Bf|Bf
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: ''
+      rows:
+        - Ef|Df|Bf|Bf
+        - C|C|F|F
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      section_body: null
+      type: null
+      link: couplet1
+  - id: nc
+    item: NewColumn
+  - id: pont
+    item: !Chords
+      title: pont
+      type: pont
+      section_body: \songbookcomment{en accords plaqués}
+      rows:
+        - Gf|Gf|Af|Af
+        - Gf|Gf|Af|Af
+        - Gf|Gf|
+  - id: couplet4
+    item: !Ref
+      title: couplet4
+      section_body: \songbookcomment{no lyrics}
+      type: null
+      link: couplet1
+  - id: couplet5
+    item: !Ref
+      title: couplet5
+      section_body: \songbookcomment{no lyrics}
+      type: null
+      link: couplet2
+  - id: refrain2
+    item: !Ref
+      title: refrain2
+      section_body: null
+      type: null
+      link: refrain1
+  - id: couplet6
+    item: !Ref
+      title: couplet 6
+      section_body: null
+      type: null
+      link: couplet1
+  - id: fill
+    item: !Chords
+      title: fill
+      type: intro
+      section_body: null
+      rows:
+        - Ef|F|Gm|Gm
+        - Gm|Gm
+  - id: outtro
+    item: !Chords
+      title: outtro
+      type: intro
+      section_body: null
+      rows:
+        - Bf|Bf|Gm|Ef|x4

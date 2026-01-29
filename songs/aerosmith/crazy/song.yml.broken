@@ -1,0 +1,111 @@
+title: Crazy
+author: Aerosmith
+cell_width: 80
+cell_height: 20
+chord_glyph_scale: 2
+texfiles:
+  - lyrics.tex
+lilypondfiles: []
+wavfiles: []
+sections:
+#  - name: 'intro ( couplet 1 )'
+  - name: intro
+    rows:
+      -  A  F#m D Dm
+      - 
+        - A
+        - F#m
+        - D
+        - Dm
+
+  - name: xxx
+  #- name: "x"
+    rows:
+      -
+        - A
+        - D
+        - F#m
+        - D
+      -
+        - A
+        - D
+        - F#m
+        - D
+      -
+        - E
+        - F#m
+        - G
+        - D
+      -
+        - E
+        - F#m
+        - G
+        - D E
+  - name: yyy
+    rows:
+      -
+        - A
+        - F#m
+        - D
+        - Dm
+      -
+        - A
+        - F#m
+        - D
+        - E
+      -
+        - A
+        - F#m
+        - D
+        - Dm
+      -
+        - Bm
+        - E
+        - C#m
+        - F#m E
+      -
+        - D
+        - Dm
+
+  - name: zzz
+    rows:
+      -
+        - A
+        - F#m
+        - D
+        - E
+
+  - name: www
+    rows:
+      -
+        - A
+        - F#m
+        - D
+        - Dm
+      -
+        - A
+        - F#m
+        - D
+        - E
+      -
+        - A
+        - F#m
+        - D
+        - Dm
+      -
+        - A
+        - F#m
+        - D
+        - E
+
+  - name: zzz
+    rows:
+      -
+        - F#m
+        - E
+        - Dm
+        - Dm
+      -
+        - F#m
+        - E
+        - Dm

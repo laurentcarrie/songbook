@@ -1,0 +1,96 @@
+files:
+  lilypond:
+    - solo.ly
+    - intro.ly
+    - riff_a.ly
+    - riff_b.ly
+    - chordsrefrain.ly
+  tex: []
+  wav:
+    - intro.wav
+    - riff_a.wav
+info:
+  title: Can't Stop
+  author: Red Hot Chili Peppers
+  tempo: 91
+  time_signature: null
+meta:
+  date: "2025-10-27"
+  digest: c893bedf7e31214cdb5adc2358d90843
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: ''
+      rows:
+        - Em | Em | Em | Em
+  - id: riffguitare
+    item: !Chords
+      title: riff guitare
+      type: couplet
+      section_body: ''
+      rows:
+        - Fsm | E | Csm7 | D7M
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: ''
+      rows:
+        - Fsm| D | Csm7 | D7M | x3
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: \newline \subimport{chordsrefrain.output}{chordsrefrain}
+      rows:
+        - A | D | Csm7 | D7M | x4
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: pont
+    item: !Chords
+      title: pont
+      type: pont
+      section_body: '{\color{red} reggae}'
+      rows:
+        - Fsm | E | Csm7 | D7M E | x4
+  # - id: nc
+  #   item: NewColumn
+  - id: soloseul
+    item: !Chords
+      title: solo seul
+      type: solo
+      section_body: null
+      rows:
+        - Fsm | E | Csm7 | D7M
+  - id: solochant
+    item: !Chords
+      title: solo + strophe
+      type: solo
+      section_body: null
+      rows:
+        - Fsm | E | Csm7 | D7M
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      section_body: '{\color{red} pas de batterie sur dernière strophe}'
+      type: couplet
+      link: couplet1
+  - id: outtro
+    item: !Chords
+      title: outtro
+      type: intro
+      section_body: '{\color{red}chant seul}'
+      rows:
+        - HRest|HRest

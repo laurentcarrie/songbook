@@ -1,0 +1,3 @@
+\path(SECTION_couplet4) ++(2*\xr,-.25*\yr) coordinate(A) ;
+\node[anchor=west](b) at (A) { instrumental  } ;
+

@@ -1,0 +1,106 @@
+files:
+  lilypond:
+    - solo.ly
+    - chordscouplet.ly
+    - chordsintro.ly
+    - chordsrefrain.ly
+  tex: []
+  wav:
+    - solo.wav
+info:
+  title: Kid Charlemagne
+  author: Steely Dan
+  tempo: 97
+  time_signature: null
+meta:
+  date: "2025-10-26"
+  digest: b4cd535928d7e7077ea73328101fb77c
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: \songly{chordsintro}
+      rows:
+        - C7 | C7 | C7 | C7
+  - id: couplet1
+    item: !Chords
+      title: couplet
+      type: couplet
+      section_body: \songly{chordscouplet}
+      rows:
+        - Am7 | G | F | Bf | x2
+  - id: pont1
+    item: !Chords
+      title: pont 1
+      type: pont
+      section_body: null
+      rows:
+        - G | C | F | Am
+  - id: interlude1
+    item: !Chords
+      title: interlude
+      type: intro
+      section_body: \songly{chordsintro}
+      rows:
+        - 'C7 | C7 '
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: pont2
+    item: !Ref
+      title: pont 2
+      section_body: null
+      type: pont
+      link: pont1
+  - id: refrain1
+    item: !Chords
+      title: refrain
+      type: refrain
+      section_body: \newline\songly{chordsrefrain}
+      rows:
+        - F G| F G| F G| G F7
+        - C7|C7
+  - id: nc
+    item: NewColumn
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: pont3
+    item: !Ref
+      title: pont 3
+      section_body: null
+      type: pont
+      link: pont1
+  - id: refrain3
+    item: !Ref
+      title: refrain
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: pont
+    item: !Chords
+      title: 1 mesure
+      type: pont
+      section_body: null
+      rows:
+        - A
+  - id: hr
+    item: !HRule 80
+  - id: solo
+    item: !Chords
+      title: solo
+      type: solo
+      section_body: null
+      rows:
+        - A | Dm7 | Bm7 | Am7 G|
+        - F7M Em7 | Dm7 Adim | Em7 |D|
+        - C7M|Em7|D|Am
+        - G|A|Bf|F G
+        - Am G|Dm7 G|

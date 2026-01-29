@@ -1,0 +1,136 @@
+files:
+  lilypond:
+    - pont2.ly
+  tex: []
+  wav:
+    - pont2.wav
+info:
+  title: Eteins La Lumière
+  author: Axel Bauer
+  tempo: 146
+  time_signature: null
+meta:
+  digest: 3b3d94f04697065d8e87947cadba979a
+  date: "2025-10-26"
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: '\ \songbookcomment{1 ligne (g) seule, 2 lignes (gbd)} '
+      rows:
+        - Am | Am | Dsus4 | Dsus4 | x3
+  - id: couplet1_2
+    item: !Chords
+      title: couplet 1 et 2
+      type: couplet
+      section_body: null
+      rows:
+        - Am | Am | Dsus4 | Dsus4 | x4
+  - id: prerefrain1
+    item: !Chords
+      title: pré refrain 1
+      type: prerefrain
+      section_body: null
+      rows:
+        - F | Am | F | Am
+        - 'F | Am | B | F '
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - Am|F|Am|F
+        - Am|B|B|F
+        - F
+  - id: pont
+    item: !Chords
+      title: pont
+      type: pont
+      section_body: null
+      rows:
+        - A|A|Dsus4|Dsus4|x2
+  - id: couplet3_4
+    item: !Ref
+      title: couplet 3 et 4
+      section_body: null
+      type: couplet
+      link: couplet1_2
+  - id: prerefrain2
+    item: !Ref
+      title: pré refrain 2
+      section_body: null
+      type: prerefrain
+      link: prerefrain1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: nc
+    item: NewColumn
+  - id: pont2
+    item: !Chords
+      title: pont2
+      type: pont
+      section_body: null
+      rows:
+        - Am|Am|Am|Am
+        - Am|Am|D|D
+        - D|D|D|D
+  - id: pont3
+    item: !Chords
+      title: pont3
+      type: pont
+      section_body: null
+      rows:
+        - Am|Am|Am|Am
+  - id: solog
+    item: !Chords
+      title: solo guitare
+      type: solo
+      section_body: null
+      rows:
+        - Am|Am|Dsus4|Dsus4|x2
+  - id: solob
+    item: !Chords
+      title: solo basse
+      type: solo
+      section_body: null
+      rows:
+        - Am|Am|Dsus4|Dsus4|x2
+  - id: couplet5
+    item: !Chords
+      title: couplet5
+      type: couplet
+      section_body: null
+      rows:
+        - Am|Am|Dsus4|Dsus4
+  - id: prerefrain3
+    item: !Ref
+      title: pré refrain 3
+      section_body: null
+      type: prerefrain
+      link: prerefrain1
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: outro-chant
+    item: !Chords
+      title: outro chant
+      type: intro
+      section_body: null
+      rows:
+        - Am|Am|Dsus4|Dsus4|x2
+  - id: outro
+    item: !Chords
+      title: outro
+      type: intro
+      section_body: \songbookcomment{stop sur le 1 après}
+      rows:
+        - Am|Am|Dsus4|F|x2

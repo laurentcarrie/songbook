@@ -1,0 +1,15 @@
+%\path(CELL25) ++(0,-\yr/2) coordinate (A) ;
+%\node[anchor=south,text=red](b) at (A) { STOP } ;
+
+\path (SECTION_couplet_3) +(\xr*.25    ,-\yr*.3) coordinate (A) ;
+\node[circle,fill=red,opacity=.9](b) at (A) {} ;
+
+
+\path (SECTION_refrain_2) +(0    ,-1*\yr) coordinate (A) ;
+\node[circle,fill=red,opacity=.9](b) at (A) {  } ;
+\path (A) +(1.5*\xr    ,0) coordinate (B) ;
+\node[fill=red,opacity=.9](b) at (B) { STOP on beat 1  } ;
+
+\path (SECTION_refrain_4) +(0    ,-1*\yr) coordinate (A) ;
+
+\node[anchor=west](b) at (A) {pont : \songly{chordspont}} ;

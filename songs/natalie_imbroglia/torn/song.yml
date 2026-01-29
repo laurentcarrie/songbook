@@ -1,0 +1,105 @@
+files:
+  lilypond:
+    - intro.ly
+    - couplet.ly
+  tex: []
+  wav: []
+info:
+  title: Torn
+  author: Natalie Imbroglia
+  tempo: 96
+  time_signature: null
+meta:
+  date: "2025-10-26"
+  digest: c5273445384b403f7ee99ee03e9b7ba8
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: null
+      rows:
+        - F|F|F|F
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: null
+      rows:
+        - F|F|Am|Am
+        - Bf7|Bf7
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: prerefrain1
+    item: !Chords
+      title: pré refrain 1
+      type: prerefrain
+      section_body: null
+      rows:
+        - Dm|C|Am|C
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - F|C|Dm|Bf
+        - F|C|Dm|Bf
+        - F|C|Dm|Bf
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: prerefrain2
+    item: !Ref
+      title: pré refrain 2
+      section_body: null
+      type: prerefrain
+      link: prerefrain1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: nc
+    item: NewColumn
+  - id: pont
+    item: !Chords
+      title: pont
+      type: pont
+      section_body: null
+      rows:
+        - Dm|Bf
+        - Dm|Dm|F|C
+  - id: prerefrain3
+    item: !Ref
+      title: pré refrain 3
+      section_body: '{\color{red} g + voix}'
+      type: prerefrain
+      link: prerefrain1
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: pont2
+    item: !Chords
+      title: pont 2
+      type: pont
+      section_body: null
+      rows:
+        - Dm|C|C
+  - id: refrain4
+    item: !Ref
+      title: refrain 4
+      section_body: null
+      type: refrain
+      link: refrain1

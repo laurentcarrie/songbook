@@ -1,0 +1,125 @@
+files:
+  lilypond:
+    - pontbasse.ly
+    - couplet2asse.ly
+  tex: []
+  wav:
+    - couplet2asse.wav
+    - pontbasse.wav
+info:
+  title: Rock 'N Roll Star
+  author: Oasis
+  tempo: 140
+  time_signature: null
+meta:
+  date: "2025-10-26"
+  digest: b777430533f4c5ad982891af9f2af994
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: ''
+      rows:
+        - B|B|B|B|x2
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: ''
+      rows:
+        - B|B|B|B
+        - Csm|A|B|B
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: pont1
+    item: !Chords
+      title: pont 1
+      type: pont
+      section_body: null
+      rows:
+        - Gsm|E|B|B|x3
+        - A|A|Fsm|Fsm
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - A|E|B|B|x2
+  - id: couplet4
+    item: !Ref
+      title: couplet 4
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: couplet5
+    item: !Ref
+      title: couplet 5
+      section_body: null
+      type: couplet
+      link: couplet1
+  - id: pont2
+    item: !Ref
+      title: pont2
+      section_body: null
+      type: pont
+      link: pont1
+  - id: refrain2
+    item: !Chords
+      title: refrain 2
+      type: refrain
+      section_body: null
+      rows:
+        - A|E|B|B|x3
+  - id: nc
+    item: NewColumn
+  - id: pont3
+    item: !Chords
+      title: pont 3
+      type: pont
+      section_body: null
+      rows:
+        - A|E|G|G
+  - id: solo
+    item: !Chords
+      title: solo
+      type: solo
+      section_body: null
+      rows:
+        - B|B|B|B
+        - Csm|A|B|B
+        - B|B|Csm|A
+        - B|B
+  - id: refrain3
+    item: !Chords
+      title: refrain 3
+      type: refrain
+      section_body: null
+      rows:
+        - A|E|B|B|x3
+  - id: interlude
+    item: !Chords
+      title: interlude
+      type: fill
+      section_body: null
+      rows:
+        - A|A|A|A|
+        - A7|A7|A7|A7|
+        - Fs|E|Fs|E|x2
+  - id: refrain4
+    item: !Ref
+      title: refrain 4
+      section_body: null
+      type: refrain
+      link: refrain1

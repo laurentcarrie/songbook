@@ -1,0 +1,104 @@
+files:
+  lilypond: []
+  tex: []
+  wav: []
+info:
+  title: The End Has No End
+  author: The Strokes
+  tempo: 80
+  time_signature: null
+meta:
+  date: "2025-10-26"
+  digest: 4408004fd2f076a5b3c0a5fd61e6b4ab
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: null
+      rows:
+        - A E | Gs Dsm
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: \songbookcomment{basse entre mesure 9}
+      rows:
+        - 'Cs | Cs | Cs | Cs '
+        - 'Gs | Gs | Gs | Gs '
+        - 'Cs | Cs | Cs | Cs '
+        - 'Gs | Gs | HRest | HRest '
+  - id: prerefrain1
+    item: !Chords
+      title: pré refrain 1
+      type: prerefrain
+      section_body: null
+      rows:
+        - Cs | Asm | Fm | Gs | x3
+        - 'Cs | Asm | Fm | Fm '
+        - 'Gs | Gs '
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - 'Fs | Cs| Gs| Dsm '
+        - 'Fs | Cs| Gs| Dsm '
+  - id: fill1
+    item: !Chords
+      title: fill
+      type: refrain
+      section_body: null
+      rows:
+        - Dsm
+  - id: nc
+    item: NewColumn
+  - id: solo
+    item: !Chords
+      title: solo
+      type: solo
+      section_body: null
+      rows:
+        - 'Cs | Cs | Cs | Cs '
+        - 'Gs | Gs | Gs | Gs '
+  - id: couplet2
+    item: !Chords
+      title: couplet 2
+      type: couplet
+      section_body: null
+      rows:
+        - 'Cs | Cs | Cs | Cs '
+        - 'Gs | Gs | Gs | Gs '
+        - 'HRest | HRest | '
+  - id: prerefrain2
+    item: !Ref
+      title: pré refrain 2
+      section_body: null
+      type: prerefrain
+      link: prerefrain1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      section_body: null
+      type: refrain
+      link: refrain1
+  - id: fill2
+    item: !Chords
+      title: fill
+      type: refrain
+      section_body: null
+      rows:
+        - Dsm | Dsm
+  - id: outtro
+    item: !Ref
+      title: outtro
+      section_body: null
+      type: intro
+      link: intro
