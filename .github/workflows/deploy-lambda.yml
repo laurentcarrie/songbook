@@ -8,6 +8,13 @@ on:
       - 'lambda/**'
       - 'template-existing-bucket.yaml'
       - '.github/workflows/deploy-lambda.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'lambda/**'
+      - 'template-existing-bucket.yaml'
+      - '.github/workflows/deploy-lambda.yml'
   workflow_dispatch:
 
 env:
