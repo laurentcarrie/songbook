@@ -32,7 +32,7 @@ Resources:
   LambdaExecutionRole:
     Type: AWS::IAM::Role
     Properties:
-      RoleName: songbook-processor-role
+      # Let CloudFormation generate the role name to avoid IAM propagation issues
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
