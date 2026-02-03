@@ -1,0 +1,22 @@
+# SAM CLI configuration for songbook-processor Lambda
+
+version = 0.1
+
+[default.global.parameters]
+stack_name = "songbook-processor"
+
+[default.build.parameters]
+cached = true
+parallel = true
+template_file = "template-existing-bucket.yaml"
+
+[default.deploy.parameters]
+capabilities = "CAPABILITY_IAM CAPABILITY_NAMED_IAM"
+confirm_changeset = true
+resolve_s3 = true
+region = "eu-west-3"
+# Set your ECR repository URI here or use --image-repository flag
+# image_repository = "123456789.dkr.ecr.eu-west-1.amazonaws.com/songbook-processor"
+
+[default.local_invoke.parameters]
+env_vars = "lambda/env.json"
