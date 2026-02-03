@@ -1,5 +1,5 @@
-\version "2.24.2"
 \include "macros.ly"
+\version "2.24.2"
 
 lead = {
   \absolute  {

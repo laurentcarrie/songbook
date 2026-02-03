@@ -1,9 +1,9 @@
 files:
-  lilypond:
-    - intro.ly
-    - refrain1.ly
-    - refrain2.ly
-    - interlude.ly
+  lilypond: []
+    # - intro.ly
+    # - refrain1.ly
+    # - refrain2.ly
+    # - interlude.ly
   tex:
     - body.tex
   wav: []

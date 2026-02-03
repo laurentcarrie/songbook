@@ -1,7 +1,7 @@
 files:
-  lilypond:
-    - riff1.ly
-    - riff2.ly
+  lilypond: []
+    # - riff1.ly
+    # - riff2.ly
   tex: []
   wav: []
 hash: 0

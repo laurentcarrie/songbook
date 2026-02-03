@@ -1,3 +1,4 @@
+\include "macros.ly"
 \include "predefined-guitar-fretboards.ly"
 
 <<

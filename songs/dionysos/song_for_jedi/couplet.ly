@@ -1,3 +1,4 @@
+\include "macros.ly"
 \storePredefinedDiagram
 #default-fret-table
 %\transpose g f {

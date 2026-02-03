@@ -1,4 +1,5 @@
 \version "2.23.1"
+
 \include "macros.ly"
 
 % a new comment
@@ -120,7 +121,7 @@ lead = {
       \grace g'8\2\glissando a'8\2 c''8\1 c''8\1
     }
     \tuplet 3/2 {
-      \grace a'10\2\glissando g'8\2 f'8\2 d'8\3
+      \grace a'8\2\glissando g'8\2 f'8\2 d'8\3
     }
     \tuplet 3/2{
       g'8\2\glissando a'8\2 c''8\1

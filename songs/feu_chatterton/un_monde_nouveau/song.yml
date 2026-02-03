@@ -29,14 +29,15 @@ structure:
       title: pré refrain 1
       type: prerefrain
       rows:
-        - Gsm | Gsm7 | Gsm6 | E7M | x2
+      # todo : Gsm6
+        - Gsm | Gsm7 | Gsm | E7M | x2
   - id: refrain1
     item: !Chords
       title: refrain 1
       type: refrain
       rows:
         - B | Gsm | E | Cs7 | x3
-        - Gsm | Gsm7 | Gsm6 | E7M
+        - Gsm | Gsm7 | Gsm | E7M
   - id: couplet2
     item: !Ref
       title: couplet 2
@@ -55,4 +56,4 @@ structure:
       type: interlude
       rows:
         - B | Gsm | E | Cs7 | x2
-        - Gsm | Gsm7 | Gsm6 | E7M
+        - Gsm | Gsm7 | Gsm | E7M

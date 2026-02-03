@@ -1,5 +1,5 @@
-\version "2.23.1"
 \include "macros.ly"
+\version "2.23.1"
 
 song_chords = \chordmode {
   a1:m e1 f2 g2 a1:m |

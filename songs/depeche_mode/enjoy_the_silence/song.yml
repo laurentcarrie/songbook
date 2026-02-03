@@ -44,7 +44,9 @@ structure:
       type: refrain
       section_body: \newline \subimport{chordsrefrain.output}{chordsrefrain}
       rows:
-        - 'Fm | Af | Cm | Bfsus2 '
+      # todo : sus2
+        # - 'Fm | Af | Cm | Bfsus2 '
+        - 'Fm | Af | Cm | Bf '
         - 'Fm | Af | Cm | B '
   - id: fill1
     item: !Chords
