@@ -86,7 +86,8 @@ while true; do
         EXIT_CODE=$?
         echo "band-songbook failed with exit code ${EXIT_CODE}"
         echo "${OUTPUT}"
-
+        lualatex --version
+        cat "${LOCAL_SANDBOX}/make-report.yml"
         # Send error response
         send_error "${REQUEST_ID}" "band-songbook failed: ${OUTPUT}"
     fi
