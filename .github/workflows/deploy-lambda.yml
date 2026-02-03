@@ -35,12 +35,48 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ vars.AWS_REGION || 'eu-west-1' }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Setup SAM CLI
         uses: aws-actions/setup-sam@v2
         with:
           use-installer: true
+
+      - name: Cleanup failed stack and orphaned resources
+        run: |
+          # Check if stack exists and is in a failed state
+          STACK_STATUS=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query 'Stacks[0].StackStatus' \
+            --output text 2>/dev/null || echo "DOES_NOT_EXIST")
+
+          echo "Stack status: $STACK_STATUS"
+
+          if [ "$STACK_STATUS" = "ROLLBACK_COMPLETE" ] || [ "$STACK_STATUS" = "DELETE_FAILED" ]; then
+            echo "Deleting failed stack..."
+            aws cloudformation delete-stack --stack-name ${{ env.STACK_NAME }}
+            aws cloudformation wait stack-delete-complete --stack-name ${{ env.STACK_NAME }}
+            echo "Stack deleted"
+          fi
+
+          # Clean up orphaned IAM role if it exists outside CloudFormation
+          ROLE_NAME="${{ env.STACK_NAME }}-role"
+          if aws iam get-role --role-name "$ROLE_NAME" 2>/dev/null; then
+            echo "Found orphaned IAM role, cleaning up..."
+            # List and delete all inline policies
+            for policy in $(aws iam list-role-policies --role-name "$ROLE_NAME" --query 'PolicyNames[]' --output text); do
+              echo "Deleting policy: $policy"
+              aws iam delete-role-policy --role-name "$ROLE_NAME" --policy-name "$policy"
+            done
+            # Detach all managed policies
+            for arn in $(aws iam list-attached-role-policies --role-name "$ROLE_NAME" --query 'AttachedPolicies[].PolicyArn' --output text); do
+              echo "Detaching policy: $arn"
+              aws iam detach-role-policy --role-name "$ROLE_NAME" --policy-arn "$arn"
+            done
+            # Delete the role
+            aws iam delete-role --role-name "$ROLE_NAME"
+            echo "IAM role deleted"
+          fi
 
       - name: Build SAM application
         run: sam build --template template-existing-bucket.yaml
@@ -50,10 +86,11 @@ jobs:
           sam deploy \
             --template-file .aws-sam/build/template.yaml \
             --stack-name ${{ env.STACK_NAME }} \
+            --region ${{ env.AWS_REGION }} \
             --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
             --no-confirm-changeset \
             --no-fail-on-empty-changeset \
-            --image-repository ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION || 'eu-west-1' }}.amazonaws.com/${{ env.ECR_REPOSITORY }}
+            --image-repository ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}
 
       - name: Add S3 notification to existing bucket
         run: |
