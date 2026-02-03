@@ -3,17 +3,18 @@ lyrics_font: ptm
 
 # Default colors for section types (x11 color names)
 colors:
-  intro: LavenderBlush2
-  couplet: Wheat1
-  couplet2: MistyRose2
-  couplet3: MistyRose2
-  prerefrain: blue
+  intro: buff
+  couplet: brightgreen
+  couplet2: darkgreen!30
+  couplet3: darkgreen!60
+  prerefrain: bubbles
   prerefrain1: blue
-  refrain: Coral1
-  refrainb: MistyRose2
-  pont: NavajoWhite2
+  refrain: columbiablue
+  refrainb: brightturquoise
+  pont: thistle
   outro: Aquamarine2
-  solo: red
-  interlude: orange
-  riff: blue
+  solo: candyapplered!65
+  interlude: tangerine
+  riff: timberwolf
   fill: Aquamarine2!10
+  final: Aquamarine2

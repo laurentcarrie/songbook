@@ -1,3 +1,4 @@
+\include "macros.ly"
 \version "2.20.0"
 
 songtempo=100
@@ -47,7 +48,7 @@ lead = {
     % mes 7
     fis8\5 a4\4 b4\4 d'4\3 e'8\3
     % mes 8
-    fis'8\2 a'4\2 b4'\1 d''4\1 e''8\1
+    fis'8\2 a'4\2 b'4\1 d''4\1 e''8\1
     % mes 8
     e''1\1 \bendAfter #+8
 

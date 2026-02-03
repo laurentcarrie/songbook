@@ -1,5 +1,5 @@
-\version "2.23.1"
 \include "macros.ly"
+\version "2.23.1"
 
 % Bb
 ma = {
@@ -82,11 +82,11 @@ lead = {
     % mesure #3
     bes4\4 ees8\5 c'8\3~ c'8\3 ees8\5 d'4\3~
     % mesure #4
-    d'4\3~ ees8\5 c'8\3~ c'8\3 ees8\5 bes4\4~
+    d'4\3~ ees8\5 c'8\3~ c'8\3 ees8\5 bes4\4
     % mesure #5
     bes4\4 c8\6 aes8\4~ aes8\4 bes,8\6 g4\4~
     % mesure #6
-    g4\4 ees8\5 c'8\3~ c'8\3 d8\5 bes4\3~
+    g4\4 ees8\5 c'8\3~ c'8\3 d8\5 bes4\3
     % mesure #7
     d4\5 c8\6 aes8\4~ aes8\4 bes,8\6 g4\4~
     % mesure #8

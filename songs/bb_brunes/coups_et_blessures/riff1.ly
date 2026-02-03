@@ -1,6 +1,6 @@
 \version "2.23.1"
-\include "macros.ly"
 
+\include "macros.ly"
 
 lead = {
   \absolute  {
@@ -52,4 +52,6 @@ lead = {
 
   >>
 
-  \layout {
+    \layout {}
+
+}
