@@ -1,0 +1,86 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Lambda function to process songbook when S3 is modified
+
+Parameters:
+  BucketName:
+    Type: String
+    Default: zik-laurent
+    Description: Name of the S3 bucket containing songs
+
+Globals:
+  Function:
+    Timeout: 300
+    MemorySize: 1024
+
+Resources:
+  # Lambda function
+  SongbookProcessorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: songbook-processor
+      PackageType: Image
+      Architectures:
+        - x86_64
+      Policies:
+        - S3FullAccessPolicy:
+            BucketName: !Ref BucketName
+      Events:
+        S3Event:
+          Type: S3
+          Properties:
+            Bucket: !Ref SongsBucket
+            Events:
+              - s3:ObjectCreated:*
+              - s3:ObjectRemoved:*
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: prefix
+                    Value: songs/
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ./lambda
+      DockerTag: latest
+
+  # S3 Bucket (if it doesn't exist, or reference existing)
+  # Note: If the bucket already exists, you may need to import it or
+  # use a custom resource to add notifications to an existing bucket
+  SongsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      NotificationConfiguration:
+        LambdaConfigurations:
+          - Event: s3:ObjectCreated:*
+            Function: !GetAtt SongbookProcessorFunction.Arn
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: prefix
+                    Value: songs/
+          - Event: s3:ObjectRemoved:*
+            Function: !GetAtt SongbookProcessorFunction.Arn
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: prefix
+                    Value: songs/
+
+  # Permission for S3 to invoke Lambda
+  S3InvokeLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref SongbookProcessorFunction
+      Action: lambda:InvokeFunction
+      Principal: s3.amazonaws.com
+      SourceArn: !Sub arn:aws:s3:::${BucketName}
+      SourceAccount: !Ref AWS::AccountId
+
+Outputs:
+  SongbookProcessorFunction:
+    Description: Lambda function ARN
+    Value: !GetAtt SongbookProcessorFunction.Arn
+  SongsBucketName:
+    Description: S3 bucket name
+    Value: !Ref SongsBucket

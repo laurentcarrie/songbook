@@ -1,0 +1,76 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Lambda function to process songbook when S3 is modified (for existing bucket)
+
+Parameters:
+  BucketName:
+    Type: String
+    Default: zik-laurent
+    Description: Name of the existing S3 bucket containing songs
+
+Globals:
+  Function:
+    Timeout: 300
+    MemorySize: 1024
+
+Resources:
+  # Lambda function
+  SongbookProcessorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: songbook-processor
+      PackageType: Image
+      Architectures:
+        - x86_64
+      Role: !GetAtt LambdaExecutionRole.Arn
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ./lambda
+      DockerTag: latest
+
+  # IAM Role for Lambda
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: songbook-processor-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: S3Access
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:DeleteObject
+                  - s3:ListBucket
+                Resource:
+                  - !Sub arn:aws:s3:::${BucketName}
+                  - !Sub arn:aws:s3:::${BucketName}/*
+
+  # Permission for S3 to invoke Lambda
+  S3InvokeLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref SongbookProcessorFunction
+      Action: lambda:InvokeFunction
+      Principal: s3.amazonaws.com
+      SourceArn: !Sub arn:aws:s3:::${BucketName}
+      SourceAccount: !Ref AWS::AccountId
+
+Outputs:
+  SongbookProcessorFunction:
+    Description: Lambda function ARN
+    Value: !GetAtt SongbookProcessorFunction.Arn
+  SongbookProcessorFunctionName:
+    Description: Lambda function name
+    Value: !Ref SongbookProcessorFunction
