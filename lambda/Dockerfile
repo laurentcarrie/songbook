@@ -14,6 +14,7 @@ FROM public.ecr.aws/lambda/provided:al2023
 # - texlive for PDF generation (lualatex with full packages)
 RUN dnf install -y \
     unzip \
+    tar \
     jq \
     ca-certificates \
     texlive-scheme-full \
