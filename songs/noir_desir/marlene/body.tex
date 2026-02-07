@@ -1,35 +1,32 @@
-\iftoggle{lyricsonly}
-{}
-{
-	\input{song.tikz}
 
-	\newpage
 
-}
+\input{song.tikz}
+
+\newpage
+
+
 
 \begin{multicols}{2}
 	\songlyrics
 \end{multicols}
 
-\iftoggle{lyricsonly}
-{}{
-	\newpage
 
-	\section*{couplet1}
-	\songly{couplet1}
+\newpage
 
-	\section*{couplet2}
-	\songly{couplet2}
+\section*{couplet1}
+\songly{couplet1}
 
-	\section*{couplet3}
-	\songbookcomment{instrumental}
-	%\node[draw,circle,fill=red] at (A)   {  } ;
+\section*{couplet2}
+\songly{couplet2}
 
-	\songly{couplet3}
+\section*{couplet3}
+\songbookcomment{instrumental}
+%\node[draw,circle,fill=red] at (A)   {  } ;
 
-	\section*{couplet4}
+\songly{couplet3}
 
-	\songbookcomment{cool}
+\section*{couplet4}
 
-	\songly{couplet4}
-}
+\songbookcomment{cool}
+
+\songly{couplet4}
