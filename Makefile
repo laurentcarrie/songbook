@@ -12,7 +12,7 @@ help: ## show this help
 
 	
 song: ## build specific song, give song=...
-	RUST_LOGS=info band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml --pattern $(song)
+	RUST_LOGS=info band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml --pattern "$(song)"
 
 clean: ## clean sandbox
 	@sandbox_abs=$$(cd $(sandbox) 2>/dev/null && pwd); \
