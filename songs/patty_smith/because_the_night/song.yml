@@ -50,6 +50,8 @@ structure:
     item: !Ref
       title: refrain 2
       link: refrain1
+  - id: nc
+    item: !NewColumn
   - id: solo
     item: !Chords
       title: solo
