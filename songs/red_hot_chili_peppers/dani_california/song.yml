@@ -13,6 +13,19 @@ meta:
   date: "2025-10-26"
   digest: 1057cbd47ffaa5edecdddee8c9c6df85
 structure:
+  - id: introb
+    item: !Chords
+       title: intro batterie
+       type: intro
+       rows:
+         - HRest | HRest
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      rows:
+        - Am G| Dm Am|Am G| Dm Am
+
   - id: couplet1
     item: !Chords
       title: couplet 1
@@ -35,13 +48,6 @@ structure:
     item: !Ref
       title: pré refrain 2
       link: prerefrain1
-  - id: refrain1
-    item: !Chords
-      title: refrain 1
-      type: refrain
-      section_body: null
-      rows:
-        - F C | Dm G | F C | Dm G | x2
   - id: fill1
     item: !Chords
       title: fill 1
@@ -49,6 +55,26 @@ structure:
       section_body: null
       rows:
         - Dm
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - F C | Dm G | F C | Dm G | x2
+  - id: fill1x
+    item: !Chords
+      title: fill
+      type: fill
+      section_body: null
+      rows:
+        - Dm 
+  - id: interlude1
+    item: !Chords
+      title: interlude
+      type: interlude
+      rows:
+        - F C | Dm G | F C | Dm G 
   - id: couplet3
     item: !Ref
       title: couplet 3
@@ -57,6 +83,12 @@ structure:
     item: !Ref
       title: pré refrain 3
       link: prerefrain1
+  - id: fillx3
+    item: !Chords
+       title: fill
+       type: fill
+       rows:
+         - Dm
   - id: refrain2
     item: !Ref
       title: refrain 2
@@ -79,6 +111,13 @@ structure:
     item: !Ref
       title: pré refrain 4
       link: prerefrain1
+  - id: fillx4
+    item: !Chords
+      title: fill
+      type: fill
+      rows:
+        - Dm | Dm
+   
   - id: refrain3
     item: !Ref
       title: refrain 3
