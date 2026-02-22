@@ -1,5 +1,8 @@
 \include "macros.ly"
-\version "2.24.4"
+\version "2.20.0"
+
+songtempo=100
+
 
 song_chords = \chordmode {
   g2  a2 | d2 a2 | b2:m g2 | g2 a2
@@ -7,25 +10,11 @@ song_chords = \chordmode {
 
 }
 
-nbbars=8
-
-mydrums = \drummode {
-  \repeat percent \nbbars {
-    bd4 sn4 bd4 sn4 |
-  }
-}
-
-myhh = \drummode {
-  \repeat unfold \nbbars {
-    hh8 hh8 hh8 hh8 hh8 hh8 hh8 hh8 |
-  }
-}
-
 
 lead = {
   \absolute  {
     \override Score.SpacingSpanner.shortest-duration-space = #4.0
-    \tempo 4 = \songtempo
+
 
     % les numeros de mesure ici commencent
 
@@ -98,23 +87,6 @@ lead = {
       \tabFullNotation
       \override Score.BarNumber.break-visibility = ##(#t #t #t)
       \lead
-    }
-
-    \new DrumStaff {
-      <<
-        \new DrumVoice {
-          \voiceOne
-          % @strudel-of-lilypond@ cyan punchcard
-          % @strudel-of-lilypond@ pan <0 .5 1>
-          % @strudel-of-lilypond@ gain <1 2 3>
-
-          \mydrums
-        }
-        \new DrumVoice {
-          \voiceTwo
-          \myhh
-        }
-      >>
     }
 
   >>

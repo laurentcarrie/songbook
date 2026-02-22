@@ -1,4 +1,4 @@
-.PHONY: all help clean song
+.PHONY: all help clean song upload-prod upload-dev run-from-s3 prod dev
 .DEFAULT: all
 
 sandbox:=sandbox
@@ -11,9 +11,6 @@ all: ## build all songs
 help: ## show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
-xxx: 
-	band-songbook --srcdir s3://zik-laurent/songs/patty_smith/because_the_night --sandbox sandbox --settings $(srcdir)/settings.ylm
-	
 song: ## build specific song, give song=...
 	RUST_LOGS=info band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml \
 	--pattern "$(song)" \
@@ -34,4 +31,39 @@ clean: ## clean sandbox and delivery
 		fi; \
 	done
 
+upload-prod: ## upload songs to S3 prod
+	aws s3 rm --recursive $(BUCKET)/prod/songs
+	aws s3 rm --recursive $(BUCKET)/prod/delivery
+	aws s3 rm --recursive $(BUCKET)/prod/drums
+	aws s3 cp --recursive songs $(BUCKET)/prod/songs
+	aws s3 cp --recursive drums $(BUCKET)/prod/drums
+	aws s3 cp --recursive delivery $(BUCKET)/prod/delivery
+	curl -s -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' https://move-the-line/api/world                                                                           
 
+upload-dev: ## upload songs to S3 dev
+	aws s3 rm --recursive $(BUCKET)/dev/songs
+	aws s3 rm --recursive $(BUCKET)/dev/delivery
+	aws s3 rm --recursive $(BUCKET)/dev/drums
+	aws s3 cp --recursive songs $(BUCKET)/dev/songs
+	aws s3 cp --recursive drums $(BUCKET)/dev/drums
+	aws s3 cp --recursive delivery $(BUCKET)/dev/delivery
+	curl -s -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' http://localhost:8080/api/world                                                                           
+
+run-from-s3: ## build from S3 source, deliver locally
+	band-songbook --srcdir $(BUCKET)/songs --sandbox $(sandbox) --settings $(BUCKET)/songs/settings.yml --delivery $(delivery)
+
+prod: ## build prod from S3 with S3 delivery
+	band-songbook \
+		--srcdir $(BUCKET)/prod/songs \
+		--sandbox $(sandbox) \
+		--settings $(BUCKET)/prod/songs/settings.yml \
+		--delivery $(BUCKET)/prod/delivery \
+		--drum-patterns-dir $(BUCKET)/prod/drums
+
+dev: ## build dev from S3 with S3 delivery
+	band-songbook \
+		--srcdir $(BUCKET)/dev/songs \
+		--sandbox $(sandbox) \
+		--settings $(BUCKET)/dev/songs/settings.yml \
+		--delivery $(BUCKET)/dev/delivery \
+		--drum-patterns-dir $(BUCKET)/dev/drums
