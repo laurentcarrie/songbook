@@ -25,3 +25,8 @@ jobs:
         env:
           BUCKET: ${{ secrets.BUCKET }}
           WRITE_PASSWORD: ${{ secrets.WRITE_PASSWORD }}
+
+      - name: Invoke band-songbook Lambda
+        run: |
+          aws lambda invoke --function-name band-songbook --payload '{}' /tmp/lambda-output.json
+          cat /tmp/lambda-output.json
