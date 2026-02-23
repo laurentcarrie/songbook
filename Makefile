@@ -37,7 +37,7 @@ upload-prod: ## upload songs to S3 prod
 	aws s3 rm --recursive s3://$(BUCKET)/prod/drums
 	aws s3 cp --recursive songs s3://$(BUCKET)/prod/songs
 	aws s3 cp --recursive drums s3://$(BUCKET)/prod/drums
-	curl -s -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' https://move-the-line/api/world                                                                           
+	curl -s -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' https://move-the-line.org/api/world                                                                           
 
 upload-dev: ## upload songs to S3 dev
 	aws s3 rm --recursive s3://$(BUCKET)/dev/songs
