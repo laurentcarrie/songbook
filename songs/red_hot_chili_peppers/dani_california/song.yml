@@ -102,27 +102,64 @@ structure:
       title: interlude
       type: interlude
       rows:
-        - A | A | A |A | x3 # @todo
+        - A | A | A |A | x2 # @todo
   - id: couplet4
     item: !Ref
       title: couplet 4
       link: couplet1
   - id: prerefrain4
     item: !Ref
-      title: pré refrain 4
+      title: pré refrain 3
       link: prerefrain1
   - id: fillx4
     item: !Chords
       title: fill
       type: fill
       rows:
-        - Dm | Dm
+        - Dm | Dm | Dm
    
   - id: refrain3
     item: !Ref
       title: refrain 3
       link: refrain1
+              
+  - id: fillref3
+    item: !Chords
+      title: fill
+      type: fill
+      rows:
+        - Dm
   - id: refrain4
     item: !Ref
       title: refrain 4
       link: refrain1
+
+  - id: fillref4
+    item: !Chords
+      title: fill
+      type: fill
+      rows:
+        - Dm 
+        
+  - id: solo
+    item: !Chords
+      title: solo
+      type: solo
+      rows:
+        - F C | Dm G | F C | Dm G | x2
+
+  - id: fillsolo1
+    item: !Chords
+      title: fill
+      type: fill
+      rows:
+        - Dm 
+
+  - id: solo2
+    item: !Chords
+      title: solo
+      type: solo
+      rows:
+        - F C | Dm G | F C | Dm G | 
+        - F C | Dm G | F  | F | 
+        - C | Dm 
