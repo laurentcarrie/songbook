@@ -20,11 +20,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_REGION || 'eu-west-1' }}
 
-      - name: Sync songs to S3
-        run: |
-          aws s3 sync songs/ s3://zik-laurent/prod/songs --delete
+      - name: Upload to prod
+        run: make upload-prod
+        env:
+          BUCKET: ${{ secrets.BUCKET }}
+          WRITE_PASSWORD: ${{ secrets.WRITE_PASSWORD }}
 
       - name: Invoke band-songbook Lambda
         run: |
-          aws lambda invoke --function-name band-songbook --payload '{}' /tmp/lambda-output.json
+          aws lambda invoke --function-name band-songbook --cli-binary-format raw-in-base64-out \
+            --payload '{"srcdir":"s3://${{ secrets.BUCKET }}/prod/songs","settings":"s3://${{ secrets.BUCKET }}/prod/songs/settings.yml","delivery":"s3://${{ secrets.BUCKET }}/prod/delivery"}' \
+            /tmp/lambda-output.json
           cat /tmp/lambda-output.json
