@@ -22,4 +22,9 @@ jobs:
 
       - name: Sync songs to S3
         run: |
-          aws s3 sync songs/ s3://zik-laurent/songs --delete
+          aws s3 sync songs/ s3://zik-laurent/prod/songs --delete
+
+      - name: Invoke band-songbook Lambda
+        run: |
+          aws lambda invoke --function-name band-songbook --payload '{}' /tmp/lambda-output.json
+          cat /tmp/lambda-output.json
