@@ -1,5 +1,5 @@
 # Settings for song rendering
-lyrics_font: ptm
+lyrics_font: TeX Gyre Termes
 
 # Default colors for section types (x11 color names)
 colors:

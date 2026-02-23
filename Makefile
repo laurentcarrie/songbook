@@ -1,28 +1,69 @@
-.PHONY: all help clean song
+.PHONY: all help clean song upload-prod upload-dev run-from-s3 prod dev
 .DEFAULT: all
 
 sandbox:=sandbox
 srcdir:=songs
+delivery:=delivery
 
 all: ## build all songs
-	band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml
+	band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml --delivery $(delivery)
 
 help: ## show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
-	
 song: ## build specific song, give song=...
-	RUST_LOGS=info band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml --pattern "$(song)"
+	RUST_LOGS=info band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml \
+	--pattern "$(song)" \
+	--delivery "$(delivery)"
 
-clean: ## clean sandbox
-	@sandbox_abs=$$(cd $(sandbox) 2>/dev/null && pwd); \
-	makefile_dir=$$(cd $(dir $(abspath $(lastword $(MAKEFILE_LIST)))) && pwd); \
-	if [ -z "$$sandbox_abs" ]; then \
-		echo "Sandbox directory does not exist"; \
-	elif [ "$${sandbox_abs##$$makefile_dir}" = "$$sandbox_abs" ]; then \
-		echo "Error: sandbox '$$sandbox_abs' is not a subdirectory of '$$makefile_dir'"; \
-		exit 1; \
-	else \
-		echo "Removing $$sandbox_abs"; \
-		rm -rf "$$sandbox_abs"; \
-	fi
+clean: ## clean sandbox and delivery
+	@makefile_dir=$$(cd $(dir $(abspath $(lastword $(MAKEFILE_LIST)))) && pwd); \
+	for dir in $(sandbox) $(delivery); do \
+		dir_abs=$$(cd "$$dir" 2>/dev/null && pwd); \
+		if [ -z "$$dir_abs" ]; then \
+			echo "$$dir directory does not exist"; \
+		elif [ "$${dir_abs##$$makefile_dir}" = "$$dir_abs" ]; then \
+			echo "Error: '$$dir_abs' is not a subdirectory of '$$makefile_dir'"; \
+			exit 1; \
+		else \
+			echo "Removing $$dir_abs"; \
+			rm -rf "$$dir_abs"; \
+		fi; \
+	done
+
+upload-prod: ## upload songs to S3 prod
+	aws s3 rm --recursive $(BUCKET)/prod/songs
+	aws s3 rm --recursive $(BUCKET)/prod/delivery
+	aws s3 rm --recursive $(BUCKET)/prod/drums
+	aws s3 cp --recursive songs $(BUCKET)/prod/songs
+	aws s3 cp --recursive drums $(BUCKET)/prod/drums
+	aws s3 cp --recursive delivery $(BUCKET)/prod/delivery
+	curl -s -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' https://move-the-line/api/world                                                                           
+
+upload-dev: ## upload songs to S3 dev
+	aws s3 rm --recursive $(BUCKET)/dev/songs
+	aws s3 rm --recursive $(BUCKET)/dev/delivery
+	aws s3 rm --recursive $(BUCKET)/dev/drums
+	aws s3 cp --recursive songs $(BUCKET)/dev/songs
+	aws s3 cp --recursive drums $(BUCKET)/dev/drums
+	aws s3 cp --recursive delivery $(BUCKET)/dev/delivery
+	curl -s -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' http://localhost:8080/api/world                                                                           
+
+run-from-s3: ## build from S3 source, deliver locally
+	band-songbook --srcdir $(BUCKET)/songs --sandbox $(sandbox) --settings $(BUCKET)/songs/settings.yml --delivery $(delivery)
+
+prod: ## build prod from S3 with S3 delivery
+	band-songbook \
+		--srcdir $(BUCKET)/prod/songs \
+		--sandbox $(sandbox) \
+		--settings $(BUCKET)/prod/songs/settings.yml \
+		--delivery $(BUCKET)/prod/delivery \
+		--drum-patterns-dir $(BUCKET)/prod/drums
+
+dev: ## build dev from S3 with S3 delivery
+	band-songbook \
+		--srcdir $(BUCKET)/dev/songs \
+		--sandbox $(sandbox) \
+		--settings $(BUCKET)/dev/songs/settings.yml \
+		--delivery $(BUCKET)/dev/delivery \
+		--drum-patterns-dir $(BUCKET)/dev/drums

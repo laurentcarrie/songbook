@@ -7,6 +7,7 @@ info:
   author: Dandy Warhols
   tempo: 132
   time_signature: null
+  tags: [move-the-line, truskel-2025]
 meta:
   date: "2025-10-26"
   digest: 89f75d6a3df95d4925fd5b34fb12ed3e
@@ -25,7 +26,7 @@ structure:
       section_body: null
       rows:
         - ' B | D | A | E | x2'
-  - id: fill
+  - id: fill1
     item: !Chords
       title: fill
       type: fill
@@ -44,7 +45,7 @@ structure:
       title: fill
       section_body: null
       type: fill
-      link: fill
+      link: fill1
   - id: couplet2
     item: !Ref
       title: couplet 2
@@ -65,7 +66,7 @@ structure:
       section_body: null
       rows:
         - ' B | D | A | E | x2'
-  - id: fill2
+  - id: fill3
     item: !Chords
       title: fill
       type: fill
