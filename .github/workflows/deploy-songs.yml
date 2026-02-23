@@ -28,7 +28,7 @@ jobs:
 
       - name: Invoke band-songbook Lambda
         run: |
-          aws lambda invoke --function-name band-songbook --region eu-west-3 --cli-binary-format raw-in-base64-out \
+          aws lambda invoke --function-name band-songbook --region eu-west-3 --cli-binary-format raw-in-base64-out --cli-read-timeout 900 \
             --payload '{"srcdir":"s3://${{ secrets.BUCKET }}/prod/songs","settings":"s3://${{ secrets.BUCKET }}/prod/songs/settings.yml","delivery":"s3://${{ secrets.BUCKET }}/prod/delivery"}' \
             /tmp/lambda-output.json
           cat /tmp/lambda-output.json
