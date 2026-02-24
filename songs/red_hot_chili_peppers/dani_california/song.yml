@@ -61,7 +61,8 @@ structure:
       type: refrain
       section_body: null
       rows:
-        - F C | Dm G | F C | Dm G | x2
+        - F C | Dm G | F C | Dm G 
+        - F C | Dm G | F C | Dm 
   - id: fill1x
     item: !Chords
       title: fill
@@ -71,10 +72,10 @@ structure:
         - Dm 
   - id: interlude1
     item: !Chords
-      title: interlude
+      title: interlude 1
       type: interlude
       rows:
-        - F C | Dm G | F C | Dm G 
+        - Am G| Dm Am|Am G| Dm Am
   - id: couplet3
     item: !Ref
       title: couplet 3
@@ -99,10 +100,11 @@ structure:
       link: fill1
   - id: interlude
     item: !Chords
-      title: interlude
+      title: interlude 2
       type: interlude
       rows:
-        - A | A | A |A | x2 # @todo
+        - Bm  | G E | Bm | G E
+        - Bm  | G E | Bm | Bm
   - id: couplet4
     item: !Ref
       title: couplet 4
@@ -161,5 +163,12 @@ structure:
       type: solo
       rows:
         - F C | Dm G | F C | Dm G | 
-        - F C | Dm G | F  | F | 
-        - C | Dm 
+        - F C | Dm G 
+
+        
+  - id: final
+    item: !Chords
+      title: final
+      type: solo
+      rows:
+        - F  | F | C | Dm 
