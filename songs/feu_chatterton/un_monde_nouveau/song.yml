@@ -33,7 +33,7 @@ structure:
       type: prerefrain
       rows:
       # todo : Gsm6
-        - Gsm | Gsm7 | Gsm | E7M | x2
+        - Gsm | Gsm | Gsm | E7M | x2
   - id: refrain1
     item: !Chords
       title: refrain 1
