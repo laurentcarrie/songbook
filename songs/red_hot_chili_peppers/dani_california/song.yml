@@ -3,6 +3,8 @@ files:
   tex:
     - lyrics.tex
   wav: []
+  has_clicks: true
+  has_song: true
 info:
   title: Dani California
   author: Red Hot Chili Peppers
@@ -70,6 +72,7 @@ structure:
       section_body: null
       rows:
         - Dm 
+    
   - id: interlude1
     item: !Chords
       title: interlude 1
@@ -98,13 +101,17 @@ structure:
     item: !Ref
       title: fill 2
       link: fill1
+
+  - id: nc
+    item: !NewColumn
+
   - id: interlude
     item: !Chords
       title: interlude 2
       type: interlude
       rows:
-        - Bm  | G E | Bm | G E
-        - Bm  | G E | Bm | Bm
+        - Bm  | G D | Bm | G D
+        - Bm  | G D | Bm | Bm
   - id: couplet4
     item: !Ref
       title: couplet 4
@@ -172,3 +179,4 @@ structure:
       type: solo
       rows:
         - F  | F | C | Dm 
+        - F

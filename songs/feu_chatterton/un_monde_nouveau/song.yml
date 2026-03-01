@@ -2,6 +2,8 @@ files:
   lilypond:
   tex:
   wav:
+  has_clicks: true
+  has_song: true
 hash: 0
 info:
   title: Un Monde Nouveau
@@ -18,27 +20,27 @@ structure:
       title: intro
       type: intro
       rows:
-        - B | Gsm | E | Cs7
+        - B | Gsm | E | Cs
   - id: couplet1
     item: !Chords
       title: couplet 1
       type: couplet
       rows:
-        - B | Gsm | E | Cs7 | x2
+        - B | Gsm | E | Cs | x2
   - id: prerefrain1
     item: !Chords
       title: pré refrain 1
       type: prerefrain
       rows:
       # todo : Gsm6
-        - Gsm | Gsm7 | Gsm | E7M | x2
+        - Gsm | Gsm | Gsm | E7M | x2
   - id: refrain1
     item: !Chords
       title: refrain 1
       type: refrain
       rows:
-        - B | Gsm | E | Cs7 | x3
-        - Gsm | Gsm7 | Gsm | E7M
+        - B | Gsm | E | Cs | x3
+        - Gsm | Gsm | Gsm | E7M
   - id: couplet2
     item: !Ref
       title: couplet 2
@@ -56,5 +58,13 @@ structure:
       title: interlude
       type: interlude
       rows:
-        - B | Gsm | E | Cs7 | x2
-        - Gsm | Gsm7 | Gsm | E7M
+        - HRest
+        - B | | E | Cs | B | x2
+        - B | E | Cs HRest | 
+        - B | Gsm | E | Cs |  
+  - id: final
+    item: !Chords
+      title: final
+      type: intro
+      rows:
+        - B | Gsm | E | Cs | x2
