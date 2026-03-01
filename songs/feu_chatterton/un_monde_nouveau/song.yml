@@ -58,5 +58,13 @@ structure:
       title: interlude
       type: interlude
       rows:
+        - HRest
+        - B | | E | Cs | B | x2
+        - B | E | Cs HRest | 
+        - B | Gsm | E | Cs |  
+  - id: final
+    item: !Chords
+      title: final
+      type: intro
+      rows:
         - B | Gsm | E | Cs | x2
-        - Gsm | Gsm | Gsm | E7M
