@@ -1,5 +1,5 @@
-.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev
-.DEFAULT: help
+.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev
+.DEFAULT_GOAL := help
 
 sandbox:=sandbox
 srcdir:=songs
@@ -42,6 +42,10 @@ upload-prod: ## upload songs to S3 prod
 
 sync-prod: ## upload songs to S3 prod
 	aws s3 sync songs s3://$(BUCKET)/prod/songs
+
+sync-dev: ## upload songs to S3 dev
+	aws s3 sync sandbox/songs s3://$(BUCKET)/dev/songs
+
 
 
 upload-dev: ## upload songs to S3 dev

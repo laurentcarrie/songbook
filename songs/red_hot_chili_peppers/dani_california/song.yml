@@ -3,6 +3,8 @@ files:
   tex:
     - lyrics.tex
   wav: []
+  has_clicks: true
+  has_song: true
 info:
   title: Dani California
   author: Red Hot Chili Peppers
@@ -177,3 +179,4 @@ structure:
       type: solo
       rows:
         - F  | F | C | Dm 
+        - F
