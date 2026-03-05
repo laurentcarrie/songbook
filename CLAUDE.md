@@ -2,7 +2,7 @@
 
 ## Beat Detection Pipeline (clicks.yml)
 
-Generate `clicks.yml` (beat timestamps) from a song's `song.mp3`.
+Generate `clicks.yml` (beat timestamps) from a song's `clicks.mp3`.
 
 ### Prerequisites
 - Python with `librosa`, `pyyaml`, `numpy`, `scipy`

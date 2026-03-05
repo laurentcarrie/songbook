@@ -1,4 +1,4 @@
-.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev
+.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev a b
 .DEFAULT_GOAL := help
 
 sandbox:=sandbox
@@ -40,11 +40,14 @@ upload-prod: ## upload songs to S3 prod
 	curl -sk -X POST -H 'X-Write-Password: $(WRITE_PROD_PASSWORD)' https://move-the-line.org/api/world                                                                           
 
 
+sync: ## upload songs to S3 
+	aws s3 sync songs s3://$(BUCKET)/$(BPATH)/songs
+
 sync-prod: ## upload songs to S3 prod
-	aws s3 sync songs s3://$(BUCKET)/prod/songs
+	make sync BPATH=prod
 
 sync-dev: ## upload songs to S3 dev
-	aws s3 sync sandbox/songs s3://$(BUCKET)/dev/songs
+	make sync BPATH=dev
 
 
 
@@ -57,13 +60,16 @@ upload-dev: ## upload songs to S3 dev
 	aws s3 cp --recursive delivery s3://$(BUCKET)/dev/delivery2
 	curl -s -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' http://localhost:8080/api/world                                                                           
 
+download: ## download prod data from S3
+	aws s3 sync s3://$(BUCKET)/$(BPATH)/songs songs
+	aws s3 sync s3://$(BUCKET)/$(BPATH)/drums drums
+
+
 download-prod: ## download prod data from S3
-	aws s3 sync s3://$(BUCKET)/prod/songs songs
-	aws s3 sync s3://$(BUCKET)/prod/drums drums
+	make BPATH=prod download
 
 download-dev: ## download dev data from S3
-	aws s3 sync s3://$(BUCKET)/dev/songs songs
-	aws s3 sync s3://$(BUCKET)/dev/drums drums
+	make BPATH=dev download
 
 run-from-s3: ## build from S3 source, deliver locally
 	band-songbook --srcdir s3://$(BUCKET)/songs --sandbox $(sandbox) --settings s3://$(BUCKET)/songs/settings.yml --delivery $(delivery)
@@ -83,4 +89,6 @@ dev: ## build dev from S3 with S3 delivery
 		--settings s3://$(BUCKET)/dev/songs/settings.yml \
 		--delivery s3://$(BUCKET)/dev/delivery \
 		--drum-patterns-dir s3://$(BUCKET)/dev/drums
+
+
 
