@@ -2,6 +2,8 @@ files:
   lilypond: []
   tex: []
   wav: []
+  has_mp3: true
+  has_clicks: true
 info:
   title: Every Breath You Take
   author: Police
