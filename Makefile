@@ -31,14 +31,22 @@ clean: ## clean sandbox and delivery
 		fi; \
 	done
 
-upload-prod: ## upload songs to S3 prod
-	aws s3 rm --recursive s3://$(BUCKET)/prod/songs
-	aws s3 rm --recursive s3://$(BUCKET)/prod/delivery
-	aws s3 rm --recursive s3://$(BUCKET)/prod/drums
-	aws s3 cp --recursive songs s3://$(BUCKET)/prod/songs
-	aws s3 cp --recursive drums s3://$(BUCKET)/prod/drums
-	curl -sk -X POST -H 'X-Write-Password: $(WRITE_PROD_PASSWORD)' https://move-the-line.org/api/world                                                                           
+upload-prod-or-dev: ## upload songs to S3 prod
+	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/songs
+	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/delivery
+	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/drums
+	aws s3 cp --recursive songs s3://$(BUCKET)/$(BPATH)/songs
+	aws s3 cp --recursive drums s3://$(BUCKET)/$(BPATH)/drums
+	curl -sk -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' https://$(URL)/api/world                                                                           
 
+
+upload-prod: ## upload songs to S3 prod
+	make upload-prod-or-dev BPATH=prod WRITE_PASSWORD=$(WRITE_PROD_PASSWORD) URL=move-the-line.org
+                                                                      
+
+upload-dev: ## upload songs to S3 dev
+	make upload-prod-or-dev BPATH=dev WRITE_PASSWORD=$(WRITE_PASSWORD) URL=localhost:3000
+                                                                      
 
 sync: ## upload songs to S3 
 	aws s3 sync songs s3://$(BUCKET)/$(BPATH)/songs
@@ -50,15 +58,6 @@ sync-dev: ## upload songs to S3 dev
 	make sync BPATH=dev
 
 
-
-upload-dev: ## upload songs to S3 dev
-	aws s3 rm --recursive s3://$(BUCKET)/dev/songs
-	aws s3 rm --recursive s3://$(BUCKET)/dev/delivery
-	aws s3 rm --recursive s3://$(BUCKET)/dev/drums
-	aws s3 cp --recursive songs s3://$(BUCKET)/dev/songs
-	aws s3 cp --recursive drums s3://$(BUCKET)/dev/drums
-	aws s3 cp --recursive delivery s3://$(BUCKET)/dev/delivery2
-	curl -s -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' http://localhost:8080/api/world                                                                           
 
 download: ## download prod data from S3
 	aws s3 sync s3://$(BUCKET)/$(BPATH)/songs songs

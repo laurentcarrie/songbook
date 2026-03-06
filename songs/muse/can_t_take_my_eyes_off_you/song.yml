@@ -2,6 +2,8 @@ files:
   lilypond: []
   tex: []
   wav: []
+  has_mp3: true
+  has_clicks: true
 info:
   title: Can't Take My Eyes Off You
   author: Muse
@@ -18,15 +20,17 @@ structure:
       type: intro
       section_body: null
       rows:
-        - 'F| F7M '
+        - 'F| F7M | F | F '
   - id: couplet1
     item: !Chords
       title: couplet 1
       type: couplet
       section_body: null
       rows:
-        - F| F7M |F7|Bf
-        - Bfm| F | Bf Bfm|F
+        - F| F | F7M |F7M
+        - F7| F7 | Bf | Bf
+        - Bfm | Bfm | F | F | 
+        - Bf | Bfm |F|F
   - id: couplet2
     item: !Ref
       title: couplet 2
@@ -39,10 +43,9 @@ structure:
       type: pont
       section_body: null
       rows:
-        - 'HRest | HRest | '
         - Gm | C | F | F
         - Gm | C | F | D7
-        - 'HRest | HRest | '
+        - HRest 
   - id: refrain
     item: !Chords
       title: refrain
@@ -53,9 +56,41 @@ structure:
         - Gm | C | F | D7
         - Gm | C | Am | Dm
         - Gm | Gm | C | C
+
   - id: couplet3
     item: !Ref
       title: couplet 3
       section_body: null
       type: couplet
       link: couplet1
+
+  - id: pont2
+    item: !Chords
+      title: pont 2
+      type: pont
+      section_body: null
+      rows:
+        - Gm | C | F | D7
+        - HRest       
+
+  - id: refrain2
+    item: !Chords
+      title: refrain 2
+      type: refrain
+      section_body: null
+      rows:
+        - Gm | C | Am | Dm
+        - Gm | C | F | D7
+        - Gm | C | Am | Dm
+        - Gm | Gm | C | C
+
+  - id: outtro
+    item: !Chords
+      title: outtro
+      section_body: null
+      type: intro
+      rows:
+        - F| F | F7M |F7M
+        - F7| F7 | Bf | Bf
+        - Bfm 
+   

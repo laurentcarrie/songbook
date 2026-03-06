@@ -3,7 +3,7 @@ files:
   tex:
   wav:
   has_clicks: true
-  has_song: true
+  has_mp3: true
 hash: 0
 info:
   title: Un Monde Nouveau
