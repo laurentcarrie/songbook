@@ -1,0 +1,37 @@
+clicks:
+- beat_number: 1
+  time: 1.138
+  description: bar 1 - intro
+- beat_number: 33
+  time: 17.508
+  description: bar 9 - couplet 1
+- beat_number: 65
+  time: 33.866
+  description: bar 17 - couplet 2
+- beat_number: 97
+  time: 50.225
+  description: bar 25 - refrain 1
+- beat_number: 129
+  time: 66.583
+  description: bar 33 - couplet 3
+- beat_number: 161
+  time: 82.942
+  description: bar 41 - pont
+- beat_number: 201
+  time: 103.398
+  description: bar 51 - couplet4
+- beat_number: 233
+  time: 119.757
+  description: bar 59 - couplet5
+- beat_number: 265
+  time: 136.115
+  description: bar 67 - refrain2
+- beat_number: 297
+  time: 152.485
+  description: bar 75 - couplet 6
+- beat_number: 329
+  time: 168.797
+  description: bar 83 - fill
+- beat_number: 353
+  time: 181.116
+  description: bar 89 - outtro

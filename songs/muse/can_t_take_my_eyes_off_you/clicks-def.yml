@@ -1,0 +1,28 @@
+clicks:
+- beat_number: 1
+  time: 0.43
+  description: bar 1 - intro
+- beat_number: 17
+  time: 8.069
+  description: bar 5 - couplet 1
+- beat_number: 81
+  time: 38.58
+  description: bar 21 - couplet 2
+- beat_number: 145
+  time: 68.673
+  description: bar 37 - pont
+- beat_number: 181
+  time: 85.426
+  description: bar 46 - refrain
+- beat_number: 245
+  time: 115.206
+  description: bar 62 - couplet 3
+- beat_number: 309
+  time: 145.276
+  description: bar 78 - pont 2
+- beat_number: 329
+  time: 154.657
+  description: bar 83 - refrain 2
+- beat_number: 393
+  time: 184.088
+  description: bar 99 - outtro
