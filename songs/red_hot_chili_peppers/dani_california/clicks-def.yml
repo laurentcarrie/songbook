@@ -1,0 +1,67 @@
+clicks:
+- bar_number: 1
+  beat_in_bar_number: 1
+  time: 0:00.255
+  description: bar 1 - intro batterie
+- bar_number: 15
+  beat_in_bar_number: 1
+  time: 0:35.500
+  description: bar 15 - couplet 2
+- bar_number: 19
+  beat_in_bar_number: 1
+  time: 0:45.700
+  description: bar 19 - pre refrain 2
+- bar_number: 24
+  beat_in_bar_number: 1
+  time: 0:57.800
+  description: bar 24 - refrain 1
+- bar_number: 33
+  beat_in_bar_number: 1
+  time: 1:21.000
+  description: bar 33 - interlude 1
+- bar_number: 37
+  beat_in_bar_number: 1
+  time: 1:31.000
+  description: bar 37 - couplet 3
+
+
+
+- bar_number: 46
+  beat_in_bar_number: 1
+  time: 1:53.5
+  description: bar 46 refrain 2
+
+- bar_number: 63
+  beat_in_bar_number: 1
+  time: 2:36.0
+  description: couplet 4
+
+- bar_number: 74
+  beat_in_bar_number: 1
+  time: 3:03.5
+  description: refrain 3
+
+- bar_number: 83
+  beat_in_bar_number: 1
+  time: 3:26.0
+  description: refrain 4
+
+- bar_number: 92
+  beat_in_bar_number: 1
+  time: 3:48.500
+  description: solo 1
+
+- bar_number: 101
+  beat_in_bar_number: 1
+  time: 4:10.7
+  description: solo 2
+
+- bar_number: 107
+  beat_in_bar_number: 1
+  time: 4:25.4
+  description: final
+
+- bar_number: 112
+  beat_in_bar_number: 1
+  time: 4:38.5
+  description: fin

@@ -4,7 +4,7 @@ files:
     - lyrics.tex
   wav: []
   has_clicks: true
-  has_song: true
+  has_mp3: true
 info:
   title: Dani California
   author: Red Hot Chili Peppers
@@ -89,7 +89,7 @@ structure:
       link: prerefrain1
   - id: fillx3
     item: !Chords
-       title: fill
+       title: fill 3
        type: fill
        rows:
          - Dm

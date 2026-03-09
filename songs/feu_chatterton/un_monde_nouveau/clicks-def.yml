@@ -1,0 +1,28 @@
+clicks:
+- bar_number: 1
+  beat_in_bar_number: 1
+  time: 0:00.57
+  description: bar 1 - intro batterie
+
+
+- bar_number: 5
+  beat_in_bar_number: 1
+  time: 0:09.57
+  description: couplet 1
+
+
+
+- bar_number: 53
+  beat_in_bar_number: 1
+  time: 1:57.5
+  description: refrain 2
+
+- bar_number: 85
+  beat_in_bar_number: 1
+  time: 3:09.0
+  description: final
+
+- bar_number: 93
+  beat_in_bar_number: 1
+  time: 3:27.0
+  description: fin

@@ -3,6 +3,8 @@ files:
     - solo.ly
   tex: []
   wav: []
+  has_mp3: true
+  has_clicks: true
 info:
   title: Because The Night
   author: Patty Smith

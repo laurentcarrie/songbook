@@ -1,4 +1,4 @@
-.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev a b
+.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b
 .DEFAULT_GOAL := help
 
 sandbox:=sandbox
@@ -12,7 +12,7 @@ help: ## show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
 song: ## build specific song, give song=...
-	RUST_LOGS=info band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml \
+	RUST_LOG=info band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml \
 	--pattern "$(song)" \
 	--delivery "$(delivery)"
 
@@ -31,16 +31,24 @@ clean: ## clean sandbox and delivery
 		fi; \
 	done
 
+upload-prod-or-dev: ## upload songs to S3 prod
+	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/songs
+	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/delivery
+	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/drums
+	aws s3 cp --recursive songs s3://$(BUCKET)/$(BPATH)/songs
+	aws s3 cp --recursive drums s3://$(BUCKET)/$(BPATH)/drums
+	curl -sk -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' https://$(URL)/api/world
+
+
 upload-prod: ## upload songs to S3 prod
-	aws s3 rm --recursive s3://$(BUCKET)/prod/songs
-	aws s3 rm --recursive s3://$(BUCKET)/prod/delivery
-	aws s3 rm --recursive s3://$(BUCKET)/prod/drums
-	aws s3 cp --recursive songs s3://$(BUCKET)/prod/songs
-	aws s3 cp --recursive drums s3://$(BUCKET)/prod/drums
-	curl -sk -X POST -H 'X-Write-Password: $(WRITE_PROD_PASSWORD)' https://move-the-line.org/api/world                                                                           
+	make upload-prod-or-dev BPATH=prod WRITE_PASSWORD=$(WRITE_PROD_PASSWORD) URL='move-the-line.org'
 
 
-sync: ## upload songs to S3 
+upload-dev: ## upload songs to S3 dev
+	make upload-prod-or-dev BPATH=dev WRITE_PASSWORD=$(WRITE_PASSWORD) URL=localhost:3000
+
+
+sync: ## upload songs to S3
 	aws s3 sync songs s3://$(BUCKET)/$(BPATH)/songs
 
 sync-prod: ## upload songs to S3 prod
@@ -51,15 +59,6 @@ sync-dev: ## upload songs to S3 dev
 
 
 
-upload-dev: ## upload songs to S3 dev
-	aws s3 rm --recursive s3://$(BUCKET)/dev/songs
-	aws s3 rm --recursive s3://$(BUCKET)/dev/delivery
-	aws s3 rm --recursive s3://$(BUCKET)/dev/drums
-	aws s3 cp --recursive songs s3://$(BUCKET)/dev/songs
-	aws s3 cp --recursive drums s3://$(BUCKET)/dev/drums
-	aws s3 cp --recursive delivery s3://$(BUCKET)/dev/delivery2
-	curl -s -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' http://localhost:8080/api/world                                                                           
-
 download: ## download prod data from S3
 	aws s3 sync s3://$(BUCKET)/$(BPATH)/songs songs
 	aws s3 sync s3://$(BUCKET)/$(BPATH)/drums drums
@@ -67,6 +66,10 @@ download: ## download prod data from S3
 
 download-prod: ## download prod data from S3
 	make BPATH=prod download
+
+fmt: ## format lyrics files
+	find songs -path '*/lyrics/*.tex' -exec sed -i '' 's/\\songwordfb{ }/\\songwordfb{}/g' {} +
+	find songs -path '*/lyrics/*.tex' -exec sed -i '' 's/  / /g' {} +
 
 download-dev: ## download dev data from S3
 	make BPATH=dev download
@@ -89,6 +92,5 @@ dev: ## build dev from S3 with S3 delivery
 		--settings s3://$(BUCKET)/dev/songs/settings.yml \
 		--delivery s3://$(BUCKET)/dev/delivery \
 		--drum-patterns-dir s3://$(BUCKET)/dev/drums
-
 
 

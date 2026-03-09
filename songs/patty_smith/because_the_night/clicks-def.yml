@@ -1,0 +1,77 @@
+clicks:
+- bar_number: 1
+  beat_in_bar_number: 1
+  time: 00:00.323
+  description: bar 1 - intro
+
+- bar_number: 5
+  beat_in_bar_number: 1
+  time: 00:9.0
+  description: pre refrain 1
+
+- bar_number: 13
+  beat_in_bar_number: 1
+  time: 00:26.0
+  description: pre refrain 1
+
+
+- bar_number: 39
+  beat_in_bar_number: 1
+  time: 1:17.8
+  description: pre refrain 2
+
+
+
+- bar_number: 57
+  beat_in_bar_number: 1
+  time: 1:53.0
+  description: solo
+
+- bar_number: 85
+  beat_in_bar_number: 1
+  time: 2:46.7
+  description: refrain 4
+
+
+- bar_number: 93
+  beat_in_bar_number: 1
+  time: 3:02.0
+  description: fin
+  
+
+# - bar_number: 13
+#   beat_in_bar_number: 1
+#   time: 00:30.846
+#   description: "bar 13 - pr\xE9 refrain 1"
+# - bar_number: 23
+#   beat_in_bar_number: 1
+#   time: 00:55.854
+#   description: bar 23 - refrain 1
+# - bar_number: 31
+#   beat_in_bar_number: 1
+#   time: 01:15.834
+#   description: bar 31 - couplet 2
+# - bar_number: 39
+#   beat_in_bar_number: 1
+#   time: 01:35.908
+#   description: "bar 39 - pr\xE9 refrain 2"
+# - bar_number: 49
+#   beat_in_bar_number: 1
+#   time: 02:01.206
+#   description: bar 49 - refrain 2
+# - bar_number: 57
+#   beat_in_bar_number: 1
+#   time: 02:21.315
+#   description: bar 57 - solo
+# - bar_number: 65
+#   beat_in_bar_number: 1
+#   time: 02:41.249
+#   description: bar 65 - pont
+# - bar_number: 77
+#   beat_in_bar_number: 1
+#   time: 03:11.272
+#   description: bar 77 - refrain 3
+# - bar_number: 85
+#   beat_in_bar_number: 1
+#   time: 03:30.000
+#   description: bar 85 - refrain 4
