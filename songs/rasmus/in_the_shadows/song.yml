@@ -2,6 +2,8 @@ files:
   lilypond: []
   tex: []
   wav: []
+  has_mp3: true
+  has_clicks: true
 info:
   title: In The Shadows
   author: The Rasmus
@@ -12,13 +14,13 @@ meta:
   date: "2025-11-29"
   digest: 56d48fd9318d55a2ba498a3eb1f8419a
 structure:
-  - id: pad
-    item: !Chords
-      title: pad
-      type: intro
-      section_body: null
-      rows:
-        - 'E | E '
+  # - id: pad
+  #   item: !Chords
+  #     title: pad
+  #     type: intro
+  #     section_body: null
+  #     rows:
+  #       - 'E | E '
   - id: padg
     item: !Chords
       title: pad+g

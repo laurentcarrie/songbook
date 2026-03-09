@@ -1364,7 +1364,7 @@ items:
         link: prerefrain1
     - id: fillx3
       item: !Chords
-        title: fill
+        title: fill 3
         type: fill
         section_body: null
         color: null
@@ -2536,8 +2536,8 @@ items:
       - solo.ly
       tex: []
       wav: []
-      has_clicks: false
-      has_mp3: false
+      has_clicks: true
+      has_mp3: true
     info:
       title: Song For Someone
       author: U2
@@ -3846,8 +3846,8 @@ items:
       lilypond: []
       tex: []
       wav: []
-      has_clicks: false
-      has_mp3: false
+      has_clicks: true
+      has_mp3: true
     info:
       title: In The Shadows
       author: The Rasmus

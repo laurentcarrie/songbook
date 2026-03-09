@@ -1,0 +1,65 @@
+clicks:
+- bar_number: 1
+  beat_in_bar_number: 1
+  time: 0:00.5
+  description: pad
+
+- bar_number: 5
+  beat_in_bar_number: 1
+  time: 0:10.0
+  description: intro
+
+- bar_number: 13
+  beat_in_bar_number: 1
+  time: 0:27.7
+  description: couplet 1
+
+- bar_number: 29
+  beat_in_bar_number: 1
+  time: 1:03.9
+  description: refrain 1
+
+- bar_number: 37
+  beat_in_bar_number: 1
+  time: 1:22.5
+  description: interlude
+
+- bar_number: 45
+  beat_in_bar_number: 1
+  time: 1:39.7
+  description: couplet 2
+
+- bar_number: 60
+  beat_in_bar_number: 1
+  time: 2:15.0
+  description: last couplet2
+  
+- bar_number: 61
+  beat_in_bar_number: 1
+  time: 2:17.4
+  description: refrain 2
+
+- bar_number: 69
+  beat_in_bar_number: 1
+  time: 2:34.5
+  description: pont
+
+# - bar_number: 79
+#   beat_in_bar_number: 1
+#   time: 2:52.6
+#   description: fill
+
+# - bar_number: 80
+#   beat_in_bar_number: 1
+#   time: 2:54.9
+#   description: refrain 3
+
+# - bar_number: 88
+#   beat_in_bar_number: 1
+#   time: 3:13.0
+#   description: refrain 4
+
+# - bar_number: 96
+#   beat_in_bar_number: 1
+#   time: 3:31.1
+#   description: interlude 2
