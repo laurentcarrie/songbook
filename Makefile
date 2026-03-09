@@ -12,7 +12,7 @@ help: ## show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
 song: ## build specific song, give song=...
-	RUST_LOGS=info band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml \
+	RUST_LOG=info band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml \
 	--pattern "$(song)" \
 	--delivery "$(delivery)"
 
@@ -41,7 +41,7 @@ upload-prod-or-dev: ## upload songs to S3 prod
 
 
 upload-prod: ## upload songs to S3 prod
-	make upload-prod-or-dev BPATH=prod WRITE_PASSWORD=$(WRITE_PROD_PASSWORD) URL=move-the-line.org
+	make upload-prod-or-dev BPATH=prod WRITE_PASSWORD=$(WRITE_PROD_PASSWORD) URL='move-the-line.org'
                                                                       
 
 upload-dev: ## upload songs to S3 dev
