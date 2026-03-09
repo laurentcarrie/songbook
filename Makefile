@@ -37,18 +37,18 @@ upload-prod-or-dev: ## upload songs to S3 prod
 	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/drums
 	aws s3 cp --recursive songs s3://$(BUCKET)/$(BPATH)/songs
 	aws s3 cp --recursive drums s3://$(BUCKET)/$(BPATH)/drums
-	curl -sk -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' https://$(URL)/api/world                                                                           
+	curl -sk -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' https://$(URL)/api/world
 
 
 upload-prod: ## upload songs to S3 prod
 	make upload-prod-or-dev BPATH=prod WRITE_PASSWORD=$(WRITE_PROD_PASSWORD) URL='move-the-line.org'
-                                                                      
+
 
 upload-dev: ## upload songs to S3 dev
 	make upload-prod-or-dev BPATH=dev WRITE_PASSWORD=$(WRITE_PASSWORD) URL=localhost:3000
-                                                                      
 
-sync: ## upload songs to S3 
+
+sync: ## upload songs to S3
 	aws s3 sync songs s3://$(BUCKET)/$(BPATH)/songs
 
 sync-prod: ## upload songs to S3 prod
@@ -92,6 +92,5 @@ dev: ## build dev from S3 with S3 delivery
 		--settings s3://$(BUCKET)/dev/songs/settings.yml \
 		--delivery s3://$(BUCKET)/dev/delivery \
 		--drum-patterns-dir s3://$(BUCKET)/dev/drums
-
 
 
