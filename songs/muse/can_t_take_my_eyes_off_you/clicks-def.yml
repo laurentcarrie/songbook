@@ -35,3 +35,7 @@ clicks:
   beat_in_bar_number: 1
   time: 03:04.088
   description: bar 99 - outtro
+- bar_number: 108
+  beat_in_bar_number: 1
+  time: 3:23
+  description: end
