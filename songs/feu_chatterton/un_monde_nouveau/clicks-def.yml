@@ -16,3 +16,13 @@ clicks:
   beat_in_bar_number: 1
   time: 1:57.5
   description: refrain 2
+
+- bar_number: 85
+  beat_in_bar_number: 1
+  time: 3:09.0
+  description: final
+
+- bar_number: 93
+  beat_in_bar_number: 1
+  time: 3:27.0
+  description: fin
