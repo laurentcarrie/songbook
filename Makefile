@@ -1,4 +1,4 @@
-.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev a b
+.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b
 .DEFAULT_GOAL := help
 
 sandbox:=sandbox
@@ -66,6 +66,10 @@ download: ## download prod data from S3
 
 download-prod: ## download prod data from S3
 	make BPATH=prod download
+
+fmt: ## format lyrics files
+	find songs -path '*/lyrics/*.tex' -exec sed -i '' 's/\\songwordfb{ }/\\songwordfb{}/g' {} +
+	find songs -path '*/lyrics/*.tex' -exec sed -i '' 's/  / /g' {} +
 
 download-dev: ## download dev data from S3
 	make BPATH=dev download
