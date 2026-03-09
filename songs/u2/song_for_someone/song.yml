@@ -5,6 +5,8 @@ files:
     - solo.ly
   tex: []
   wav: []
+  has_clicks: true
+  has_mp3: true
 info:
   title: Song For Someone
   author: U2

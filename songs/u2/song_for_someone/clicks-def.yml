@@ -1,0 +1,61 @@
+clicks:
+- bar_number: 1
+  beat_in_bar_number: 1
+  time: 0:00.5
+  description: intro
+
+- bar_number: 9
+  beat_in_bar_number: 1
+  time: 0:18.8
+  description: couplet 1
+
+- bar_number: 25
+  beat_in_bar_number: 1
+  time: 0:55.4
+  description: pré refrain 1
+
+- bar_number: 33
+  beat_in_bar_number: 1
+  time: 1:13.6
+  description: refrain 1
+
+- bar_number: 41
+  beat_in_bar_number: 1
+  time: 1:31.9
+  description: fill
+
+- bar_number: 42
+  beat_in_bar_number: 1
+  time: 1:34.2
+  description: couplet 2
+
+- bar_number: 58
+  beat_in_bar_number: 1
+  time: 2:10.8
+  description: pré refrain 2
+
+- bar_number: 66
+  beat_in_bar_number: 1
+  time: 2:29.1
+  description: refrain 2
+
+- bar_number: 74
+  beat_in_bar_number: 1
+  time: 2:47.4
+  description: solo
+
+- bar_number: 82
+  beat_in_bar_number: 1
+  time: 3:05.6
+  description: outtro
+
+- bar_number: 90
+  beat_in_bar_number: 1
+  time: 3:24.0
+  description: mid outtro
+
+
+- bar_number: 98
+  beat_in_bar_number: 1
+  time: 3:42.0
+  description: fin

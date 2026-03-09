@@ -57,14 +57,12 @@ sync-prod: ## upload songs to S3 prod
 sync-dev: ## upload songs to S3 dev
 	make sync BPATH=dev
 
-
-
 download: ## download prod data from S3
 	aws s3 sync s3://$(BUCKET)/$(BPATH)/songs songs
 	aws s3 sync s3://$(BUCKET)/$(BPATH)/drums drums
 
 
-download-prod: ## download prod data from S3
+download-prod: ## download prod data from S
 	make BPATH=prod download
 
 fmt: ## format lyrics files
