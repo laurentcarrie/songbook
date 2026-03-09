@@ -1,28 +1,18 @@
 clicks:
-- beat_number: 1
-  time: 0.05
-  description: bar 1 - intro
-- beat_number: 17
-  time: 9.427
-  description: bar 5 - couplet 1
-- beat_number: 49
-  time: 27.411
-  description: "bar 13 - pr\xE9 refrain\_1"
-- beat_number: 81
-  time: 45.314
-  description: "bar 21 - refrain\_1"
-- beat_number: 145
-  time: 81.223
-  description: bar 37 - couplet 2
-- beat_number: 177
-  time: 99.184
-  description: "bar 45 - pr\xE9 refrain\_2"
-- beat_number: 209
-  time: 117.121
-  description: bar 53 - refrain 2
-- beat_number: 273
-  time: 153.02
-  description: bar 69 - interlude
-- beat_number: 337
-  time: 188.929
-  description: bar 85 - final
+- bar_number: 1
+  beat_in_bar_number: 1
+  time: 0:00.57
+  description: bar 1 - intro batterie
+
+
+- bar_number: 5
+  beat_in_bar_number: 1
+  time: 0:09.57
+  description: couplet 1
+
+
+
+- bar_number: 53
+  beat_in_bar_number: 1
+  time: 1:57.5
+  description: refrain 2

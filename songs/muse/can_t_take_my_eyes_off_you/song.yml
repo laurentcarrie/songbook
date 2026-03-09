@@ -37,6 +37,8 @@ structure:
       section_body: null
       type: couplet
       link: couplet1
+ 
+
   - id: pont
     item: !Chords
       title: pont
@@ -63,7 +65,9 @@ structure:
       section_body: null
       type: couplet
       link: couplet1
-
+  - id: NC
+    item: !NewColumn
+    
   - id: pont2
     item: !Chords
       title: pont 2
@@ -71,7 +75,9 @@ structure:
       section_body: null
       rows:
         - Gm | C | F | D7
-        - HRest       
+        - HRest    
+
+   
 
   - id: refrain2
     item: !Chords

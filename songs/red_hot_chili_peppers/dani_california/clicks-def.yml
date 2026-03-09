@@ -1,82 +1,67 @@
 clicks:
-- beat_number: 1
-  time: 0.255
+- bar_number: 1
+  beat_in_bar_number: 1
+  time: 0:00.255
   description: bar 1 - intro batterie
-- beat_number: 9
-  time: 5.404
-  description: bar 3 - intro
-- beat_number: 25
-  time: 15.377
-  description: bar 7 - couplet 1
-- beat_number: 41
-  time: 25.559
-  description: "bar 11 - pr\xE9 refrain 1"
-- beat_number: 57
-  time: 35.347
+- bar_number: 15
+  beat_in_bar_number: 1
+  time: 0:35.500
   description: bar 15 - couplet 2
-- beat_number: 73
-  time: 45.378
-  description: "bar 19 - pr\xE9 refrain 2"
-- beat_number: 90
-  time: 56.0
-  description: bar 23 - fill 1
-- beat_number: 94
-  time: 61.373
+- bar_number: 19
+  beat_in_bar_number: 1
+  time: 0:45.700
+  description: bar 19 - pre refrain 2
+- bar_number: 24
+  beat_in_bar_number: 1
+  time: 0:57.800
   description: bar 24 - refrain 1
-- beat_number: 126
-  time: 79.273
-  description: bar 32 - fill
-- beat_number: 130
-  time: 81.932
+- bar_number: 33
+  beat_in_bar_number: 1
+  time: 1:21.000
   description: bar 33 - interlude 1
-- beat_number: 146
-  time: 91.365
+- bar_number: 37
+  beat_in_bar_number: 1
+  time: 1:31.000
   description: bar 37 - couplet 3
-- beat_number: 162
-  time: 101.361
-  description: "bar 41 - pr\xE9 refrain 3"
-- beat_number: 178
-  time: 110.748
-  description: bar 45 - fill
-- beat_number: 182
-  time: 113.348
-  description: bar 46 - refrain 2
-- beat_number: 214
-  time: 133.375
-  description: bar 54 - fill 2
-- beat_number: 218
-  time: 135.964
-  description: bar 55 - interlude 2
-- beat_number: 250
-  time: 155.173
-  description: bar 63 - couplet 4
-- beat_number: 266
-  time: 164.473
-  description: "bar 67 - pr\xE9 refrain 3"
-- beat_number: 282
-  time: 175.067
-  description: bar 71 - fill
-- beat_number: 294
-  time: 182.677
-  description: bar 74 - refrain 3
-- beat_number: 326
-  time: 202.71
-  description: bar 82 - fill
-- beat_number: 330
-  time: 205.148
-  description: bar 83 - refrain 4
-- beat_number: 362
-  time: 225.222
-  description: bar 91 - fill
-- beat_number: 366
-  time: 227.631
-  description: bar 92 - solo
-- beat_number: 398
-  time: 247.368
-  description: bar 100 - fill
-- beat_number: 402
-  time: 249.469
-  description: bar 101 - solo
-- beat_number: 426
-  time: 264.609
-  description: bar 107 - final
+
+
+
+- bar_number: 46
+  beat_in_bar_number: 1
+  time: 1:53.5
+  description: bar 46 refrain 2
+
+- bar_number: 63
+  beat_in_bar_number: 1
+  time: 2:36.0
+  description: couplet 4
+
+- bar_number: 74
+  beat_in_bar_number: 1
+  time: 3:03.5
+  description: refrain 3
+
+- bar_number: 83
+  beat_in_bar_number: 1
+  time: 3:26.0
+  description: refrain 4
+
+- bar_number: 92
+  beat_in_bar_number: 1
+  time: 3:48.500
+  description: solo 1
+
+- bar_number: 101
+  beat_in_bar_number: 1
+  time: 4:10.7
+  description: solo 2
+
+- bar_number: 107
+  beat_in_bar_number: 1
+  time: 4:10.7
+  description: final
+
+- bar_number: 112
+  beat_in_bar_number: 1
+  time: 4:38.5
+  description: fin

@@ -89,7 +89,7 @@ structure:
       link: prerefrain1
   - id: fillx3
     item: !Chords
-       title: fill
+       title: fill 3
        type: fill
        rows:
          - Dm
