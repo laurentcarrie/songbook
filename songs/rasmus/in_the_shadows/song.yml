@@ -91,7 +91,7 @@ structure:
     item: !Ref
       title: refrain 4
       link: refrain1
-  - id: interlude2
+  - id: final
     item: !Chords
       title: final
       type: intro
