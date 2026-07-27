@@ -23,35 +23,32 @@ clicks:
   beat_in_bar_number: 1
   time: 0:46.5
   description: refrain 1
+
+- bar_number: 25
+  beat_in_bar_number: 1
+  time: 1:9.00
+  description: couplet 2
+
 - bar_number: 37
   beat_in_bar_number: 1
-  time: 1:46.00
+  time: 1:44.5
   description: refrain 2
-- bar_number: 57
+- bar_number: 45
   beat_in_bar_number: 1
-  time: 2:44.165
-  description: bar 57
+  description: pont
+  time: 2:07.5
+
+- bar_number: 53
+  beat_in_bar_number: 1
+  description: couplet 3
+  time: 2:30.7
+
+- bar_number: 61
+  beat_in_bar_number: 1
+  description: refrain 3
+  time: 2:54
+
 - bar_number: 77
   beat_in_bar_number: 1
-  time: 3:42.090
-  description: bar 77
-- bar_number: 97
-  beat_in_bar_number: 1
-  time: 2:20.016
-  description: bar 97
-- bar_number: 117
-  beat_in_bar_number: 1
-  time: 2:48.941
-  description: bar 117
-- bar_number: 137
-  beat_in_bar_number: 1
-  time: 3:17.866
-  description: bar 137
-- bar_number: 157
-  beat_in_bar_number: 1
-  time: 3:46.791
-  description: bar 157
-- bar_number: 159
-  beat_in_bar_number: 1
-  time: 3:49.684
-  description: bar 159
+  description: fin
+  time: 3:39.5

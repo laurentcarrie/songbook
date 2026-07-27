@@ -1,5 +1,8 @@
-.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b
+.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev
 .DEFAULT_GOAL := help
+
+-include .env
+export
 
 sandbox:=sandbox
 srcdir:=songs
@@ -9,7 +12,7 @@ all: ## build all songs
 	band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml --delivery $(delivery)
 
 help: ## show this help
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
+	@grep -hE '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-22s\033[0m %s\n", $$1, $$2}'
 
 song: ## build specific song, give song=...
 	RUST_LOG=info band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml \
@@ -31,7 +34,27 @@ clean: ## clean sandbox and delivery
 		fi; \
 	done
 
-upload-prod-or-dev: ## upload songs to S3 prod
+check-mp3: ## verify songs/ holds at least as many mp3 as S3, before a destructive upload
+	@if [ -z "$(BUCKET)" ] || [ -z "$(BPATH)" ]; then \
+		echo "check-mp3: BUCKET and BPATH must be set"; exit 1; \
+	fi; \
+	local_n=$$(find songs -name '*.mp3' 2>/dev/null | wc -l); \
+	remote_n=$$(aws s3 ls s3://$(BUCKET)/$(BPATH)/songs/ --recursive | grep -c '\.mp3' || true); \
+	echo "mp3: songs/=$$local_n  s3://$(BUCKET)/$(BPATH)/songs=$$remote_n"; \
+	if [ "$$local_n" -lt "$$remote_n" ]; then \
+		echo ""; \
+		echo "REFUSING TO UPLOAD: songs/ has fewer mp3 than S3 ($$local_n < $$remote_n)."; \
+		echo "upload deletes s3://$(BUCKET)/$(BPATH)/songs first, then re-uploads from songs/,"; \
+		echo "so $$(($$remote_n - $$local_n)) audio file(s) would be lost."; \
+		echo ""; \
+		echo "  fix:      make download-$(BPATH)   # pull the audio down first"; \
+		echo "  override: make upload-$(BPATH) FORCE_MP3=1"; \
+		echo ""; \
+		[ -n "$(FORCE_MP3)" ] || exit 1; \
+		echo "FORCE_MP3 set - continuing anyway."; \
+	fi
+
+upload-prod-or-dev: check-mp3 ## upload songs to S3 prod
 	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/songs
 	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/delivery
 	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/drums
@@ -56,6 +79,29 @@ sync-prod: ## upload songs to S3 prod
 
 sync-dev: ## upload songs to S3 dev
 	make sync BPATH=dev
+
+reindex: ## POST /api/world to re-index a site (needs WRITE_PASSWORD and URL)
+	@if [ -z "$(WRITE_PASSWORD)" ] || [ -z "$(URL)" ]; then \
+		echo "reindex: WRITE_PASSWORD and URL must both be set"; exit 1; \
+	fi; \
+	body=$$(mktemp); \
+	code=$$(curl -sk -X POST -o "$$body" -w '%{http_code}' \
+		-H 'X-Write-Password: $(WRITE_PASSWORD)' 'https://$(URL)/api/world'); \
+	echo "POST https://$(URL)/api/world -> HTTP $$code"; \
+	head -c 500 "$$body"; echo; rm -f "$$body"; \
+	case "$$code" in \
+		2*) echo "reindex ok";; \
+		000) echo "reindex FAILED: could not reach $(URL)"; exit 1;; \
+		*) echo "reindex FAILED (HTTP $$code)"; exit 1;; \
+	esac
+
+refresh-prod: ## sync songs to S3 prod, then re-index move-the-line.org
+	$(MAKE) sync BPATH=prod
+	WRITE_PASSWORD='$(WRITE_PROD_PASSWORD)' $(MAKE) reindex URL=move-the-line.org
+
+refresh-dev: ## sync songs to S3 dev, then re-index localhost
+	$(MAKE) sync BPATH=dev
+	WRITE_PASSWORD='$(WRITE_PASSWORD)' $(MAKE) reindex URL=localhost:3000
 
 download: ## download prod data from S3
 	aws s3 sync s3://$(BUCKET)/$(BPATH)/songs songs

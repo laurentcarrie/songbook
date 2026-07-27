@@ -44,3 +44,30 @@ structure:
     item: !Ref
       title: refrain 2
       link: refrain1
+  - id: pont
+    item: !Chords
+      title: pont
+      type: pont
+      rows:
+        - '|D|D|E|E|'
+        - '|D|D|E|E|'
+  - id: cb
+    item: !NewColumn
+  - id: couplet3
+    item: !Chords
+      title: couplet 3
+      type: couplet
+      rows: 
+        - 'E|E|Csm|Csm'
+        - 'A|A|B|B'
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      link: refrain1
+      
+  - id: refrain4
+    item: !Ref
+      title: refrain 4
+      link: refrain1
+      
+          

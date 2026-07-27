@@ -1,21 +1,10 @@
-\path (CELL4) +(1*\xr ,-.25*\xr) coordinate (A) ;
-\node[draw,ellipse,dotted,fill=red!10,opacity=1,minimum width=1.3cm,minimum height=.5cm](b) at (A)  {
-    {\songbookfont\fontsize{10pt}{10pt}\selectfont A ~ }
-} ;
-%\node[](b) at (A) { g seule } ;
-%\node[draw,circle,dotted,color=blue,fill=red,opacity=.20,minimum size=1cm] (b) at (A) {} ;
+% Optional TikZ overlay drawn on top of the chord grid.
+% Leave empty if the song needs no annotation.
 %
+% Cells are addressable as (CELL1), (CELL2), ... in grid order, and \xr is one
+% cell width. The example below (from hoobastank/the-reason) circles cell 4:
 %
-%\path (CELL55) +(.7*\xr ,0) coordinate (B) ;
-%\node[draw,circle,dotted,color=blue,fill=red,opacity=.20,minimum size=1cm] (b) at (B) {} ;
-%
-%\node (C) at ($(A)!0.5!(B)$) {};
-%\path(C) ++(\xr,0) coordinate(D) ;
-%
-%\node[color=red](b) at (D) { !!! } ;
-%
-%%\node[draw,circle,dotted,color=blue,fill=red] (b) at (C) {} ;
-%%\node[draw,circle,dotted,color=blue,fill=red] (b) at (D) {} ;
-%
-%
-%\draw[dotted](A) --(D) -- (B) ;
+% \path (CELL4) +(1*\xr ,-.25*\xr) coordinate (A) ;
+% \node[draw,ellipse,dotted,fill=red!10,opacity=1,minimum width=1.3cm,minimum height=.5cm](b) at (A) {
+%     {\songbookfont\fontsize{10pt}{10pt}\selectfont A ~ }
+% } ;

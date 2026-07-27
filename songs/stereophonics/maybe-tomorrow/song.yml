@@ -2,40 +2,45 @@ files:
   lilypond: []
   tex: []
   wav: []
-  has_clicks: true
+  # TODO: set to true once clicks-def.yml holds anchors measured against
+  # THIS song.mp3 - see the header of that file.
+  has_clicks: false
   has_mp3: true
 info:
-  title: The Reason
-  author: Hoobastank
-  tempo: 132
+  title: Maybe Tomorrow
+  author: Stereophonics
+  # TODO: 100 is a placeholder, not a measured value. Track runs 4:29 (269.3 s).
+  tempo: 100
   time_signature: null
-  tags: [dadrock]
+  tags: []
 
 meta:
-  date: "2025-10-26"
-  digest: 89f75d6a3df95d4925fd5b34fb12ed3e
+  date: "2026-07-27"
 structure:
+  # TODO: every `rows` below is a placeholder - replace with the real chords.
+  # Notation: f = flat, s = sharp, m = minor (Bf = B flat, Csm = C sharp minor).
+  # `type` selects the section colour from songs/settings.yml.
+  # Use !Ref to repeat an earlier section, `item: NewColumn` to break columns.
   - id: intro
     item: !Chords
       title: intro
       type: intro
       rows:
-        - ' | E | E |E |E |'
+        - ' | C | C | G | G |'
   - id: couplet1
     item: !Chords
       title: couplet 1
       type: couplet
       rows:
-        - '|E|E|Csm|Csm'
-        - '|E|E|Csm|Csm'
-        - ' | A |A | B | B |'
+        - ' | C | C | G | G |'
+        - ' | Am | Am | F | F |'
   - id: refrain1
     item: !Chords
       title: refrain 1
       type: refrain
       rows:
-        - '|E|E|Csm|Csm'
-        - '|A|A|B|B|'
+        - ' | F | F | C | C |'
+        - ' | G | G | C | C |'
   - id: couplet2
     item: !Ref
       title: couplet 2

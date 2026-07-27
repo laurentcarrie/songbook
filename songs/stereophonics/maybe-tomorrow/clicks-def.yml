@@ -1,57 +1,25 @@
-# All anchors are snapped to the beat grid measured from song.mp3 by onset
-# analysis: 165.945 BPM, beat = 0.361565 s, bar = 1.446260 s, first downbeat
-
-
-
-
-
-# (bar 1 beat 1) at 1.175 s. The grid drifts by at most 3 ms across the whole
-# track, so every bar is derived from that single line rather than hand-placed.
-# Bar numbering is unchanged: the original bars 1/5/17/37 were already an exact
-# 4-beats-per-bar fit to this grid (beat indices 3/19/67/147).
-# Descriptions for bars 57+ are bar numbers - sections were not identified.
+# TODO: these anchors are PLACEHOLDERS. They must be measured against this
+# song.mp3 before `has_clicks` is set to true in song.yml.
+#
+# Each entry pins one bar to a timestamp in the audio. You only anchor section
+# starts - the build interpolates the beats in between using `tempo` from
+# song.yml, so an accurate tempo matters as much as the anchors.
+#
+#   bar_number:          bar this anchor pins (1-based)
+#   beat_in_bar_number:  beat within that bar, normally 1 (the downbeat)
+#   time:                MM:SS.mmm into song.mp3
+#   description:         free text, shown when debugging
+#
+# To verify once filled in:
+#   make song song=stereophonics
+#   ./test-clicks.sh songs/stereophonics/maybe-tomorrow
+#   then play overlay.mp3 and check the clicks sit on the beat
+#
+# Anchors are bound to this exact audio file. Re-encoding or trimming
+# song.mp3 shifts every timestamp - the build will still succeed, but the
+# clicks will be silently wrong.
 clicks:
 - bar_number: 1
   beat_in_bar_number: 1
-  time: 0:0.0
-  description: intro
-- bar_number: 5
-  beat_in_bar_number: 1
-  time: 0:11.6
-  description: couplet 1
-- bar_number: 17
-  beat_in_bar_number: 1
-  time: 0:46.5
-  description: refrain 1
-- bar_number: 37
-  beat_in_bar_number: 1
-  time: 1:46.00
-  description: refrain 2
-- bar_number: 57
-  beat_in_bar_number: 1
-  time: 2:44.165
-  description: bar 57
-- bar_number: 77
-  beat_in_bar_number: 1
-  time: 3:42.090
-  description: bar 77
-- bar_number: 97
-  beat_in_bar_number: 1
-  time: 2:20.016
-  description: bar 97
-- bar_number: 117
-  beat_in_bar_number: 1
-  time: 2:48.941
-  description: bar 117
-- bar_number: 137
-  beat_in_bar_number: 1
-  time: 3:17.866
-  description: bar 137
-- bar_number: 157
-  beat_in_bar_number: 1
-  time: 3:46.791
-  description: bar 157
-- bar_number: 159
-  beat_in_bar_number: 1
-  time: 3:49.684
-  description: bar 159
+  time: 00:00.000
+  description: bar 1 - intro
