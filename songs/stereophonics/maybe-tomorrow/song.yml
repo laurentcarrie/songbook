@@ -4,7 +4,7 @@ files:
   wav: []
   # TODO: set to true once clicks-def.yml holds anchors measured against
   # THIS song.mp3 - see the header of that file.
-  has_clicks: false
+  has_clicks: true
   has_mp3: true
 info:
   title: Maybe Tomorrow
@@ -12,7 +12,7 @@ info:
   # TODO: 100 is a placeholder, not a measured value. Track runs 4:29 (269.3 s).
   tempo: 100
   time_signature: null
-  tags: []
+  tags: ['dadrock']
 
 meta:
   date: "2026-07-27"
@@ -26,26 +26,51 @@ structure:
       title: intro
       type: intro
       rows:
-        - ' | C | C | G | G |'
+        - ' | Eb | Cm | Gm | F |x2'
   - id: couplet1
     item: !Chords
       title: couplet 1
       type: couplet
-      rows:
-        - ' | C | C | G | G |'
-        - ' | Am | Am | F | F |'
+      rows :
+        - ' | Eb | Cm | Gm | F |x2'
   - id: refrain1
     item: !Chords
       title: refrain 1
       type: refrain
-      rows:
-        - ' | F | F | C | C |'
-        - ' | G | G | C | C |'
+      rows :
+        - ' | Eb | Cm | Gm | F |x2'
+        
   - id: couplet2
-    item: !Ref
+    item: !Ref  
       title: couplet 2
       link: couplet1
+
   - id: refrain2
-    item: !Ref
+    item: !Ref  
       title: refrain 2
       link: refrain1
+
+  - id: solo
+    item: !Chords
+      title: solo
+      type: solo
+      rows: 
+        - 'Cm|D|Gm|F|x2'
+        - 'Gm|Gm|Gm|Gm'
+        - 'Eb|Cm|Gm|F'
+
+  - id: refrain3
+    item: !Ref  
+      title: refrain 3
+      link: refrain1
+
+  - id: refrain4
+    item: !Ref  
+      title: refrain 4
+      link: refrain1
+
+  - id: refrain5
+    item: !Ref  
+      title: ad lib
+      link: refrain1
+

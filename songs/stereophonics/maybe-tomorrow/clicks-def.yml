@@ -1,25 +1,53 @@
-# TODO: these anchors are PLACEHOLDERS. They must be measured against this
-# song.mp3 before `has_clicks` is set to true in song.yml.
-#
-# Each entry pins one bar to a timestamp in the audio. You only anchor section
-# starts - the build interpolates the beats in between using `tempo` from
-# song.yml, so an accurate tempo matters as much as the anchors.
-#
-#   bar_number:          bar this anchor pins (1-based)
-#   beat_in_bar_number:  beat within that bar, normally 1 (the downbeat)
-#   time:                MM:SS.mmm into song.mp3
-#   description:         free text, shown when debugging
-#
-# To verify once filled in:
-#   make song song=stereophonics
-#   ./test-clicks.sh songs/stereophonics/maybe-tomorrow
-#   then play overlay.mp3 and check the clicks sit on the beat
-#
-# Anchors are bound to this exact audio file. Re-encoding or trimming
-# song.mp3 shifts every timestamp - the build will still succeed, but the
-# clicks will be silently wrong.
 clicks:
 - bar_number: 1
   beat_in_bar_number: 1
   time: 00:00.000
   description: bar 1 - intro
+
+- bar_number: 9
+  beat_in_bar_number: 1
+  time: 00:24.7
+  description: couplet 1
+
+- bar_number: 17
+  beat_in_bar_number: 1
+  time: 00:48.5
+  description: refrain 1
+
+
+- bar_number: 25
+  beat_in_bar_number: 1
+  time: 1:12.2
+  description: couplet 2
+
+
+- bar_number: 33
+  beat_in_bar_number: 1
+  time: 1:36.0
+  description: refrain 2
+
+- bar_number: 41
+  beat_in_bar_number: 1
+  time: 1:59.5
+  description: solo
+
+- bar_number: 57
+  beat_in_bar_number: 1
+  time: 2:47.2
+  description: refrain 3
+
+- bar_number: 65
+  beat_in_bar_number: 1
+  time: 3:10.0
+  description: refrain 4
+
+- bar_number: 73
+  beat_in_bar_number: 1
+  time: 3:35
+  description: final
+
+
+- bar_number: 100
+  beat_in_bar_number: 1
+  time: 4:48
+  description: adlib
