@@ -4558,7 +4558,7 @@ items:
       lilypond: []
       tex: []
       wav: []
-      has_clicks: false
+      has_clicks: true
       has_mp3: true
     info:
       title: Maybe Tomorrow
@@ -4578,7 +4578,7 @@ items:
         section_body: null
         color: null
         rows:
-        - ' | C | C | G | G |'
+        - ' | Eb | Cm | Gm | F |x2'
         drum_sequence: null
     - id: couplet1
       item: !Chords
@@ -4587,8 +4587,7 @@ items:
         section_body: null
         color: null
         rows:
-        - ' | C | C | G | G |'
-        - ' | Am | Am | F | F |'
+        - ' | Eb | Cm | Gm | F |x2'
         drum_sequence: null
     - id: refrain1
       item: !Chords
@@ -4597,8 +4596,7 @@ items:
         section_body: null
         color: null
         rows:
-        - ' | F | F | C | C |'
-        - ' | G | G | C | C |'
+        - ' | Eb | Cm | Gm | F |x2'
         drum_sequence: null
     - id: couplet2
       item: !Ref
@@ -4614,3 +4612,72 @@ items:
         section_body: null
         color: null
         link: refrain1
+    - id: solo
+      item: !Chords
+        title: solo
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - Cm|D|Gm|F|x2
+        - Gm|Gm|Gm|Gm
+        - Eb|Cm|Gm|F
+        drum_sequence: null
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: refrain4
+      item: !Ref
+        title: refrain 4
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: refrain5
+      item: !Ref
+        title: ad lib
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+- - deportivo/roma/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex: []
+      wav: []
+      has_clicks: true
+      has_mp3: true
+    info:
+      title: Roma
+      author: Deportivo
+      tempo: 90
+      time_signature: null
+      tags:
+      - move-the-line
+    meta:
+      date: 2026-07-27
+      digest: null
+    structure:
+    - id: introb
+      item: !Chords
+        title: intro batterie
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - ' | HRest | HRest | HRest | HRest |'
+        drum_sequence: null
+    - id: introb
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - ' | HRest | HRest | HRest | HRest |'
+        drum_sequence: null

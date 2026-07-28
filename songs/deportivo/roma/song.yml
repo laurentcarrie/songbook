@@ -1,0 +1,63 @@
+files:
+  lilypond: []
+  tex: []
+  wav: []
+  # TODO: set to true once clicks-def.yml holds anchors measured against
+  # THIS song.mp3 - see the header of that file.
+  has_clicks: true
+  has_mp3: true
+info:
+  title: Roma
+  author: Deportivo
+  # TODO: 100 is a placeholder, not a measured value. Track runs 4:29 (269.3 s).
+  tempo: 90
+  time_signature: null
+  tags: ['move-the-line']
+
+meta:
+  date: "2026-07-27"
+structure:
+
+  - id: introb
+    item: !Chords
+      title: intro batterie
+      type: intro
+      rows:
+        - ' | HRest | HRest | '  
+  - id: intro
+    item: !Chords
+      title: intro 
+      type: intro
+      rows:
+        - ' | Em D | Em D | Em D| Em D |'
+  - id: couplet1
+    item: !Chords 
+      title: couplet 1
+      type: couplet
+      rows :
+        - ' | Em D | Em D | Em D| Em D |x2'
+        - ' | G Bm | Em D | G Bm | Em D|'
+        - ' G Bm |'
+
+  - id: pont1
+    item: !Chords
+      title: pont
+      type: pont
+      rows:
+        - ' | Em D | Em D | |'
+
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      link: couplet1
+
+  - id: pont2
+    item: !Chords
+      title: pont
+      type: pont
+      rows:
+        - '|C G |'
+        
+
+
+
