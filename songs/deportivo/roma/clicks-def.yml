@@ -13,9 +13,22 @@ clicks:
 - bar_number: 22
   beat_in_bar_number: 1
   time: 0:53.1
+  description: couplet 2
+
+
+
+- bar_number: 35
+  beat_in_bar_number: 1
+  time: 1:25.7
   description: refrain 1
 
-- bar_number: 50
+- bar_number: 45
   beat_in_bar_number: 1
-  time: 3:00
-  description: x
+  time: 1:50
+  description: pont 3
+
+
+- bar_number: 70
+  beat_in_bar_number: 1
+  time: 2:51.5
+  description: final

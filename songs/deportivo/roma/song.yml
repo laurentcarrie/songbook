@@ -51,13 +51,35 @@ structure:
       title: couplet 2
       link: couplet1
 
-  - id: pont2
+  - id: refrain1
     item: !Chords
-      title: pont
-      type: pont
+      title: refrain 1
+      type: refrain
       rows:
-        - '|C G |'
-        
+        - '|C G |G | C G | G |'
+        - '|C G |G | Am Em | C G |'
+        - '|Am Em |C Bm | '
+  - id: nc
+    item: !NewColumn
+  - id: pont3
+    item: !Ref
+      title: pont
+      link: pont1
+      rows:
 
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      link: couplet1
 
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      link: refrain1
 
+  
+  - id: pont4
+    item: !Ref
+      title: pont
+      link: pont1
+      rows:
