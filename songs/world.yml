@@ -4670,14 +4670,174 @@ items:
         section_body: null
         color: null
         rows:
-        - ' | HRest | HRest | HRest | HRest |'
+        - ' | HRest | HRest | '
         drum_sequence: null
-    - id: introb
+    - id: intro
       item: !Chords
         title: intro
         type: intro
         section_body: null
         color: null
         rows:
-        - ' | HRest | HRest | HRest | HRest |'
+        - ' | Em D | Em D | Em D| Em D |'
         drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - ' | Em D | Em D | Em D| Em D |x2'
+        - ' | G Bm | Em D | G Bm | Em D|'
+        - ' G Bm |'
+        drum_sequence: null
+    - id: pont1
+      item: !Chords
+        title: pont
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - ' | Em D | Em D | |'
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - '|C G |G | C G | G |'
+        - '|C G |G | Am Em | C G |'
+        - '|Am Em |C Bm | '
+        drum_sequence: null
+    - id: nc
+      item: NewColumn
+    - id: pont3
+      item: !Ref
+        title: pont
+        type: null
+        section_body: null
+        color: null
+        link: pont1
+    - id: couplet3
+      item: !Ref
+        title: couplet 3
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: pont4
+      item: !Ref
+        title: pont
+        type: null
+        section_body: null
+        color: null
+        link: pont1
+- - tears-for-fears/shout/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex: []
+      wav: []
+      has_clicks: true
+      has_mp3: true
+    info:
+      title: Shout
+      author: Tears For Fears
+      tempo: 93
+      time_signature: null
+      tags:
+      - dadrock
+    meta:
+      date: 2026-07-27
+      digest: null
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - ' | Fm | Fm | D | A |x2'
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - ' | Eb | Cm | Gm | F |x2'
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - ' | Eb | Cm | Gm | F |x2'
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: solo
+      item: !Chords
+        title: solo
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - Cm|D|Gm|F|x2
+        - Gm|Gm|Gm|Gm
+        - Eb|Cm|Gm|F
+        drum_sequence: null
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: refrain4
+      item: !Ref
+        title: refrain 4
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: refrain5
+      item: !Ref
+        title: ad lib
+        type: null
+        section_body: null
+        color: null
+        link: refrain1

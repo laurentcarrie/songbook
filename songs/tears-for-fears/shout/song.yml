@@ -1,0 +1,88 @@
+files:
+  lilypond: []
+  tex: []
+  wav: []
+  # TODO: set to true once clicks-def.yml holds anchors measured against
+  # THIS song.mp3 - see the header of that file.
+  has_clicks: true
+  has_mp3: true
+info:
+  title: Shout
+  author: Tears For Fears
+  # TODO: 100 is a placeholder, not a measured value. Track runs 4:29 (269.3 s).
+  tempo: 93
+  time_signature: null
+  tags: ['dadrock']
+
+meta:
+  date: "2026-07-27"
+structure:
+  # TODO: every `rows` below is a placeholder - replace with the real chords.
+  # Notation: f = flat, s = sharp, m = minor (Bf = B flat, Csm = C sharp minor).
+  # `type` selects the section colour from songs/settings.yml.
+  # Use !Ref to repeat an earlier section, `item: NewColumn` to break columns.
+  - id: introb
+    item: !Chords
+      title: drums
+      type: intro
+      rows: 
+        - '|HRest|HRest|HRest|'
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      rows:
+        - ' | Fsm | Fsm | D | D |'
+        - ' | A | A| Fsm | Fsm | '        
+        - ' | Fsm | Fsm | D | D |'
+        - ' | A | A| Fsm | Fsm | '
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      rows :
+        - ' | Fsm | Fsm | D | D |'
+        - ' | A | A| Fsm | Fsm | '        
+        - ' | Fsm | Fsm | D | D |'
+        - ' | A | A| Fsm | Fsm | ' 
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      rows :
+        - ' | A | A| B | B | x4'        
+
+  - id: NewColumn
+    item: !NewColumn
+
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      link: couplet1
+
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      link: refrain1
+
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      link: couplet1
+
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      link: refrain1
+
+  - id: couplet4
+    item: !Ref
+      title: couplet 4
+      link: couplet1      
+
+  - id: fin
+    item: !Chords
+      title: fin
+      type: intro
+      rows:
+        - '|Fsm| '
