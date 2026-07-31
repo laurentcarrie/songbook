@@ -61,19 +61,28 @@ structure:
       link: couplet1
 
   - id: refrain2
-    item: !Ref
+    item: !Chords
       title: refrain 2
-      link: refrain1
+      type: refrain
+      rows :
+        - ' | A | A| B | B | '    
+        - ' | A | A| B | B | '    
 
   - id: couplet3
-    item: !Ref
+    item: !Chords
       title: couplet 3
-      link: couplet1
+      type: couplet
+      rows :
+        - ' | Fsm | Fsm | D | D |'
+        - ' | A | A| Fsm | Fsm | '        
+
 
   - id: refrain3
-    item: !Ref
+    item: !Chords
       title: refrain 3
-      link: refrain1
+      type: refrain
+      rows :
+        - ' | A | A| B | B | x2'       
 
   - id: couplet4
     item: !Ref

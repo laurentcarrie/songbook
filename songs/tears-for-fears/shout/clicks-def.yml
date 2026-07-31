@@ -25,7 +25,10 @@ clicks:
   time: 02:53.8
 
 - section_id: couplet3
-  time: 3:14.2
+  time: 3:14.8 
+
+- section_id: refrain3
+  time: 3:55.3
 
 - section_id: couplet4
   time: 3:55.7  
