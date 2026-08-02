@@ -1,6 +1,7 @@
 files:
   lilypond: 
     - chordscouplet.ly
+    - chordsrefrain.ly
   tex: []
   wav: []
   # TODO: set to true once clicks-def.yml holds anchors measured against

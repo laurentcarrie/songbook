@@ -1,10 +1,10 @@
 files:
   lilypond:
     - pontbasse.ly
-    - couplet2asse.ly
+    - coupletbasse.ly
   tex: []
   wav:
-    - couplet2asse.wav
+    - coupletbasse.wav
     - pontbasse.wav
 info:
   title: Rock 'N Roll Star
