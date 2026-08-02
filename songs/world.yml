@@ -1,4 +1,1525 @@
 items:
+- - pretenders/brass_in_pocket/song.yml
+  - !Song
+    files:
+      lilypond:
+      - intro.ly
+      - couplet.ly
+      - prerefrain.ly
+      tex: []
+      wav:
+      - intro.wav
+      - couplet.wav
+      - prerefrain.wav
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: Brass In Pocket
+      author: Pretenders
+      tempo: 107
+      time_signature: null
+      tags:
+      - sunny-bd
+      - concert-mai-2026
+    meta:
+      date: 2025-10-26
+      digest: b8534c4fca42bcfb045b212525f21218
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - A
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - A E | D A | A E | D A
+        - 'A E | D A | A | A '
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
+    - id: prerefrain1
+      item: !Chords
+        title: pré refrain 1
+        type: prerefrain
+        section_body: null
+        color: null
+        rows:
+        - A E | A E | A E | A E | x2
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - A|A|Bm|Bm
+        - D|D|E7|E7
+        drum_sequence: null
+    - id: couplet3
+      item: !Ref
+        title: couplet 3
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
+    - id: prerefrain2
+      item: !Ref
+        title: pré refrain 2
+        type: prerefrain
+        section_body: null
+        color: null
+        link: prerefrain1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+    - id: outtro
+      item: !Ref
+        title: outtro
+        type: null
+        section_body: \songbookcomment{outro mesure 8}
+        color: null
+        link: couplet1
+- - pixies/gouge_away/song.yml
+  - !Song
+    files:
+      lilypond:
+      - basse.ly
+      tex: []
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: Gouge Away
+      author: Pixies
+      tempo: 126
+      time_signature: null
+      tags:
+      - move-the-line
+      - truskel-2025
+    meta:
+      date: 2025-10-26
+      digest: c3f230572e0551053395a44c307543a4
+    structure:
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Fsm | A |D |Fsm |D|x4
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - Fsm | A |D |Fsm |D|
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+    - id: couplet3
+      item: !Chords
+        title: couplet 3
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Fsm | A |D |Fsm |D|x3
+        drum_sequence: null
+    - id: final
+      item: !Chords
+        title: final
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - Fsm | A |D |Fsm |D|x3
+        drum_sequence: null
+- - eurythmics/sweet_dreams/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex: []
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: Sweet Dreams (Are Made of This)
+      author: Eurythmics
+      tempo: 80
+      time_signature: null
+      tags:
+      - move-the-line
+    meta:
+      date: 2025-10-26
+      digest: fb4c9edc3e2de388bbe9429fc4371067
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Cm | Af G | Cm | Af G
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Cm | Af G | Cm | Af G|x2
+        drum_sequence: null
+    - id: hr1
+      item: !HRule 80
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - 'Af | Af G | Cm | Fm '
+        - Af | G7
+        drum_sequence: null
+    - id: 'couplet3 '
+      item: !Ref
+        title: couplet 3
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: hr
+      item: !HRule 80
+    - id: interlude
+      item: !Chords
+        title: interlude
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - 'Cm | F Bf | Cm| F Bf|x2 '
+        drum_sequence: null
+    - id: couplet4
+      item: !Ref
+        title: couplet 4
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: couplet5
+      item: !Ref
+        title: couplet 5
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: pont
+      item: !Chords
+        title: pont
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - 'Fm | Fm G | Cm| Fm | '
+        - 'Af | G7 | '
+        drum_sequence: null
+    - id: fin
+      item: !Chords
+        title: fin
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Cm
+        drum_sequence: null
+- - red_hot_chili_peppers/dani_california/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex:
+      - lyrics.tex
+      wav: []
+      has_clicks: true
+      has_mp3: true
+    info:
+      title: Dani California
+      author: Red Hot Chili Peppers
+      tempo: 96
+      time_signature: null
+      tags:
+      - move-the-line
+    meta:
+      date: 2025-10-26
+      digest: 1057cbd47ffaa5edecdddee8c9c6df85
+    structure:
+    - id: introb
+      item: !Chords
+        title: intro batterie
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - HRest | HRest
+        drum_sequence: null
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Am G| Dm Am|Am G| Dm Am
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Am G| Dm Am|Am G| Dm Am
+        drum_sequence: null
+    - id: prerefrain1
+      item: !Chords
+        title: pré refrain 1
+        type: prerefrain
+        section_body: null
+        color: null
+        rows:
+        - Am G| Dm Am|Am G| Dm Am
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: prerefrain2
+      item: !Ref
+        title: pré refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: prerefrain1
+    - id: fill1
+      item: !Chords
+        title: fill 1
+        type: fill
+        section_body: null
+        color: null
+        rows:
+        - Dm
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - F C | Dm G | F C | Dm G
+        - F C | Dm G | F C | Dm
+        drum_sequence: null
+    - id: fill1x
+      item: !Chords
+        title: fill
+        type: fill
+        section_body: null
+        color: null
+        rows:
+        - Dm
+        drum_sequence: null
+    - id: interlude1
+      item: !Chords
+        title: interlude 1
+        type: interlude
+        section_body: null
+        color: null
+        rows:
+        - Am G| Dm Am|Am G| Dm Am
+        drum_sequence: null
+    - id: couplet3
+      item: !Ref
+        title: couplet 3
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: prerefrain3
+      item: !Ref
+        title: pré refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: prerefrain1
+    - id: fillx3
+      item: !Chords
+        title: fill 3
+        type: fill
+        section_body: null
+        color: null
+        rows:
+        - Dm
+        drum_sequence: null
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: fill2
+      item: !Ref
+        title: fill 2
+        type: null
+        section_body: null
+        color: null
+        link: fill1
+    - id: nc
+      item: NewColumn
+    - id: interlude
+      item: !Chords
+        title: interlude 2
+        type: interlude
+        section_body: null
+        color: null
+        rows:
+        - Bm  | G D | Bm | G D
+        - Bm  | G D | Bm | Bm
+        drum_sequence: null
+    - id: couplet4
+      item: !Ref
+        title: couplet 4
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: prerefrain4
+      item: !Ref
+        title: pré refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: prerefrain1
+    - id: fillx4
+      item: !Chords
+        title: fill
+        type: fill
+        section_body: null
+        color: null
+        rows:
+        - Dm | Dm | Dm
+        drum_sequence: null
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: fillref3
+      item: !Chords
+        title: fill
+        type: fill
+        section_body: null
+        color: null
+        rows:
+        - Dm
+        drum_sequence: null
+    - id: refrain4
+      item: !Ref
+        title: refrain 4
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: fillref4
+      item: !Chords
+        title: fill
+        type: fill
+        section_body: null
+        color: null
+        rows:
+        - Dm
+        drum_sequence: null
+    - id: solo
+      item: !Chords
+        title: solo
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - F C | Dm G | F C | Dm G | x2
+        drum_sequence: null
+    - id: fillsolo1
+      item: !Chords
+        title: fill
+        type: fill
+        section_body: null
+        color: null
+        rows:
+        - Dm
+        drum_sequence: null
+    - id: solo2
+      item: !Chords
+        title: solo
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - F C | Dm G | F C | Dm G |
+        - F C | Dm G
+        drum_sequence: null
+    - id: final
+      item: !Chords
+        title: final
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - F  | F | C | Dm
+        - F
+        drum_sequence: null
+- - red_hot_chili_peppers/can_t_stop/song.yml
+  - !Song
+    files:
+      lilypond:
+      - solo.ly
+      - intro.ly
+      - riff_a.ly
+      - riff_b.ly
+      - chordsrefrain.ly
+      tex: []
+      wav:
+      - intro.wav
+      - riff_a.wav
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: Can't Stop
+      author: Red Hot Chili Peppers
+      tempo: 91
+      time_signature: null
+      tags:
+      - move-the-line
+    meta:
+      date: 2025-10-27
+      digest: c893bedf7e31214cdb5adc2358d90843
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: ''
+        color: null
+        rows:
+        - Em | Em | Em | Em
+        drum_sequence: null
+    - id: riffguitare
+      item: !Chords
+        title: riff guitare
+        type: couplet
+        section_body: ''
+        color: null
+        rows:
+        - Fsm | E | Csm7 | D7M
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: ''
+        color: null
+        rows:
+        - Fsm| D | Csm7 | D7M | x3
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: \newline \subimport{chordsrefrain.output}{chordsrefrain}
+        color: null
+        rows:
+        - A | D | Csm7 | D7M | x4
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+    - id: pont
+      item: !Chords
+        title: pont
+        type: pont
+        section_body: '{\color{red} reggae}'
+        color: null
+        rows:
+        - Fsm | E | Csm7 | D7M E | x4
+        drum_sequence: null
+    - id: soloseul
+      item: !Chords
+        title: solo seul
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - Fsm | E | Csm7 | D7M
+        drum_sequence: null
+    - id: solochant
+      item: !Chords
+        title: solo + strophe
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - Fsm | E | Csm7 | D7M
+        drum_sequence: null
+    - id: couplet3
+      item: !Ref
+        title: couplet 3
+        type: couplet
+        section_body: '{\color{red} pas de batterie sur dernière strophe}'
+        color: null
+        link: couplet1
+    - id: outtro
+      item: !Chords
+        title: outtro
+        type: intro
+        section_body: '{\color{red}chant seul}'
+        color: null
+        rows:
+        - HRest|HRest
+        drum_sequence: null
+- - red_hot_chili_peppers/under_the_bridge/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex: []
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: Under The Bridge
+      author: Red Hot Chili Peppers
+      tempo: 84
+      time_signature: null
+      tags:
+      - move-the-line
+    meta:
+      date: 2025-10-26
+      digest: 57e73ab61685e95f07b79dc9863ac0e5
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - D
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - E|B|Csm|A
+        - E|B|Csm|A
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain1
+      item: !Chords
+        title: refrain
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - Fsm|A|E|B
+        - Fsm|A|E|B
+        - Fsm|A|E|B
+        - Csm|A|E|B
+        drum_sequence: null
+    - id: couplet3
+      item: !Ref
+        title: couplet 3
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: couplet3
+      item: !Ref
+        title: couplet 3
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: pont
+      item: !Chords
+        title: pont
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - A|Am|G|F|x3
+        - F7M|E7|G|G
+        drum_sequence: null
+    - id: final1
+      item: !Chords
+        title: final 1
+        type: couplet2
+        section_body: null
+        color: null
+        rows:
+        - A|Am|G|F|x4
+        drum_sequence: null
+    - id: final2
+      item: !Ref
+        title: final 2
+        type: null
+        section_body: null
+        color: null
+        link: final1
+- - radiohead/karma_police/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex: []
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: Karma Police
+      author: Radiohead
+      tempo: 113
+      time_signature: null
+      tags:
+      - move-the-line
+      - truskel-2025
+    meta:
+      date: 2025-10-26
+      digest: 10a02569dc19382e4f22156d581ea17a
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - 'Am D | Em G | Am F | Em G '
+        - 'Am D | G D | C G | Am '
+        - Bm D
+        drum_sequence: null
+    - id: couplet1
+      item: !Ref
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        link: intro
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: couplet
+        section_body: null
+        color: null
+        link: intro
+    - id: prerefrain1
+      item: !Chords
+        title: pré refrain 1
+        type: prerefrain
+        section_body: null
+        color: null
+        rows:
+        - C D | G Fs | C D | G Fs
+        - C D | G Fs | C | Bm D
+        drum_sequence: null
+    - id: couplet3
+      item: !Ref
+        title: couplet 3
+        type: couplet
+        section_body: null
+        color: null
+        link: intro
+    - id: prerefrain2
+      item: !Ref
+        title: pré refrain 2
+        type: prerefrain
+        section_body: null
+        color: null
+        link: prerefrain1
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - Bm D | G D | G D |E | x4
+        drum_sequence: null
+- - stereophonics/maybe-tomorrow/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex: []
+      wav: []
+      has_clicks: true
+      has_mp3: true
+    info:
+      title: Maybe Tomorrow
+      author: Stereophonics
+      tempo: 100
+      time_signature: null
+      tags:
+      - dadrock
+    meta:
+      date: 2026-07-27
+      digest: null
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - ' | Eb | Cm | Gm | F |x2'
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - ' | Eb | Cm | Gm | F |x2'
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - ' | Eb | Cm | Gm | F |x2'
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: solo
+      item: !Chords
+        title: solo
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - Cm|D|Gm|F|x2
+        - Gm|Gm|Gm|Gm
+        - Eb|Cm|Gm|F
+        drum_sequence: null
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: refrain4
+      item: !Ref
+        title: refrain 4
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: refrain5
+      item: !Ref
+        title: ad lib
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+- - mademoiselle_k/ca_me_vexe/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex:
+      - body.tex
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: Ca me vexe
+      author: Mademoiselle K
+      tempo: 140
+      time_signature: null
+      tags:
+      - move-the-line
+    meta:
+      date: 2025-10-27
+      digest: 94fb533e610b0d2149efc55bde56d7d6
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Em|Em|Em|G
+        - Em|G|C7|G
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Em|G|Am|C7|x2
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - Em|G|Am|C7|x3
+        drum_sequence: null
+    - id: couplet2a
+      item: !Chords
+        title: couplet 2a
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Em|G|Am|C7|x2
+        drum_sequence: null
+    - id: couplet2b
+      item: !Chords
+        title: couplet 2b
+        type: couplet2
+        section_body: null
+        color: null
+        rows:
+        - Em|G|Am|C7|
+        drum_sequence: null
+    - id: couplet2c
+      item: !Chords
+        title: couplet 2c
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Em|G|Am|C7|x2
+        drum_sequence: null
+    - id: refrain2
+      item: !Chords
+        title: refrain 2
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - Em|G|Am|C|x2
+        drum_sequence: null
+    - id: nc
+      item: NewColumn
+    - id: couplet3a
+      item: !Chords
+        title: couplet 3a
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Em|G|Am|C7|x3
+        drum_sequence: null
+    - id: couplet3b
+      item: !Chords
+        title: couplet 3b
+        type: couplet2
+        section_body: null
+        color: null
+        rows:
+        - Em|G|Am|C7|x2
+        drum_sequence: null
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: lh
+      item: !HRule 100
+    - id: interlude
+      item: !Chords
+        title: interlude
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - HRest|Em|G|Am|
+        - Em|G|Am|C7|x3
+        drum_sequence: null
+    - id: final
+      item: !Chords
+        title: final
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Em|G|Am|C7|
+        - Em|G|A|C7|
+        drum_sequence: null
+- - police/every_breath_you_take/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex: []
+      wav: []
+      has_clicks: true
+      has_mp3: true
+    info:
+      title: Every Breath You Take
+      author: Police
+      tempo: 117
+      time_signature: null
+      tags:
+      - sunny-bd
+      - concert-mai-2026
+    meta:
+      date: 2025-10-26
+      digest: fd4252426f71b3fd1aa440c1dcebeb36
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: ''
+        color: null
+        rows:
+        - Bf|Bf|Gm|Gm
+        - Ef|F|Bf|Bf
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: ''
+        color: null
+        rows:
+        - Bf|Bf|Gm|Gm
+        - Ef|F|Gm|Gm
+        drum_sequence: null
+    - id: couplet2
+      item: !Chords
+        title: couplet 2
+        type: couplet2
+        section_body: \songbookcomment{idem couplet1 sauf 2 dernières mesures}
+        color: null
+        rows:
+        - Bf|Bf|Gm|Gm
+        - Ef|F|Bf|Bf
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: ''
+        color: null
+        rows:
+        - Ef|Df|Bf|Bf
+        - C|C|F|F
+        drum_sequence: null
+    - id: couplet3
+      item: !Ref
+        title: couplet 3
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: nc
+      item: NewColumn
+    - id: pont
+      item: !Chords
+        title: pont
+        type: pont
+        section_body: \songbookcomment{en accords plaqués}
+        color: null
+        rows:
+        - Gf|Gf|Af|Af
+        - Gf|Gf|Af|Af
+        - Gf|Gf|
+        drum_sequence: null
+    - id: couplet4
+      item: !Ref
+        title: couplet4
+        type: null
+        section_body: \songbookcomment{no lyrics}
+        color: null
+        link: couplet1
+    - id: couplet5
+      item: !Ref
+        title: couplet5
+        type: null
+        section_body: \songbookcomment{no lyrics}
+        color: null
+        link: couplet2
+    - id: refrain2
+      item: !Ref
+        title: refrain2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: couplet6
+      item: !Ref
+        title: couplet 6
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: fill
+      item: !Chords
+        title: fill
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Ef|F|Gm|Gm
+        - Gm|Gm
+        drum_sequence: null
+    - id: outtro
+      item: !Chords
+        title: outtro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Bf|Bf|Gm|Ef|x4
+        drum_sequence: null
+- - amy_winehouse/you_know_i_m_no_good/song.yml
+  - !Song
+    files:
+      lilypond:
+      - intro.ly
+      - couplet.ly
+      tex: []
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: you know I'm no good
+      author: Amy Winehouse
+      tempo: 103
+      time_signature: null
+      tags:
+      - sunny-bd
+    meta:
+      date: 2025-10-26
+      digest: fddae9783ed01293cf3bd57800b2bfc2
+    structure:
+    - id: intro_batteriex
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - 'HRest | HRest '
+        drum_sequence: null
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Dm | Dm | Dm | Dm
+        drum_sequence: null
+    - id: couplet_1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Dm | Gm | A | Dm
+        - 'Dm | Gm | A | Dm '
+        - 'Gm | Gm | E | E '
+        - F | F | E7 | A
+        drum_sequence: null
+    - id: refrain_1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - Dm | Am | E | Am
+        - Dm | Am | E | Am
+        drum_sequence: null
+    - id: nc
+      item: NewColumn
+    - id: hr
+      item: !HRule 67
+    - id: pont
+      item: !Chords
+        title: pont
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - HRest | HRest
+        drum_sequence: null
+    - id: couplet_2
+      item: !Ref
+        title: couplet 2
+        type: null
+        section_body: null
+        color: null
+        link: couplet_1
+    - id: refrain_2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain_1
+    - id: hr
+      item: !HRule 70
+    - id: pont_guitare
+      item: !Ref
+        title: pont guitare
+        type: null
+        section_body: null
+        color: null
+        link: intro
+    - id: couplet_3
+      item: !Ref
+        title: couplet 3
+        type: null
+        section_body: null
+        color: null
+        link: couplet_1
+    - id: refrain_3
+      item: !Ref
+        title: refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: refrain_1
+    - id: refrain_4
+      item: !Ref
+        title: refrain 4
+        type: null
+        section_body: null
+        color: null
+        link: refrain_1
+- - estelle/american_boy/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex: []
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: American Boy
+      author: Estelle / K. West / Cocoon
+      tempo: 118
+      time_signature: null
+      tags:
+      - sunny-bd
+    meta:
+      date: 2025-10-26
+      digest: 212c1a88a18c64fc80ffb331608a066e
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Cs | A | Fsm | Fsm
+        - Cs | A | Fsm | Fsm
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: '{\color{red}stop \sharp~15}'
+        color: null
+        rows:
+        - Cs | A | Fsm | Fsm
+        - Cs | A | Fsm | Fsm
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Cs | A | Fsm | Fsm
+        - Cs | A | Fsm | Fsm
+        - Cs | A | Fsm | Fsm
+        - Cs | A | Fsm | Fsm
+        drum_sequence: null
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: refrain
+        section_body: '{\color{red}stop \sharp~39}'
+        color: null
+        link: refrain1
+    - id: nc
+      item: NewColumn
+    - id: pont1
+      item: !Chords
+        title: pont 1
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - Cs | A | Fsm | Fsm
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: refrain
+        section_body: '{\color{green}pas de stop !}'
+        color: null
+        link: refrain1
+    - id: pont2
+      item: !Chords
+        title: pont 2
+        type: pont
+        section_body: '{\color{red} stop \sharp~75}'
+        color: null
+        rows:
+        - Cs | A | Fsm | Fsm
+        - Cs | A | Fsm | Fsm
+        drum_sequence: null
+    - id: refrain4
+      item: !Ref
+        title: refrain 4
+        type: refrain
+        section_body: '{\color{red} stop \sharp~83}'
+        color: null
+        link: refrain1
+- - u2/song_for_someone/song.yml
+  - !Song
+    files:
+      lilypond:
+      - couplet.ly
+      - prerefrain.ly
+      - solo.ly
+      tex: []
+      wav: []
+      has_clicks: true
+      has_mp3: true
+    info:
+      title: Song For Someone
+      author: U2
+      tempo: 105
+      time_signature: null
+      tags:
+      - sunny-bd
+      - concert-mai-2026
+    meta:
+      date: 2025-11-29
+      digest: 67db264bf35004a21287203c74a25654
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - E| E | Fs | Gs | x2
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - E| E | Fs | Gs | x4
+        drum_sequence: null
+    - id: prerefrain1
+      item: !Chords
+        title: pré refrain 1
+        type: prerefrain
+        section_body: null
+        color: null
+        rows:
+        - 'E| B | Fs | Gsm | x2 '
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - E| B | Fs | Gsm | x2
+        drum_sequence: null
+    - id: fill
+      item: !Chords
+        title: fill
+        type: fill
+        section_body: null
+        color: null
+        rows:
+        - HRest
+        drum_sequence: null
+    - id: couplet2
+      item: !Chords
+        title: couplet 2
+        type: couplet2
+        section_body: null
+        color: null
+        rows:
+        - E| E | Fs | Gs | x2
+        - E| B | Fs | Gs | x2
+        drum_sequence: null
+    - id: prerefrain2
+      item: !Ref
+        title: pré refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: prerefrain1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: solo
+      item: !Chords
+        title: solo
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - E| B | Gsm | Cs | x2
+        drum_sequence: null
+    - id: outtro
+      item: !Chords
+        title: outtro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - E| G | Fs | Gsm | x4
+        drum_sequence: null
 - - alannah_myles/black_velvet/song.yml
   - !Song
     files:
@@ -141,1106 +1662,6 @@ items:
         section_body: null
         color: null
         link: refrain1
-- - amy_winehouse/you_know_i_m_no_good/song.yml
-  - !Song
-    files:
-      lilypond:
-      - intro.ly
-      - couplet.ly
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: you know I'm no good
-      author: Amy Winehouse
-      tempo: 103
-      time_signature: null
-      tags:
-      - sunny-bd
-    meta:
-      date: 2025-10-26
-      digest: fddae9783ed01293cf3bd57800b2bfc2
-    structure:
-    - id: intro_batteriex
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - 'HRest | HRest '
-        drum_sequence: null
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Dm | Dm | Dm | Dm
-        drum_sequence: null
-    - id: couplet_1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Dm | Gm | A | Dm
-        - 'Dm | Gm | A | Dm '
-        - 'Gm | Gm | E | E '
-        - F | F | E7 | A
-        drum_sequence: null
-    - id: refrain_1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - Dm | Am | E | Am
-        - Dm | Am | E | Am
-        drum_sequence: null
-    - id: nc
-      item: NewColumn
-    - id: hr
-      item: !HRule 67
-    - id: pont
-      item: !Chords
-        title: pont
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - HRest | HRest
-        drum_sequence: null
-    - id: couplet_2
-      item: !Ref
-        title: couplet 2
-        type: null
-        section_body: null
-        color: null
-        link: couplet_1
-    - id: refrain_2
-      item: !Ref
-        title: refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: refrain_1
-    - id: hr
-      item: !HRule 70
-    - id: pont_guitare
-      item: !Ref
-        title: pont guitare
-        type: null
-        section_body: null
-        color: null
-        link: intro
-    - id: couplet_3
-      item: !Ref
-        title: couplet 3
-        type: null
-        section_body: null
-        color: null
-        link: couplet_1
-    - id: refrain_3
-      item: !Ref
-        title: refrain 3
-        type: null
-        section_body: null
-        color: null
-        link: refrain_1
-    - id: refrain_4
-      item: !Ref
-        title: refrain 4
-        type: null
-        section_body: null
-        color: null
-        link: refrain_1
-- - axel_bauer/eteins_la_lumiere/song.yml
-  - !Song
-    files:
-      lilypond:
-      - pont2.ly
-      tex: []
-      wav:
-      - pont2.wav
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Eteins La Lumière
-      author: Axel Bauer
-      tempo: 146
-      time_signature: null
-      tags:
-      - move-the-line
-      - truskel-2025
-    meta:
-      date: 2025-10-26
-      digest: 3b3d94f04697065d8e87947cadba979a
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: '\ \songbookcomment{1 ligne (g) seule, 2 lignes (gbd)} '
-        color: null
-        rows:
-        - Am | Am | Dsus4 | Dsus4 | x3
-        drum_sequence: null
-    - id: couplet1_2
-      item: !Chords
-        title: couplet 1 et 2
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Am | Am | Dsus4 | Dsus4 | x4
-        drum_sequence: null
-    - id: prerefrain1
-      item: !Chords
-        title: pré refrain 1
-        type: prerefrain
-        section_body: null
-        color: null
-        rows:
-        - F | Am | F | Am
-        - 'F | Am | B | F '
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - Am|F|Am|F
-        - Am|B|B|F
-        - F
-        drum_sequence: null
-    - id: pont
-      item: !Chords
-        title: pont
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - A|A|Dsus4|Dsus4|x2
-        drum_sequence: null
-    - id: couplet3_4
-      item: !Ref
-        title: couplet 3 et 4
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1_2
-    - id: prerefrain2
-      item: !Ref
-        title: pré refrain 2
-        type: prerefrain
-        section_body: null
-        color: null
-        link: prerefrain1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: nc
-      item: NewColumn
-    - id: pont2
-      item: !Chords
-        title: pont2
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - Am|Am|Am|Am
-        - Am|Am|D|D
-        - D|D|D|D
-        drum_sequence: null
-    - id: pont3
-      item: !Chords
-        title: pont3
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - Am|Am|Am|Am
-        drum_sequence: null
-    - id: solog
-      item: !Chords
-        title: solo guitare
-        type: solo
-        section_body: null
-        color: null
-        rows:
-        - Am|Am|Dsus4|Dsus4|x2
-        drum_sequence: null
-    - id: solob
-      item: !Chords
-        title: solo basse
-        type: solo
-        section_body: null
-        color: null
-        rows:
-        - Am|Am|Dsus4|Dsus4|x2
-        drum_sequence: null
-    - id: couplet5
-      item: !Chords
-        title: couplet5
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Am|Am|Dsus4|Dsus4
-        drum_sequence: null
-    - id: prerefrain3
-      item: !Ref
-        title: pré refrain 3
-        type: prerefrain
-        section_body: null
-        color: null
-        link: prerefrain1
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: outro-chant
-      item: !Chords
-        title: outro chant
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Am|Am|Dsus4|Dsus4|x2
-        drum_sequence: null
-    - id: outro
-      item: !Chords
-        title: outro
-        type: intro
-        section_body: \songbookcomment{stop sur le 1 après}
-        color: null
-        rows:
-        - Am|Am|Dsus4|F|x2
-        drum_sequence: null
-- - bashung/la_nuit_je_mens/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex:
-      - body.tex
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: La Nuit Je Mens
-      author: Bashung
-      tempo: 147
-      time_signature: null
-      tags:
-      - move-the-line
-    meta:
-      date: 2025-10-26
-      digest: 8d6d142cde85e66dc7e4de5f29d00d44
-    structure:
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - G Em | Bm | G A | Bm |
-        - A|Asus4|G|G|
-        - A|Asus4|G|Bm|
-        - A|Em|Em
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - 'Bm | G | Bm | G '
-        - Em| A|Em|Em
-        drum_sequence: null
-    - id: fill1
-      item: !Chords
-        title: fill 1
-        type: refrainb
-        section_body: null
-        color: null
-        rows:
-        - G Em|Bm
-        drum_sequence: null
-    - id: nc
-      item: NewColumn
-    - id: couplet2
-      item: !Chords
-        title: couplet 2
-        type: couplet2
-        section_body: null
-        color: null
-        rows:
-        - G Em|Bm|G Em|Bm
-        - A|A|Fsm|Bm
-        - A|Bm|Em|G
-        - A|Em
-        drum_sequence: null
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: fill2
-      item: !Ref
-        title: fill 2
-        type: null
-        section_body: null
-        color: null
-        link: fill1
-    - id: couplet3
-      item: !Chords
-        title: couplet 3
-        type: couplet3
-        section_body: null
-        color: null
-        rows:
-        - G Em | Bm | G A | Bm |
-        - A|Asus4|G|G|
-        drum_sequence: null
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: refrain4
-      item: !Ref
-        title: refrain 4
-        type: null
-        section_body: \songbookcomment{instrumental}
-        color: null
-        link: refrain1
-    - id: refrain5
-      item: !Ref
-        title: refrain 5
-        type: null
-        section_body: \songbookcomment{fade out}
-        color: null
-        link: refrain1
-- - bb_brunes/coups_et_blessures/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Coups Et Blessures
-      author: BB Brunes
-      tempo: 120
-      time_signature: null
-      tags:
-      - move-the-line
-    meta:
-      date: 2025-11-06
-      digest: f256d32d3f39516acd1c98c5fc3e6473
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - D | D | Bm | Bm |
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - D | D | Bm | Bm | x2
-        - G |  A | Bm | A |
-        - G | A | D | HRest |
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - G  A | D | G A | Bm
-        - A | A | G | G |
-        drum_sequence: null
-    - id: pont1
-      item: !Chords
-        title: pont 1
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - D | D | Bm | Bm | x2
-        drum_sequence: null
-    - id: nr
-      item: NewColumn
-    - id: couplet2
-      item: !Chords
-        title: couplet 2
-        type: couplet2
-        section_body: null
-        color: null
-        rows:
-        - D | D | Bm | Bm | x2
-        - G  A | Bm Em | G A | Bm Em |
-        - G  A | Bm Em | G A | D |
-        drum_sequence: null
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: pont2
-      item: !Ref
-        title: pont 2
-        type: null
-        section_body: null
-        color: null
-        link: pont1
-    - id: interlude
-      item: !Chords
-        title: interlude
-        type: interlude
-        section_body: null
-        color: null
-        rows:
-        - G A  | Bm Em |  G A  |  Bm D
-        - G A  | Bm Em |  G A  |  HRest
-        drum_sequence: null
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: pont3
-      item: !Ref
-        title: pont 3
-        type: null
-        section_body: null
-        color: null
-        link: pont1
-    - id: outtro
-      item: !Chords
-        title: final
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - G | A | Bm | D| x4
-        drum_sequence: null
-- - black_keys/lonely_boy/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Lonely Boy
-      author: Black Keys
-      tempo: 86
-      time_signature: null
-      tags:
-      - move-the-line
-      - truskel-2025
-    meta:
-      date: 2025-10-26
-      digest: 64abf92fcb9b3675cd54e7bf1f9d97e7
-    structure:
-    - id: riff1
-      item: !Chords
-        title: riff A
-        type: riff
-        section_body: null
-        color: null
-        rows:
-        - Em | Em |Em |Em |
-        drum_sequence: null
-    - id: riff2
-      item: !Chords
-        title: riff B
-        type: riff
-        section_body: null
-        color: null
-        rows:
-        - Em | A |Em |A |
-        drum_sequence: null
-    - id: riff3
-      item: !Chords
-        title: riff C
-        type: riff
-        section_body: null
-        color: null
-        rows:
-        - Em | Em |Em |Em |
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Em | G A |Em |G A |x2
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - Em | G A |Em |G A |x2
-        drum_sequence: null
-    - id: riff-c2
-      item: !Ref
-        title: riff C
-        type: riff
-        section_body: null
-        color: null
-        link: riff3
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: riff-a2
-      item: !Ref
-        title: riff A
-        type: riff
-        section_body: null
-        color: null
-        link: riff2
-    - id: riff-b2
-      item: !Ref
-        title: riff B
-        type: riff
-        section_body: null
-        color: null
-        link: riff2
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-- - bowie/modern_love/song.yml
-  - !Song
-    files:
-      lilypond:
-      - chordsrefrain.ly
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Modern Love
-      author: David Bowie
-      tempo: 91
-      time_signature: null
-      tags:
-      - move-the-line
-      - truskel-2025
-    meta:
-      date: 2025-10-26
-      digest: 8a61b877ace8f1e58c1f8eccd952ff67
-    structure:
-    - id: introdg
-      item: !Chords
-        title: intro g-d
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Em | Em | Em | Em
-        drum_sequence: null
-    - id: intro
-      item: !Chords
-        title: intro
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - Em | C | D | Em
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - C | C | G | Am
-        - E7 | F | C | G
-        - 'Em '
-        drum_sequence: null
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - C|D|Em|F|x3
-        drum_sequence: null
-    - id: pont
-      item: !Ref
-        title: pont
-        type: null
-        section_body: null
-        color: null
-        link: intro
-    - id: solo
-      item: !Ref
-        title: solo
-        type: solo
-        section_body: null
-        color: null
-        link: couplet1
-    - id: couplet3
-      item: !Ref
-        title: couplet 3
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-- - capdevielle/quand_t_es_dans_le_desert/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Quand T'Es Dans Le Désert
-      author: Capdevielle
-      tempo: 155
-      time_signature: null
-      tags:
-      - move-the-line
-      - truskel-2025
-    meta:
-      date: 2025-10-26
-      digest: baa5bb0136672b5e265d33ea9bd65258
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - 'D|E|F|Fs '
-        - G|G|Am|D
-        - Am|D|Am|D
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Am|Am|Em|Em
-        - G|G|Am|Am
-        - Am|Am|Em|Em
-        - G|G|Am|Am
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - C|G|Am|Am
-        - C|G|D|D
-        drum_sequence: null
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: couplet3
-      item: !Ref
-        title: couplet 3
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: couplet4
-      item: !Ref
-        title: couplet 4
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain4
-      item: !Ref
-        title: refrain 4
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-- - dandy_warhols/bohemian_like_you/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Bohemian Like You
-      author: Dandy Warhols
-      tempo: 132
-      time_signature: null
-      tags:
-      - move-the-line
-      - truskel-2025
-    meta:
-      date: 2025-10-26
-      digest: 89f75d6a3df95d4925fd5b34fb12ed3e
-    structure:
-    - id: introb
-      item: !Chords
-        title: intro b
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - ' HRest | HRest | HRest | HRest | x2'
-        drum_sequence: null
-    - id: introg
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - ' B | D | A | E | x2'
-        drum_sequence: null
-    - id: fill1
-      item: !Chords
-        title: fill
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - B|B|B|B
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - ' B | D | A | E | x2'
-        drum_sequence: null
-    - id: fill2
-      item: !Ref
-        title: fill
-        type: fill
-        section_body: null
-        color: null
-        link: fill1
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: prerefrain1
-      item: !Chords
-        title: pré refrain 1
-        type: prerefrain
-        section_body: null
-        color: null
-        rows:
-        - ' B | D | A | E | x2'
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - ' B | D | A | E | x2'
-        drum_sequence: null
-    - id: fill3
-      item: !Chords
-        title: fill
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - B|B|B|HRest
-        drum_sequence: null
-    - id: couplet3
-      item: !Ref
-        title: couplet 3
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: prerefrain2
-      item: !Ref
-        title: pré refrain 2
-        type: prerefrain
-        section_body: null
-        color: null
-        link: prerefrain1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: pont
-      item: !Chords
-        title: pont
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - B|D|A|E|x4
-        drum_sequence: null
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: outtro
-      item: !Chords
-        title: outtro
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - B|B|B|B
-        - B HRest|B HRest
-        drum_sequence: null
-- - depeche_mode/enjoy_the_silence/song.yml
-  - !Song
-    files:
-      lilypond:
-      - riff.ly
-      - chordscouplet.ly
-      - chordsrefrain.ly
-      tex:
-      - body.tex
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Enjoy The Silence
-      author: Depeche Mode
-      tempo: 113
-      time_signature: null
-      tags:
-      - sunny-bd
-    meta:
-      date: 2025-10-26
-      digest: c3d6e0ba46b1cd37b15936d18f6bb18b
-    structure:
-    - id: introbatterie
-      item: !Chords
-        title: intro batterie / basse / clavier
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - 'HRest | HRest | HRest | HRest '
-        drum_sequence: null
-    - id: riff1
-      item: !Chords
-        title: riff
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - 'Cm| Efm| Cm| Efm '
-        - 'Cm | Efm | Cm | Efm '
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: \newline \subimport{chordscouplet.output}{chordscouplet}
-        color: null
-        rows:
-        - 'Cm| Efm| Af| Af '
-        - 'Cm | Efm | Af | Af '
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: \newline \subimport{chordsrefrain.output}{chordsrefrain}
-        color: null
-        rows:
-        - 'Fm | Af | Cm | Bf '
-        - 'Fm | Af | Cm | B '
-        drum_sequence: null
-    - id: fill1
-      item: !Chords
-        title: fill
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - 'B '
-        drum_sequence: null
-    - id: pontbatterie
-      item: !Chords
-        title: batterie
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - 'HRest | HRest '
-        drum_sequence: null
-    - id: hh
-      item: !HRule 80
-    - id: nc
-      item: NewColumn
-    - id: riff2
-      item: !Ref
-        title: riff 2
-        type: pont
-        section_body: null
-        color: null
-        link: riff1
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: fill2
-      item: !Ref
-        title: fill 2
-        type: refrain
-        section_body: null
-        color: null
-        link: fill1
-    - id: hh
-      item: !HRule 80
-    - id: riff3
-      item: !Ref
-        title: riff 3
-        type: pont
-        section_body: null
-        color: null
-        link: riff1
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: refrain4
-      item: !Ref
-        title: refrain 4
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
 - - dionysos/song_for_jedi/song.yml
   - !Song
     files:
@@ -1367,7 +1788,7 @@ items:
         section_body: null
         color: null
         link: refrain1
-- - dolly/je_n_veux_pas_rester_sage/song.yml
+- - bb_brunes/coups_et_blessures/song.yml
   - !Song
     files:
       lilypond: []
@@ -1376,16 +1797,15 @@ items:
       has_clicks: false
       has_mp3: false
     info:
-      title: Je N'Veux Pas Rester Sage
-      author: Dolly
-      tempo: 98
+      title: Coups Et Blessures
+      author: BB Brunes
+      tempo: 120
       time_signature: null
       tags:
       - move-the-line
-      - truskel-2025
     meta:
-      date: 2025-10-26
-      digest: 3715f66b0aed6eeae4af4bb74bff2350
+      date: 2025-11-06
+      digest: f256d32d3f39516acd1c98c5fc3e6473
     structure:
     - id: intro
       item: !Chords
@@ -1394,7 +1814,7 @@ items:
         section_body: null
         color: null
         rows:
-        - Gm Bf | F | Gm Bf | F |
+        - D | D | Bm | Bm |
         drum_sequence: null
     - id: couplet1
       item: !Chords
@@ -1403,152 +1823,20 @@ items:
         section_body: null
         color: null
         rows:
-        - Gm Bf | F | Gm Bf | F | x2
-        drum_sequence: null
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - 'Ef | Ef | F | F '
-        - 'Ef | Ef | F | HRest '
-        drum_sequence: null
-    - id: fill1
-      item: !Chords
-        title: fill1
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - Gm Bf | F | Gm Bf | F |
-        drum_sequence: null
-    - id: couplet3
-      item: !Ref
-        title: couplet 3
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: couplet4
-      item: !Ref
-        title: couplet 4
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: interlude
-      item: !Chords
-        title: interlude
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - Am|C|D|F|x2
-        - Am|Am|Am|Am
-        drum_sequence: null
-    - id: couplet5
-      item: !Chords
-        title: couplet 5
-        type: couplet2
-        section_body: null
-        color: null
-        rows:
-        - Am C|G|Am C|G|x2
-        drum_sequence: null
-    - id: refrain3
-      item: !Chords
-        title: refrain 3
-        type: refrainb
-        section_body: null
-        color: null
-        rows:
-        - F |F|G|G|x4
-        drum_sequence: null
-    - id: solo
-      item: !Chords
-        title: solo
-        type: solo
-        section_body: null
-        color: null
-        rows:
-        - F |F|G|G|x4
-        drum_sequence: null
-- - estelle/american_boy/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: American Boy
-      author: Estelle / K. West / Cocoon
-      tempo: 118
-      time_signature: null
-      tags:
-      - sunny-bd
-    meta:
-      date: 2025-10-26
-      digest: 212c1a88a18c64fc80ffb331608a066e
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Cs | A | Fsm | Fsm
-        - Cs | A | Fsm | Fsm
+        - D | D | Bm | Bm | x2
+        - G |  A | Bm | A |
+        - G | A | D | HRest |
         drum_sequence: null
     - id: refrain1
       item: !Chords
         title: refrain 1
         type: refrain
-        section_body: '{\color{red}stop \sharp~15}'
-        color: null
-        rows:
-        - Cs | A | Fsm | Fsm
-        - Cs | A | Fsm | Fsm
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
         section_body: null
         color: null
         rows:
-        - Cs | A | Fsm | Fsm
-        - Cs | A | Fsm | Fsm
-        - Cs | A | Fsm | Fsm
-        - Cs | A | Fsm | Fsm
+        - G  A | D | G A | Bm
+        - A | A | G | G |
         drum_sequence: null
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: refrain
-        section_body: '{\color{red}stop \sharp~39}'
-        color: null
-        link: refrain1
-    - id: nc
-      item: NewColumn
     - id: pont1
       item: !Chords
         title: pont 1
@@ -1556,230 +1844,35 @@ items:
         section_body: null
         color: null
         rows:
-        - Cs | A | Fsm | Fsm
+        - D | D | Bm | Bm | x2
         drum_sequence: null
+    - id: nr
+      item: NewColumn
     - id: couplet2
-      item: !Ref
+      item: !Chords
         title: couplet 2
-        type: couplet
+        type: couplet2
         section_body: null
         color: null
-        link: couplet1
-    - id: refrain3
+        rows:
+        - D | D | Bm | Bm | x2
+        - G  A | Bm Em | G A | Bm Em |
+        - G  A | Bm Em | G A | D |
+        drum_sequence: null
+    - id: refrain2
       item: !Ref
-        title: refrain 3
-        type: refrain
-        section_body: '{\color{green}pas de stop !}'
+        title: refrain 2
+        type: null
+        section_body: null
         color: null
         link: refrain1
     - id: pont2
-      item: !Chords
+      item: !Ref
         title: pont 2
-        type: pont
-        section_body: '{\color{red} stop \sharp~75}'
-        color: null
-        rows:
-        - Cs | A | Fsm | Fsm
-        - Cs | A | Fsm | Fsm
-        drum_sequence: null
-    - id: refrain4
-      item: !Ref
-        title: refrain 4
-        type: refrain
-        section_body: '{\color{red} stop \sharp~83}'
-        color: null
-        link: refrain1
-- - eurythmics/sweet_dreams/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Sweet Dreams (Are Made of This)
-      author: Eurythmics
-      tempo: 80
-      time_signature: null
-      tags:
-      - move-the-line
-    meta:
-      date: 2025-10-26
-      digest: fb4c9edc3e2de388bbe9429fc4371067
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Cm | Af G | Cm | Af G
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Cm | Af G | Cm | Af G|x2
-        drum_sequence: null
-    - id: hr1
-      item: !HRule 80
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
         type: null
         section_body: null
         color: null
-        link: couplet1
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - 'Af | Af G | Cm | Fm '
-        - Af | G7
-        drum_sequence: null
-    - id: 'couplet3 '
-      item: !Ref
-        title: couplet 3
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: hr
-      item: !HRule 80
-    - id: interlude
-      item: !Chords
-        title: interlude
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - 'Cm | F Bf | Cm| F Bf|x2 '
-        drum_sequence: null
-    - id: couplet4
-      item: !Ref
-        title: couplet 4
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: couplet5
-      item: !Ref
-        title: couplet 5
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: pont
-      item: !Chords
-        title: pont
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - 'Fm | Fm G | Cm| Fm | '
-        - 'Af | G7 | '
-        drum_sequence: null
-    - id: fin
-      item: !Chords
-        title: fin
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Cm
-        drum_sequence: null
-- - feu_chatterton/un_monde_nouveau/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex: []
-      wav: []
-      has_clicks: true
-      has_mp3: true
-    info:
-      title: Un Monde Nouveau
-      author: Feu Chatterton
-      tempo: 107
-      time_signature: null
-      tags:
-      - move-the-line
-    meta:
-      date: 2025-11-06
-      digest: e8cd85b85f95331de4df5b3e67bf7f69
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - B | Gsm | E | Cs
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - B | Gsm | E | Cs | x2
-        drum_sequence: null
-    - id: prerefrain1
-      item: !Chords
-        title: pré refrain 1
-        type: prerefrain
-        section_body: null
-        color: null
-        rows:
-        - Gsm | Gsm | Gsm | E7M | x2
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - B | Gsm | E | Cs | x3
-        - Gsm | Gsm | Gsm | E7M
-        drum_sequence: null
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: prerefrain2
-      item: !Ref
-        title: pré refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: prerefrain1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
+        link: pont1
     - id: interlude
       item: !Chords
         title: interlude
@@ -1787,602 +1880,33 @@ items:
         section_body: null
         color: null
         rows:
-        - HRest
-        - B | | E | Cs | B | x2
-        - B | E | Cs HRest |
-        - B | Gsm | E | Cs |
+        - G A  | Bm Em |  G A  |  Bm D
+        - G A  | Bm Em |  G A  |  HRest
         drum_sequence: null
-    - id: final
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: pont3
+      item: !Ref
+        title: pont 3
+        type: null
+        section_body: null
+        color: null
+        link: pont1
+    - id: outtro
       item: !Chords
         title: final
         type: intro
         section_body: null
         color: null
         rows:
-        - B | Gsm | E | Cs | x2
+        - G | A | Bm | D| x4
         drum_sequence: null
-- - luke/la_sentinelle/song.yml
-  - !Song
-    files:
-      lilypond:
-      - couplet1.ly
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: La Sentinelle
-      author: Luke
-      tempo: 94
-      time_signature: null
-      tags:
-      - move-the-line
-      - truskel-2025
-    meta:
-      date: 2025-10-26
-      digest: c7907ceece45412d235d0ca2b83e25cd
-    structure:
-    - id: introg
-      item: !Chords
-        title: intro g
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Em Bm|Em Bm|Em Bm |Em Bm|
-        drum_sequence: null
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Em Bm|Em Bm|Em Bm |Em Bm|
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Em Bm|Em HRest|Em Bm |Em Bm
-        - Em Bm|Em Bm|
-        - Em Bm|Em HRest|Em Bm |Em Bm
-        drum_sequence: null
-    - id: prerefrain1
-      item: !Chords
-        title: pré refrain 1
-        type: prerefrain
-        section_body: null
-        color: null
-        rows:
-        - G|G HRest
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - Em Am|G Bm|Em Am|G Bm
-        - 'Em Am|G Bm|C|Am '
-        drum_sequence: null
-    - id: fill1
-      item: !Chords
-        title: fill 1
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - Em Bm|Em Bm|
-        drum_sequence: null
-    - id: nc
-      item: NewColumn
-    - id: couplet2
-      item: !Chords
-        title: couplet 2
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Em Bm|Em HRest|Em Bm |Em Bm
-        - Em Bm|
-        - Em Bm|Em HRest|Em Bm |Em Bm
-        drum_sequence: null
-    - id: prerefrain2
-      item: !Ref
-        title: pré refrain 2
-        type: prerefrain
-        section_body: null
-        color: null
-        link: prerefrain1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: solo
-      item: !Ref
-        title: solo
-        type: solo
-        section_body: null
-        color: null
-        link: refrain1
-    - id: fill2
-      item: !Ref
-        title: fill2
-        type: null
-        section_body: null
-        color: null
-        link: fill1
-    - id: interlude
-      item: !Chords
-        title: interlude
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - D Em|D Em|D Em|C
-        drum_sequence: null
-    - id: couplet2
-      item: !Chords
-        title: couplet 3
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Em Bm|Em HRest|Em Bm |Em Bm
-        drum_sequence: null
-    - id: prerefrain3
-      item: !Ref
-        title: pré refrain 3
-        type: prerefrain
-        section_body: null
-        color: null
-        link: prerefrain1
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: outtro
-      item: !Chords
-        title: outtro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Em Bm|Em Bm|Em Bm |Em Bm
-        drum_sequence: null
-- - mademoiselle_k/ca_me_vexe/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex:
-      - body.tex
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Ca me vexe
-      author: Mademoiselle K
-      tempo: 140
-      time_signature: null
-      tags:
-      - move-the-line
-    meta:
-      date: 2025-10-27
-      digest: 94fb533e610b0d2149efc55bde56d7d6
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Em|Em|Em|G
-        - Em|G|C7|G
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Em|G|Am|C7|x2
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - Em|G|Am|C7|x3
-        drum_sequence: null
-    - id: couplet2a
-      item: !Chords
-        title: couplet 2a
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Em|G|Am|C7|x2
-        drum_sequence: null
-    - id: couplet2b
-      item: !Chords
-        title: couplet 2b
-        type: couplet2
-        section_body: null
-        color: null
-        rows:
-        - Em|G|Am|C7|
-        drum_sequence: null
-    - id: couplet2c
-      item: !Chords
-        title: couplet 2c
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Em|G|Am|C7|x2
-        drum_sequence: null
-    - id: refrain2
-      item: !Chords
-        title: refrain 2
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - Em|G|Am|C|x2
-        drum_sequence: null
-    - id: nc
-      item: NewColumn
-    - id: couplet3a
-      item: !Chords
-        title: couplet 3a
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Em|G|Am|C7|x3
-        drum_sequence: null
-    - id: couplet3b
-      item: !Chords
-        title: couplet 3b
-        type: couplet2
-        section_body: null
-        color: null
-        rows:
-        - Em|G|Am|C7|x2
-        drum_sequence: null
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: lh
-      item: !HRule 100
-    - id: interlude
-      item: !Chords
-        title: interlude
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - HRest|Em|G|Am|
-        - Em|G|Am|C7|x3
-        drum_sequence: null
-    - id: final
-      item: !Chords
-        title: final
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Em|G|Am|C7|
-        - Em|G|A|C7|
-        drum_sequence: null
-- - maroon5/misery/song.yml
-  - !Song
-    files:
-      lilypond:
-      - couplet.ly
-      - refrain.ly
-      - pont.ly
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Misery
-      author: Maroon 5
-      tempo: 103
-      time_signature: null
-      tags: []
-    meta:
-      date: 2025-10-26
-      digest: 79d4c1025d9e71eda67420d0f2ae92e7
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - C|B|C|B
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - C|B|C|B
-        - C|B|C|B
-        - C|B
-        drum_sequence: null
-- - maroon5/this_love/song.yml
-  - !Song
-    files:
-      lilypond:
-      - couplet.ly
-      - refrain.ly
-      - pont.ly
-      - chordspont.ly
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: This Love
-      author: Maroon 5
-      tempo: 95
-      time_signature: null
-      tags:
-      - sunny-bd
-    meta:
-      date: 2025-10-26
-      digest: 8d572f38480a92e9bf07dbaa5df033bd
-    structure:
-    - id: intro1
-      item: !Chords
-        title: intro d/b
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - G7 | Cm7 | Fm7 | Afdim
-        drum_sequence: null
-    - id: intro
-      item: !Chords
-        title: intro tous
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - G7 | Cm7 | Fm7 | Afdim
-        drum_sequence: null
-    - id: couplet_1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - G7 | Cm7 | Fm7 | Afdim
-        - G7 | Cm7 | Fm7 | Afdim
-        drum_sequence: null
-    - id: refrain_1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - Cm Fm7 | Bf Ef | Cm Fm7 | Bf Ef
-        - Cm Fm7 | Bf Ef | Cm7 F7 | Af G
-        drum_sequence: null
-    - id: couplet_2
-      item: !Chords
-        title: \textonehalf~couplet 2
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - G7 | Cm7 | Fm7 | Afdim
-        drum_sequence: null
-    - id: couplet_3
-      item: !Ref
-        title: couplet 3
-        type: couplet
-        section_body: '{\color{red} stop \sharp 29}'
-        color: null
-        link: couplet_1
-    - id: refrain_2
-      item: !Ref
-        title: refrain 2
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain_1
-    - id: nc
-      item: NewColumn
-    - id: couplet_4
-      item: !Chords
-        title: \textonehalf~couplet 4
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - G7 | Cm7 | Fm7 | Afdim
-        drum_sequence: null
-    - id: pont
-      item: !Chords
-        title: pont
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - 'Fm7 | Ef7M | Fdim | Cm7 '
-        - Fm7 | Ef7M | Afdim | Afdim
-        drum_sequence: null
-    - id: refrain_3
-      item: !Ref
-        title: refrain 3
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain_1
-    - id: refrain_4
-      item: !Ref
-        title: refrain 4
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain_1
-- - matmatah/au_conditionnel/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Au Conditionnel
-      author: Matmatah
-      tempo: 94
-      time_signature: null
-      tags:
-      - move-the-line
-      - truskel-2025
-    meta:
-      date: 2025-10-26
-      digest: e8f8ba23bf104a66ffb575557b17e5e2
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - 'E Csm | E Csm | E Csm | B '
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - E Csm | E Csm | E Csm | B | x2
-        drum_sequence: null
-    - id: prerefrain1
-      item: !Chords
-        title: pré refrain 1
-        type: prerefrain
-        section_body: null
-        color: null
-        rows:
-        - B|B|B
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - E Csm|Gsm B|E Gs|A|x2
-        drum_sequence: null
-    - id: pont
-      item: !Chords
-        title: pont
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - E Csm|Gsm B|E Gs|A|
-        drum_sequence: null
-    - id: couplet2
-      item: !Ref
-        title: couplet2
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: prerefrain2
-      item: !Ref
-        title: pré refrain 2
-        type: prerefrain
-        section_body: null
-        color: null
-        link: prerefrain1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: interlude
-      item: !Chords
-        title: interlude
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - Fsm A | Fsm A | Fsm A | Csm | x2
-        - Csm
-        drum_sequence: null
-    - id: prerefrain3
-      item: !Chords
-        title: pré refrain 3
-        type: prerefrain
-        section_body: null
-        color: null
-        rows:
-        - B|B|B|B
-        drum_sequence: null
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: refrain4
-      item: !Ref
-        title: refrain 4
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: outtro
-      item: !Chords
-        title: outtro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - E
-        drum_sequence: null
-- - muse/can_t_take_my_eyes_off_you/song.yml
+- - rasmus/in_the_shadows/song.yml
   - !Song
     files:
       lilypond: []
@@ -2391,17 +1915,35 @@ items:
       has_clicks: true
       has_mp3: true
     info:
-      title: Can't Take My Eyes Off You
-      author: Muse
-      tempo: 127
+      title: In The Shadows
+      author: The Rasmus
+      tempo: 106
       time_signature: null
       tags:
       - sunny-bd
       - concert-mai-2026
     meta:
-      date: 2025-10-26
-      digest: 6abee4e08449a9f07ae199350ec7e968
+      date: 2025-11-29
+      digest: 56d48fd9318d55a2ba498a3eb1f8419a
     structure:
+    - id: pad
+      item: !Chords
+        title: pad
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - E | E | E | E
+        drum_sequence: null
+    - id: padg
+      item: !Chords
+        title: pad+g
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - E | Gsm | Csm | Gsm |
+        drum_sequence: null
     - id: intro
       item: !Chords
         title: intro
@@ -2409,7 +1951,7 @@ items:
         section_body: null
         color: null
         rows:
-        - 'F| F7M | F | F '
+        - E | Gsm | Csm | Gsm | x2
         drum_sequence: null
     - id: couplet1
       item: !Chords
@@ -2418,10 +1960,25 @@ items:
         section_body: null
         color: null
         rows:
-        - F| F | F7M |F7M
-        - F7| F7 | Bf | Bf
-        - Bfm | Bfm | F | F |
-        - Bf | Bfm |F|F
+        - E  | Gsm | Csm | Gsm | x4
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - E | Gsm | Csm | Gsm | x2
+        drum_sequence: null
+    - id: interlude
+      item: !Chords
+        title: interlude
+        type: interlude
+        section_body: null
+        color: null
+        rows:
+        - E | Gsm | Csm | Gsm | x2
         drum_sequence: null
     - id: couplet2
       item: !Ref
@@ -2430,6 +1987,13 @@ items:
         section_body: null
         color: null
         link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
     - id: pont
       item: !Chords
         title: pont
@@ -2437,63 +2001,41 @@ items:
         section_body: null
         color: null
         rows:
-        - Gm | C | F | F
-        - Gm | C | F | D7
-        - HRest
+        - E | E | Fs Gsm | Gsm B |
+        - Csm | Csm | Gsm | Gsm
         drum_sequence: null
-    - id: refrain
+    - id: fill
       item: !Chords
-        title: refrain
-        type: refrain
+        title: 1/2
+        type: fill
         section_body: null
         color: null
         rows:
-        - Gm | C | Am | Dm
-        - Gm | C | F | D7
-        - Gm | C | Am | Dm
-        - Gm | Gm | C | C
+        - ' HRest '
         drum_sequence: null
-    - id: couplet3
+    - id: refrain3
       item: !Ref
-        title: couplet 3
-        type: couplet
+        title: refrain 3
+        type: null
         section_body: null
         color: null
-        link: couplet1
-    - id: NC
-      item: NewColumn
-    - id: pont2
-      item: !Chords
-        title: pont 2
-        type: pont
+        link: refrain1
+    - id: refrain4
+      item: !Ref
+        title: refrain 4
+        type: null
         section_body: null
         color: null
-        rows:
-        - Gm | C | F | D7
-        - HRest
-        drum_sequence: null
-    - id: refrain2
+        link: refrain1
+    - id: final
       item: !Chords
-        title: refrain 2
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - Gm | C | Am | Dm
-        - Gm | C | F | D7
-        - Gm | C | Am | Dm
-        - Gm | Gm | C | C
-        drum_sequence: null
-    - id: outtro
-      item: !Chords
-        title: outtro
+        title: final
         type: intro
         section_body: null
         color: null
         rows:
-        - F| F | F7M |F7M
-        - F7| F7 | Bf | Bf
-        - Bfm
+        - E | Gsm | Csm | Gsm | x2
+        - E
         drum_sequence: null
 - - natalie_imbroglia/torn/song.yml
   - !Song
@@ -2747,6 +2289,661 @@ items:
         rows:
         - 'Am | Am | Am | Am '
         drum_sequence: null
+- - deportivo/roma/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex: []
+      wav: []
+      has_clicks: true
+      has_mp3: true
+    info:
+      title: Roma
+      author: Deportivo
+      tempo: 90
+      time_signature: null
+      tags:
+      - move-the-line
+    meta:
+      date: 2026-07-27
+      digest: null
+    structure:
+    - id: introb
+      item: !Chords
+        title: intro batterie
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - ' | HRest | HRest | '
+        drum_sequence: null
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - ' | Em D | Em D | Em D| Em D |'
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - ' | Em D | Em D | Em D| Em D |x2'
+        - ' | G Bm | Em D | G Bm | Em D|'
+        - ' G Bm |'
+        drum_sequence: null
+    - id: pont1
+      item: !Chords
+        title: pont
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - ' | Em D | Em D | |'
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - '|C G |G | C G | G |'
+        - '|C G |G | Am Em | C G |'
+        - '|Am Em |C Bm | '
+        drum_sequence: null
+    - id: nc
+      item: NewColumn
+    - id: pont3
+      item: !Ref
+        title: pont
+        type: null
+        section_body: null
+        color: null
+        link: pont1
+    - id: couplet3
+      item: !Ref
+        title: couplet 3
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: pont4
+      item: !Ref
+        title: pont
+        type: null
+        section_body: null
+        color: null
+        link: pont1
+- - bowie/modern_love/song.yml
+  - !Song
+    files:
+      lilypond:
+      - chordsrefrain.ly
+      tex: []
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: Modern Love
+      author: David Bowie
+      tempo: 91
+      time_signature: null
+      tags:
+      - move-the-line
+      - truskel-2025
+    meta:
+      date: 2025-10-26
+      digest: 8a61b877ace8f1e58c1f8eccd952ff67
+    structure:
+    - id: introdg
+      item: !Chords
+        title: intro g-d
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Em | Em | Em | Em
+        drum_sequence: null
+    - id: intro
+      item: !Chords
+        title: intro
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - Em | C | D | Em
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - C | C | G | Am
+        - E7 | F | C | G
+        - 'Em '
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - C|D|Em|F|x3
+        drum_sequence: null
+    - id: pont
+      item: !Ref
+        title: pont
+        type: null
+        section_body: null
+        color: null
+        link: intro
+    - id: solo
+      item: !Ref
+        title: solo
+        type: solo
+        section_body: null
+        color: null
+        link: couplet1
+    - id: couplet3
+      item: !Ref
+        title: couplet 3
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+- - luke/la_sentinelle/song.yml
+  - !Song
+    files:
+      lilypond:
+      - couplet1.ly
+      tex: []
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: La Sentinelle
+      author: Luke
+      tempo: 94
+      time_signature: null
+      tags:
+      - move-the-line
+      - truskel-2025
+    meta:
+      date: 2025-10-26
+      digest: c7907ceece45412d235d0ca2b83e25cd
+    structure:
+    - id: introg
+      item: !Chords
+        title: intro g
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Em Bm|Em Bm|Em Bm |Em Bm|
+        drum_sequence: null
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Em Bm|Em Bm|Em Bm |Em Bm|
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|Em Bm|
+        - Em Bm|Em HRest|Em Bm |Em Bm
+        drum_sequence: null
+    - id: prerefrain1
+      item: !Chords
+        title: pré refrain 1
+        type: prerefrain
+        section_body: null
+        color: null
+        rows:
+        - G|G HRest
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - Em Am|G Bm|Em Am|G Bm
+        - 'Em Am|G Bm|C|Am '
+        drum_sequence: null
+    - id: fill1
+      item: !Chords
+        title: fill 1
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - Em Bm|Em Bm|
+        drum_sequence: null
+    - id: nc
+      item: NewColumn
+    - id: couplet2
+      item: !Chords
+        title: couplet 2
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|
+        - Em Bm|Em HRest|Em Bm |Em Bm
+        drum_sequence: null
+    - id: prerefrain2
+      item: !Ref
+        title: pré refrain 2
+        type: prerefrain
+        section_body: null
+        color: null
+        link: prerefrain1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: solo
+      item: !Ref
+        title: solo
+        type: solo
+        section_body: null
+        color: null
+        link: refrain1
+    - id: fill2
+      item: !Ref
+        title: fill2
+        type: null
+        section_body: null
+        color: null
+        link: fill1
+    - id: interlude
+      item: !Chords
+        title: interlude
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - D Em|D Em|D Em|C
+        drum_sequence: null
+    - id: couplet2
+      item: !Chords
+        title: couplet 3
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Em Bm|Em HRest|Em Bm |Em Bm
+        drum_sequence: null
+    - id: prerefrain3
+      item: !Ref
+        title: pré refrain 3
+        type: prerefrain
+        section_body: null
+        color: null
+        link: prerefrain1
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: outtro
+      item: !Chords
+        title: outtro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Em Bm|Em Bm|Em Bm |Em Bm
+        drum_sequence: null
+- - axel_bauer/eteins_la_lumiere/song.yml
+  - !Song
+    files:
+      lilypond:
+      - pont2.ly
+      tex: []
+      wav:
+      - pont2.wav
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: Eteins La Lumière
+      author: Axel Bauer
+      tempo: 146
+      time_signature: null
+      tags:
+      - move-the-line
+      - truskel-2025
+    meta:
+      date: 2025-10-26
+      digest: 3b3d94f04697065d8e87947cadba979a
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: '\ \songbookcomment{1 ligne (g) seule, 2 lignes (gbd)} '
+        color: null
+        rows:
+        - Am | Am | Dsus4 | Dsus4 | x3
+        drum_sequence: null
+    - id: couplet1_2
+      item: !Chords
+        title: couplet 1 et 2
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Am | Am | Dsus4 | Dsus4 | x4
+        drum_sequence: null
+    - id: prerefrain1
+      item: !Chords
+        title: pré refrain 1
+        type: prerefrain
+        section_body: null
+        color: null
+        rows:
+        - F | Am | F | Am
+        - 'F | Am | B | F '
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - Am|F|Am|F
+        - Am|B|B|F
+        - F
+        drum_sequence: null
+    - id: pont
+      item: !Chords
+        title: pont
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - A|A|Dsus4|Dsus4|x2
+        drum_sequence: null
+    - id: couplet3_4
+      item: !Ref
+        title: couplet 3 et 4
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1_2
+    - id: prerefrain2
+      item: !Ref
+        title: pré refrain 2
+        type: prerefrain
+        section_body: null
+        color: null
+        link: prerefrain1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+    - id: nc
+      item: NewColumn
+    - id: pont2
+      item: !Chords
+        title: pont2
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - Am|Am|Am|Am
+        - Am|Am|D|D
+        - D|D|D|D
+        drum_sequence: null
+    - id: pont3
+      item: !Chords
+        title: pont3
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - Am|Am|Am|Am
+        drum_sequence: null
+    - id: solog
+      item: !Chords
+        title: solo guitare
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - Am|Am|Dsus4|Dsus4|x2
+        drum_sequence: null
+    - id: solob
+      item: !Chords
+        title: solo basse
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - Am|Am|Dsus4|Dsus4|x2
+        drum_sequence: null
+    - id: couplet5
+      item: !Chords
+        title: couplet5
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Am|Am|Dsus4|Dsus4
+        drum_sequence: null
+    - id: prerefrain3
+      item: !Ref
+        title: pré refrain 3
+        type: prerefrain
+        section_body: null
+        color: null
+        link: prerefrain1
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+    - id: outro-chant
+      item: !Chords
+        title: outro chant
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Am|Am|Dsus4|Dsus4|x2
+        drum_sequence: null
+    - id: outro
+      item: !Chords
+        title: outro
+        type: intro
+        section_body: \songbookcomment{stop sur le 1 après}
+        color: null
+        rows:
+        - Am|Am|Dsus4|F|x2
+        drum_sequence: null
+- - patty_smith/because_the_night/song.yml
+  - !Song
+    files:
+      lilypond:
+      - solo.ly
+      tex: []
+      wav: []
+      has_clicks: true
+      has_mp3: true
+    info:
+      title: Because The Night
+      author: Patty Smith
+      tempo: 96
+      time_signature: null
+      tags:
+      - sunny-bd
+      - concert-mai-2026
+    meta:
+      date: 2025-11-02
+      digest: bc988bde1359922c8f32e87dd6010a37
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Bm D | A Bm | Bm D | A Bm
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Bm D | A Bm | Bm D | A Bm | x2
+        drum_sequence: null
+    - id: prerefrain1
+      item: !Chords
+        title: pré refrain 1
+        type: prerefrain
+        section_body: null
+        color: null
+        rows:
+        - G A | D A | Bm G |G  A
+        - D G | D A| C |Bm |
+        - Fs |Fs
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - Bm G | G A | Bm G | G A | x2
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: prerefrain2
+      item: !Ref
+        title: pré refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: prerefrain1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: nc
+      item: NewColumn
+    - id: solo
+      item: !Chords
+        title: solo
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - G  A    | D   A   | Bm G    | G   A   |
+        - D  G    | G   A   | G       | G
+        drum_sequence: null
+    - id: pont
+      item: !Chords
+        title: pont
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - D    A    |     D       A      |         Bm       A | D A
+        - Bm        A  |      D        A | G D | G |
+        - Bm       |     D     |        G       |   Fs
+        drum_sequence: null
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: refrain4
+      item: !Ref
+        title: refrain 4
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
 - - oasis/rock_n_roll_star/song.yml
   - !Song
     files:
@@ -2903,26 +3100,24 @@ items:
         section_body: null
         color: null
         link: refrain1
-- - patty_smith/because_the_night/song.yml
+- - hoobastank/the-reason/song.yml
   - !Song
     files:
-      lilypond:
-      - solo.ly
+      lilypond: []
       tex: []
       wav: []
       has_clicks: true
       has_mp3: true
     info:
-      title: Because The Night
-      author: Patty Smith
-      tempo: 96
+      title: The Reason
+      author: Hoobastank
+      tempo: 132
       time_signature: null
       tags:
-      - sunny-bd
-      - concert-mai-2026
+      - dadrock
     meta:
-      date: 2025-11-02
-      digest: bc988bde1359922c8f32e87dd6010a37
+      date: 2025-10-26
+      digest: 89f75d6a3df95d4925fd5b34fb12ed3e
     structure:
     - id: intro
       item: !Chords
@@ -2931,7 +3126,7 @@ items:
         section_body: null
         color: null
         rows:
-        - Bm D | A Bm | Bm D | A Bm
+        - ' | E | E |E |E |'
         drum_sequence: null
     - id: couplet1
       item: !Chords
@@ -2940,18 +3135,9 @@ items:
         section_body: null
         color: null
         rows:
-        - Bm D | A Bm | Bm D | A Bm | x2
-        drum_sequence: null
-    - id: prerefrain1
-      item: !Chords
-        title: pré refrain 1
-        type: prerefrain
-        section_body: null
-        color: null
-        rows:
-        - G A | D A | Bm G |G  A
-        - D G | D A| C |Bm |
-        - Fs |Fs
+        - '|E|E|Csm|Csm'
+        - '|E|E|Csm|Csm'
+        - ' | A |A | B | B |'
         drum_sequence: null
     - id: refrain1
       item: !Chords
@@ -2960,7 +3146,8 @@ items:
         section_body: null
         color: null
         rows:
-        - Bm G | G A | Bm G | G A | x2
+        - '|E|E|Csm|Csm'
+        - '|A|A|B|B|'
         drum_sequence: null
     - id: couplet2
       item: !Ref
@@ -2969,13 +3156,6 @@ items:
         section_body: null
         color: null
         link: couplet1
-    - id: prerefrain2
-      item: !Ref
-        title: pré refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: prerefrain1
     - id: refrain2
       item: !Ref
         title: refrain 2
@@ -2983,18 +3163,6 @@ items:
         section_body: null
         color: null
         link: refrain1
-    - id: nc
-      item: NewColumn
-    - id: solo
-      item: !Chords
-        title: solo
-        type: solo
-        section_body: null
-        color: null
-        rows:
-        - G  A    | D   A   | Bm G    | G   A   |
-        - D  G    | G   A   | G       | G
-        drum_sequence: null
     - id: pont
       item: !Chords
         title: pont
@@ -3002,9 +3170,20 @@ items:
         section_body: null
         color: null
         rows:
-        - D    A    |     D       A      |         Bm       A | D A
-        - Bm        A  |      D        A | G D | G |
-        - Bm       |     D     |        G       |   Fs
+        - '|D|D|E|E|'
+        - '|D|D|E|E|'
+        drum_sequence: null
+    - id: cb
+      item: NewColumn
+    - id: couplet3
+      item: !Chords
+        title: couplet 3
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - E|E|Csm|Csm
+        - A|A|B|B
         drum_sequence: null
     - id: refrain3
       item: !Ref
@@ -3020,27 +3199,37 @@ items:
         section_body: null
         color: null
         link: refrain1
-- - pixies/gouge_away/song.yml
+- - capdevielle/quand_t_es_dans_le_desert/song.yml
   - !Song
     files:
-      lilypond:
-      - basse.ly
+      lilypond: []
       tex: []
       wav: []
       has_clicks: false
       has_mp3: false
     info:
-      title: Gouge Away
-      author: Pixies
-      tempo: 126
+      title: Quand T'Es Dans Le Désert
+      author: Capdevielle
+      tempo: 155
       time_signature: null
       tags:
       - move-the-line
       - truskel-2025
     meta:
       date: 2025-10-26
-      digest: c3f230572e0551053395a44c307543a4
+      digest: baa5bb0136672b5e265d33ea9bd65258
     structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - 'D|E|F|Fs '
+        - G|G|Am|D
+        - Am|D|Am|D
+        drum_sequence: null
     - id: couplet1
       item: !Chords
         title: couplet 1
@@ -3048,7 +3237,10 @@ items:
         section_body: null
         color: null
         rows:
-        - Fsm | A |D |Fsm |D|x4
+        - Am|Am|Em|Em
+        - G|G|Am|Am
+        - Am|Am|Em|Em
+        - G|G|Am|Am
         drum_sequence: null
     - id: refrain1
       item: !Chords
@@ -3057,100 +3249,23 @@ items:
         section_body: null
         color: null
         rows:
-        - Fsm | A |D |Fsm |D|
+        - C|G|Am|Am
+        - C|G|D|D
         drum_sequence: null
     - id: couplet2
       item: !Ref
         title: couplet 2
-        type: couplet
+        type: null
         section_body: null
         color: null
         link: couplet1
     - id: refrain2
       item: !Ref
         title: refrain 2
-        type: refrain
+        type: null
         section_body: null
         color: null
         link: refrain1
-    - id: couplet3
-      item: !Chords
-        title: couplet 3
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Fsm | A |D |Fsm |D|x3
-        drum_sequence: null
-    - id: final
-      item: !Chords
-        title: final
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - Fsm | A |D |Fsm |D|x3
-        drum_sequence: null
-- - police/every_breath_you_take/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex: []
-      wav: []
-      has_clicks: true
-      has_mp3: true
-    info:
-      title: Every Breath You Take
-      author: Police
-      tempo: 117
-      time_signature: null
-      tags:
-      - sunny-bd
-      - concert-mai-2026
-    meta:
-      date: 2025-10-26
-      digest: fd4252426f71b3fd1aa440c1dcebeb36
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: ''
-        color: null
-        rows:
-        - Bf|Bf|Gm|Gm
-        - Ef|F|Bf|Bf
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: ''
-        color: null
-        rows:
-        - Bf|Bf|Gm|Gm
-        - Ef|F|Gm|Gm
-        drum_sequence: null
-    - id: couplet2
-      item: !Chords
-        title: couplet 2
-        type: couplet2
-        section_body: \songbookcomment{idem couplet1 sauf 2 dernières mesures}
-        color: null
-        rows:
-        - Bf|Bf|Gm|Gm
-        - Ef|F|Bf|Bf
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: ''
-        color: null
-        rows:
-        - Ef|Df|Bf|Bf
-        - C|C|F|F
-        drum_sequence: null
     - id: couplet3
       item: !Ref
         title: couplet 3
@@ -3158,357 +3273,6 @@ items:
         section_body: null
         color: null
         link: couplet1
-    - id: nc
-      item: NewColumn
-    - id: pont
-      item: !Chords
-        title: pont
-        type: pont
-        section_body: \songbookcomment{en accords plaqués}
-        color: null
-        rows:
-        - Gf|Gf|Af|Af
-        - Gf|Gf|Af|Af
-        - Gf|Gf|
-        drum_sequence: null
-    - id: couplet4
-      item: !Ref
-        title: couplet4
-        type: null
-        section_body: \songbookcomment{no lyrics}
-        color: null
-        link: couplet1
-    - id: couplet5
-      item: !Ref
-        title: couplet5
-        type: null
-        section_body: \songbookcomment{no lyrics}
-        color: null
-        link: couplet2
-    - id: refrain2
-      item: !Ref
-        title: refrain2
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: couplet6
-      item: !Ref
-        title: couplet 6
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: fill
-      item: !Chords
-        title: fill
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Ef|F|Gm|Gm
-        - Gm|Gm
-        drum_sequence: null
-    - id: outtro
-      item: !Chords
-        title: outtro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Bf|Bf|Gm|Ef|x4
-        drum_sequence: null
-- - pretenders/brass_in_pocket/song.yml
-  - !Song
-    files:
-      lilypond:
-      - intro.ly
-      - couplet.ly
-      - prerefrain.ly
-      tex: []
-      wav:
-      - intro.wav
-      - couplet.wav
-      - prerefrain.wav
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Brass In Pocket
-      author: Pretenders
-      tempo: 107
-      time_signature: null
-      tags:
-      - sunny-bd
-      - concert-mai-2026
-    meta:
-      date: 2025-10-26
-      digest: b8534c4fca42bcfb045b212525f21218
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - A
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - A E | D A | A E | D A
-        - 'A E | D A | A | A '
-        drum_sequence: null
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: prerefrain1
-      item: !Chords
-        title: pré refrain 1
-        type: prerefrain
-        section_body: null
-        color: null
-        rows:
-        - A E | A E | A E | A E | x2
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - A|A|Bm|Bm
-        - D|D|E7|E7
-        drum_sequence: null
-    - id: couplet3
-      item: !Ref
-        title: couplet 3
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: prerefrain2
-      item: !Ref
-        title: pré refrain 2
-        type: prerefrain
-        section_body: null
-        color: null
-        link: prerefrain1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: outtro
-      item: !Ref
-        title: outtro
-        type: null
-        section_body: \songbookcomment{outro mesure 8}
-        color: null
-        link: couplet1
-- - radiohead/karma_police/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex: []
-      wav: []
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Karma Police
-      author: Radiohead
-      tempo: 113
-      time_signature: null
-      tags:
-      - move-the-line
-      - truskel-2025
-    meta:
-      date: 2025-10-26
-      digest: 10a02569dc19382e4f22156d581ea17a
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - 'Am D | Em G | Am F | Em G '
-        - 'Am D | G D | C G | Am '
-        - Bm D
-        drum_sequence: null
-    - id: couplet1
-      item: !Ref
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        link: intro
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: couplet
-        section_body: null
-        color: null
-        link: intro
-    - id: prerefrain1
-      item: !Chords
-        title: pré refrain 1
-        type: prerefrain
-        section_body: null
-        color: null
-        rows:
-        - C D | G Fs | C D | G Fs
-        - C D | G Fs | C | Bm D
-        drum_sequence: null
-    - id: couplet3
-      item: !Ref
-        title: couplet 3
-        type: couplet
-        section_body: null
-        color: null
-        link: intro
-    - id: prerefrain2
-      item: !Ref
-        title: pré refrain 2
-        type: prerefrain
-        section_body: null
-        color: null
-        link: prerefrain1
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - Bm D | G D | G D |E | x4
-        drum_sequence: null
-- - rasmus/in_the_shadows/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex: []
-      wav: []
-      has_clicks: true
-      has_mp3: true
-    info:
-      title: In The Shadows
-      author: The Rasmus
-      tempo: 106
-      time_signature: null
-      tags:
-      - sunny-bd
-      - concert-mai-2026
-    meta:
-      date: 2025-11-29
-      digest: 56d48fd9318d55a2ba498a3eb1f8419a
-    structure:
-    - id: pad
-      item: !Chords
-        title: pad
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - E | E | E | E
-        drum_sequence: null
-    - id: padg
-      item: !Chords
-        title: pad+g
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - E | Gsm | Csm | Gsm |
-        drum_sequence: null
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - E | Gsm | Csm | Gsm | x2
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - E  | Gsm | Csm | Gsm | x4
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - E | Gsm | Csm | Gsm | x2
-        drum_sequence: null
-    - id: interlude
-      item: !Chords
-        title: interlude
-        type: interlude
-        section_body: null
-        color: null
-        rows:
-        - E | Gsm | Csm | Gsm | x2
-        drum_sequence: null
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: pont
-      item: !Chords
-        title: pont
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - E | E | Fs Gsm | Gsm B |
-        - Csm | Csm | Gsm | Gsm
-        drum_sequence: null
-    - id: fill
-      item: !Chords
-        title: 1/2
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - ' HRest '
-        drum_sequence: null
     - id: refrain3
       item: !Ref
         title: refrain 3
@@ -3516,298 +3280,6 @@ items:
         section_body: null
         color: null
         link: refrain1
-    - id: refrain4
-      item: !Ref
-        title: refrain 4
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: final
-      item: !Chords
-        title: final
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - E | Gsm | Csm | Gsm | x2
-        - E
-        drum_sequence: null
-- - red_hot_chili_peppers/can_t_stop/song.yml
-  - !Song
-    files:
-      lilypond:
-      - solo.ly
-      - intro.ly
-      - riff_a.ly
-      - riff_b.ly
-      - chordsrefrain.ly
-      tex: []
-      wav:
-      - intro.wav
-      - riff_a.wav
-      has_clicks: false
-      has_mp3: false
-    info:
-      title: Can't Stop
-      author: Red Hot Chili Peppers
-      tempo: 91
-      time_signature: null
-      tags:
-      - move-the-line
-    meta:
-      date: 2025-10-27
-      digest: c893bedf7e31214cdb5adc2358d90843
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: ''
-        color: null
-        rows:
-        - Em | Em | Em | Em
-        drum_sequence: null
-    - id: riffguitare
-      item: !Chords
-        title: riff guitare
-        type: couplet
-        section_body: ''
-        color: null
-        rows:
-        - Fsm | E | Csm7 | D7M
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: ''
-        color: null
-        rows:
-        - Fsm| D | Csm7 | D7M | x3
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: \newline \subimport{chordsrefrain.output}{chordsrefrain}
-        color: null
-        rows:
-        - A | D | Csm7 | D7M | x4
-        drum_sequence: null
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: couplet
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: refrain
-        section_body: null
-        color: null
-        link: refrain1
-    - id: pont
-      item: !Chords
-        title: pont
-        type: pont
-        section_body: '{\color{red} reggae}'
-        color: null
-        rows:
-        - Fsm | E | Csm7 | D7M E | x4
-        drum_sequence: null
-    - id: soloseul
-      item: !Chords
-        title: solo seul
-        type: solo
-        section_body: null
-        color: null
-        rows:
-        - Fsm | E | Csm7 | D7M
-        drum_sequence: null
-    - id: solochant
-      item: !Chords
-        title: solo + strophe
-        type: solo
-        section_body: null
-        color: null
-        rows:
-        - Fsm | E | Csm7 | D7M
-        drum_sequence: null
-    - id: couplet3
-      item: !Ref
-        title: couplet 3
-        type: couplet
-        section_body: '{\color{red} pas de batterie sur dernière strophe}'
-        color: null
-        link: couplet1
-    - id: outtro
-      item: !Chords
-        title: outtro
-        type: intro
-        section_body: '{\color{red}chant seul}'
-        color: null
-        rows:
-        - HRest|HRest
-        drum_sequence: null
-- - red_hot_chili_peppers/dani_california/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex:
-      - lyrics.tex
-      wav: []
-      has_clicks: true
-      has_mp3: true
-    info:
-      title: Dani California
-      author: Red Hot Chili Peppers
-      tempo: 96
-      time_signature: null
-      tags:
-      - move-the-line
-    meta:
-      date: 2025-10-26
-      digest: 1057cbd47ffaa5edecdddee8c9c6df85
-    structure:
-    - id: introb
-      item: !Chords
-        title: intro batterie
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - HRest | HRest
-        drum_sequence: null
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - Am G| Dm Am|Am G| Dm Am
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - Am G| Dm Am|Am G| Dm Am
-        drum_sequence: null
-    - id: prerefrain1
-      item: !Chords
-        title: pré refrain 1
-        type: prerefrain
-        section_body: null
-        color: null
-        rows:
-        - Am G| Dm Am|Am G| Dm Am
-        drum_sequence: null
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: prerefrain2
-      item: !Ref
-        title: pré refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: prerefrain1
-    - id: fill1
-      item: !Chords
-        title: fill 1
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - Dm
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - F C | Dm G | F C | Dm G
-        - F C | Dm G | F C | Dm
-        drum_sequence: null
-    - id: fill1x
-      item: !Chords
-        title: fill
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - Dm
-        drum_sequence: null
-    - id: interlude1
-      item: !Chords
-        title: interlude 1
-        type: interlude
-        section_body: null
-        color: null
-        rows:
-        - Am G| Dm Am|Am G| Dm Am
-        drum_sequence: null
-    - id: couplet3
-      item: !Ref
-        title: couplet 3
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: prerefrain3
-      item: !Ref
-        title: pré refrain 3
-        type: null
-        section_body: null
-        color: null
-        link: prerefrain1
-    - id: fillx3
-      item: !Chords
-        title: fill 3
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - Dm
-        drum_sequence: null
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: fill2
-      item: !Ref
-        title: fill 2
-        type: null
-        section_body: null
-        color: null
-        link: fill1
-    - id: nc
-      item: NewColumn
-    - id: interlude
-      item: !Chords
-        title: interlude 2
-        type: interlude
-        section_body: null
-        color: null
-        rows:
-        - Bm  | G D | Bm | G D
-        - Bm  | G D | Bm | Bm
-        drum_sequence: null
     - id: couplet4
       item: !Ref
         title: couplet 4
@@ -3815,38 +3287,6 @@ items:
         section_body: null
         color: null
         link: couplet1
-    - id: prerefrain4
-      item: !Ref
-        title: pré refrain 3
-        type: null
-        section_body: null
-        color: null
-        link: prerefrain1
-    - id: fillx4
-      item: !Chords
-        title: fill
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - Dm | Dm | Dm
-        drum_sequence: null
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: fillref3
-      item: !Chords
-        title: fill
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - Dm
-        drum_sequence: null
     - id: refrain4
       item: !Ref
         title: refrain 4
@@ -3854,71 +3294,25 @@ items:
         section_body: null
         color: null
         link: refrain1
-    - id: fillref4
-      item: !Chords
-        title: fill
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - Dm
-        drum_sequence: null
-    - id: solo
-      item: !Chords
-        title: solo
-        type: solo
-        section_body: null
-        color: null
-        rows:
-        - F C | Dm G | F C | Dm G | x2
-        drum_sequence: null
-    - id: fillsolo1
-      item: !Chords
-        title: fill
-        type: fill
-        section_body: null
-        color: null
-        rows:
-        - Dm
-        drum_sequence: null
-    - id: solo2
-      item: !Chords
-        title: solo
-        type: solo
-        section_body: null
-        color: null
-        rows:
-        - F C | Dm G | F C | Dm G |
-        - F C | Dm G
-        drum_sequence: null
-    - id: final
-      item: !Chords
-        title: final
-        type: solo
-        section_body: null
-        color: null
-        rows:
-        - F  | F | C | Dm
-        - F
-        drum_sequence: null
-- - red_hot_chili_peppers/under_the_bridge/song.yml
+- - muse/can_t_take_my_eyes_off_you/song.yml
   - !Song
     files:
       lilypond: []
       tex: []
       wav: []
-      has_clicks: false
-      has_mp3: false
+      has_clicks: true
+      has_mp3: true
     info:
-      title: Under The Bridge
-      author: Red Hot Chili Peppers
-      tempo: 84
+      title: Can't Take My Eyes Off You
+      author: Muse
+      tempo: 127
       time_signature: null
       tags:
-      - move-the-line
+      - sunny-bd
+      - concert-mai-2026
     meta:
       date: 2025-10-26
-      digest: 57e73ab61685e95f07b79dc9863ac0e5
+      digest: 6abee4e08449a9f07ae199350ec7e968
     structure:
     - id: intro
       item: !Chords
@@ -3927,7 +3321,7 @@ items:
         section_body: null
         color: null
         rows:
-        - D
+        - 'F| F7M | F | F '
         drum_sequence: null
     - id: couplet1
       item: !Chords
@@ -3936,46 +3330,15 @@ items:
         section_body: null
         color: null
         rows:
-        - E|B|Csm|A
-        - E|B|Csm|A
+        - F| F | F7M |F7M
+        - F7| F7 | Bf | Bf
+        - Bfm | Bfm | F | F |
+        - Bf | Bfm |F|F
         drum_sequence: null
     - id: couplet2
       item: !Ref
         title: couplet 2
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain1
-      item: !Chords
-        title: refrain
-        type: refrain
-        section_body: null
-        color: null
-        rows:
-        - Fsm|A|E|B
-        - Fsm|A|E|B
-        - Fsm|A|E|B
-        - Csm|A|E|B
-        drum_sequence: null
-    - id: couplet3
-      item: !Ref
-        title: couplet 3
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: couplet3
-      item: !Ref
-        title: couplet 3
-        type: null
+        type: couplet
         section_body: null
         color: null
         link: couplet1
@@ -3986,25 +3349,192 @@ items:
         section_body: null
         color: null
         rows:
-        - A|Am|G|F|x3
-        - F7M|E7|G|G
+        - Gm | C | F | F
+        - Gm | C | F | D7
+        - HRest
         drum_sequence: null
-    - id: final1
+    - id: refrain
       item: !Chords
-        title: final 1
-        type: couplet2
+        title: refrain
+        type: refrain
         section_body: null
         color: null
         rows:
-        - A|Am|G|F|x4
+        - Gm | C | Am | Dm
+        - Gm | C | F | D7
+        - Gm | C | Am | Dm
+        - Gm | Gm | C | C
         drum_sequence: null
-    - id: final2
+    - id: couplet3
       item: !Ref
-        title: final 2
-        type: null
+        title: couplet 3
+        type: couplet
         section_body: null
         color: null
-        link: final1
+        link: couplet1
+    - id: NC
+      item: NewColumn
+    - id: pont2
+      item: !Chords
+        title: pont 2
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - Gm | C | F | D7
+        - HRest
+        drum_sequence: null
+    - id: refrain2
+      item: !Chords
+        title: refrain 2
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - Gm | C | Am | Dm
+        - Gm | C | F | D7
+        - Gm | C | Am | Dm
+        - Gm | Gm | C | C
+        drum_sequence: null
+    - id: outtro
+      item: !Chords
+        title: outtro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - F| F | F7M |F7M
+        - F7| F7 | Bf | Bf
+        - Bfm
+        drum_sequence: null
+- - matmatah/au_conditionnel/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex: []
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: Au Conditionnel
+      author: Matmatah
+      tempo: 94
+      time_signature: null
+      tags:
+      - move-the-line
+      - truskel-2025
+    meta:
+      date: 2025-10-26
+      digest: e8f8ba23bf104a66ffb575557b17e5e2
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - 'E Csm | E Csm | E Csm | B '
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - E Csm | E Csm | E Csm | B | x2
+        drum_sequence: null
+    - id: prerefrain1
+      item: !Chords
+        title: pré refrain 1
+        type: prerefrain
+        section_body: null
+        color: null
+        rows:
+        - B|B|B
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - E Csm|Gsm B|E Gs|A|x2
+        drum_sequence: null
+    - id: pont
+      item: !Chords
+        title: pont
+        type: fill
+        section_body: null
+        color: null
+        rows:
+        - E Csm|Gsm B|E Gs|A|
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet2
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
+    - id: prerefrain2
+      item: !Ref
+        title: pré refrain 2
+        type: prerefrain
+        section_body: null
+        color: null
+        link: prerefrain1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+    - id: interlude
+      item: !Chords
+        title: interlude
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - Fsm A | Fsm A | Fsm A | Csm | x2
+        - Csm
+        drum_sequence: null
+    - id: prerefrain3
+      item: !Chords
+        title: pré refrain 3
+        type: prerefrain
+        section_body: null
+        color: null
+        rows:
+        - B|B|B|B
+        drum_sequence: null
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+    - id: refrain4
+      item: !Ref
+        title: refrain 4
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+    - id: outtro
+      item: !Chords
+        title: outtro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - E
+        drum_sequence: null
 - - steely_dan/kid_charlemagne/song.yml
   - !Song
     files:
@@ -4135,7 +3665,7 @@ items:
         - G|A|Bf|F G
         - Am G|Dm7 G|
         drum_sequence: null
-- - telephone/au_coeur_de_la_nuit/song.yml
+- - dolly/je_n_veux_pas_rester_sage/song.yml
   - !Song
     files:
       lilypond: []
@@ -4144,16 +3674,26 @@ items:
       has_clicks: false
       has_mp3: false
     info:
-      title: Au Coeur De La Nuit
-      author: Telephone
-      tempo: 164
+      title: Je N'Veux Pas Rester Sage
+      author: Dolly
+      tempo: 98
       time_signature: null
       tags:
       - move-the-line
+      - truskel-2025
     meta:
       date: 2025-10-26
-      digest: 08a817f09753d5612daca374871734ad
+      digest: 3715f66b0aed6eeae4af4bb74bff2350
     structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - Gm Bf | F | Gm Bf | F |
+        drum_sequence: null
     - id: couplet1
       item: !Chords
         title: couplet 1
@@ -4161,13 +3701,15 @@ items:
         section_body: null
         color: null
         rows:
-        - Em | Em | C | C |
-        - 'D | D | A | C '
-        - Em | Em | C | C |
-        - 'D | D | A | C '
-        - Em | Em | C | C |
-        - 'D | D | A | C '
+        - Gm Bf | F | Gm Bf | F | x2
         drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
     - id: refrain1
       item: !Chords
         title: refrain 1
@@ -4175,10 +3717,39 @@ items:
         section_body: null
         color: null
         rows:
-        - G|A|C|C|x3
-        - C A|G|C A|G|
-        - C G|A|D|C
+        - 'Ef | Ef | F | F '
+        - 'Ef | Ef | F | HRest '
         drum_sequence: null
+    - id: fill1
+      item: !Chords
+        title: fill1
+        type: fill
+        section_body: null
+        color: null
+        rows:
+        - Gm Bf | F | Gm Bf | F |
+        drum_sequence: null
+    - id: couplet3
+      item: !Ref
+        title: couplet 3
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
+    - id: couplet4
+      item: !Ref
+        title: couplet 4
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
     - id: interlude
       item: !Chords
         title: interlude
@@ -4186,11 +3757,227 @@ items:
         section_body: null
         color: null
         rows:
-        - Em | Em | C | C
-        - D | D | A | C
+        - Am|C|D|F|x2
+        - Am|Am|Am|Am
         drum_sequence: null
+    - id: couplet5
+      item: !Chords
+        title: couplet 5
+        type: couplet2
+        section_body: null
+        color: null
+        rows:
+        - Am C|G|Am C|G|x2
+        drum_sequence: null
+    - id: refrain3
+      item: !Chords
+        title: refrain 3
+        type: refrainb
+        section_body: null
+        color: null
+        rows:
+        - F |F|G|G|x4
+        drum_sequence: null
+    - id: solo
+      item: !Chords
+        title: solo
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - F |F|G|G|x4
+        drum_sequence: null
+- - depeche_mode/enjoy_the_silence/song.yml
+  - !Song
+    files:
+      lilypond:
+      - riff.ly
+      - chordscouplet.ly
+      - chordsrefrain.ly
+      tex:
+      - body.tex
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: Enjoy The Silence
+      author: Depeche Mode
+      tempo: 113
+      time_signature: null
+      tags:
+      - sunny-bd
+    meta:
+      date: 2025-10-26
+      digest: c3d6e0ba46b1cd37b15936d18f6bb18b
+    structure:
+    - id: introbatterie
+      item: !Chords
+        title: intro batterie / basse / clavier
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - 'HRest | HRest | HRest | HRest '
+        drum_sequence: null
+    - id: riff1
+      item: !Chords
+        title: riff
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - 'Cm| Efm| Cm| Efm '
+        - 'Cm | Efm | Cm | Efm '
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: \newline \subimport{chordscouplet.output}{chordscouplet}
+        color: null
+        rows:
+        - 'Cm| Efm| Af| Af '
+        - 'Cm | Efm | Af | Af '
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: \newline \subimport{chordsrefrain.output}{chordsrefrain}
+        color: null
+        rows:
+        - 'Fm | Af | Cm | Bf '
+        - 'Fm | Af | Cm | B '
+        drum_sequence: null
+    - id: fill1
+      item: !Chords
+        title: fill
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - 'B '
+        drum_sequence: null
+    - id: pontbatterie
+      item: !Chords
+        title: batterie
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - 'HRest | HRest '
+        drum_sequence: null
+    - id: hh
+      item: !HRule 80
     - id: nc
       item: NewColumn
+    - id: riff2
+      item: !Ref
+        title: riff 2
+        type: pont
+        section_body: null
+        color: null
+        link: riff1
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+    - id: fill2
+      item: !Ref
+        title: fill 2
+        type: refrain
+        section_body: null
+        color: null
+        link: fill1
+    - id: hh
+      item: !HRule 80
+    - id: riff3
+      item: !Ref
+        title: riff 3
+        type: pont
+        section_body: null
+        color: null
+        link: riff1
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+    - id: refrain4
+      item: !Ref
+        title: refrain 4
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+- - feu_chatterton/un_monde_nouveau/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex: []
+      wav: []
+      has_clicks: true
+      has_mp3: true
+    info:
+      title: Un Monde Nouveau
+      author: Feu Chatterton
+      tempo: 107
+      time_signature: null
+      tags:
+      - move-the-line
+    meta:
+      date: 2025-11-06
+      digest: e8cd85b85f95331de4df5b3e67bf7f69
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - B | Gsm | E | Cs
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - B | Gsm | E | Cs | x2
+        drum_sequence: null
+    - id: prerefrain1
+      item: !Chords
+        title: pré refrain 1
+        type: prerefrain
+        section_body: null
+        color: null
+        rows:
+        - Gsm | Gsm | Gsm | E7M | x2
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - B | Gsm | E | Cs | x3
+        - Gsm | Gsm | Gsm | E7M
+        drum_sequence: null
     - id: couplet2
       item: !Ref
         title: couplet 2
@@ -4198,6 +3985,13 @@ items:
         section_body: null
         color: null
         link: couplet1
+    - id: prerefrain2
+      item: !Ref
+        title: pré refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: prerefrain1
     - id: refrain2
       item: !Ref
         title: refrain 2
@@ -4205,13 +3999,187 @@ items:
         section_body: null
         color: null
         link: refrain1
-    - id: refrain3
-      item: !Ref
-        title: refrain 3
-        type: null
+    - id: interlude
+      item: !Chords
+        title: interlude
+        type: interlude
         section_body: null
         color: null
-        link: refrain1
+        rows:
+        - HRest
+        - B | | E | Cs | B | x2
+        - B | E | Cs HRest |
+        - B | Gsm | E | Cs |
+        drum_sequence: null
+    - id: final
+      item: !Chords
+        title: final
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - B | Gsm | E | Cs | x2
+        drum_sequence: null
+- - maroon5/misery/song.yml
+  - !Song
+    files:
+      lilypond:
+      - couplet.ly
+      - refrain.ly
+      - pont.ly
+      tex: []
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: Misery
+      author: Maroon 5
+      tempo: 103
+      time_signature: null
+      tags: []
+    meta:
+      date: 2025-10-26
+      digest: 79d4c1025d9e71eda67420d0f2ae92e7
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - C|B|C|B
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - C|B|C|B
+        - C|B|C|B
+        - C|B
+        drum_sequence: null
+- - maroon5/this_love/song.yml
+  - !Song
+    files:
+      lilypond:
+      - couplet.ly
+      - refrain.ly
+      - pont.ly
+      - chordspont.ly
+      tex: []
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: This Love
+      author: Maroon 5
+      tempo: 95
+      time_signature: null
+      tags:
+      - sunny-bd
+    meta:
+      date: 2025-10-26
+      digest: 8d572f38480a92e9bf07dbaa5df033bd
+    structure:
+    - id: intro1
+      item: !Chords
+        title: intro d/b
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - G7 | Cm7 | Fm7 | Afdim
+        drum_sequence: null
+    - id: intro
+      item: !Chords
+        title: intro tous
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - G7 | Cm7 | Fm7 | Afdim
+        drum_sequence: null
+    - id: couplet_1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - G7 | Cm7 | Fm7 | Afdim
+        - G7 | Cm7 | Fm7 | Afdim
+        drum_sequence: null
+    - id: refrain_1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - Cm Fm7 | Bf Ef | Cm Fm7 | Bf Ef
+        - Cm Fm7 | Bf Ef | Cm7 F7 | Af G
+        drum_sequence: null
+    - id: couplet_2
+      item: !Chords
+        title: \textonehalf~couplet 2
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - G7 | Cm7 | Fm7 | Afdim
+        drum_sequence: null
+    - id: couplet_3
+      item: !Ref
+        title: couplet 3
+        type: couplet
+        section_body: '{\color{red} stop \sharp 29}'
+        color: null
+        link: couplet_1
+    - id: refrain_2
+      item: !Ref
+        title: refrain 2
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain_1
+    - id: nc
+      item: NewColumn
+    - id: couplet_4
+      item: !Chords
+        title: \textonehalf~couplet 4
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - G7 | Cm7 | Fm7 | Afdim
+        drum_sequence: null
+    - id: pont
+      item: !Chords
+        title: pont
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - 'Fm7 | Ef7M | Fdim | Cm7 '
+        - Fm7 | Ef7M | Afdim | Afdim
+        drum_sequence: null
+    - id: refrain_3
+      item: !Ref
+        title: refrain 3
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain_1
+    - id: refrain_4
+      item: !Ref
+        title: refrain 4
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain_1
 - - the_strokes/the_end_has_no_end/song.yml
   - !Song
     files:
@@ -4343,37 +4311,52 @@ items:
         section_body: null
         color: null
         link: intro
-- - u2/song_for_someone/song.yml
+- - dandy_warhols/bohemian_like_you/song.yml
   - !Song
     files:
-      lilypond:
-      - couplet.ly
-      - prerefrain.ly
-      - solo.ly
+      lilypond: []
       tex: []
       wav: []
-      has_clicks: true
-      has_mp3: true
+      has_clicks: false
+      has_mp3: false
     info:
-      title: Song For Someone
-      author: U2
-      tempo: 105
+      title: Bohemian Like You
+      author: Dandy Warhols
+      tempo: 132
       time_signature: null
       tags:
-      - sunny-bd
-      - concert-mai-2026
+      - move-the-line
+      - truskel-2025
     meta:
-      date: 2025-11-29
-      digest: 67db264bf35004a21287203c74a25654
+      date: 2025-10-26
+      digest: 89f75d6a3df95d4925fd5b34fb12ed3e
     structure:
-    - id: intro
+    - id: introb
+      item: !Chords
+        title: intro b
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - ' HRest | HRest | HRest | HRest | x2'
+        drum_sequence: null
+    - id: introg
       item: !Chords
         title: intro
         type: intro
         section_body: null
         color: null
         rows:
-        - E| E | Fs | Gs | x2
+        - ' B | D | A | E | x2'
+        drum_sequence: null
+    - id: fill1
+      item: !Chords
+        title: fill
+        type: fill
+        section_body: null
+        color: null
+        rows:
+        - B|B|B|B
         drum_sequence: null
     - id: couplet1
       item: !Chords
@@ -4382,8 +4365,22 @@ items:
         section_body: null
         color: null
         rows:
-        - E| E | Fs | Gs | x4
+        - ' B | D | A | E | x2'
         drum_sequence: null
+    - id: fill2
+      item: !Ref
+        title: fill
+        type: fill
+        section_body: null
+        color: null
+        link: fill1
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
     - id: prerefrain1
       item: !Chords
         title: pré refrain 1
@@ -4391,7 +4388,7 @@ items:
         section_body: null
         color: null
         rows:
-        - 'E| B | Fs | Gsm | x2 '
+        - ' B | D | A | E | x2'
         drum_sequence: null
     - id: refrain1
       item: !Chords
@@ -4400,119 +4397,35 @@ items:
         section_body: null
         color: null
         rows:
-        - E| B | Fs | Gsm | x2
+        - ' B | D | A | E | x2'
         drum_sequence: null
-    - id: fill
+    - id: fill3
       item: !Chords
         title: fill
         type: fill
         section_body: null
         color: null
         rows:
-        - HRest
+        - B|B|B|HRest
         drum_sequence: null
-    - id: couplet2
-      item: !Chords
-        title: couplet 2
-        type: couplet2
+    - id: couplet3
+      item: !Ref
+        title: couplet 3
+        type: couplet
         section_body: null
         color: null
-        rows:
-        - E| E | Fs | Gs | x2
-        - E| B | Fs | Gs | x2
-        drum_sequence: null
+        link: couplet1
     - id: prerefrain2
       item: !Ref
         title: pré refrain 2
-        type: null
+        type: prerefrain
         section_body: null
         color: null
         link: prerefrain1
     - id: refrain2
       item: !Ref
         title: refrain 2
-        type: null
-        section_body: null
-        color: null
-        link: refrain1
-    - id: solo
-      item: !Chords
-        title: solo
-        type: solo
-        section_body: null
-        color: null
-        rows:
-        - E| B | Gsm | Cs | x2
-        drum_sequence: null
-    - id: outtro
-      item: !Chords
-        title: outtro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - E| G | Fs | Gsm | x4
-        drum_sequence: null
-- - hoobastank/the-reason/song.yml
-  - !Song
-    files:
-      lilypond: []
-      tex: []
-      wav: []
-      has_clicks: true
-      has_mp3: true
-    info:
-      title: The Reason
-      author: Hoobastank
-      tempo: 132
-      time_signature: null
-      tags:
-      - dadrock
-    meta:
-      date: 2025-10-26
-      digest: 89f75d6a3df95d4925fd5b34fb12ed3e
-    structure:
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - ' | E | E |E |E |'
-        drum_sequence: null
-    - id: couplet1
-      item: !Chords
-        title: couplet 1
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - '|E|E|Csm|Csm'
-        - '|E|E|Csm|Csm'
-        - ' | A |A | B | B |'
-        drum_sequence: null
-    - id: refrain1
-      item: !Chords
-        title: refrain 1
         type: refrain
-        section_body: null
-        color: null
-        rows:
-        - '|E|E|Csm|Csm'
-        - '|A|A|B|B|'
-        drum_sequence: null
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: refrain2
-      item: !Ref
-        title: refrain 2
-        type: null
         section_body: null
         color: null
         link: refrain1
@@ -4523,36 +4436,26 @@ items:
         section_body: null
         color: null
         rows:
-        - '|D|D|E|E|'
-        - '|D|D|E|E|'
-        drum_sequence: null
-    - id: cb
-      item: NewColumn
-    - id: couplet3
-      item: !Chords
-        title: couplet 3
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - E|E|Csm|Csm
-        - A|A|B|B
+        - B|D|A|E|x4
         drum_sequence: null
     - id: refrain3
       item: !Ref
         title: refrain 3
-        type: null
+        type: refrain
         section_body: null
         color: null
         link: refrain1
-    - id: refrain4
-      item: !Ref
-        title: refrain 4
-        type: null
+    - id: outtro
+      item: !Chords
+        title: outtro
+        type: fill
         section_body: null
         color: null
-        link: refrain1
-- - stereophonics/maybe-tomorrow/song.yml
+        rows:
+        - B|B|B|B
+        - B HRest|B HRest
+        drum_sequence: null
+- - tears-for-fears/shout/song.yml
   - !Song
     files:
       lilypond: []
@@ -4561,8 +4464,8 @@ items:
       has_clicks: true
       has_mp3: true
     info:
-      title: Maybe Tomorrow
-      author: Stereophonics
+      title: Shout
+      author: Tears For Fears
       tempo: 100
       time_signature: null
       tags:
@@ -4644,43 +4547,25 @@ items:
         section_body: null
         color: null
         link: refrain1
-- - deportivo/roma/song.yml
+- - telephone/au_coeur_de_la_nuit/song.yml
   - !Song
     files:
       lilypond: []
       tex: []
       wav: []
-      has_clicks: true
-      has_mp3: true
+      has_clicks: false
+      has_mp3: false
     info:
-      title: Roma
-      author: Deportivo
-      tempo: 90
+      title: Au Coeur De La Nuit
+      author: Telephone
+      tempo: 164
       time_signature: null
       tags:
       - move-the-line
     meta:
-      date: 2026-07-27
-      digest: null
+      date: 2025-10-26
+      digest: 08a817f09753d5612daca374871734ad
     structure:
-    - id: introb
-      item: !Chords
-        title: intro batterie
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - ' | HRest | HRest | '
-        drum_sequence: null
-    - id: intro
-      item: !Chords
-        title: intro
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - ' | Em D | Em D | Em D| Em D |'
-        drum_sequence: null
     - id: couplet1
       item: !Chords
         title: couplet 1
@@ -4688,26 +4573,13 @@ items:
         section_body: null
         color: null
         rows:
-        - ' | Em D | Em D | Em D| Em D |x2'
-        - ' | G Bm | Em D | G Bm | Em D|'
-        - ' G Bm |'
+        - Em | Em | C | C |
+        - 'D | D | A | C '
+        - Em | Em | C | C |
+        - 'D | D | A | C '
+        - Em | Em | C | C |
+        - 'D | D | A | C '
         drum_sequence: null
-    - id: pont1
-      item: !Chords
-        title: pont
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - ' | Em D | Em D | |'
-        drum_sequence: null
-    - id: couplet2
-      item: !Ref
-        title: couplet 2
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
     - id: refrain1
       item: !Chords
         title: refrain 1
@@ -4715,22 +4587,25 @@ items:
         section_body: null
         color: null
         rows:
-        - '|C G |G | C G | G |'
-        - '|C G |G | Am Em | C G |'
-        - '|Am Em |C Bm | '
+        - G|A|C|C|x3
+        - C A|G|C A|G|
+        - C G|A|D|C
+        drum_sequence: null
+    - id: interlude
+      item: !Chords
+        title: interlude
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - Em | Em | C | C
+        - D | D | A | C
         drum_sequence: null
     - id: nc
       item: NewColumn
-    - id: pont3
+    - id: couplet2
       item: !Ref
-        title: pont
-        type: null
-        section_body: null
-        color: null
-        link: pont1
-    - id: couplet3
-      item: !Ref
-        title: couplet 3
+        title: couplet 2
         type: null
         section_body: null
         color: null
@@ -4742,40 +4617,59 @@ items:
         section_body: null
         color: null
         link: refrain1
-    - id: pont4
+    - id: refrain3
       item: !Ref
-        title: pont
+        title: refrain 3
         type: null
         section_body: null
         color: null
-        link: pont1
-- - tears-for-fears/shout/song.yml
+        link: refrain1
+- - black_keys/lonely_boy/song.yml
   - !Song
     files:
       lilypond: []
       tex: []
       wav: []
-      has_clicks: true
-      has_mp3: true
+      has_clicks: false
+      has_mp3: false
     info:
-      title: Shout
-      author: Tears For Fears
-      tempo: 93
+      title: Lonely Boy
+      author: Black Keys
+      tempo: 86
       time_signature: null
       tags:
-      - dadrock
+      - move-the-line
+      - truskel-2025
     meta:
-      date: 2026-07-27
-      digest: null
+      date: 2025-10-26
+      digest: 64abf92fcb9b3675cd54e7bf1f9d97e7
     structure:
-    - id: intro
+    - id: riff1
       item: !Chords
-        title: intro
-        type: intro
+        title: riff A
+        type: riff
         section_body: null
         color: null
         rows:
-        - ' | Fm | Fm | D | A |x2'
+        - Em | Em |Em |Em |
+        drum_sequence: null
+    - id: riff2
+      item: !Chords
+        title: riff B
+        type: riff
+        section_body: null
+        color: null
+        rows:
+        - Em | A |Em |A |
+        drum_sequence: null
+    - id: riff3
+      item: !Chords
+        title: riff C
+        type: riff
+        section_body: null
+        color: null
+        rows:
+        - Em | Em |Em |Em |
         drum_sequence: null
     - id: couplet1
       item: !Chords
@@ -4784,7 +4678,7 @@ items:
         section_body: null
         color: null
         rows:
-        - ' | Eb | Cm | Gm | F |x2'
+        - Em | G A |Em |G A |x2
         drum_sequence: null
     - id: refrain1
       item: !Chords
@@ -4793,15 +4687,115 @@ items:
         section_body: null
         color: null
         rows:
-        - ' | Eb | Cm | Gm | F |x2'
+        - Em | G A |Em |G A |x2
         drum_sequence: null
+    - id: riff-c2
+      item: !Ref
+        title: riff C
+        type: riff
+        section_body: null
+        color: null
+        link: riff3
     - id: couplet2
       item: !Ref
         title: couplet 2
-        type: null
+        type: couplet
         section_body: null
         color: null
         link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+    - id: riff-a2
+      item: !Ref
+        title: riff A
+        type: riff
+        section_body: null
+        color: null
+        link: riff2
+    - id: riff-b2
+      item: !Ref
+        title: riff B
+        type: riff
+        section_body: null
+        color: null
+        link: riff2
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: refrain
+        section_body: null
+        color: null
+        link: refrain1
+- - bashung/la_nuit_je_mens/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex:
+      - body.tex
+      wav: []
+      has_clicks: false
+      has_mp3: false
+    info:
+      title: La Nuit Je Mens
+      author: Bashung
+      tempo: 147
+      time_signature: null
+      tags:
+      - move-the-line
+    meta:
+      date: 2025-10-26
+      digest: 8d6d142cde85e66dc7e4de5f29d00d44
+    structure:
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - G Em | Bm | G A | Bm |
+        - A|Asus4|G|G|
+        - A|Asus4|G|Bm|
+        - A|Em|Em
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - 'Bm | G | Bm | G '
+        - Em| A|Em|Em
+        drum_sequence: null
+    - id: fill1
+      item: !Chords
+        title: fill 1
+        type: refrainb
+        section_body: null
+        color: null
+        rows:
+        - G Em|Bm
+        drum_sequence: null
+    - id: nc
+      item: NewColumn
+    - id: couplet2
+      item: !Chords
+        title: couplet 2
+        type: couplet2
+        section_body: null
+        color: null
+        rows:
+        - G Em|Bm|G Em|Bm
+        - A|A|Fsm|Bm
+        - A|Bm|Em|G
+        - A|Em
+        drum_sequence: null
     - id: refrain2
       item: !Ref
         title: refrain 2
@@ -4809,16 +4803,22 @@ items:
         section_body: null
         color: null
         link: refrain1
-    - id: solo
+    - id: fill2
+      item: !Ref
+        title: fill 2
+        type: null
+        section_body: null
+        color: null
+        link: fill1
+    - id: couplet3
       item: !Chords
-        title: solo
-        type: solo
+        title: couplet 3
+        type: couplet3
         section_body: null
         color: null
         rows:
-        - Cm|D|Gm|F|x2
-        - Gm|Gm|Gm|Gm
-        - Eb|Cm|Gm|F
+        - G Em | Bm | G A | Bm |
+        - A|Asus4|G|G|
         drum_sequence: null
     - id: refrain3
       item: !Ref
@@ -4831,13 +4831,13 @@ items:
       item: !Ref
         title: refrain 4
         type: null
-        section_body: null
+        section_body: \songbookcomment{instrumental}
         color: null
         link: refrain1
     - id: refrain5
       item: !Ref
-        title: ad lib
+        title: refrain 5
         type: null
-        section_body: null
+        section_body: \songbookcomment{fade out}
         color: null
         link: refrain1

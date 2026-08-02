@@ -10,7 +10,7 @@ clicks:
   time: 00:08.400
   description: intro
 
-- section_id: couplet1a
+- section_id: couplet1
   beat_in_bar_number: 1
   time: 00:49.8
   description: couplet 1
@@ -18,7 +18,7 @@ clicks:
 - section_id: refrain1
   time: 01:31.0
 
-- section_id : couplet2a
+- section_id : couplet2
   time: 02:12.5
 
 - section_id: refrain2
