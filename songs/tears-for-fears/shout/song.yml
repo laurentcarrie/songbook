@@ -1,5 +1,6 @@
 files:
-  lilypond: []
+  lilypond: 
+    - chordscouplet.ly
   tex: []
   wav: []
   # TODO: set to true once clicks-def.yml holds anchors measured against
@@ -33,24 +34,26 @@ structure:
       type: intro
       rows:
         - ' | Fsm | Fsm | D | D |'
-        - ' | A | A| Fsm | Fsm | '        
+        - ' | Bm | Bm | Fsm | Fsm | '        
         - ' | Fsm | Fsm | D | D |'
-        - ' | A | A| Fsm | Fsm | '
+        - ' | Bm | Bm | Fsm | Fsm | '
   - id: couplet1
     item: !Chords
       title: couplet 1
       type: couplet
+      section_body: \songly{chordscouplet}
+
       rows :
         - ' | Fsm | Fsm | D | D |'
-        - ' | A | A| Fsm | Fsm | '        
+        - ' | Bm | Bm | Fsm | Fsm | '        
         - ' | Fsm | Fsm | D | D |'
-        - ' | A | A| Fsm | Fsm | ' 
+        - ' | Bm | Bm | Fsm | Fsm | ' 
   - id: refrain1
     item: !Chords
       title: refrain 1
       type: refrain
       rows :
-        - ' | A | A| B | B | x4'        
+        - ' | A | A | B | B | x4'        
 
   - id: NewColumn
     item: !NewColumn
@@ -65,8 +68,7 @@ structure:
       title: refrain 2
       type: refrain
       rows :
-        - ' | A | A| B | B | '    
-        - ' | A | A| B | B | '    
+        - ' | A | A | B | B | x2'        
 
   - id: couplet3
     item: !Chords
@@ -74,24 +76,45 @@ structure:
       type: couplet
       rows :
         - ' | Fsm | Fsm | D | D |'
-        - ' | A | A| Fsm | Fsm | '        
+        - ' | Bm | Bm | Fsm | Fsm | '        
 
 
   - id: refrain3
     item: !Chords
       title: refrain 3
       type: refrain
-      rows :
-        - ' | A | A| B | B | x2'       
+      rows:
+        - '|A|A|B|B|x2'
 
   - id: couplet4
-    item: !Ref
-      title: couplet 4
-      link: couplet1      
-
-  - id: fin
     item: !Chords
-      title: fin
+      title: couplet 4
+      type: couplet
+      rows:       
+        - ' | Fsm | Fsm | D | D |'
+        - ' | Bm | Bm | '
+
+  - id: pont1
+    item: !Chords
+      title: pont 1
+      type: pont
+      rows:
+        - '|Fsm|Fsm|Fsm|Fsm|x4'
+
+  - id: couplet5
+    item: !Ref
+      title: couplet 5
+      link: couplet1
+  
+
+  - id: couplet6
+    item: !Ref
+      title: couplet 6
+      link: couplet1
+
+  - id: outtro
+    item: !Chords
+      title: outtro
       type: intro
       rows:
         - '|Fsm| '

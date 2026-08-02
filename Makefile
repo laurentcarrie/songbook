@@ -1,4 +1,4 @@
-.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev
+.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev
 .DEFAULT_GOAL := help
 
 -include .env
@@ -70,6 +70,23 @@ upload-prod: ## upload songs to S3 prod
 upload-dev: ## upload songs to S3 dev
 	make upload-prod-or-dev BPATH=dev WRITE_PASSWORD=$(WRITE_PASSWORD) URL=localhost:3000
 
+
+upload-mp3: ## upload only the mp3 under songs/ to S3, needs BPATH
+	@if [ -z "$(BUCKET)" ] || [ -z "$(BPATH)" ]; then \
+		echo "upload-mp3: BUCKET and BPATH must be set"; exit 1; \
+	fi; \
+	local_n=$$(find songs -name '*.mp3' 2>/dev/null | wc -l); \
+	if [ "$$local_n" -eq 0 ]; then \
+		echo "upload-mp3: no mp3 under songs/ - nothing to upload"; exit 1; \
+	fi; \
+	echo "uploading $$local_n mp3 to s3://$(BUCKET)/$(BPATH)/songs"; \
+	aws s3 sync songs s3://$(BUCKET)/$(BPATH)/songs --exclude '*' --include '*.mp3'
+
+upload-mp3-prod: ## upload local mp3 to S3 prod
+	make BPATH=prod upload-mp3
+
+upload-mp3-dev: ## upload local mp3 to S3 dev
+	make BPATH=dev upload-mp3
 
 sync: ## upload songs to S3
 	aws s3 sync songs s3://$(BUCKET)/$(BPATH)/songs
