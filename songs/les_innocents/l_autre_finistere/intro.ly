@@ -5,19 +5,6 @@ song_chords = \chordmode {
   a1 a1 b1 b1 
 }
 
-basse = {
-  \absolute  {
-    \override Score.SpacingSpanner.shortest-duration-space = #4.0
-    \set Score.currentBarNumber = 1
-
-    \repeat unfold 2 {
-    a,,4 a,,4 a,,4 a,,4 |
-    b,,4 b,,4 b,,4 b,,4 |
-    }
-
- 
-  }
-}
 
 
   lead = {
@@ -25,16 +12,14 @@ basse = {
       \override Score.SpacingSpanner.shortest-duration-space = #4.0
       \set Score.currentBarNumber = 1
   
-  \repeat unfold 2 {
-      e'8\3 a'8\2 b'8\1 cis''8\1~ |
-      cis''8\1 cis''8\1 b'8\1 a'8\2 | 
-  }
-
-  \repeat unfold 2 {
-      fis'8\2 a'8\2 b'8\1 cis''8\1~ |
-      cis''8\1 cis''8\1 b'8\1 a'8\2 | 
-  }
-
+    \repeat percent 3 {
+    g,8\6 g8\4 g,16\6 f16\4~ f16\4 g,16\6 e16\4 ~ e16\4 g,16\6 d16\4 ~ d16\4 g,16\6 bes,16\5 \glissando b,16\5 |
+    }
+    |
+    f,8\6 f8\4 
+    f,16\6 ees16\4~ ees16\4 f,16\6 
+    d16\4 ~d16\4 f,16\6 c16\5 ~ 
+    c16\5 f,16\6 bes,16\5 \glissando b,16\5 
 
     }
   }
