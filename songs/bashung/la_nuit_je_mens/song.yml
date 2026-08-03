@@ -2,7 +2,7 @@ files:
   lilypond: []
   tex:
     - body.tex
-  wav: []
+  mp3: []
 info:
   title: La Nuit Je Mens
   author: Bashung
@@ -10,7 +10,7 @@ info:
   time_signature: null
   tags: [move-the-line]
 meta:
-  date: "2025-10-26"
+  date: "2026-02-23"
   digest: 8d6d142cde85e66dc7e4de5f29d00d44
 structure:
   - id: couplet1

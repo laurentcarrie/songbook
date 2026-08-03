@@ -2,7 +2,7 @@ files:
   lilypond: []
   tex:
     - lyrics.tex
-  wav: []
+  mp3: []
   has_clicks: true
   has_mp3: true
 info:
@@ -12,7 +12,7 @@ info:
   time_signature: null
   tags: [move-the-line]
 meta:
-  date: "2025-10-26"
+  date: "2026-03-09"
   digest: 1057cbd47ffaa5edecdddee8c9c6df85
 structure:
   - id: introb

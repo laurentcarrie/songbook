@@ -1,7 +1,7 @@
 files:
   lilypond: []
   tex: []
-  wav: []
+  mp3: []
   # TODO: set to true once clicks-def.yml holds anchors measured against
   # THIS song.mp3 - see the header of that file.
   has_clicks: true
@@ -15,7 +15,7 @@ info:
   tags: ['move-the-line']
 
 meta:
-  date: "2026-07-27"
+  date: "2026-07-28"
 structure:
 
   - id: introb

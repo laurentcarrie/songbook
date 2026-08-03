@@ -1,8 +1,9 @@
 files:
   lilypond:
     - basse.ly
+    - solo.ly
   tex: []
-  wav: []
+  mp3: []
 info:
   title: Gouge Away
   author: Pixies
@@ -10,7 +11,7 @@ info:
   time_signature: null
   tags: [move-the-line, truskel-2025]
 meta:
-  date: "2025-10-26"
+  date: "2026-03-09"
   digest: c3f230572e0551053395a44c307543a4
 structure:
   - id: couplet1

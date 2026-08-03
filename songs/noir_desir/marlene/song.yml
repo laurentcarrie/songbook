@@ -5,11 +5,11 @@ files:
     - couplet3.ly
     - couplet4.ly
   tex: []
-  wav:
-    - couplet1.wav
-    - couplet2.wav
-    - couplet3.wav
-    - couplet4.wav
+  mp3:
+    - couplet1.mp3
+    - couplet2.mp3
+    - couplet3.mp3
+    - couplet4.mp3
 info:
   title: Marlène
   author: Noir Désir
@@ -17,7 +17,7 @@ info:
   time_signature: null
   tags: [move-the-line, truskel-2025]
 meta:
-  date: "2025-10-26"
+  date: "2026-03-09"
   digest: 546a7a93213d5ea0d9b51616a2bdec11
 structure:
   - id: intro

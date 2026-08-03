@@ -1,7 +1,7 @@
 files:
   lilypond: []
   tex: []
-  wav: []
+  mp3: []
   # TODO: set to true once clicks-def.yml holds anchors measured against
   # THIS song.mp3 - see the header of that file.
   has_clicks: true

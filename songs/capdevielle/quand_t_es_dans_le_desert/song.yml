@@ -1,7 +1,7 @@
 files:
   lilypond: []
   tex: []
-  wav: []
+  mp3: []
 info:
   title: Quand T'Es Dans Le Désert
   author: Capdevielle
@@ -9,7 +9,7 @@ info:
   time_signature: null
   tags: [move-the-line, truskel-2025]
 meta:
-  date: "2025-10-26"
+  date: "2026-02-23"
   digest: baa5bb0136672b5e265d33ea9bd65258
 structure:
   - id: intro

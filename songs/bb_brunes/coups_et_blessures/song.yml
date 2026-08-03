@@ -3,7 +3,7 @@ files:
     # - riff1.ly
     # - riff2.ly
   tex: []
-  wav: []
+  mp3: []
 hash: 0
 info:
   title: Coups Et Blessures
@@ -12,7 +12,7 @@ info:
   time_signature: null
   tags: [move-the-line]
 meta:
-  date: "2025-11-06"
+  date: "2026-02-23"
   digest: f256d32d3f39516acd1c98c5fc3e6473
 structure:
   - id: intro

@@ -2,7 +2,7 @@ files:
   lilypond:
     - solo.ly
   tex: []
-  wav: []
+  mp3: []
   has_mp3: true
   has_clicks: true
 info:
@@ -12,7 +12,7 @@ info:
   time_signature: null
   tags: [sunny-bd, concert-mai-2026]
 meta:
-  date: "2025-11-02"
+  date: "2026-03-09"
   digest: bc988bde1359922c8f32e87dd6010a37
 structure:
   - id: intro

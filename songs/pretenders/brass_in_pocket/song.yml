@@ -4,10 +4,10 @@ files:
     - couplet.ly
     - prerefrain.ly
   tex: []
-  wav:
-    - intro.wav
-    - couplet.wav
-    - prerefrain.wav
+  mp3:
+    - intro.mp3
+    - couplet.mp3
+    - prerefrain.mp3
 info:
   title: Brass In Pocket
   author: Pretenders
@@ -15,7 +15,7 @@ info:
   time_signature: null
   tags: [sunny-bd, concert-mai-2026]
 meta:
-  date: "2025-10-26"
+  date: "2026-02-23"
   digest: b8534c4fca42bcfb045b212525f21218
 structure:
   - id: intro

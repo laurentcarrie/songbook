@@ -1,0 +1,27 @@
+clicks:
+
+
+
+- section_id: intro
+  time: -00:00.00
+
+- section_id: couplet1a
+  time: 00:12.3
+
+- section_id: refrain1
+  time: 01:03.4
+
+- section_id: couplet2
+  time: 1:30.5
+
+- section_id: refrain2 
+  time: 2:03.8
+
+- bar_number: 49
+  time: 2:24.5
+
+- section_id: pont
+  time: 2:30.1
+
+- section_id: fin
+  time: 3:00.0

@@ -3,7 +3,7 @@ files:
     - intro.ly
     - couplet.ly
   tex: []
-  wav: []
+  mp3: []
 info:
   title: Torn
   author: Natalie Imbroglia
@@ -11,7 +11,7 @@ info:
   time_signature: null
   tags: [sunny-bd, concert-mai-2026]
 meta:
-  date: "2025-10-26"
+  date: "2026-02-23"
   digest: c5273445384b403f7ee99ee03e9b7ba8
 structure:
   - id: intro

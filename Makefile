@@ -1,4 +1,4 @@
-.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev
+.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates
 .DEFAULT_GOAL := help
 
 -include .env
@@ -127,6 +127,29 @@ download: ## download prod data from S3
 
 download-prod: ## download prod data from S
 	make BPATH=prod download
+
+dates: ## set meta.date in every song.yml from the song's last git commit
+	@n=0; \
+	for f in $$(find songs -name song.yml | sort); do \
+		d=$$(dirname "$$f"); \
+		gd=$$(git log -1 --format=%ad --date=short -- "$$d"); \
+		if [ -z "$$gd" ]; then \
+			echo "skip    $$d (not committed yet)"; continue; \
+		fi; \
+		dirty=""; \
+		if ! git diff --quiet -- "$$d" || [ -n "$$(git ls-files --others --exclude-standard -- "$$d")" ]; then \
+			dirty=" (uncommitted changes - $$gd is the last commit)"; \
+		fi; \
+		cur=$$(sed -n 's/^  date: *"\?\([0-9-]*\)"\?.*/\1/p' "$$f" | head -1); \
+		if [ "$$cur" = "$$gd" ]; then \
+			[ -n "$$dirty" ] && echo "ok      $$d$$dirty"; \
+			continue; \
+		fi; \
+		sed -i "s|^  date: .*|  date: \"$$gd\"|" "$$f"; \
+		echo "update  $$d  $$cur -> $$gd$$dirty"; \
+		n=$$((n+1)); \
+	done; \
+	echo "$$n song.yml updated"
 
 fmt: ## format lyrics files
 	find songs -path '*/lyrics/*.tex' -exec sed -i '' 's/\\songwordfb{ }/\\songwordfb{}/g' {} +

@@ -3,7 +3,7 @@ files:
     - intro.ly
     - couplet.ly
   tex: []
-  wav: []
+  mp3: []
 info:
   title: you know I'm no good
   author: Amy Winehouse
@@ -11,7 +11,7 @@ info:
   time_signature: null
   tags: [sunny-bd]
 meta:
-  date: "2025-10-26"
+  date: "2026-02-23"
   digest: fddae9783ed01293cf3bd57800b2bfc2
 structure:
   - id: intro_batteriex

@@ -3,9 +3,9 @@ files:
     - pontbasse.ly
     - coupletbasse.ly
   tex: []
-  wav:
-    - coupletbasse.wav
-    - pontbasse.wav
+  mp3:
+    - coupletbasse.mp3
+    - pontbasse.mp3
 info:
   title: Rock 'N Roll Star
   author: Oasis
@@ -13,7 +13,7 @@ info:
   time_signature: null
   tags: [move-the-line, truskel-2025]
 meta:
-  date: "2025-10-26"
+  date: "2026-08-02"
   digest: b777430533f4c5ad982891af9f2af994
 structure:
   - id: intro

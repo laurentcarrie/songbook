@@ -1,7 +1,7 @@
 files:
   lilypond: []
   tex: []
-  wav: []
+  mp3: []
 info:
   title: The End Has No End
   author: The Strokes
@@ -9,7 +9,7 @@ info:
   time_signature: null
   tags: [move-the-line, truskel-2025]
 meta:
-  date: "2025-10-26"
+  date: "2026-02-23"
   digest: 4408004fd2f076a5b3c0a5fd61e6b4ab
 structure:
   - id: intro

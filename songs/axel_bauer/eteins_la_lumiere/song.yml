@@ -2,8 +2,8 @@ files:
   lilypond:
     - pont2.ly
   tex: []
-  wav:
-    - pont2.wav
+  mp3:
+    - pont2.mp3
 info:
   title: Eteins La Lumière
   author: Axel Bauer
@@ -12,7 +12,7 @@ info:
   tags: [move-the-line, truskel-2025]
 meta:
   digest: 3b3d94f04697065d8e87947cadba979a
-  date: "2025-10-26"
+  date: "2026-02-23"
 structure:
   - id: intro
     item: !Chords

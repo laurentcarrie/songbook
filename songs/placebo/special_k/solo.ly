@@ -1,6 +1,5 @@
 \include "macros.ly"
 \version "2.20.0"
-114
 
 % Bb
 ma = {

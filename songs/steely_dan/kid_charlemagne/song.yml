@@ -5,15 +5,15 @@ files:
     - chordsintro.ly
     - chordsrefrain.ly
   tex: []
-  wav:
-    - solo.wav
+  mp3:
+    - solo.mp3
 info:
   title: Kid Charlemagne
   author: Steely Dan
   tempo: 97
   time_signature: null
 meta:
-  date: "2025-10-26"
+  date: "2026-02-07"
   digest: b4cd535928d7e7077ea73328101fb77c
 structure:
   - id: intro

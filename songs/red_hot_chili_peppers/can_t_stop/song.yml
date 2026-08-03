@@ -6,9 +6,9 @@ files:
     - riff_b.ly
     - chordsrefrain.ly
   tex: []
-  wav:
-    - intro.wav
-    - riff_a.wav
+  mp3:
+    - intro.mp3
+    - riff_a.mp3
 info:
   title: Can't Stop
   author: Red Hot Chili Peppers
@@ -16,7 +16,7 @@ info:
   time_signature: null
   tags: [move-the-line]
 meta:
-  date: "2025-10-27"
+  date: "2026-03-09"
   digest: c893bedf7e31214cdb5adc2358d90843
 structure:
   - id: intro

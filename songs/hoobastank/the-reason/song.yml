@@ -1,7 +1,7 @@
 files:
   lilypond: []
   tex: []
-  wav: []
+  mp3: []
   has_clicks: true
   has_mp3: true
 info:
@@ -12,7 +12,7 @@ info:
   tags: [dadrock]
 
 meta:
-  date: "2025-10-26"
+  date: "2026-07-27"
   digest: 89f75d6a3df95d4925fd5b34fb12ed3e
 structure:
   - id: intro
