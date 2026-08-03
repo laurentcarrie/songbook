@@ -13,8 +13,7 @@ files:
 info:
   title: L'Autre Finistère
   author: Les Innocents
-  # TODO: 100 is a placeholder, not a measured value. Track runs 4:29 (269.3 s).
-  tempo: 96
+  tempo: 80
   time_signature: null
   tags: ['move-the-line']
 
@@ -55,7 +54,7 @@ structure:
       type: refrain
 
       rows :
-        - ' | F | Em | Bm | G |x2'
+        - ' | F | Em | B | G |x2'
         - '|G|'
   - id: couplet2
     item: !Ref
@@ -66,10 +65,14 @@ structure:
     item: !NewColumn
 
   - id: refrain2
-    item: !Ref
+    item: !Chords
       title: refrain 2
-      link: refrain1
+      type: refrain
 
+      rows :
+        - ' | F | Em | B | G |'
+        - ' | F | Em | B | G HRest |'
+        - '|HRest|'
   - id: pont
     item: !Chords
       title: pont
@@ -77,11 +80,29 @@ structure:
 
       rows :
         - ' | Cm | G | B | G | '
+        - ' | Cm | G | B | D | '
+
+  - id: couplet3
+    item: !Chords
+      title: couplet 3
+      type: couplet
+
+      rows :      
+        - ' | A | G | Fsm | G |'
+        - ' |A|B|D|'
+
+  - id: refrain3
+    item: !Chords
+      title: refrain 3 ad lib
+      type: refrain
+
+      rows :
+        - ' | G | Fsm | Cs | A |x4'
 
   - id: fin
     item: !Chords
-      title: couplet 2
-      type: couplet
+      title: fin
+      type: intro
 
       rows :
         - ' | HRest |'
