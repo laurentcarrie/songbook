@@ -1,7 +1,12 @@
 files:
-  lilypond: []
+  lilypond: 
+    - couplet.ly
+    - couplet-rythmique.ly
   tex: []
-  mp3: []
+  mp3: 
+    - couplet.mp3
+    - couplet-rythmique.mp3
+
   # TODO: set to true once clicks-def.yml holds anchors measured against
   # THIS song.mp3 - see the header of that file.
   has_clicks: true
@@ -9,13 +14,12 @@ files:
 info:
   title: Maybe Tomorrow
   author: Stereophonics
-  # TODO: 100 is a placeholder, not a measured value. Track runs 4:29 (269.3 s).
-  tempo: 100
+  tempo: 80
   time_signature: null
   tags: ['dadrock']
 
 meta:
-  date: "2026-07-27"
+  date: "2026-08-03"
 structure:
   # TODO: every `rows` below is a placeholder - replace with the real chords.
   # Notation: f = flat, s = sharp, m = minor (Bf = B flat, Csm = C sharp minor).

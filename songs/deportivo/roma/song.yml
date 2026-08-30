@@ -15,7 +15,7 @@ info:
   tags: ['move-the-line']
 
 meta:
-  date: "2026-07-28"
+  date: "2026-08-03"
 structure:
 
   - id: introb
@@ -56,9 +56,8 @@ structure:
       title: refrain 1
       type: refrain
       rows:
-        - '|C G |G | C G | G |'
-        - '|C G |G | Am Em | C G |'
-        - '|Am Em |C Bm | '
+        - '|C 2/4 |G | C 2/4 | A |x2'
+        - '| Am Em | C G | Am Em |C Bm | '
   - id: nc
     item: !NewColumn
   - id: pont3

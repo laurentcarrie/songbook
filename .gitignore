@@ -2,3 +2,20 @@ sandbox/
 delivery/
 *.mp3
 .env
+# LilyPond artifacts from VSLilyPond's compile-on-save, written next to the
+# .ly sources. The real build outputs to sandbox/ and delivery/ instead.
+songs/**/*.pdf
+songs/**/*.midi
+# Editor backup files
+*~
+# Local editor settings: .vscode/settings.json holds an absolute path to
+# tools/lilypond-inplace, which is machine-specific.
+.vscode/
+
+# Build artifact of `make upload-zip`, and local scratch files.
+pdf.zip
+x.txt
+liste.txt
+
+# Hand-written Strudel scratch page, kept locally, not part of the corpus.
+songs/**/song.html

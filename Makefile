@@ -1,4 +1,4 @@
-.PHONY: all help clean song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates
+.PHONY: all help clean watch song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-books
 .DEFAULT_GOAL := help
 
 -include .env
@@ -6,18 +6,41 @@ export
 
 sandbox:=sandbox
 srcdir:=songs
+booksdir:=books
 delivery:=delivery
 
-all: ## build all songs
-	band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml --delivery $(delivery)
+all: ## build all songs and books
+	band-songbook --songs-srcdir $(srcdir) --books-srcdir $(booksdir) --sandbox $(sandbox) --settings $(srcdir)/settings.yml --delivery $(delivery)
 
 help: ## show this help
 	@grep -hE '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-22s\033[0m %s\n", $$1, $$2}'
 
-song: ## build specific song, give song=...
-	RUST_LOG=info band-songbook --srcdir songs --sandbox $(sandbox) --settings $(srcdir)/settings.yml \
+# song= is a fuzzy subsequence match on "<author> <title>" from song.yml,
+# NOT on the directory name. Case-insensitive but accent-sensitive, so
+# song="finist" builds L'Autre Finistere but song="finistere" matches nothing,
+# and song="black keys" works where song="black_keys" does not.
+song: ## build specific song, song=<fuzzy match on "author title">, e.g. song="black keys"
+	RUST_LOG=info band-songbook --songs-srcdir $(srcdir) --sandbox $(sandbox) --settings $(srcdir)/settings.yml \
 	--pattern "$(song)" \
 	--delivery "$(delivery)"
+
+# Rebuilds on every change under songs/. Polls mtimes once a second rather than
+# using inotify: entr and inotify-tools are not installed and pulling them in
+# needs root, while this works out of the box. INTERVAL overrides the period.
+watch: ## rebuild on every source change, song=... to narrow it down
+	@interval=$${INTERVAL:-1}; prev=""; \
+	echo "watching $(srcdir)/ - Ctrl+C to stop$${song:+ (song=$(song))}"; \
+	while true; do \
+		cur=$$(find $(srcdir) \( -name '*.ly' -o -name '*.ily' -o -name '*.tex' -o -name '*.yml' -o -name '*.tikz' \) \
+			-printf '%T@ %p\n' 2>/dev/null | sort | md5sum); \
+		if [ "$$cur" != "$$prev" ]; then \
+			[ -n "$$prev" ] && echo "--- change detected, rebuilding at $$(date +%H:%M:%S)"; \
+			prev=$$cur; \
+			if [ -n "$(song)" ]; then $(MAKE) --no-print-directory song song="$(song)"; \
+			else $(MAKE) --no-print-directory all; fi; \
+		fi; \
+		sleep $$interval; \
+	done
 
 clean: ## clean sandbox and delivery
 	@makefile_dir=$$(cd $(dir $(abspath $(lastword $(MAKEFILE_LIST)))) && pwd); \
@@ -56,9 +79,11 @@ check-mp3: ## verify songs/ holds at least as many mp3 as S3, before a destructi
 
 upload-prod-or-dev: check-mp3 ## upload songs to S3 prod
 	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/songs
+	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/books
 	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/delivery
 	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/drums
 	aws s3 cp --recursive songs s3://$(BUCKET)/$(BPATH)/songs
+	aws s3 cp --recursive $(booksdir) s3://$(BUCKET)/$(BPATH)/books
 	aws s3 cp --recursive drums s3://$(BUCKET)/$(BPATH)/drums
 	curl -sk -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' https://$(URL)/api/world
 
@@ -88,8 +113,9 @@ upload-mp3-prod: ## upload local mp3 to S3 prod
 upload-mp3-dev: ## upload local mp3 to S3 dev
 	make BPATH=dev upload-mp3
 
-sync: ## upload songs to S3
+sync: ## upload songs and books to S3
 	aws s3 sync songs s3://$(BUCKET)/$(BPATH)/songs
+	aws s3 sync $(booksdir) s3://$(BUCKET)/$(BPATH)/books
 
 sync-prod: ## upload songs to S3 prod
 	make sync BPATH=prod
@@ -159,11 +185,12 @@ download-dev: ## download dev data from S3
 	make BPATH=dev download
 
 run-from-s3: ## build from S3 source, deliver locally
-	band-songbook --srcdir s3://$(BUCKET)/songs --sandbox $(sandbox) --settings s3://$(BUCKET)/songs/settings.yml --delivery $(delivery)
+	band-songbook --songs-srcdir s3://$(BUCKET)/songs --books-srcdir s3://$(BUCKET)/books --sandbox $(sandbox) --settings s3://$(BUCKET)/songs/settings.yml --delivery $(delivery)
 
 prod: ## build prod from S3 with S3 delivery
 	band-songbook \
-		--srcdir s3://$(BUCKET)/prod/songs \
+		--songs-srcdir s3://$(BUCKET)/prod/songs \
+		--books-srcdir s3://$(BUCKET)/prod/books \
 		--sandbox $(sandbox) \
 		--settings s3://$(BUCKET)/prod/songs/settings.yml \
 		--delivery s3://$(BUCKET)/prod/delivery \
@@ -171,10 +198,19 @@ prod: ## build prod from S3 with S3 delivery
 
 dev: ## build dev from S3 with S3 delivery
 	band-songbook \
-		--srcdir s3://$(BUCKET)/dev/songs \
+		--songs-srcdir s3://$(BUCKET)/dev/songs \
+		--books-srcdir s3://$(BUCKET)/dev/books \
 		--sandbox $(sandbox) \
 		--settings s3://$(BUCKET)/dev/songs/settings.yml \
 		--delivery s3://$(BUCKET)/dev/delivery \
 		--drum-patterns-dir s3://$(BUCKET)/dev/drums
+
+upload-zip: all ## build all songs, zip delivery/pdf, and upload it to gdrive:/zik/pdf.zip
+	rm -f pdf.zip
+	cd $(delivery)/pdf && zip -r ../../pdf.zip .
+	rclone copyto pdf.zip gdrive:/zik/pdf.zip
+
+upload-books: all ## build all songs and books, then upload the book PDFs from delivery/pdf to gdrive:/zik
+	rclone copy $(delivery)/pdf gdrive:/zik --include "book-*.pdf"
 
 

@@ -1,6 +1,11 @@
 files:
   lilypond: 
     - intro.ly
+    # pont-defs.ly is NOT listed: it holds definitions only, no \score, so the
+    # build would fail asking it for a page. It reaches the sandbox as an
+    # \include dependency of pont.ly, which body.tex pulls in via \songly.
+    - pont.ly
+    - pont-rythmique.ly
 
   tex: []
   mp3: 
@@ -17,7 +22,7 @@ info:
   tags: ['move-the-line']
 
 meta:
-  date: "2026-08-02"
+  date: "2026-08-04"
 structure:
 
   - id: intro
