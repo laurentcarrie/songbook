@@ -62,8 +62,10 @@ songbookDrums =
    #{
      \drummode {
        \repeat unfold $bars {
-         << \new DrumVoice { \voiceOne hh8 hh hh hh hh hh hh hh }
-            \new DrumVoice { \voiceTwo bd4 sn4 bd4 sn4 } >>
+         <<
+           \new DrumVoice { \voiceOne hh8 hh hh hh hh hh hh hh }
+           \new DrumVoice { \voiceTwo bd4 sn4 bd4 sn4 }
+         >>
        }
      }
    #})

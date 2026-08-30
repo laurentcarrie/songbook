@@ -17,9 +17,9 @@ song_chords = \chordmode {
 lead = {
   \absolute  {
 
-  {
+    {
 
-    
+
 
 
 

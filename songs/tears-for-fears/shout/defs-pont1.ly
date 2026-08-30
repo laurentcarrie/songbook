@@ -1,6 +1,24 @@
 \version "2.24.0"
 
-%% Shared definitions for pont.ly and pont-rythmique.ly.
+%% Corpus-wide library: articulation marks, songbookBeatMarks. A real file
+%% under songs/, mirrored into the sandbox, so this include resolves both when
+%% the build compiles the sandbox copy and when the editor compiles the source.
+\include "../../songbook.ily"
+
+%% macros.ly carries only `songtempo = <song.yml info.tempo>`, the one value
+%% that differs per song. band-songbook generates it next to the .ly, so it is
+%% there during a build but NOT when this file is compiled straight from songs/
+%% in the editor - and a missing \include is a hard error. Hence the guard:
+%% \include cannot go inside an if, but ly:parser-include-string can.
+%%
+%% The fallback is editor-only. A build always finds macros.ly and therefore
+%% always uses the real tempo from song.yml; 100 here is just something to
+%% compile with, not the song's tempo.
+#(if (file-exists? "macros.ly")
+     (ly:parser-include-string "\\include \"macros.ly\"")
+     (ly:parser-define! 'songtempo 100))
+
+%% Shared definitions for riff1.ly and riff1-rythmique.ly.
 %% Definitions ONLY - no \header and no \score. A file with a \score cannot be
 %% included: its scores would be emitted again in the including file, adding
 %% pages to the PDF and a second <name>-1.midi that the build does not expect.
@@ -36,76 +54,31 @@ tabDurations = {
   \revert TabStaff.MultiMeasureRestText.stencil
 }
 
-accord_cm =
+accord_fis =
 #(define-music-function (dur) (ly:duration?)
-   #{ <c\5 g\4 c'\3 dis'\2>$dur #})
+   #{ <fis,\6>$dur #})
 
-mesure_cm = {
-  |
-  \accord_cm 16 q16  r16   \accord_cm 16
-  q16 q16 r16 \accord_cm 16
-  q16 q16 r16 \accord_cm 16
-  q16 r16 \accord_cm 16 r16
-  |
-}
 
-accord_g =
-#(define-music-function (dur) (ly:duration?)
-   #{ <g,\6 c\5 g\4 b\3 d'\2>$dur #})
 
-mesure_g = {
-  \accord_g 16 q16   r16   \accord_g 16
-  \accord_g 16 \accord_g 16 r16 \accord_g 16
-  q16 q16 r16 \accord_g 16
-  q16 r16 \accord_g 16 r16
-}
 
-accord_b =
-#(define-music-function (dur) (ly:duration?)
-   #{ <b,\5 fis\4 b\3 dis'\2>$dur #})
+mesure_fis = {
+  \accord_fis 4
+  \accord_fis 4
+  \accord_fis 4
+  \accord_fis 4
 
-mesure_b = {
-  \accord_b 16 q16   r16   \accord_b 16
-  \accord_b 16 \accord_b 16 r16 \accord_b 16
-  q16 q16 r16 \accord_b 16
-  q16 r16 \accord_b 16 r16
-}
-
-accord_d =
-#(define-music-function (dur) (ly:duration?)
-   #{ <d\4 a\3 d'\2>$dur #})
-
-mesure_d = {
-  \accord_d 16 q16   r16   \accord_d 16
-  \accord_d 16 \accord_d 16 r16 \accord_d 16
-  q16 q16 r16 \accord_d 16
-  q16 r16 \accord_d 16 r16
 }
 
 
-
-
-%% Chord grid of the bridge: one name per bar, 8 bars. Shared by the melody
-%% and the rhythm scores so the two can never drift apart.
-harmonies = \chordmode { c1:m g1 b1 g1 c1:m g1 b1 d1 }
+harmonies = \chordmode { fis:m }
+songTempo = { \tempo 4 = \songtempo }
 
 rythm = {
   \clef "treble_8"
-  \mesure_cm
-  |
-  \mesure_g
-  |
-  \mesure_b
-  |
-  \mesure_g
-  |
-  \mesure_cm
-  |
-  \mesure_g
-  |
-  \mesure_b
-  |
-  \mesure_d
+  \songTempo
 
-
+  \repeat volta 16 {
+    \mesure_fis
+    |
+  }
 }

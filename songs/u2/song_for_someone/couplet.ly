@@ -17,16 +17,16 @@ song_chords = \chordmode {
 lead = {
   \absolute  {
 
-  {
+    {
 
-    e,8\6 fis8\4 e8\5 e,8\6     fis8\4 e8\5 e,8\6 e8\5
-    |
-    e,8\6 fis8\4 e8\5 e,8\6     fis8\4 e8\5 e,8\6 e8\5
-    |
-    fis,8\6 fis8\4 cis8\5 fis,8\6 fis8\4 cis8\5 fis,8\6 cis8\5
-    |
-    gis,8\6 gis8\4 dis8\5 gis,8\6 gis8\4 dis8\5 gis,8\6 dis8\5  
-    |
+      e,8\6 fis8\4 e8\5 e,8\6     fis8\4 e8\5 e,8\6 e8\5
+      |
+      e,8\6 fis8\4 e8\5 e,8\6     fis8\4 e8\5 e,8\6 e8\5
+      |
+      fis,8\6 fis8\4 cis8\5 fis,8\6 fis8\4 cis8\5 fis,8\6 cis8\5
+      |
+      gis,8\6 gis8\4 dis8\5 gis,8\6 gis8\4 dis8\5 gis,8\6 dis8\5
+      |
 
 
 

@@ -52,7 +52,7 @@ melody = {
   }
 
   %% bar 7
-  f,4 f4\4 f,8 ees8\4 ~ ees8\4 f,8\6 | 
+  f,4 f4\4 f,8 ees8\4 ~ ees8\4 f,8\6 |
   %% bar 8
   d4\4 f,8 c8 ~ c8 f,8 bes,8 \glissando b,8 |
 

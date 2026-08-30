@@ -1,12 +1,12 @@
 \version "2.24.0"
 
 \header {
-  title = "couplet"
+  title = "riff 1 (couplet)"
   instrument = "mélodie"
   tagline = ##f
 }
 
-\include "couplet-defs.ly"
+\include "defs.ly"
 
 
 melody = {
@@ -15,12 +15,11 @@ melody = {
   \songTempo
 
   \repeat percent 8   {
-  c'16\3 \glissando d'16\3 r16 f'16\2 f'16\2 d'16\3 g'16\2 
-  r4 f'16\2 
-  ais'16\1 r16 g'16\2 r16 
-  |
+    c'16\3 \glissando d'16\3 r16 f'16\2 f'16\2 d'16\3 g'16\2
+    r4 f'16\2
+    ais'16\1 r16 g'16\2 r16
+    |
   }
-
 }
 
 \score {

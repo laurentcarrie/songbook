@@ -18,7 +18,7 @@
      (ly:parser-include-string "\\include \"macros.ly\"")
      (ly:parser-define! 'songtempo 100))
 
-%% Shared definitions for couplet.ly and couplet-rythmique.ly.
+%% Shared definitions for riff1.ly and riff1-rythmique.ly.
 %% Definitions ONLY - no \header and no \score. A file with a \score cannot be
 %% included: its scores would be emitted again in the including file, adding
 %% pages to the PDF and a second <name>-1.midi that the build does not expect.
@@ -54,106 +54,45 @@ tabDurations = {
   \revert TabStaff.MultiMeasureRestText.stencil
 }
 
-accord_ebemol =
+accord_a =
 #(define-music-function (dur) (ly:duration?)
-   #{ <ees\5 g\4 bes\3 dis'\2>$dur #})
+   #{ <a,\5 e\4 a\3 cis'\2>$dur #})
 
-
-accord_cm =
+accord_b =
 #(define-music-function (dur) (ly:duration?)
-   #{ <c\5 g\4 c'\3 dis'\2>$dur #})
+   #{ <b,\5 fis\4 b\3 dis'\2>$dur #})
 
 
-accord_gm =
-#(define-music-function (dur) (ly:duration?)
-   #{ <g,\6 d\5 g\4 bes\3 d'\2>$dur #})
 
+mesure_a = {
+  \accord_a 4
+  \accord_a 4
+  \accord_a 4
+  \accord_a 4
+}
 
-accord_f =
-#(define-music-function (dur) (ly:duration?)
-   #{ <c\5 f\4 c'\3 f'\2>$dur #})
-
-
-mesure_ebemol = {
-  \accord_ebemol 8.
-  \accord_ebemol 16
-  \accord_ebemol 16
-  r16
-  \deadNote \accord_ebemol 16
-  \accord_ebemol 16
-  r16
-  \accord_ebemol 16
-  r16
-  \accord_ebemol 16
-  \accord_ebemol 4
+mesure_b = {
+  \accord_b 4
+  \accord_b 4
+  \accord_b 4
+  \accord_b 4
 }
 
 
-
-
-mesure_cm = {
-  \accord_cm 8.
-  \accord_cm 16
-  \accord_cm 16
-  r16
-  \deadNote \accord_cm 16
-  \accord_cm 16
-  r16
-  \accord_cm 16
-  r16
-  \accord_cm 16
-  \accord_cm 4
-}
-
-
-
-mesure_gm= {
-  \accord_gm 8.
-  \accord_gm 16
-  \accord_gm 16
-  r16
-  \deadNote \accord_gm 16
-  \accord_gm 16
-  r16
-  \accord_gm 16
-  r16
-  \accord_gm 16
-  \accord_gm 4
-}
-
-mesure_f= {
-  \accord_f 8.
-  \accord_f 16
-  \accord_f 16
-  r16
-  \deadNote \accord_f 16
-  \accord_f 16
-  r16
-  \accord_f 16
-  r16
-  \accord_f 16
-  \accord_f 16 
-  \accord_f 16 
-  \accord_f 16 
-  \accord_f 16 
-}
-
-harmonies = \chordmode { ees1 c1:m g1:m f1 ees1 c1:m g1:m f1 }
+harmonies = \chordmode { a1 a1 b1 b1 b1 }
 songTempo = { \tempo 4 = \songtempo }
 
 rythm = {
   \clef "treble_8"
   \songTempo
 
-  \repeat percent 2 {
-
-  \mesure_ebemol
-  |
-  \mesure_cm
-  |
-  \mesure_gm
-  |
-  \mesure_f
-  |
-  }   
+  \repeat volta 2 {
+    \mesure_a
+    |
+    \mesure_a
+    |
+    \mesure_b
+    |
+    \mesure_b
+  }
 }

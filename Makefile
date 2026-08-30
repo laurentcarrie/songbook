@@ -1,4 +1,4 @@
-.PHONY: all help clean watch song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-books
+.PHONY: all help clean watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-books
 .DEFAULT_GOAL := help
 
 -include .env
@@ -58,8 +58,11 @@ clean: ## clean sandbox and delivery
 	done
 
 check-mp3: ## verify songs/ holds at least as many mp3 as S3, before a destructive upload
-	@if [ -z "$(BUCKET)" ] || [ -z "$(BPATH)" ]; then \
-		echo "check-mp3: BUCKET and BPATH must be set"; exit 1; \
+	@missing=""; \
+	[ -n "$(BUCKET)" ] || missing="$$missing BUCKET (set it in .env)"; \
+	[ -n "$(BPATH)" ] || missing="$$missing BPATH (pass BPATH=prod or BPATH=dev)"; \
+	if [ -n "$$missing" ]; then \
+		echo "check-mp3: not set:$$missing"; exit 1; \
 	fi; \
 	local_n=$$(find songs -name '*.mp3' 2>/dev/null | wc -l); \
 	remote_n=$$(aws s3 ls s3://$(BUCKET)/$(BPATH)/songs/ --recursive | grep -c '\.mp3' || true); \
@@ -85,20 +88,24 @@ upload-prod-or-dev: check-mp3 ## upload songs to S3 prod
 	aws s3 cp --recursive songs s3://$(BUCKET)/$(BPATH)/songs
 	aws s3 cp --recursive $(booksdir) s3://$(BUCKET)/$(BPATH)/books
 	aws s3 cp --recursive drums s3://$(BUCKET)/$(BPATH)/drums
-	curl -sk -X POST -H 'X-Write-Password: $(WRITE_PASSWORD)' https://$(URL)/api/world
+	@printf 'header = "X-Write-Password: %%s"\n' "$$WRITE_PASSWORD" \
+		| curl -sk -K - -X POST https://$(URL)/api/world
 
 
 upload-prod: ## upload songs to S3 prod
-	make upload-prod-or-dev BPATH=prod WRITE_PASSWORD=$(WRITE_PROD_PASSWORD) URL='move-the-line.org'
+	@WRITE_PASSWORD="$$WRITE_PROD_PASSWORD" $(MAKE) upload-prod-or-dev BPATH=prod URL='move-the-line.org'
 
 
 upload-dev: ## upload songs to S3 dev
-	make upload-prod-or-dev BPATH=dev WRITE_PASSWORD=$(WRITE_PASSWORD) URL=localhost:3000
+	@WRITE_PASSWORD="$$WRITE_PASSWORD" $(MAKE) upload-prod-or-dev BPATH=dev URL=localhost:3000
 
 
 upload-mp3: ## upload only the mp3 under songs/ to S3, needs BPATH
-	@if [ -z "$(BUCKET)" ] || [ -z "$(BPATH)" ]; then \
-		echo "upload-mp3: BUCKET and BPATH must be set"; exit 1; \
+	@missing=""; \
+	[ -n "$(BUCKET)" ] || missing="$$missing BUCKET (set it in .env)"; \
+	[ -n "$(BPATH)" ] || missing="$$missing BPATH (pass BPATH=prod or BPATH=dev)"; \
+	if [ -n "$$missing" ]; then \
+		echo "upload-mp3: not set:$$missing"; exit 1; \
 	fi; \
 	local_n=$$(find songs -name '*.mp3' 2>/dev/null | wc -l); \
 	if [ "$$local_n" -eq 0 ]; then \
@@ -124,12 +131,15 @@ sync-dev: ## upload songs to S3 dev
 	make sync BPATH=dev
 
 reindex: ## POST /api/world to re-index a site (needs WRITE_PASSWORD and URL)
-	@if [ -z "$(WRITE_PASSWORD)" ] || [ -z "$(URL)" ]; then \
-		echo "reindex: WRITE_PASSWORD and URL must both be set"; exit 1; \
+	@missing=""; \
+	[ -n "$$WRITE_PASSWORD" ] || missing="$$missing WRITE_PASSWORD (from .env)"; \
+	[ -n "$(URL)" ] || missing="$$missing URL (pass URL=move-the-line.org or URL=localhost:3000)"; \
+	if [ -n "$$missing" ]; then \
+		echo "reindex: not set:$$missing"; exit 1; \
 	fi; \
 	body=$$(mktemp); \
-	code=$$(curl -sk -X POST -o "$$body" -w '%{http_code}' \
-		-H 'X-Write-Password: $(WRITE_PASSWORD)' 'https://$(URL)/api/world'); \
+	code=$$(printf 'header = "X-Write-Password: %%s"\n' "$$WRITE_PASSWORD" \
+		| curl -sk -K - -X POST -o "$$body" -w '%{http_code}' 'https://$(URL)/api/world'); \
 	echo "POST https://$(URL)/api/world -> HTTP $$code"; \
 	head -c 500 "$$body"; echo; rm -f "$$body"; \
 	case "$$code" in \
@@ -140,11 +150,11 @@ reindex: ## POST /api/world to re-index a site (needs WRITE_PASSWORD and URL)
 
 refresh-prod: ## sync songs to S3 prod, then re-index move-the-line.org
 	$(MAKE) sync BPATH=prod
-	WRITE_PASSWORD='$(WRITE_PROD_PASSWORD)' $(MAKE) reindex URL=move-the-line.org
+	@WRITE_PASSWORD="$$WRITE_PROD_PASSWORD" $(MAKE) reindex URL=move-the-line.org
 
 refresh-dev: ## sync songs to S3 dev, then re-index localhost
 	$(MAKE) sync BPATH=dev
-	WRITE_PASSWORD='$(WRITE_PASSWORD)' $(MAKE) reindex URL=localhost:3000
+	@WRITE_PASSWORD="$$WRITE_PASSWORD" $(MAKE) reindex URL=localhost:3000
 
 download: ## download prod data from S3
 	aws s3 sync s3://$(BUCKET)/$(BPATH)/songs songs
@@ -177,9 +187,35 @@ dates: ## set meta.date in every song.yml from the song's last git commit
 	done; \
 	echo "$$n song.yml updated"
 
+fmt-ly: ## reindent every .ly and .ily under songs/ with python-ly
+	@ly=$${LY:-ly}; \
+	if ! command -v "$$ly" >/dev/null 2>&1; then \
+		echo "fmt-ly: '$$ly' not found."; \
+		echo "  install it with:  pip install --user python-ly"; \
+		echo "  or point at one:  make fmt-ly LY=/path/to/ly"; \
+		exit 1; \
+	fi; \
+	n=0; bad=0; \
+	for f in $$(find $(srcdir) \( -name '*.ly' -o -name '*.ily' \) | sort); do \
+		if "$$ly" reformat -i "$$f" >/dev/null 2>&1; then \
+			n=$$((n+1)); \
+		else \
+			echo "  failed: $$f"; bad=$$((bad+1)); \
+		fi; \
+	done; \
+	echo "fmt-ly: $$n file(s) reformatted, $$bad failed"; \
+	[ "$$bad" -eq 0 ]
+
+# Piped through xargs rather than `find -exec ... +`: the sed script contains a
+# literal {} (\songwordfb{}), which find counts as a second substitution slot
+# and refuses. The old form also used `sed -i ''`, the BSD spelling - GNU sed
+# reads the '' as a file name.
 fmt: ## format lyrics files
-	find songs -path '*/lyrics/*.tex' -exec sed -i '' 's/\\songwordfb{ }/\\songwordfb{}/g' {} +
-	find songs -path '*/lyrics/*.tex' -exec sed -i '' 's/  / /g' {} +
+	@find $(srcdir) -path '*/lyrics/*.tex' -print0 \
+		| xargs -0 -r sed -i 's/\\songwordfb{ }/\\songwordfb{}/g'
+	@find $(srcdir) -path '*/lyrics/*.tex' -print0 \
+		| xargs -0 -r sed -i 's/  / /g'
+	@echo "fmt: lyrics .tex normalised"
 
 download-dev: ## download dev data from S3
 	make BPATH=dev download

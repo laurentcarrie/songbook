@@ -2,10 +2,18 @@ files:
   lilypond: 
     - chordscouplet.ly
     - chordsrefrain.ly
-    - refrain.ly
+    - riff1.ly
+    - riff1-rythmique.ly
+    - riff2.ly
+    - pont1.ly
+    - pont1b.ly
   tex: []
   mp3: 
-    - refrain.mp3
+    - riff1.mp3
+    - riff1-rythmique.mp3
+    - riff2.mp3
+    - pont1.mp3
+    - pont1b.mp3
   # TODO: set to true once clicks-def.yml holds anchors measured against
   # THIS song.mp3 - see the header of that file.
   has_clicks: true
@@ -13,7 +21,6 @@ files:
 info:
   title: Shout
   author: Tears For Fears
-  # TODO: 100 is a placeholder, not a measured value. Track runs 4:29 (269.3 s).
   tempo: 96
   time_signature: null
   tags: ['dadrock']

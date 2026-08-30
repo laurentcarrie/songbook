@@ -52,6 +52,6 @@ lead = {
 
   >>
 
-    \layout {}
+  \layout {}
 
 }

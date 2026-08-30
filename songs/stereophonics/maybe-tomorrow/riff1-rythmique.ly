@@ -1,12 +1,12 @@
 \version "2.24.0"
 
 \header {
-  title = "couplet"
+  title = "riff1"
   instrument = "guitare rythmique"
   tagline = ##f
 }
 
-\include "couplet-defs.ly"
+\include "defs.ly"
 
 \score {
   <<
@@ -17,7 +17,6 @@
   >>
   \layout {}
 }
-
 
 \score {
   \unfoldRepeats <<

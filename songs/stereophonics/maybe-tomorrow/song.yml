@@ -1,11 +1,13 @@
 files:
   lilypond: 
-    - couplet.ly
-    - couplet-rythmique.ly
+    - riff1.ly
+    - riff1-rythmique.ly
+    - riff2.ly
   tex: []
   mp3: 
-    - couplet.mp3
-    - couplet-rythmique.mp3
+    - riff1.mp3
+    - riff1-rythmique.mp3
+    - riff2.mp3
 
   # TODO: set to true once clicks-def.yml holds anchors measured against
   # THIS song.mp3 - see the header of that file.
