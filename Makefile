@@ -1,4 +1,4 @@
-.PHONY: all help clean watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-books
+.PHONY: all force help clean watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive
 .DEFAULT_GOAL := help
 
 -include .env
@@ -11,6 +11,10 @@ delivery:=delivery
 
 all: ## build all songs and books
 	band-songbook --songs-srcdir $(srcdir) --books-srcdir $(booksdir) --sandbox $(sandbox) --settings $(srcdir)/settings.yml --delivery $(delivery)
+
+force: ## force rebuild all songs (clears sandbox first)
+	rm -rf $(sandbox)
+	$(MAKE) all
 
 help: ## show this help
 	@grep -hE '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-22s\033[0m %s\n", $$1, $$2}'
@@ -80,13 +84,14 @@ check-mp3: ## verify songs/ holds at least as many mp3 as S3, before a destructi
 		echo "FORCE_MP3 set - continuing anyway."; \
 	fi
 
-upload-prod-or-dev: check-mp3 ## upload songs to S3 prod
+upload-prod-or-dev: check-mp3
 	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/songs
 	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/books
 	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/delivery
 	aws s3 rm --recursive s3://$(BUCKET)/$(BPATH)/drums
 	aws s3 cp --recursive songs s3://$(BUCKET)/$(BPATH)/songs
 	aws s3 cp --recursive $(booksdir) s3://$(BUCKET)/$(BPATH)/books
+	aws s3 cp --recursive $(delivery) s3://$(BUCKET)/$(BPATH)/delivery
 	aws s3 cp --recursive drums s3://$(BUCKET)/$(BPATH)/drums
 	@printf 'header = "X-Write-Password: %%s"\n' "$$WRITE_PASSWORD" \
 		| curl -sk -K - -X POST https://$(URL)/api/world
@@ -161,7 +166,7 @@ download: ## download prod data from S3
 	aws s3 sync s3://$(BUCKET)/$(BPATH)/drums drums
 
 
-download-prod: ## download prod data from S
+download-prod: ## download prod data from S3
 	make BPATH=prod download
 
 dates: ## set meta.date in every song.yml from the song's last git commit
@@ -246,7 +251,7 @@ upload-zip: all ## build all songs, zip delivery/pdf, and upload it to gdrive:/z
 	cd $(delivery)/pdf && zip -r ../../pdf.zip .
 	rclone copyto pdf.zip gdrive:/zik/pdf.zip
 
-upload-books: all ## build all songs and books, then upload the book PDFs from delivery/pdf to gdrive:/zik
+upload-gdrive: all ## build all songs and books, then upload the book PDFs from delivery/pdf to gdrive:/zik
 	rclone copy $(delivery)/pdf gdrive:/zik --include "book-*.pdf"
 
 

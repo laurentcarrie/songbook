@@ -1,8 +1,8 @@
 \version "2.24.0"
 
 \header {
-  title = "riff 2 (refrain)"
-  instrument = "guitare"
+  title = "refrain"
+  instrument = "lead"
   tagline = ##f
 }
 
@@ -17,12 +17,12 @@ melody = {
   \repeat volta 2 {
 
     \repeat unfold 2 {
-      e'8\3 a'8\2 b'8\1 cis''8\1~ 
+      e'8\3 a'8\2 b'8\1 cis''8\1~
       cis''8\1 cis''8\1 b'8\1 a'8\2 |
     }
 
     \repeat unfold 2 {
-      fis'8\2 a'8\2 b'8\1 cis''8\1~ 
+      fis'8\2 a'8\2 b'8\1 cis''8\1~
       cis''8\1 cis''8\1 b'8\1 a'8\2 |
     }
   }

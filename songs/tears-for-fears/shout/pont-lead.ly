@@ -1,39 +1,32 @@
 \version "2.24.0"
 
 \header {
-  title = "pont 1b"
+  title = "pont guitare 1"
   instrument = "guitare"
   tagline = ##f
 }
 
 \include "defs-pont1.ly"
 
+
+
 melody = {
   \clef "treble_8"
   \time 4/4
   \songTempo
 
-  \repeat volta 2 {
-
-    a8\3 r8
-    r8 r16 fis16\4
-    gis16\3 fis16\4 a\3 r16
-    fis8\4 r8
+  r1 | r1 | r1 | r1
+  |
+  \repeat percent 3 {
+    cis''16\1 b'16\1 cis''16\1 fis'16\2
+    ~ fis'4\2
+    ~ fis'4\2
+    fis'8\2 a'8\1
     |
-    r8. e16\4 fis16\4 gis16\3 r16 a16\3 r16
-    fis16\4 gis16\3 fis16\4 gis16\3 a16\3 fis16\4 r16
-    |
-    a8\3 r8
-    r8 r16 fis16\4
-    gis16\3 fis16\4 a\3 r16
-    r4
-    |
-
-    fis16\4 fis16\4 fis16\4  r4
-    fis16\4 gis16\3 fis16\4 a16\3
-    fis16\4 r4
-
-    |
+    b'8\1 r8
+    b'8 r16  a'16
+    b'16 cis''16  a'16 r16
+    fis'8\2 a'8\1
   }
 
 }
@@ -42,7 +35,7 @@ melody = {
   <<
     \new ChordNames \harmonies
     \new TabStaff { \boldGlissando \tabDurations \melody }
-    \new Dynamics { \songbookBeatMarks 4 }
+    \new Dynamics { \songbookBeatMarks 6 }
     % \new TabStaff { \boldGlissando \tabDurations \rythm }
   >>
   \layout {}

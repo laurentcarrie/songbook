@@ -1,48 +1,49 @@
 \version "2.24.0"
 
 \header {
-  title = "pont 1b"
+  title = "final"
   instrument = "guitare"
   tagline = ##f
 }
 
 \include "defs-pont1.ly"
 
+
+
 melody = {
   \clef "treble_8"
   \time 4/4
   \songTempo
 
-  \repeat volta 2 {
-
-    a8\3 r8
-    r8 r16 fis16\4
-    gis16\3 fis16\4 a\3 r16
-    fis8\4 r8
-    |
-    r8. e16\4 fis16\4 gis16\3 r16 a16\3 r16
-    fis16\4 gis16\3 fis16\4 gis16\3 a16\3 fis16\4 r16
-    |
-    a8\3 r8
-    r8 r16 fis16\4
-    gis16\3 fis16\4 a\3 r16
-    r4
-    |
-
-    fis16\4 fis16\4 fis16\4  r4
-    fis16\4 gis16\3 fis16\4 a16\3
-    fis16\4 r4
+  \absolute {
 
     |
+    r1
+    |
+    \repeat percent 2 {
+      e'16\2
+      fis'16\2 ~ fis'16\2 fis'16\2 fis'16\2
+      r16 fis'16\2 fis'16\2 e'16\2
+      fis'16\2 ~ fis'16\2 fis'16\2 fis'16\2
+      r16 fis'16\2 fis'16\2
+    }
+    |
+    e'8\3 a'8\2
+    b'8\1 cis''8\1~
+    cis''4.\1 e'8\3 ~
+    |
+    e'8\3 a'8\2 b'4\1
+    e'8\3 a'8\2 b'4\1
+
+
   }
-
 }
 
 \score {
   <<
     \new ChordNames \harmonies
     \new TabStaff { \boldGlissando \tabDurations \melody }
-    \new Dynamics { \songbookBeatMarks 4 }
+    \new Dynamics { \songbookBeatMarks 6 }
     % \new TabStaff { \boldGlissando \tabDurations \rythm }
   >>
   \layout {}
@@ -69,7 +70,7 @@ melody = {
     \new DrumStaff \with {
       midiMinimumVolume = #0.9
       midiMaximumVolume = #1.0
-    } { \songbookDrums 8 }
+    } { \songbookDrums 3 }
   >>
   \midi {}
 }

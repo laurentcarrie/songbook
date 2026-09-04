@@ -1,7 +1,7 @@
 \version "2.24.0"
 
 \header {
-  title = "riff1"
+  title = "couplet"
   instrument = "guitare rythmique"
   tagline = ##f
 }

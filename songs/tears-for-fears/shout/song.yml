@@ -6,14 +6,17 @@ files:
     - riff1-rythmique.ly
     - riff2.ly
     - pont1.ly
-    - pont1b.ly
+    #- pont1b.ly
+    - pont-lead.ly
+    - final.ly
   tex: []
   mp3: 
     - riff1.mp3
     - riff1-rythmique.mp3
     - riff2.mp3
+    - pont-lead.mp3
     - pont1.mp3
-    - pont1b.mp3
+    - final.mp3
   # TODO: set to true once clicks-def.yml holds anchors measured against
   # THIS song.mp3 - see the header of that file.
   has_clicks: true
@@ -26,7 +29,7 @@ info:
   tags: ['dadrock']
 
 meta:
-  date: "2026-08-03"
+  date: "2026-08-31"
 structure:
   # TODO: every `rows` below is a placeholder - replace with the real chords.
   # Notation: f = flat, s = sharp, m = minor (Bf = B flat, Csm = C sharp minor).
