@@ -1,0 +1,10 @@
+\node[draw,circle,color=blue,minimum size=1cm] at (\BAR{3}) {} ;
+
+\node[anchor=west](b) at (\SECTION{refrain1}) { \songly{chordsrefrain} } ;
+
+
+%% sus4 under the first Cs of the pré refrain split bars
+%\path (\BAR{34}) +(-.3*\xr,.05*\yr) coordinate (A) ;
+%\node[anchor=north,text=blue] at (A) { \fontsize{8pt}{8pt}\selectfont\bfseries sus4 } ;
+%\path (\BAR{36}) +(-.3*\xr,.05*\yr) coordinate (A) ;
+%\node[anchor=north,text=blue] at (A) { \fontsize{8pt}{8pt}\selectfont\bfseries sus4 } ;

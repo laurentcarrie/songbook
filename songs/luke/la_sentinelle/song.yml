@@ -33,9 +33,9 @@ structure:
       type: couplet
       section_body: null
       rows:
-        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|Em 2/4|Em Bm |Em Bm
         - Em Bm|Em Bm|
-        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|Em 2/4|Em Bm |Em Bm
   - id: prerefrain1
     item: !Chords
       title: pré refrain 1
@@ -66,9 +66,9 @@ structure:
       type: couplet
       section_body: null
       rows:
-        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|Em 2/4|Em Bm |Em Bm
         - Em Bm|
-        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|Em 2/4|Em Bm |Em Bm
   - id: prerefrain2
     item: !Ref
       title: pré refrain 2
@@ -106,7 +106,7 @@ structure:
       type: couplet
       section_body: null
       rows:
-        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|Em 2/4|Em Bm |Em Bm
   - id: prerefrain3
     item: !Ref
       title: pré refrain 3

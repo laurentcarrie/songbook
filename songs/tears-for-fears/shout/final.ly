@@ -8,6 +8,12 @@
 
 \include "defs-pont1.ly"
 
+harmonies = \chordmode {
+  fis1:m
+  fis1:m q q q d1 q b1:m q
+  fis1:m q q q d1 q b1:m q
+}
+
 
 
 melody = {
@@ -28,12 +34,66 @@ melody = {
       r16 fis'16\2 fis'16\2
     }
     |
-    e'8\3 a'8\2
+    e'8\3 fis'8\2
     b'8\1 cis''8\1~
     cis''4.\1 e'8\3 ~
     |
-    e'8\3 a'8\2 b'4\1
-    e'8\3 a'8\2 b'4\1
+    e'8\3 fis'8\2
+    a'4\2
+    e'8\3 fis'8\2 a'4\2
+    |
+    % D
+    % \textMark \markup { \italic "reprise du thème" }
+    e''4.\1 ~
+    e''16\1 d''16\1
+    cis''4.\1 ~
+    cis''16\1 b'16\2
+    |
+    a'4.\2 ~
+    a'16\2 fis'16\2
+    eis'2\3
+    |
+    % Bm
+    e'8\3 fis'8\2
+    b'8\1 cis''8\1~
+    cis''2\1
+    |
+    e'8\3 fis'8\2
+    b'8\1 cis''8\1~
+    cis''4.\1
+    a'16\2 b'16\2
+    |
+    % Fm
+    b'8\2\^ cis''8\2 b'8\2\^ e''8\1 ~
+    e''4\1
+    |
+    r1
+    |
+    gis''8\1\^ a''8\1
+    e''8\1 fis''8\2 ~
+    fis''4\2
+    r8
+    a'8\3 ~
+    |
+    a'8\3 b'8\2 cis''8\2 e''8\1
+    a'8\3 b'8\2
+    cis''8\2 d''8\2
+    |
+    e''4.\1 ~
+    e''16\1 d''16\1
+    cis''4.\1 ~
+    cis''16\1 b'16\2
+    |
+    a'4.\2 ~
+    a'16\2 fis'16\2
+    eis'16\3 fis'16\2
+    eis'16\3 r16 r16 r16 r16 r16
+    |
+    % Bm
+    e'8\3 fis'8\2
+    b'8\1 cis''8\1~
+    cis''2\1
+
 
 
   }
@@ -43,7 +103,7 @@ melody = {
   <<
     \new ChordNames \harmonies
     \new TabStaff { \boldGlissando \tabDurations \melody }
-    \new Dynamics { \songbookBeatMarks 6 }
+    \new Dynamics { \songbookBeatMarks 16 }
     % \new TabStaff { \boldGlissando \tabDurations \rythm }
   >>
   \layout {}
@@ -75,4 +135,3 @@ melody = {
   \midi {}
 }
 
-% touch

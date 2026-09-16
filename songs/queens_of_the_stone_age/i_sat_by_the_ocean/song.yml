@@ -1,0 +1,80 @@
+files:
+  lilypond: 
+    - chordsrefrain.ly
+  tex:
+    - lyrics.tex
+  mp3: []
+  has_clicks: true
+  has_mp3: true
+info:
+  title: I Sat By The Ocean
+  author: Queens Of The Stone Age
+  tempo: 117
+  time_signature: null
+  tags: [move-the-line]
+meta:
+  date: "2026-08-30"
+  digest: 1057cbd47ffaa5edecdddee8c9c6df85
+structure:
+  - id: intro-a
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: null
+      rows:
+        - '|Gs|Gs|'
+
+  - id: intro-b
+    item: !Chords
+      title: intro
+      type: intro
+      section_body: null
+      rows:
+        - '|Gs|Gs As|B|Fs|'
+        - '|Gs|Gs Fs|E|B Cs|'
+        - '|Gs|Gs|'
+
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      section_body: null
+      rows:
+        - '|Gs|Gs As|B|Fs|'
+        - '|Gs|Gs Fs|E|B Cs|'
+        - '|Gs|Gs|'
+
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      type: couplet
+      section_body: null
+      link: couplet1
+
+  - id: prerefrain1
+    item: !Chords
+      title: pré refrain
+      type: prerefrain
+      section_body: null
+      rows:
+        - '| E Fs | Cs Gs | E Fs | Cs Gs |'
+
+
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      section_body: null
+      rows:
+        - '| E | Fs | Gs | Gs |'
+        - '| Csm | As | Gs | E | ' 
+
+  - id: intro2-a
+    item: !Ref
+      title: intro 2-a
+      link: intro-a
+
+  - id: intro2-b
+    item: !Ref
+      title: intro 2-b
+      link: intro-b

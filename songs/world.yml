@@ -6,7 +6,7 @@ items:
       - pont.ly
       - solo.ly
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -18,7 +18,7 @@ items:
       - sunny-bd
       - concert-mai-2026
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: 41324fdf06caf7629dc66063bf540380
     structure:
     - id: intro
@@ -148,7 +148,7 @@ items:
       - intro.ly
       - couplet.ly
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -159,7 +159,7 @@ items:
       tags:
       - sunny-bd
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: fddae9783ed01293cf3bd57800b2bfc2
     structure:
     - id: intro_batteriex
@@ -265,7 +265,8 @@ items:
       lilypond:
       - pont2.ly
       tex: []
-      wav: []
+      mp3:
+      - pont2.mp3
       has_clicks: false
       has_mp3: false
     info:
@@ -277,7 +278,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: 3b3d94f04697065d8e87947cadba979a
     structure:
     - id: intro
@@ -436,7 +437,7 @@ items:
       lilypond: []
       tex:
       - body.tex
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -447,7 +448,7 @@ items:
       tags:
       - move-the-line
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: 8d6d142cde85e66dc7e4de5f29d00d44
     structure:
     - id: couplet1
@@ -545,7 +546,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -556,7 +557,7 @@ items:
       tags:
       - move-the-line
     meta:
-      date: 2026-02-23
+      date: 2026-08-31
       digest: f256d32d3f39516acd1c98c5fc3e6473
     structure:
     - id: intro
@@ -663,7 +664,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -675,7 +676,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: 64abf92fcb9b3675cd54e7bf1f9d97e7
     structure:
     - id: riff1
@@ -771,7 +772,7 @@ items:
       lilypond:
       - chordsrefrain.ly
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -783,7 +784,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: 8a61b877ace8f1e58c1f8eccd952ff67
     structure:
     - id: introdg
@@ -871,7 +872,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -883,7 +884,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: baa5bb0136672b5e265d33ea9bd65258
     structure:
     - id: intro
@@ -966,7 +967,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -978,7 +979,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: 89f75d6a3df95d4925fd5b34fb12ed3e
     structure:
     - id: introb
@@ -1114,7 +1115,7 @@ items:
       - chordsrefrain.ly
       tex:
       - body.tex
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -1125,7 +1126,7 @@ items:
       tags:
       - sunny-bd
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: c3d6e0ba46b1cd37b15936d18f6bb18b
     structure:
     - id: introbatterie
@@ -1246,7 +1247,7 @@ items:
       lilypond:
       - solo.ly
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -1258,7 +1259,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: 99e0fabc029759830623d916ef975dc1
     structure:
     - id: intro
@@ -1372,7 +1373,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -1384,7 +1385,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-07-28
+      date: 2026-08-30
       digest: 3715f66b0aed6eeae4af4bb74bff2350
     structure:
     - id: intro
@@ -1494,7 +1495,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -1505,7 +1506,7 @@ items:
       tags:
       - sunny-bd
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: 212c1a88a18c64fc80ffb331608a066e
     structure:
     - id: intro
@@ -1594,7 +1595,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -1605,7 +1606,7 @@ items:
       tags:
       - move-the-line
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: fb4c9edc3e2de388bbe9429fc4371067
     structure:
     - id: intro
@@ -1708,7 +1709,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: true
       has_mp3: true
     info:
@@ -1719,7 +1720,7 @@ items:
       tags:
       - move-the-line
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: e8cd85b85f95331de4df5b3e67bf7f69
     structure:
     - id: intro
@@ -1807,7 +1808,7 @@ items:
       lilypond:
       - couplet1.ly
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -1819,7 +1820,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: c7907ceece45412d235d0ca2b83e25cd
     structure:
     - id: introg
@@ -1847,9 +1848,9 @@ items:
         section_body: null
         color: null
         rows:
-        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|Em 2/4|Em Bm |Em Bm
         - Em Bm|Em Bm|
-        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|Em 2/4|Em Bm |Em Bm
         drum_sequence: null
     - id: prerefrain1
       item: !Chords
@@ -1888,9 +1889,9 @@ items:
         section_body: null
         color: null
         rows:
-        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|Em 2/4|Em Bm |Em Bm
         - Em Bm|
-        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|Em 2/4|Em Bm |Em Bm
         drum_sequence: null
     - id: prerefrain2
       item: !Ref
@@ -1936,7 +1937,7 @@ items:
         section_body: null
         color: null
         rows:
-        - Em Bm|Em HRest|Em Bm |Em Bm
+        - Em Bm|Em 2/4|Em Bm |Em Bm
         drum_sequence: null
     - id: prerefrain3
       item: !Ref
@@ -1967,7 +1968,7 @@ items:
       lilypond: []
       tex:
       - body.tex
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -1978,7 +1979,7 @@ items:
       tags:
       - move-the-line
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: 94fb533e610b0d2149efc55bde56d7d6
     structure:
     - id: intro
@@ -2102,7 +2103,7 @@ items:
       - refrain.ly
       - pont.ly
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -2112,7 +2113,7 @@ items:
       time_signature: null
       tags: []
     meta:
-      date: 2026-02-07
+      date: 2026-08-30
       digest: 79d4c1025d9e71eda67420d0f2ae92e7
     structure:
     - id: intro
@@ -2144,7 +2145,7 @@ items:
       - pont.ly
       - chordspont.ly
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -2155,7 +2156,7 @@ items:
       tags:
       - sunny-bd
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: 8d572f38480a92e9bf07dbaa5df033bd
     structure:
     - id: intro1
@@ -2259,7 +2260,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -2271,7 +2272,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: e8f8ba23bf104a66ffb575557b17e5e2
     structure:
     - id: intro
@@ -2387,7 +2388,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: true
       has_mp3: true
     info:
@@ -2399,7 +2400,7 @@ items:
       - sunny-bd
       - concert-mai-2026
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: 6abee4e08449a9f07ae199350ec7e968
     structure:
     - id: intro
@@ -2502,7 +2503,7 @@ items:
       - intro.ly
       - couplet.ly
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -2514,7 +2515,7 @@ items:
       - sunny-bd
       - concert-mai-2026
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: c5273445384b403f7ee99ee03e9b7ba8
     structure:
     - id: intro
@@ -2635,7 +2636,11 @@ items:
       - couplet3.ly
       - couplet4.ly
       tex: []
-      wav: []
+      mp3:
+      - couplet1.mp3
+      - couplet2.mp3
+      - couplet3.mp3
+      - couplet4.mp3
       has_clicks: false
       has_mp3: false
     info:
@@ -2647,7 +2652,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: 546a7a93213d5ea0d9b51616a2bdec11
     structure:
     - id: intro
@@ -2750,7 +2755,9 @@ items:
       - pontbasse.ly
       - coupletbasse.ly
       tex: []
-      wav: []
+      mp3:
+      - coupletbasse.mp3
+      - pontbasse.mp3
       has_clicks: false
       has_mp3: false
     info:
@@ -2762,7 +2769,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-08-02
+      date: 2026-08-30
       digest: b777430533f4c5ad982891af9f2af994
     structure:
     - id: intro
@@ -2903,7 +2910,7 @@ items:
       lilypond:
       - solo.ly
       tex: []
-      wav: []
+      mp3: []
       has_clicks: true
       has_mp3: true
     info:
@@ -2915,7 +2922,7 @@ items:
       - sunny-bd
       - concert-mai-2026
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: bc988bde1359922c8f32e87dd6010a37
     structure:
     - id: intro
@@ -3021,7 +3028,7 @@ items:
       - basse.ly
       - solo.ly
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -3033,7 +3040,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: c3f230572e0551053395a44c307543a4
     structure:
     - id: couplet1
@@ -3091,7 +3098,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: true
       has_mp3: true
     info:
@@ -3103,7 +3110,7 @@ items:
       - sunny-bd
       - concert-mai-2026
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: fd4252426f71b3fd1aa440c1dcebeb36
     structure:
     - id: intro
@@ -3221,7 +3228,10 @@ items:
       - couplet.ly
       - prerefrain.ly
       tex: []
-      wav: []
+      mp3:
+      - intro.mp3
+      - couplet.mp3
+      - prerefrain.mp3
       has_clicks: false
       has_mp3: false
     info:
@@ -3233,7 +3243,7 @@ items:
       - sunny-bd
       - concert-mai-2026
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: b8534c4fca42bcfb045b212525f21218
     structure:
     - id: intro
@@ -3321,7 +3331,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -3333,7 +3343,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: 10a02569dc19382e4f22156d581ea17a
     structure:
     - id: intro
@@ -3399,7 +3409,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: true
       has_mp3: true
     info:
@@ -3411,7 +3421,7 @@ items:
       - sunny-bd
       - concert-mai-2026
     meta:
-      date: 2026-03-10
+      date: 2026-08-30
       digest: 56d48fd9318d55a2ba498a3eb1f8419a
     structure:
     - id: pad
@@ -3535,7 +3545,9 @@ items:
       - riff_b.ly
       - chordsrefrain.ly
       tex: []
-      wav: []
+      mp3:
+      - intro.mp3
+      - riff_a.mp3
       has_clicks: false
       has_mp3: false
     info:
@@ -3546,7 +3558,7 @@ items:
       tags:
       - move-the-line
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: c893bedf7e31214cdb5adc2358d90843
     structure:
     - id: intro
@@ -3648,7 +3660,7 @@ items:
       lilypond: []
       tex:
       - lyrics.tex
-      wav: []
+      mp3: []
       has_clicks: true
       has_mp3: true
     info:
@@ -3659,7 +3671,7 @@ items:
       tags:
       - move-the-line
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: 1057cbd47ffaa5edecdddee8c9c6df85
     structure:
     - id: introb
@@ -3896,7 +3908,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -3907,7 +3919,7 @@ items:
       tags:
       - move-the-line
     meta:
-      date: 2026-03-09
+      date: 2026-08-30
       digest: 57e73ab61685e95f07b79dc9863ac0e5
     structure:
     - id: intro
@@ -4004,7 +4016,8 @@ items:
       - chordsintro.ly
       - chordsrefrain.ly
       tex: []
-      wav: []
+      mp3:
+      - solo.mp3
       has_clicks: false
       has_mp3: false
     info:
@@ -4014,7 +4027,7 @@ items:
       time_signature: null
       tags: []
     meta:
-      date: 2026-02-07
+      date: 2026-08-30
       digest: b4cd535928d7e7077ea73328101fb77c
     structure:
     - id: intro
@@ -4129,7 +4142,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -4140,7 +4153,7 @@ items:
       tags:
       - move-the-line
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: 08a817f09753d5612daca374871734ad
     structure:
     - id: couplet1
@@ -4206,7 +4219,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: false
       has_mp3: false
     info:
@@ -4218,7 +4231,7 @@ items:
       - move-the-line
       - truskel-2025
     meta:
-      date: 2026-02-23
+      date: 2026-08-30
       digest: 4408004fd2f076a5b3c0a5fd61e6b4ab
     structure:
     - id: intro
@@ -4340,7 +4353,7 @@ items:
       - prerefrain.ly
       - solo.ly
       tex: []
-      wav: []
+      mp3: []
       has_clicks: true
       has_mp3: true
     info:
@@ -4352,7 +4365,7 @@ items:
       - sunny-bd
       - concert-mai-2026
     meta:
-      date: 2026-03-09
+      date: 2026-08-31
       digest: 67db264bf35004a21287203c74a25654
     structure:
     - id: intro
@@ -4447,7 +4460,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: true
       has_mp3: true
     info:
@@ -4458,7 +4471,7 @@ items:
       tags:
       - dadrock
     meta:
-      date: 2026-07-27
+      date: 2026-08-31
       digest: 89f75d6a3df95d4925fd5b34fb12ed3e
     structure:
     - id: intro
@@ -4544,20 +4557,26 @@ items:
 - - stereophonics/maybe-tomorrow/song.yml
   - !Song
     files:
-      lilypond: []
+      lilypond:
+      - riff1.ly
+      - riff1-rythmique.ly
+      - riff2.ly
       tex: []
-      wav: []
+      mp3:
+      - riff1.mp3
+      - riff1-rythmique.mp3
+      - riff2.mp3
       has_clicks: true
       has_mp3: true
     info:
       title: Maybe Tomorrow
       author: Stereophonics
-      tempo: 100
+      tempo: 80
       time_signature: null
       tags:
       - dadrock
     meta:
-      date: 2026-07-27
+      date: 2026-08-31
       digest: null
     structure:
     - id: intro
@@ -4638,7 +4657,7 @@ items:
     files:
       lilypond: []
       tex: []
-      wav: []
+      mp3: []
       has_clicks: true
       has_mp3: true
     info:
@@ -4649,7 +4668,7 @@ items:
       tags:
       - move-the-line
     meta:
-      date: 2026-07-28
+      date: 2026-08-31
       digest: null
     structure:
     - id: introb
@@ -4704,9 +4723,8 @@ items:
         section_body: null
         color: null
         rows:
-        - '|C G |G | C G | G |'
-        - '|C G |G | Am Em | C G |'
-        - '|Am Em |C Bm | '
+        - '|C 2/4 |G | C 2/4 | A |x2'
+        - '| Am Em | C G | Am Em |C Bm | '
         drum_sequence: null
     - id: nc
       item: NewColumn
@@ -4744,9 +4762,20 @@ items:
       lilypond:
       - chordscouplet.ly
       - chordsrefrain.ly
-      - refrain.ly
+      - riff1.ly
+      - riff1-rythmique.ly
+      - riff2.ly
+      - pont1.ly
+      - pont-lead.ly
+      - final.ly
       tex: []
-      wav: []
+      mp3:
+      - riff1.mp3
+      - riff1-rythmique.mp3
+      - riff2.mp3
+      - pont-lead.mp3
+      - pont1.mp3
+      - final.mp3
       has_clicks: true
       has_mp3: true
     info:
@@ -4757,7 +4786,7 @@ items:
       tags:
       - dadrock
     meta:
-      date: 2026-08-02
+      date: 2026-08-31
       digest: null
     structure:
     - id: introb
@@ -4885,33 +4914,25 @@ items:
   - !Song
     files:
       lilypond:
-      - chordscouplet.ly
-      - chordsrefrain.ly
-      - refrain.ly
+      - intro.ly
+      - pont.ly
+      - pont-rythmique.ly
       tex: []
-      wav: []
+      mp3:
+      - intro.mp3
       has_clicks: true
       has_mp3: true
     info:
       title: L'Autre Finistère
       author: Les Innocents
-      tempo: 96
+      tempo: 80
       time_signature: null
       tags:
       - move-the-line
     meta:
-      date: 2026-08-02
+      date: 2026-08-31
       digest: null
     structure:
-    - id: introb
-      item: !Chords
-        title: drums
-        type: intro
-        section_body: null
-        color: null
-        rows:
-        - '|HRest|HRest|HRest|'
-        drum_sequence: null
     - id: intro
       item: !Chords
         title: intro
@@ -4919,22 +4940,27 @@ items:
         section_body: null
         color: null
         rows:
-        - ' | Fsm | Fsm | D | D |'
-        - ' | Bm | Bm | Fsm | Fsm | '
-        - ' | Fsm | Fsm | D | D |'
-        - ' | Bm | Bm | Fsm | Fsm | '
+        - ' | G | G | G | G  |'
         drum_sequence: null
-    - id: couplet1
+    - id: couplet1a
       item: !Chords
-        title: couplet 1
+        title: couplet 1a
         type: couplet
         section_body: \songly{chordscouplet}
         color: null
         rows:
-        - ' | Fsm | Fsm | D | D |'
-        - ' | Bm | Bm | Fsm | Fsm | '
-        - ' | Fsm | Fsm | D | D |'
-        - ' | Bm | Bm | Fsm | Fsm | '
+        - ' | G | G | G | F |'
+        - ' | G | G |  '
+        drum_sequence: null
+    - id: couplet1b
+      item: !Chords
+        title: couplet 1b
+        type: couplet
+        section_body: \songly{chordscouplet}
+        color: null
+        rows:
+        - ' | G | F | Em | F |x2'
+        - ' |G|A|C|'
         drum_sequence: null
     - id: refrain1
       item: !Chords
@@ -4943,17 +4969,18 @@ items:
         section_body: null
         color: null
         rows:
-        - ' | A | A | B | B | x4'
+        - ' | F | Em | B | G |x2'
+        - '|G|'
         drum_sequence: null
-    - id: NewColumn
-      item: NewColumn
     - id: couplet2
       item: !Ref
         title: couplet 2
         type: null
         section_body: null
         color: null
-        link: couplet1
+        link: couplet1b
+    - id: NewColumn
+      item: NewColumn
     - id: refrain2
       item: !Chords
         title: refrain 2
@@ -4961,7 +4988,19 @@ items:
         section_body: null
         color: null
         rows:
-        - ' | A | A | B | B | x2'
+        - ' | F | Em | B | G |'
+        - ' | F | Em | B | G HRest |'
+        - '|HRest|'
+        drum_sequence: null
+    - id: pont
+      item: !Chords
+        title: pont
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - ' | Cm | G | B | G | '
+        - ' | Cm | G | B | D | '
         drum_sequence: null
     - id: couplet3
       item: !Chords
@@ -4970,57 +5009,63 @@ items:
         section_body: null
         color: null
         rows:
-        - ' | Fsm | Fsm | D | D |'
-        - ' | Bm | Bm | Fsm | Fsm | '
+        - ' | A | G | Fsm | G |'
+        - ' |A|B|D|'
         drum_sequence: null
     - id: refrain3
       item: !Chords
-        title: refrain 3
+        title: refrain 3 ad lib
         type: refrain
         section_body: null
         color: null
         rows:
-        - '|A|A|B|B|x2'
+        - ' | G | Fsm | Cs | A |x4'
         drum_sequence: null
-    - id: couplet4
+    - id: fin
       item: !Chords
-        title: couplet 4
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - ' | Fsm | Fsm | D | D |'
-        - ' | Bm | Bm | '
-        drum_sequence: null
-    - id: pont1
-      item: !Chords
-        title: pont 1
-        type: pont
-        section_body: null
-        color: null
-        rows:
-        - '|Fsm|Fsm|Fsm|Fsm|x4'
-        drum_sequence: null
-    - id: couplet5
-      item: !Ref
-        title: couplet 5
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: couplet6
-      item: !Ref
-        title: couplet 6
-        type: null
-        section_body: null
-        color: null
-        link: couplet1
-    - id: outtro
-      item: !Chords
-        title: outtro
+        title: fin
         type: intro
         section_body: null
         color: null
         rows:
-        - '|Fsm| '
+        - ' | HRest |'
+        drum_sequence: null
+- - queens_of_the_stone_age/i_sat_by_the_ocean/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex:
+      - lyrics.tex
+      mp3: []
+      has_clicks: true
+      has_mp3: true
+    info:
+      title: I Sat By The Ocean
+      author: Queens Of The Stone Age
+      tempo: 96
+      time_signature: null
+      tags:
+      - move-the-line
+    meta:
+      date: 2026-08-30
+      digest: 1057cbd47ffaa5edecdddee8c9c6df85
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - '|G|G|'
+        - '|G|G Bf|C|F|'
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - Am G| Dm Am|Am G| Dm Am
         drum_sequence: null

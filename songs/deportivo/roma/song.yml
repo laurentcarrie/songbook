@@ -30,14 +30,20 @@ structure:
       type: intro
       rows:
         - ' | Em D | Em D | Em D| Em D |'
-  - id: couplet1
+  - id: couplet1a
     item: !Chords 
-      title: couplet 1
+      title: couplet 1 a
       type: couplet
       rows :
-        - ' | Em D | Em D | Em D| Em D |x2'
-        - ' | G Bm | Em D | G Bm | Em D|'
-        - ' G Bm |'
+        - ' | Em D | Em D | Em D| Em D |'
+        - ' | Em D | Em D | Em D| '
+  - id: couplet1b
+    item: !Chords 
+      title: couplet 1 b
+      type: couplet2
+      rows :
+        - ' | Em D | G Bm | Em D | G Bm|'
+        - ' | Em D | G Bm |'
 
   - id: pont1
     item: !Chords
@@ -49,14 +55,14 @@ structure:
   - id: couplet2
     item: !Ref
       title: couplet 2
-      link: couplet1
+      link: couplet1a
 
   - id: refrain1
     item: !Chords
       title: refrain 1
       type: refrain
       rows:
-        - '|C 2/4 |G | C 2/4 | A |x2'
+        - '|C 2/4 | G | C 2/4 | G |x2'
         - '| Am Em | C G | Am Em |C Bm | '
   - id: nc
     item: !NewColumn
@@ -69,7 +75,7 @@ structure:
   - id: couplet3
     item: !Ref
       title: couplet 3
-      link: couplet1
+      link: couplet1a
 
   - id: refrain2
     item: !Ref

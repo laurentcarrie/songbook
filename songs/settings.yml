@@ -5,6 +5,7 @@ lyrics_font: TeX Gyre Termes
 colors:
   intro: buff
   couplet: brightgreen
+  coupletb: MistyRose2
   couplet2: darkgreen!30
   couplet3: darkgreen!60
   prerefrain: bubbles
