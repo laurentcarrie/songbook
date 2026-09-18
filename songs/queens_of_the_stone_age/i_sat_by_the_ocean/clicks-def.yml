@@ -1,0 +1,30 @@
+clicks:
+- bar_number: 1
+  beat_in_bar_number: 1
+  time: 0:00.255
+  description: bar 1 - intro a
+
+- bar_number: 3
+  beat_in_bar_number: 1
+  time: 0:04.358
+  description: bar 3 - intro b
+
+- bar_number: 13
+  beat_in_bar_number: 1
+  time: 0:24.870
+  description: bar 13 - couplet 1
+
+- bar_number: 23
+  beat_in_bar_number: 1
+  time: 0:45.383
+  description: bar 23 - couplet 2
+
+- bar_number: 33
+  beat_in_bar_number: 1
+  time: 1:05.896
+  description: bar 33 - pre refrain
+
+- bar_number: 37
+  beat_in_bar_number: 1
+  time: 1:14.101
+  description: bar 37 - refrain 1

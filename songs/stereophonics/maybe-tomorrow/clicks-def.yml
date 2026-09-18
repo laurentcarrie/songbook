@@ -1,0 +1,53 @@
+clicks:
+- bar_number: 1
+  beat_in_bar_number: 1
+  time: 00:00.000
+  description: bar 1 - intro
+
+- bar_number: 9
+  beat_in_bar_number: 1
+  time: 00:24.7
+  description: couplet 1
+
+- bar_number: 17
+  beat_in_bar_number: 1
+  time: 00:48.5
+  description: refrain 1
+
+
+- bar_number: 25
+  beat_in_bar_number: 1
+  time: 1:12.2
+  description: couplet 2
+
+
+- bar_number: 33
+  beat_in_bar_number: 1
+  time: 1:36.0
+  description: refrain 2
+
+- bar_number: 41
+  beat_in_bar_number: 1
+  time: 1:59.5
+  description: solo
+
+- bar_number: 57
+  beat_in_bar_number: 1
+  time: 2:47.2
+  description: refrain 3
+
+- bar_number: 65
+  beat_in_bar_number: 1
+  time: 3:10.0
+  description: refrain 4
+
+- bar_number: 73
+  beat_in_bar_number: 1
+  time: 3:35
+  description: final
+
+
+- bar_number: 100
+  beat_in_bar_number: 1
+  time: 4:48
+  description: adlib

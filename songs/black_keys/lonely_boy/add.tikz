@@ -1,10 +1,10 @@
-\path (CELL1) +(.5*\xr ,-.25*\xr) coordinate (A) ;
+\path (\BAR{1}) +(.5*\xr ,-.25*\xr) coordinate (A) ;
 \node[draw,ellipse,dotted,fill=red!10,opacity=1,minimum width=1.3cm,minimum height=.5cm](b) at (A)  { } ;
 \node[](b) at (A) { g seule } ;
 %\node[draw,circle,dotted,color=blue,fill=red,opacity=.20,minimum size=1cm] (b) at (A) {} ;
 %
 %
-%\path (CELL55) +(.7*\xr ,0) coordinate (B) ;
+%\path (\BAR{55}) +(.7*\xr ,0) coordinate (B) ;
 %\node[draw,circle,dotted,color=blue,fill=red,opacity=.20,minimum size=1cm] (b) at (B) {} ;
 %
 %\node (C) at ($(A)!0.5!(B)$) {};

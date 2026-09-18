@@ -1,0 +1,90 @@
+files:
+  lilypond: []
+  tex: []
+  mp3: []
+  # TODO: set to true once clicks-def.yml holds anchors measured against
+  # THIS song.mp3 - see the header of that file.
+  has_clicks: true
+  has_mp3: true
+info:
+  title: Roma
+  author: Deportivo
+  # TODO: 100 is a placeholder, not a measured value. Track runs 4:29 (269.3 s).
+  tempo: 90
+  time_signature: null
+  tags: ['move-the-line']
+
+meta:
+  date: "2026-08-31"
+structure:
+
+  - id: introb
+    item: !Chords
+      title: intro batterie
+      type: intro
+      rows:
+        - ' | HRest | HRest | '  
+  - id: intro
+    item: !Chords
+      title: intro 
+      type: intro
+      rows:
+        - ' | Em D | Em D | Em D| Em D |'
+  - id: couplet1a
+    item: !Chords 
+      title: couplet 1 a
+      type: couplet
+      rows :
+        - ' | Em D | Em D | Em D| Em D |'
+        - ' | Em D | Em D | Em D| '
+  - id: couplet1b
+    item: !Chords 
+      title: couplet 1 b
+      type: couplet2
+      rows :
+        - ' | Em D | G Bm | Em D | G Bm|'
+        - ' | Em D | G Bm |'
+
+  - id: pont1
+    item: !Chords
+      title: pont
+      type: pont
+      rows:
+        - ' | Em D | Em D | |'
+
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      link: couplet1a
+
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      rows:
+        - '|C 2/4 | G | C 2/4 | G |x2'
+        - '| Am Em | C G | Am Em |C Bm | '
+  - id: nc
+    item: !NewColumn
+  - id: pont3
+    item: !Ref
+      title: pont
+      link: pont1
+      rows:
+
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      link: couplet1a
+
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      link: refrain1
+
+  
+  - id: pont4
+    item: !Ref
+      title: pont
+      link: pont1
+      rows:

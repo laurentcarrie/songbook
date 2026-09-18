@@ -1,17 +1,17 @@
-\path(SECTION_intro) ++(5*\xr,-.5*\yr) coordinate (A) ;
+\path(SECTION_intro) ++(\xr,0) coordinate (A) ;
 \node[anchor=west](b) at (A) {\color{red} tout le monde} ;
 
-\path(SECTION_padg) ++(5*\xr,-.5*\yr) coordinate (A) ;
+\path(SECTION_padg) ++(\xr,0) coordinate (A) ;
 \node[anchor=west](b) at (A) {\color{red} RIFF !} ;
 
-\path(SECTION_refrain1) ++(5*\xr,-.5*\yr) coordinate (A) ;
+\path(SECTION_refrain1) ++(\xr,0) coordinate (A) ;
 \node[anchor=west](b) at (A) {\color{red} pas de riff sur refrain} ;
 
-\path(SECTION_interlude) ++(5*\xr,-.5*\yr) coordinate (A) ;
+\path(SECTION_interlude) ++(\xr,0) coordinate (A) ;
 \node[anchor=west](b) at (A) {\color{red} guitare + pad : RIFF !} ;
 
-\path(SECTION_interlude2) ++(5*\xr,-0.25*\yr) coordinate (A) ;
+\path(SECTION_final) ++(\xr,.75*\yr) coordinate (A) ;
 \node[anchor=west](b) at (A) {\color{red} fin en note tenue sur le 1 de la mesure suivante } ;
 
-\path(SECTION_fill) ++(5*\xr,-0.5*\yr) coordinate (A) ;
+\path(SECTION_fill) ++(4*\xr,0) coordinate (A) ;
 \node[anchor=west](b) at (A) {\color{red} 1/2 mesure } ;

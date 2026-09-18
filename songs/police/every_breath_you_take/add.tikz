@@ -1,11 +1,11 @@
 \tikzmath{\xxxratio=0.4;} ;
 
-\path (CELL87) +(0    ,\yr*\xxxratio) coordinate (A) ;
-\path (CELL88) +(0    ,\yr*\xxxratio) coordinate (B) ;
-\path (CELL88) +(\xr*\xxxratio,0) coordinate (C) ;
-\path (CELL88) +(0    ,-\yr*\xxxratio) coordinate (D) ;
-\path (CELL87) +(0    ,-\yr*\xxxratio) coordinate (E) ;
-\path (CELL87) +(-\xr*\xxxratio    ,0) coordinate (F) ;
+\path (\BAR{87}) +(0    ,\yr*\xxxratio) coordinate (A) ;
+\path (\BAR{88}) +(0    ,\yr*\xxxratio) coordinate (B) ;
+\path (\BAR{88}) +(\xr*\xxxratio,0) coordinate (C) ;
+\path (\BAR{88}) +(0    ,-\yr*\xxxratio) coordinate (D) ;
+\path (\BAR{87}) +(0    ,-\yr*\xxxratio) coordinate (E) ;
+\path (\BAR{87}) +(-\xr*\xxxratio    ,0) coordinate (F) ;
 
 \draw[red,fill=blue!30,opacity=.5] (A) -- (B) -- (C) -- (D) -- (E) -- (F) -- (A);
 

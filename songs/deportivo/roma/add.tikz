@@ -1,0 +1,4 @@
+
+\node[draw=red,ultra thick,dotted,circle,minimum size=0.8*\xr cm] (c9) at (\BAR{14}) {} ;
+\node[red,font=\Large\bfseries,anchor=west] (dur) at ($(\SECTION{couplet1b}) + (\xr,0)$) {bar 12 : +dur} ;
+\draw[red,ultra thick,dotted,-latex] (dur) -- (c9) ;

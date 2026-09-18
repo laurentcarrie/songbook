@@ -1,0 +1,112 @@
+files:
+  lilypond: 
+    - intro.ly
+    # pont-defs.ly is NOT listed: it holds definitions only, no \score, so the
+    # build would fail asking it for a page. It reaches the sandbox as an
+    # \include dependency of pont.ly, which body.tex pulls in via \songly.
+    - pont.ly
+    - pont-rythmique.ly
+
+  tex: []
+  mp3: 
+    - intro.mp3
+  # TODO: set to true once clicks-def.yml holds anchors measured against
+  # THIS song.mp3 - see the header of that file.
+  has_clicks: true
+  has_mp3: true
+info:
+  title: L'Autre Finistère
+  author: Les Innocents
+  tempo: 80
+  time_signature: null
+  tags: ['move-the-line']
+
+meta:
+  date: "2026-08-31"
+structure:
+
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      rows:
+        - ' | G | G | G | G  |'
+  - id: couplet1a
+    item: !Chords
+      title: couplet 1a
+      type: couplet
+      section_body: \songly{chordscouplet}
+
+      rows :
+        - ' | G | G | G | F |'
+        - ' | G | G |  '        
+
+  - id: couplet1b
+    item: !Chords
+      title: couplet 1b
+      type: couplet
+      section_body: \songly{chordscouplet}
+
+      rows :      
+        - ' | G | F | Em | F |x2'
+        - ' |G|A|C|'
+
+
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+
+      rows :
+        - ' | F | Em | B | G |x2'
+        - '|G|'
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      link: couplet1b
+
+  - id: NewColumn
+    item: !NewColumn
+
+  - id: refrain2
+    item: !Chords
+      title: refrain 2
+      type: refrain
+
+      rows :
+        - ' | F | Em | B | G |'
+        - ' | F | Em | B | G HRest |'
+        - '|HRest|'
+  - id: pont
+    item: !Chords
+      title: pont
+      type: pont
+
+      rows :
+        - ' | Cm | G | B | G | '
+        - ' | Cm | G | B | D | '
+
+  - id: couplet3
+    item: !Chords
+      title: couplet 3
+      type: couplet
+
+      rows :      
+        - ' | A | G | Fsm | G |'
+        - ' |A|B|D|'
+
+  - id: refrain3
+    item: !Chords
+      title: refrain 3 ad lib
+      type: refrain
+
+      rows :
+        - ' | G | Fsm | Cs | A |x4'
+
+  - id: fin
+    item: !Chords
+      title: fin
+      type: intro
+
+      rows :
+        - ' | HRest |'

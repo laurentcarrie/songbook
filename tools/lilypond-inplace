@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+#
+# lilypond wrapper for VSLilyPond's compile-on-save.
+#
+# It does two things the plain binary does not.
+#
+# 1. It writes the output IN PLACE. Real lilypond builds lilypond-tmp-*.pdf and
+#    rename()s it over the target, which changes the inode. VS Code reports that
+#    as delete+create, not as a change - and lilypond-pdf-preview only reloads
+#    its webview on onDidChange, so the PDF tab stays frozen. Compiling into a
+#    temp dir and copying the bytes back with `cat > dest` keeps the inode,
+#    which VS Code does see as a change.
+#
+# 2. It follows \include backwards. Saving a definitions-only file (no \score)
+#    would otherwise produce nothing at all, leaving the PDF of the files that
+#    include it stale. So when the saved file has no \score, this compiles the
+#    sibling .ly files that include it - transitively - instead.
+#
+# VSLilyPond calls this as `<bin> --loglevel=WARNING [args...] <file.ly>` with
+# cwd set to the file's directory. stderr is passed through untouched, because
+# that is what the extension parses to underline errors in the editor.
+
+REAL_LILYPOND=${REAL_LILYPOND:-/usr/bin/lilypond}
+
+# VSLilyPond matches diagnostics with / (error|warning): / (out/util.js), so a
+# localised lilypond ("Erreur :", "Avertissement :") makes it recognise none of
+# them and underline nothing. Force English output.
+export LC_ALL=C
+
+src=${!#}
+case $src in
+  *.ly|*.ily) ;;
+  *) exec "$REAL_LILYPOND" "$@" ;;   # --version, --help, anything else
+esac
+
+lily_args=("${@:1:$#-1}")
+
+
+# A line comment starts with %, so "[^%]* \score" ignores \score inside prose.
+has_score() { grep -qE '^[^%]*\\score' -- "$1" 2>/dev/null; }
+includes()  { grep -qE "^[^%]*\\\\include[[:space:]]*\"$2\"" -- "$1" 2>/dev/null; }
+
+# Compile one file, leaving <name>.pdf and <name>.midi next to it, same inodes.
+compile_one() {
+  local file=$1 dir base tmp out dest rc
+  dir=$(dirname "$file")
+  base=$(basename "$file"); base=${base%.*}
+  tmp=$(mktemp -d) || return 1
+  "$REAL_LILYPOND" "${lily_args[@]}" -o "$tmp/$base" "$file"
+  rc=$?
+  for ext in pdf midi; do
+    out=$tmp/$base.$ext
+    [ -f "$out" ] || continue
+    dest=$dir/$base.$ext
+    if [ -e "$dest" ]; then cat "$out" > "$dest"; else cp "$out" "$dest"; fi
+  done
+  rm -rf "$tmp"
+  return $rc
+}
+
+if has_score "$src"; then
+  compile_one "$src"
+  exit $?
+fi
+
+# No \score: find, transitively, the sibling files that pull this one in.
+dir=$(dirname "$src")
+frontier=("$(basename "$src")")
+declare -a seen=() targets=()
+while [ ${#frontier[@]} -gt 0 ]; do
+  needle=${frontier[0]}; frontier=("${frontier[@]:1}")
+  case " ${seen[*]-} " in *" $needle "*) continue ;; esac
+  seen+=("$needle")
+  for cand in "$dir"/*.ly; do
+    [ -f "$cand" ] || continue
+    [ "$(basename "$cand")" = "$needle" ] && continue
+    includes "$cand" "$needle" || continue
+    if has_score "$cand"; then
+      case " ${targets[*]-} " in *" $cand "*) ;; *) targets+=("$cand") ;; esac
+    else
+      frontier+=("$(basename "$cand")")   # a defs file including a defs file
+    fi
+  done
+done
+
+if [ ${#targets[@]} -eq 0 ]; then
+  echo "lilypond-inplace: $(basename "$src") has no \\score and nothing includes it - nothing to build" >&2
+  exit 0
+fi
+
+rc=0
+for t in "${targets[@]}"; do
+  echo "lilypond-inplace: $(basename "$src") has no \\score, building $(basename "$t")" >&2
+  compile_one "$t" || rc=1
+done
+exit $rc
