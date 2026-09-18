@@ -7,6 +7,7 @@ files:
 info:
   title: The Reason
   author: Hoobastank
+  external_id: !Deezer "634445372"
   tempo: 132
   time_signature: null
   tags: [dadrock]

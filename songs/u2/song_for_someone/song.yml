@@ -10,6 +10,7 @@ files:
 info:
   title: Song For Someone
   author: U2
+  external_id: !Deezer "86671109"
   tempo: 105
   time_signature: null
   tags: [sunny-bd, concert-mai-2026]

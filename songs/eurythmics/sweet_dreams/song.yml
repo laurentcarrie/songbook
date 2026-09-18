@@ -5,6 +5,7 @@ files:
 info:
   title: Sweet Dreams (Are Made of This)
   author: Eurythmics
+  external_id: !Deezer "561836"
   tempo: 80
   time_signature: null
   tags: [move-the-line]

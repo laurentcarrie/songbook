@@ -12,6 +12,7 @@ files:
 info:
   title: Can't Stop
   author: Red Hot Chili Peppers
+  external_id: !Deezer "725971"
   tempo: 91
   time_signature: null
   tags: [move-the-line]
