@@ -24,6 +24,7 @@ files:
 info:
   title: Shout
   author: Tears For Fears
+  external_id: !Deezer "88845907"
   tempo: 96
   time_signature: null
   tags: ['dadrock']

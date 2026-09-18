@@ -17,6 +17,7 @@ files:
 info:
   title: L'Autre Finistère
   author: Les Innocents
+  external_id: !Deezer "355615171"
   tempo: 80
   time_signature: null
   tags: ['move-the-line']

@@ -7,6 +7,7 @@ files:
 info:
   title: you know I'm no good
   author: Amy Winehouse
+  external_id: !Deezer "2176853"
   tempo: 103
   time_signature: null
   tags: [sunny-bd]
