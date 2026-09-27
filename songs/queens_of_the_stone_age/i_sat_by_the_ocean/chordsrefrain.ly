@@ -5,8 +5,10 @@
 
 <<
   \new ChordNames {
-    \chordmode { e1 fis1 gis1 cis:m 
-    ais:dim7 c:dim e }
+    \chordmode {
+      e1 fis1 gis1 cis:m
+      ais:dim7 c:dim e
+    }
   }
 
   \new FretBoards {

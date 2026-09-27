@@ -15,25 +15,21 @@ melody = {
 
   \repeat volta 2 {
 
-    fis,8\6 r8
-    r8 r16 cis16\5
+    fis,4^.\6
+    r8. cis16\5
     e16\4 cis16\5 fis\4 r16
-    fis,8\6 r8
-
+    fis,4^.\6 
     |
-
     r16 fis,16\6 b,16\5 cis16\5 e16\4 r16 fis16\4
     r8 cis16\5 e16\4 cis16\5 e16\4 fis16\4 fis,16\6 r16
     |
-
-    fis16\4 r4 cis16\5 e16\4 cis16\5 fis16\4 r16
-    r8 r8 r8
-
+    %fis16\4 r4 cis16\5 e16\4 cis16\5 fis16\4 r16
+    fis4^.\4 r16 cis16\5 e16\4 cis16\5 fis4^.\4 
+    r4
     |
-
-    fis,16\6 fis,16\6 fis,16\6  r8
+    fis,16\6 fis,16\6 fis,16\6 r8
     cis16\5 e16\4 cis16\5 fis16\4 fis,16\6 r8
-    fis,16\6 r8.
+    fis,4^.\6 
 
     |
   }
@@ -41,16 +37,16 @@ melody = {
 
   \repeat volta 2 {
 
-    a8\3 r8
-    r8 r16 fis16\4
+    a4^.\3 
+    r8. fis16\4
     gis16\3 fis16\4 a\3 r16
-    fis8\4 r8
+    fis4^.\4 
     |
     r8. e16\4 fis16\4 gis16\3 r16 a16\3 r16
     fis16\4 gis16\3 fis16\4 gis16\3 a16\3 fis16\4 r16
     |
-    a8\3 r8
-    r8 r16 fis16\4
+    a4^.\3 
+    r8. fis16\4
     gis16\3 fis16\4 a\3 r16
     r4
     |
