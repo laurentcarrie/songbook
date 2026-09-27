@@ -91,7 +91,7 @@ lead = {
 
     \set Score.currentBarNumber = 1
     % mes 1
-    g'2\3 r4 \myrelease d''16\2 c''4\2
+    g'2\3 r4 \grace { d''16\2\^ } c''4\2
     |
 
     % mes 2
@@ -99,7 +99,7 @@ lead = {
     |
 
     % mes 3
-    f'8\3 g'8\3 bes'8\2 \mypull bes'16\2 c''8~\2 c''4\2 bes'8\2 a'8\2
+    f'8\3 g'8\3 bes'8\2 \grace { bes'16\2\^ } c''8~\2 c''4\2 bes'8\2 a'8\2
     |
 
     % mes 4
@@ -107,15 +107,15 @@ lead = {
     |
 
     % mes 5
-    f'8\3 g'8\2 fis'8\3 g'8~\2 \mypull f'16\3 g'4\3 r8 g'8\2
+    f'8\3 g'8\2 fis'8\3 g'8~\2 \grace { f'16\3\^ } g'4\3 r8 g'8\2
     |
 
     % mes 6
-    bes'8\2 \mypull bes'16\2 c''8\2 bes'8\2 \mypull bes'16\2 c''8~\2 c''8\2 c''8\1 g'8\2 bes'8\2
+    bes'8\2 \grace { bes'16\2\^ } c''8\2 bes'8\2 \grace { bes'16\2\^ } c''8~\2 c''8\2 c''8\1 g'8\2 bes'8\2
     |
 
     % mes 7
-    \mypull fis'32\3 g'16\3 g'16\2 c''16\1 bes'16\2
+    \grace { fis'32\3\^ } g'16\3 g'16\2 c''16\1 bes'16\2
     a'16\2 g'16\2 ges'16\3  f'16\3
     ees'16\3 c'16\4 f'16\3 ees'16\3
     d'16\3 c'16\4 bes16\4 a16\4
@@ -126,35 +126,35 @@ lead = {
     |
 
     % mes 9
-    \mypull bes8\3 c'4~\3 c'4\3 c'8\3 bes8\3 a8\3 bes8\3
+    \grace { bes8\3\^ } c'4~\3 c'4\3 c'8\3 bes8\3 a8\3 bes8\3
 
     % mes 10
     a8\3 bes8\3 a8\3 g8~\3 g2\3
 
     % mes 11
-    \mypull c'16\3 d'16\3 d'16\2 g'16\1  \mypull f'16\2 g'16\2
+    \grace { c'16\3\^ } d'16\3 d'16\2 g'16\1  \grace { f'16\2\^ } g'16\2
     g'\1 g'\1 f'\2 e'\2
     d'\2 des'\3 c'\3 bes\3
     \times 2/3 { g8\4 c'8\3 bes8\3 }
     |
 
     % mes 12
-    \times 2/3 { \mypull c'16\3 d'4\3 \mypull c'16\3 d'4\3 \mypull c'16\3 d'4\3 }
-    \mypull c'16\3 d'4\3
+    \times 2/3 { \grace { c'16\3\^ } d'4\3 \grace { c'16\3\^ } d'4\3 \grace { c'16\3\^ } d'4\3 }
+    \grace { c'16\3\^ } d'4\3
     d'8\3 f'8\2
     |
 
     % mes 13
-    g'8\2 d'8\3 f'8\2 g'8\2  bes'8\1 \mypull bis'16\1 c''8~ \mypulled  c''4
+    g'8\2 d'8\3 f'8\2 g'8\2  bes'8\1 \grace { bis'16\1\^ } c''8\1~ c''4
     |
 
     % mes 14
-    \mypull c''16\1 c''8\1 c''8\1 bes'8\1 c''8\1
+    \grace { c''16\1\^ } c''8\1 c''8\1 bes'8\1 c''8\1
     g'4~\2 g'8\2 g'8\2
     |
 
     % mes 15
-    bes'8\2 \mypull fis'8\3 g'16\3 g'16\2
+    bes'8\2 \grace { fis'8\3\^ } g'16\3 g'16\2
     c''16\1 bes'16\2 g'16\2 c''16\1
     bes'16\2 g'16\2 c''16\1 bes'16\2
     c''16\1 r16 d''16\1 r16
@@ -162,51 +162,51 @@ lead = {
 
     % mes 16
     ees''8\1 f''8\1 r8
-    \mypull f''16\1 g''8~\1 g''4\1 r8 \mypull f''16\1 g''8~\1
+    \grace { f''16\1\^ } g''8~\1 g''4\1 r8 \grace { f''16\1\^ } g''8~\1
     |
 
     % mes 17
-    g''8\1 f''8\1 \mypull f''16\1 g''8\1  g''8\1
-    \mypull f''16\1 g''8~\1 g''4\1 f''8\1
+    g''8\1 f''8\1 \grace { f''16\1\^ } g''8\1  g''8\1
+    \grace { f''16\1\^ } g''8~\1 g''4\1 f''8\1
     |
 
     % mes 18
-    \mypull f''16\1 g''8\1 f''8\1 d''8\1 c''8\2
-    \mypull c''16\2 d''8~\2 d''4\2 r8
+    \grace { f''16\1\^ } g''8\1 f''8\1 d''8\1 c''8\2
+    \grace { c''16\2\^ } d''8~\2 d''4\2 r8
     |
 
     % mes 19
     c'16\4 d'16\4 f'16\3 r16
-    \myrelease d'16\4 c'16\4   bes16\4 bis16\4 r16
+    \grace { d'16\4\^ } c'16\4   bes16\4 bis16\4 r16
     c'8\4 bes8\4 g4\5
     |
 
     % mes 20
     f'16\3 g'16\3 c''16\2 r16
     bes'8\2 c''8\2
-    \mypull c''16\2 d''2\2
+    \grace { c''16\2\^ } d''2\2
     |
 
     % mes 21
-    \mypull c''16\2 d''8\2
-    \mypull c''16\2 d''8\2
-    \mypull c''16\2 d''8\2
-    \mypull c''16\2 d''8\2
-    \mypull c''16\2 d''8\2
-    \mypull c''16\2 d''8\2
-    \mypull c''16\2 d''8\2
-    \mypull c''16\2 d''8\2
+    \grace { c''16\2\^ } d''8\2
+    \grace { c''16\2\^ } d''8\2
+    \grace { c''16\2\^ } d''8\2
+    \grace { c''16\2\^ } d''8\2
+    \grace { c''16\2\^ } d''8\2
+    \grace { c''16\2\^ } d''8\2
+    \grace { c''16\2\^ } d''8\2
+    \grace { c''16\2\^ } d''8\2
     |
 
     % mes 22
     \times 2/3 {
-      \mypull c''16\2 d''4\2
-      \mypull c''16\2 d''4\2
-      \mypull c''16\2 d''4\2
+      \grace { c''16\2\^ } d''4\2
+      \grace { c''16\2\^ } d''4\2
+      \grace { c''16\2\^ } d''4\2
     }
     \times 2/3 {
-      \mypull c''16\2 d''4\2
-      \mypull c''16\2 d''4\2
+      \grace { c''16\2\^ } d''4\2
+      \grace { c''16\2\^ } d''4\2
       f'4\3
     }
     |

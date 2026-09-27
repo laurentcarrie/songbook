@@ -69,7 +69,7 @@ lead = {
     % les numeros de mesure ici commencent
 
     %
-    \mypull d'16\3 c'1\3
+    \grace { d'16\3\^ } c'1\3
     |
     g'8\1 d'8\2 f'8~\2  f'8~\2 d'8\3 ais8\3 g8\4
 

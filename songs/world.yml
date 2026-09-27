@@ -4469,7 +4469,7 @@ items:
       tempo: 132
       time_signature: null
       tags:
-      - dadrock
+      - neosonics
     meta:
       date: 2026-08-31
       digest: 89f75d6a3df95d4925fd5b34fb12ed3e
@@ -4574,7 +4574,7 @@ items:
       tempo: 80
       time_signature: null
       tags:
-      - dadrock
+      - neosonics
     meta:
       date: 2026-08-31
       digest: null
@@ -4689,16 +4689,25 @@ items:
         rows:
         - ' | Em D | Em D | Em D| Em D |'
         drum_sequence: null
-    - id: couplet1
+    - id: couplet1a
       item: !Chords
-        title: couplet 1
+        title: couplet 1 a
         type: couplet
         section_body: null
         color: null
         rows:
-        - ' | Em D | Em D | Em D| Em D |x2'
-        - ' | G Bm | Em D | G Bm | Em D|'
-        - ' G Bm |'
+        - ' | Em D | Em D | Em D| Em D |'
+        - ' | Em D | Em D | Em D| '
+        drum_sequence: null
+    - id: couplet1b
+      item: !Chords
+        title: couplet 1 b
+        type: couplet2
+        section_body: null
+        color: null
+        rows:
+        - ' | Em D | G Bm | Em D | G Bm|'
+        - ' | Em D | G Bm |'
         drum_sequence: null
     - id: pont1
       item: !Chords
@@ -4715,7 +4724,7 @@ items:
         type: null
         section_body: null
         color: null
-        link: couplet1
+        link: couplet1a
     - id: refrain1
       item: !Chords
         title: refrain 1
@@ -4723,7 +4732,7 @@ items:
         section_body: null
         color: null
         rows:
-        - '|C 2/4 |G | C 2/4 | A |x2'
+        - '|C 2/4 | G | C 2/4 | G |x2'
         - '| Am Em | C G | Am Em |C Bm | '
         drum_sequence: null
     - id: nc
@@ -4741,7 +4750,7 @@ items:
         type: null
         section_body: null
         color: null
-        link: couplet1
+        link: couplet1a
     - id: refrain2
       item: !Ref
         title: refrain 2
@@ -4784,7 +4793,7 @@ items:
       tempo: 96
       time_signature: null
       tags:
-      - dadrock
+      - neosonics
     meta:
       date: 2026-08-31
       digest: null
@@ -5033,7 +5042,8 @@ items:
 - - queens_of_the_stone_age/i_sat_by_the_ocean/song.yml
   - !Song
     files:
-      lilypond: []
+      lilypond:
+      - chordsrefrain.ly
       tex:
       - lyrics.tex
       mp3: []
@@ -5042,7 +5052,7 @@ items:
     info:
       title: I Sat By The Ocean
       author: Queens Of The Stone Age
-      tempo: 96
+      tempo: 117
       time_signature: null
       tags:
       - move-the-line
@@ -5050,15 +5060,25 @@ items:
       date: 2026-08-30
       digest: 1057cbd47ffaa5edecdddee8c9c6df85
     structure:
-    - id: intro
+    - id: intro-a
       item: !Chords
         title: intro
         type: intro
         section_body: null
         color: null
         rows:
-        - '|G|G|'
-        - '|G|G Bf|C|F|'
+        - '|Gs|Gs|'
+        drum_sequence: null
+    - id: intro-b
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - '|Gs|Gs As|B|Fs|'
+        - '|Gs|Gs Fs|E|B Cs|'
+        - '|Gs|Gs|'
         drum_sequence: null
     - id: couplet1
       item: !Chords
@@ -5067,5 +5087,146 @@ items:
         section_body: null
         color: null
         rows:
-        - Am G| Dm Am|Am G| Dm Am
+        - '|Gs|Gs As|B|Fs|'
+        - '|Gs|Gs Fs|E|B Cs|'
+        - '|Gs|Gs|'
         drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: couplet
+        section_body: null
+        color: null
+        link: couplet1
+    - id: prerefrain1
+      item: !Chords
+        title: pré refrain
+        type: prerefrain
+        section_body: null
+        color: null
+        rows:
+        - '| E Fs | Cs Gs | E Fs | Cs Gs |'
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - '| E | Fs | Gs | Gs |'
+        - '| Csm | As | Gs | E | '
+        drum_sequence: null
+    - id: intro2-a
+      item: !Ref
+        title: intro 2-a
+        type: null
+        section_body: null
+        color: null
+        link: intro-a
+    - id: intro2-b
+      item: !Ref
+        title: intro 2-b
+        type: null
+        section_body: null
+        color: null
+        link: intro-b
+- - green_day/boulevard_of_broken_dreams/song.yml
+  - !Song
+    files:
+      lilypond: []
+      tex: []
+      mp3: []
+      has_clicks: true
+      has_mp3: true
+    info:
+      title: Boulevard of Broken Dreams
+      author: Green Day
+      tempo: 83
+      time_signature: null
+      tags:
+      - neosonics
+    meta:
+      date: 2026-08-31
+      digest: 89f75d6a3df95d4925fd5b34fb12ed3e
+    structure:
+    - id: intro
+      item: !Chords
+        title: intro
+        type: intro
+        section_body: null
+        color: null
+        rows:
+        - ' | E | E |E |E |'
+        drum_sequence: null
+    - id: couplet1
+      item: !Chords
+        title: couplet 1
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - '|E|E|Csm|Csm'
+        - '|E|E|Csm|Csm'
+        - ' | A |A | B | B |'
+        drum_sequence: null
+    - id: refrain1
+      item: !Chords
+        title: refrain 1
+        type: refrain
+        section_body: null
+        color: null
+        rows:
+        - '|E|E|Csm|Csm'
+        - '|A|A|B|B|'
+        drum_sequence: null
+    - id: couplet2
+      item: !Ref
+        title: couplet 2
+        type: null
+        section_body: null
+        color: null
+        link: couplet1
+    - id: refrain2
+      item: !Ref
+        title: refrain 2
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: pont
+      item: !Chords
+        title: pont
+        type: pont
+        section_body: null
+        color: null
+        rows:
+        - '|D|D|E|E|'
+        - '|D|D|E|E|'
+        drum_sequence: null
+    - id: cb
+      item: NewColumn
+    - id: couplet3
+      item: !Chords
+        title: couplet 3
+        type: couplet
+        section_body: null
+        color: null
+        rows:
+        - E|E|Csm|Csm
+        - A|A|B|B
+        drum_sequence: null
+    - id: refrain3
+      item: !Ref
+        title: refrain 3
+        type: null
+        section_body: null
+        color: null
+        link: refrain1
+    - id: refrain4
+      item: !Ref
+        title: refrain 4
+        type: null
+        section_body: null
+        color: null
+        link: refrain1

@@ -1,0 +1,43 @@
+# 83 BPM, bar = 2.89 s. Times include a +0.90 s offset.
+clicks:
+- bar_number: 1
+  beat_in_bar_number: 1
+  time: 0:00.90
+  description: intro
+- bar_number: 5
+  beat_in_bar_number: 1
+  time: 0:12.50
+  description: couplet 1
+- bar_number: 17
+  beat_in_bar_number: 1
+  time: 0:47.40
+  description: refrain 1
+
+- bar_number: 25
+  beat_in_bar_number: 1
+  time: 1:09.90
+  description: couplet 2
+
+- bar_number: 37
+  beat_in_bar_number: 1
+  time: 1:45.40
+  description: refrain 2
+- bar_number: 45
+  beat_in_bar_number: 1
+  description: pont
+  time: 2:08.40
+
+- bar_number: 53
+  beat_in_bar_number: 1
+  description: couplet 3
+  time: 2:31.60
+
+- bar_number: 61
+  beat_in_bar_number: 1
+  description: refrain 3
+  time: 2:54.90
+
+- bar_number: 77
+  beat_in_bar_number: 1
+  description: fin
+  time: 3:40.40

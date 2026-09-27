@@ -1,4 +1,4 @@
-.PHONY: all force help clean watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive
+.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive
 .DEFAULT_GOAL := help
 
 -include .env
@@ -61,6 +61,11 @@ clean: ## clean sandbox and delivery
 		fi; \
 	done
 
+clean-songs: ## remove generated files under songs/ (pdf, midi, *~, overlay.mp3), keeps song.mp3
+	@git ls-files -z --others $(srcdir) \
+		| grep -zE '\.(pdf|midi)$$|~$$|/overlay\.mp3$$' \
+		| xargs -0 -r rm -v
+
 check-mp3: ## verify songs/ holds at least as many mp3 as S3, before a destructive upload
 	@missing=""; \
 	[ -n "$(BUCKET)" ] || missing="$$missing BUCKET (set it in .env)"; \
@@ -93,7 +98,7 @@ upload-prod-or-dev: check-mp3
 	aws s3 cp --recursive $(booksdir) s3://$(BUCKET)/$(BPATH)/books
 	aws s3 cp --recursive $(delivery) s3://$(BUCKET)/$(BPATH)/delivery
 	aws s3 cp --recursive drums s3://$(BUCKET)/$(BPATH)/drums
-	@printf 'header = "X-Write-Password: %%s"\n' "$$WRITE_PASSWORD" \
+	@printf 'header = "X-Write-Password: %s"\n' "$$WRITE_PASSWORD" \
 		| curl -sk -K - -X POST https://$(URL)/api/world
 
 
@@ -143,9 +148,9 @@ reindex: ## POST /api/world to re-index a site (needs WRITE_PASSWORD and URL)
 		echo "reindex: not set:$$missing"; exit 1; \
 	fi; \
 	body=$$(mktemp); \
-	code=$$(printf 'header = "X-Write-Password: %%s"\n' "$$WRITE_PASSWORD" \
-		| curl -sk -K - -X POST -o "$$body" -w '%{http_code}' 'https://$(URL)/api/world'); \
-	echo "POST https://$(URL)/api/world -> HTTP $$code"; \
+	code=$$(printf 'header = "X-Write-Password: %s"\n' "$$WRITE_PASSWORD" \
+		| curl -sk -K - -X POST -o "$$body" -w '%{http_code}' '$(if $(filter localhost%,$(URL)),http,https)://$(URL)/api/world'); \
+	echo "POST $(if $(filter localhost%,$(URL)),http,https)://$(URL)/api/world -> HTTP $$code"; \
 	head -c 500 "$$body"; echo; rm -f "$$body"; \
 	case "$$code" in \
 		2*) echo "reindex ok";; \
@@ -157,9 +162,9 @@ refresh-prod: ## sync songs to S3 prod, then re-index move-the-line.org
 	$(MAKE) sync BPATH=prod
 	@WRITE_PASSWORD="$$WRITE_PROD_PASSWORD" $(MAKE) reindex URL=move-the-line.org
 
-refresh-dev: ## sync songs to S3 dev, then re-index localhost
+refresh-dev: ## sync songs to S3 dev, then re-index localhost:6662
 	$(MAKE) sync BPATH=dev
-	@WRITE_PASSWORD="$$WRITE_PASSWORD" $(MAKE) reindex URL=localhost:3000
+	@WRITE_PASSWORD="$$WRITE_PASSWORD" $(MAKE) reindex URL=localhost:6662
 
 download: ## download prod data from S3
 	aws s3 sync s3://$(BUCKET)/$(BPATH)/songs songs
