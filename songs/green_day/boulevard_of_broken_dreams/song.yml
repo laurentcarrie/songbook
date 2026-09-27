@@ -1,0 +1,92 @@
+files:
+  lilypond: []
+  tex: []
+  mp3: []
+  has_clicks: true
+  has_mp3: true
+info:
+  title: Boulevard of Broken Dreams
+  author: Green Day
+  external_id: !Deezer "6611231"
+  tempo: 83
+  time_signature: null
+  tags: [neosonics]
+
+meta:
+  date: "2026-08-31"
+  digest: 89f75d6a3df95d4925fd5b34fb12ed3e
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      rows:
+        - ' | Fm Ab | Eb Bb |Fm Ab | Eb Bb |'
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      rows:
+        - ' | Fm Ab | Eb Bb |Fm Ab | Eb Bb |'
+        - ' | Fm Ab | Eb Bb |'
+        - ' | Fm Ab | Eb Bb |Fm Ab | Eb Bb |'
+        - ' | Fm Ab | Eb Bb | Fm Ab | Eb Bb |'
+
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      rows:
+        - '| Df Af | Ef Fm | Df Af | Ef Fm |'
+        - '| Df Af | Ef Fm | Df Af | C |'
+  - id: interlude
+    item: !Chords
+      title: interlude
+      type: interlude
+      rows:
+        - ' | Fm Ab | Eb Bb |Fm Ab | Eb Bb |'
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      link: couplet1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      link: refrain1
+  - id: interlude2
+    item: !Ref
+      title: interlude
+      link: interlude
+  - id: pont
+    item: !Chords
+      title: solo
+      type: solo
+      rows:
+        - '| Df Af | Ef Fm | Df Af | Ef Fm |'
+        - '| Df Af | Ef Fm | Df Af | C |'
+        - ' | C |'
+  - id: cb
+    item: !NewColumn
+  - id: pont
+    item: !Chords
+      title: pont
+      type: pont
+      rows:
+        - '| Fm Af | Ef Bf | Fm Af | Ef Bf |'
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      link: refrain1
+  - id: fill
+    item: !Chords
+      title: fill
+      type: fill
+      rows:
+        - '| C | '
+  - id: final
+    item: !Chords
+      title: final
+      type: couplet2
+      rows:
+       - '| Fm Db | Eb D | Ab Em | x3'
+       - '| Fm Db | Eb D | Ab Em | '

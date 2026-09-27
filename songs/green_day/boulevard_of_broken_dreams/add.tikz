@@ -1,0 +1,6 @@
+% Red ellipses marking the riff at bars 9/10, 15/16 and 17/18.
+\foreach \b in {9,15,17} {
+  \path ($(\BAR{\b})!0.5!(\BAR{\b+1})$) coordinate (A) ;
+  \node[draw=red,thick,fill=orange,fill opacity=.3,ellipse,minimum width=2.2*\xr*1cm,minimum height=.9*\yr*1cm,
+        label={[red,font=\LARGE\bfseries,fill=white,fill opacity=1,inner sep=1pt,yshift=-8pt]north:riff}] at (A) {} ;
+}
