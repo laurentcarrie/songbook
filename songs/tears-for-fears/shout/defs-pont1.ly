@@ -1,4 +1,4 @@
-\version "2.24.0"
+t\version "2.24.0"
 
 %% Corpus-wide library: articulation marks, songbookBeatMarks. A real file
 %% under songs/, mirrored into the sandbox, so this include resolves both when
