@@ -99,7 +99,7 @@ upload-prod-or-dev: check-mp3
 	aws s3 cp --recursive $(delivery) s3://$(BUCKET)/$(BPATH)/delivery
 	aws s3 cp --recursive drums s3://$(BUCKET)/$(BPATH)/drums
 	@printf 'header = "X-Write-Password: %s"\n' "$$WRITE_PASSWORD" \
-		| curl -sk -K - -X POST https://$(URL)/api/world
+		| curl -sk -K - -X POST $(if $(filter localhost%,$(URL)),http,https)://$(URL)/api/world
 
 
 upload-prod: ## upload songs to S3 prod
@@ -107,7 +107,7 @@ upload-prod: ## upload songs to S3 prod
 
 
 upload-dev: ## upload songs to S3 dev
-	@WRITE_PASSWORD="$$WRITE_PASSWORD" $(MAKE) upload-prod-or-dev BPATH=dev URL=localhost:3000
+	@WRITE_PASSWORD="$$WRITE_PASSWORD" $(MAKE) upload-prod-or-dev BPATH=dev URL=localhost:6662
 
 
 upload-mp3: ## upload only the mp3 under songs/ to S3, needs BPATH
