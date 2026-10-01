@@ -257,6 +257,6 @@ upload-zip: all ## build all songs, zip delivery/pdf, and upload it to gdrive:/z
 	rclone copyto pdf.zip gdrive:/zik/pdf.zip
 
 upload-gdrive: all ## build all songs and books, then upload the book PDFs from delivery/pdf to gdrive:/zik
-	rclone copy $(delivery)/pdf gdrive:/zik --include "book-*.pdf"
+	rclone copy $(delivery)/pdf gdrive:/zik/books --include "book-*.pdf"
 
 
