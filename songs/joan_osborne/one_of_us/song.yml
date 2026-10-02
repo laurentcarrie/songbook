@@ -32,7 +32,7 @@ structure:
       title: couplet 1
       type: couplet
       rows :
-        - ' | B E | B Fs | B E | B Fs |x2'
+        - ' | Gsm/Ds E | B Fs | Gsm/Ds E | B Fs |x2'
   - id: prerefrain1
     item: !Chords
       title: pré refrain 1

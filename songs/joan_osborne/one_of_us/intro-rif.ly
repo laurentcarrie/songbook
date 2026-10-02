@@ -6,25 +6,30 @@
   tagline = ##f
 }
 
-\include "macros.ly"
+\include "defs.ly"
 
-%% Capo on fret 4: raise every open string by a major third, so the tab shows
-%% frets counted from the capo while the notes keep their sounding pitch.
-capoTuning = #(map (lambda (p) (ly:pitch-transpose p (ly:make-pitch 0 2 0))) guitar-tuning)
 
 melody = {
-  \clef "treble_8"
   \time 4/4
-  \tempo 4 = \songtempo
-  b1 |
+  \songTempo
+  \partial 4
+  <gis'\1 dis'\2>8 ais'8\1 \bar "||"
+  b'8\1 gis8\4 <dis'\2 b\3>8 fis8\4 e8\5 <dis'\2 b\3>8 <e'\2 b\3>8 <fis'\2 b\3>8 |
+  b,8\6 dis8\5 fis8\4 b8\3
+  \tuplet 3/2 { <b\3 fis\4>8( cis'8\3) fis'8\2 }
+  gis'8\1 ais'8\1 \bar "||"
 }
 
 \score {
-  \new TabStaff \with { stringTunings = \capoTuning } { \melody }
+  <<
+    \new TabStaff \with { stringTunings = \capoTuning } { \tabDurations \melody }
+    \new Dynamics { \partial 4 s4^\markup { \with-color #red \bold "✖" } \songbookBeatMarks 2 }
+  >>
   \layout {}
 }
 
+%% Separate score for the MIDI, kept out of the \layout score.
 \score {
-  \new TabStaff \with { stringTunings = \capoTuning } { \melody }
+  \unfoldRepeats \new TabStaff \with { stringTunings = \capoTuning } { \melody }
   \midi {}
 }
