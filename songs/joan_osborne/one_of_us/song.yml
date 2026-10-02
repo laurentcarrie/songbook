@@ -1,0 +1,77 @@
+files:
+  lilypond:
+    - intro-rif.ly
+  tex: []
+  mp3: []
+
+  has_clicks: true
+  has_mp3: true
+info:
+  title: One Of Us
+  author: Joan Osborne
+  external_id: !Deezer "2463249"
+  tempo: 88
+  time_signature: null
+  tags: [sunny-bd]
+
+meta:
+  date: "2026-08-31"
+structure:
+  # TODO: every `rows` below is a placeholder - replace with the real chords.
+  # Notation: f = flat, s = sharp, m = minor (Bf = B flat, Csm = C sharp minor).
+  # `type` selects the section colour from songs/settings.yml.
+  # Use !Ref to repeat an earlier section, `item: NewColumn` to break columns.
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      rows:
+        - ' | B | B | B | B |x4'
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      rows :
+        - ' | B E | B Fs | B E | B Fs |x2'
+  - id: prerefrain1
+    item: !Chords
+      title: pré refrain 1
+      type: prerefrain
+      rows :
+        - ' | E | Fs |x3'
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      rows :
+        - ' | B | B | B | B |x2'
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      link: couplet1
+  - id: prerefrain2
+    item: !Ref
+      title: pré refrain 2
+      link: prerefrain1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      link: refrain1
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      link: refrain1
+  - id: solo
+    item: !Chords
+      title: solo
+      type: solo
+      rows :
+        - ' | E | Fs |x3'
+        - ' | B E | B Fs | B E | B Fs |x2'
+        - ' | E | Fs |x3'
+  - id: nc
+    item: NewColumn
+  - id: prerefrain3
+    item: !Ref
+      title: pré refrain 3
+      link: prerefrain1
