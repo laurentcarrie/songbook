@@ -3,7 +3,7 @@ let D be the the directory of that song ( it is therefore a subdirectory of song
 ask :
 - the id of the new section ( e.g. refrain1 )
 - the name of the new section ( its title, e.g. "refrain 1" )
-- after or before which existing section it should be positioned
+- the position : after or before which existing section it should be positioned, or at the end ( after the last section )
 - the kind of item : `!Chords` ( its own chords ) or `!Ref` ( a reference to an existing section, same chords )
 - if `!Chords` :
   - the type
