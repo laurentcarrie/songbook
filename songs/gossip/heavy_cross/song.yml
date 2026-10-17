@@ -1,7 +1,11 @@
 files:
-  lilypond: []
+  lilypond:
+    - riff1.ly
+    - refrain.ly
   tex: []
-  mp3: []
+  mp3:
+    - riff1.mp3
+    - refrain.mp3
   has_clicks: false
   has_mp3: false
 info:
