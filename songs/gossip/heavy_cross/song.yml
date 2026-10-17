@@ -24,7 +24,7 @@ structure:
       title: intro
       type: intro
       rows:
-        - ' | C | C | D | D | x4'
+        - ' | Dm | Dm | C | C | x4'
   - id: intro2
     item: !Ref
       title: intro 2
@@ -44,7 +44,7 @@ structure:
       title: refrain 1
       type: refrain
       rows:
-        - ' | C | C | D | D | x4'
+        - ' | Dm | Dm | C | C | x4'
   - id: intro3
     item: !Ref
       title: intro 3
