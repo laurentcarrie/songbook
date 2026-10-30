@@ -1,4 +1,4 @@
-.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive
+.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-tablet
 .DEFAULT_GOAL := help
 
 -include .env
@@ -259,4 +259,8 @@ upload-zip: all ## build all songs, zip delivery/pdf, and upload it to gdrive:/z
 upload-gdrive: all ## build all songs and books, then upload the book PDFs from delivery/pdf to gdrive:/zik
 	rclone copy $(delivery)/pdf gdrive:/zik/books --include "book-*.pdf"
 
-
+# Mirrors delivery/ to /sdcard/Download/songbook on the tablet over adb: the folder is wiped first, so
+# files deleted or renamed locally disappear there too. Everything is re-pushed each time (~110 MB).
+upload-tablet: ## mirror delivery/ to the tablet over USB (adb): wipe the tablet folder, then push (via ~/ia-sessions/ip-over-usb/sync-songbook.sh)
+	adb shell rm -rf /sdcard/Download/songbook
+	$(HOME)/ia-sessions/ip-over-usb/sync-songbook.sh $(abspath $(delivery))

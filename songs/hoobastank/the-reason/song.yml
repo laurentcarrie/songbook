@@ -1,14 +1,18 @@
 files:
-  lilypond: []
+  lilypond:
+    - intro.ly
+    - couplet.ly
   tex: []
-  mp3: []
+  mp3:
+    - intro.mp3
+    - couplet.mp3
   has_clicks: true
   has_mp3: true
 info:
   title: The Reason
   author: Hoobastank
   external_id: !Deezer "634445372"
-  tempo: 132
+  tempo: 83
   time_signature: null
   tags: [neosonics]
 
