@@ -1,0 +1,20 @@
+% Green ellipse around the 2 last interlude rows (bars 108-111 and 112-115), labelled "muted".
+\path ($(\BAR{108})!0.5!(\BAR{115})$) coordinate (A) ;
+\node[draw=green!50!black,thick,ellipse,minimum width=4.6*\xr*1cm,minimum height=2.3*\yr*1cm,
+      label={[green!50!black,font=\large\bfseries,fill=white,fill opacity=1,inner sep=1pt,yshift=-8pt]north:muted}] at (A) {} ;
+
+% Comment next to refrain 3.
+\node[anchor=west,text=red,font=\large\itshape] at ($(SECTION_refrain3) + (0.2,0)$) {avec solo} ;
+
+% Red annotation on top of the first row of "intro free".
+\node[anchor=center,ellipse,draw=red,thick,opacity=0.7,inner sep=2pt,text=red,font=\large\bfseries] at ($(\BAR{1})!0.5!(\BAR{4}) + (0,0.5*\yr cm)$) {l / b / d} ;
+
+
+% Same "l / b / d" label on the top line of the riff (bars 42-45).
+\node[anchor=center,ellipse,draw=red,thick,opacity=0.7,inner sep=2pt,text=red,font=\large\bfseries] at ($(\BAR{42})!0.5!(\BAR{45}) + (0,0.5*\yr cm)$) {l / b / d} ;
+
+% Comment under bars 60-61 (last two bars of couplet 2).
+\node[anchor=south,ellipse,draw=red,thick,opacity=0.7,inner sep=2pt,text=red,font=\large\bfseries] at ($(\BAR{60})!0.5!(\BAR{61}) + (0,-0.5*\yr cm + 0.05cm)$) {entrée r} ;
+
+% Same comment inside couplet 1, under bar 32 (last bar).
+\node[anchor=south,ellipse,draw=red,thick,opacity=0.7,inner sep=2pt,text=red,font=\large\bfseries] at ($(\BAR{32}) + (0,-0.5*\yr cm + 0.05cm)$) {entrée r} ;
