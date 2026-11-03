@@ -88,3 +88,51 @@ tabDurations = {
   \revert TabStaff.MultiMeasureRestNumber.stencil
   \revert TabStaff.MultiMeasureRestText.stencil
 }
+
+%% PROTOTYPE - light grey background on beats 1 and 3, behind the staff.
+%% Takes the number of 4/4 bars. Put it in its own Dynamics context next to the
+%% TabStaff, like songbookBeatMarks. Each shaded beat is a TextSpanner from the
+%% beat to the next one; its stencil is replaced by a filled box as tall as the
+%% StaffSymbol found in the same system, so the box follows the real beat width.
+#(define (beat-shade-stencil grob)
+   (let* ((sys (ly:grob-system grob))
+          (left (ly:spanner-bound grob LEFT))
+          (right (ly:spanner-bound grob RIGHT))
+          (me-x (ly:grob-relative-coordinate grob sys X))
+          (me-y (ly:grob-relative-coordinate grob sys Y))
+          ;; The box starts at the left edge of the notes in the column (not at
+          ;; the column reference point), so it never reaches back over the
+          ;; previous beat however tightly the notes are spaced.
+          (edge (lambda (col)
+                  (let ((ext (ly:grob-extent col col X)))
+                    (+ (- (ly:grob-relative-coordinate col sys X) me-x)
+                       (if (interval-empty? ext) 0 (car ext))))))
+          (pad 0.3)
+          (x0 (- (edge left) pad))
+          (x1 (- (edge right) pad))
+          (symbols (filter (lambda (g) (grob::has-interface g 'staff-symbol-interface))
+                           (ly:grob-array->list (ly:grob-object sys 'all-elements)))))
+     (if (null? symbols)
+         empty-stencil
+         (let* ((ss (car symbols))
+                (ext (ly:grob-extent ss sys Y))
+                (y0 (- (car ext) me-y))
+                (y1 (- (cdr ext) me-y)))
+           (stencil-with-color
+            (ly:round-filled-box (cons x0 x1) (cons (- y0 0.5) (+ y1 0.5)) 0)
+            (x11-color 'grey90))))))
+
+songbookBeatShade =
+#(define-music-function (bars) (integer?)
+   #{
+     \override TextSpanner.stencil = #beat-shade-stencil
+     \override TextSpanner.X-extent = #'(0 . 0)
+     \override TextSpanner.Y-extent = #'(0 . 0)
+     \override TextSpanner.Y-offset = #0
+     \override TextSpanner.outside-staff-priority = ##f
+     \override TextSpanner.layer = #-5
+     \repeat unfold $bars {
+       s4\startTextSpan s4\stopTextSpan
+       s4\startTextSpan s4\stopTextSpan
+     }
+   #})

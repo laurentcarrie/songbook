@@ -57,7 +57,7 @@ melody = {
   d'16\3 (e'16\3) e'8\3 e'8\3 \deadNote {e'16\3} \deadNote {e'16\3}  
   }
   |
-    b'16\2\co^ cis''16\2 e''8\1
+    b'16\2 cis''16\2 e''8\1
 }
 
 \score {

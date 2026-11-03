@@ -1,5 +1,8 @@
 \version "2.24.0"
 
+%% Number of 4/4 bars covered by the beat marks and the MIDI drums.
+nbbars = 4
+
 \header {
   title = "riff couplet"
   instrument = "guitar"
@@ -47,7 +50,8 @@ melody = {
       \textMark \markup \italic "6th string dropped to D"
       \boldGlissando \tabDurations \melody
     }
-    \new Dynamics { \songbookBeatMarks 4 }
+    \new Dynamics { \songbookBeatMarks \nbbars }
+    \new Dynamics { \songbookBeatShade \nbbars }
   >>
   \layout {}
 }
@@ -67,7 +71,7 @@ melody = {
     \new DrumStaff \with {
       midiMinimumVolume = #0.9
       midiMaximumVolume = #1.0
-    } { \songbookDrums 4 }
+    } { \songbookDrums \nbbars }
   >>
   \midi {}
 }

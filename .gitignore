@@ -19,3 +19,7 @@ liste.txt
 
 # Hand-written Strudel scratch page, kept locally, not part of the corpus.
 songs/**/song.html
+
+# musicsheets-msb: Rust build output and generated MobileSheets backups
+target/
+*.msb
