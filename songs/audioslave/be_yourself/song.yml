@@ -1,0 +1,94 @@
+files:
+  lilypond:
+    - solo.ly
+  tex: []
+  mp3:
+    - solo.mp3
+  has_clicks: false
+  has_mp3: true
+info:
+  title: Be Yourself
+  author: Audioslave
+  external_id: !Deezer "978822"
+  tempo: 116
+  time_signature: null
+  tags: [neosonics]
+
+structure:
+  - id: intro-free
+    item: !Chords
+      title: intro free
+      type: intro
+      rows:
+        - '| Bm | G | Bm | G | x2'
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      rows:
+        - '| Bm | G | Bm | G | x2'
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      rows:
+        - '| Bm | D | G | Em | x3'
+        - '| Bm | D | G | Em |'
+  - id: fill
+    item: !Chords
+      title: fill
+      type: fill
+      rows:
+        - '| Em |'
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      rows:
+        - '| Bm | D | G | Em | x2'
+  - id: riff
+    item: !Chords
+      title: riff
+      type: riff
+      rows:
+        - '| Bm | D | G | Em |'
+  - id: cb
+    item: !NewColumn
+  - id: couplet2
+    item: !Chords
+      title: couplet 2
+      type: couplet
+      rows:
+        - '| Bm | D | G | Em | x3'
+        - '| Bm | D | G HRest | Em HRest |'
+  - id: refrain2
+    item: !Chords
+      title: refrain 2
+      type: coupletb
+      rows:
+        - '| Bm | D | G | Em | x4'
+  - id: solo
+    item: !Chords
+      title: solo
+      type: solo
+      rows:
+        - '| Bm | D | G | Em | x4'
+  - id: interlude
+    item: !Chords
+      title: interlude
+      type: interlude
+      rows:
+        - '| G | A | Bm | D | x3'
+        - '| G | A |'
+        - '| Bm | Bm | Bm | Bm |'
+        - '| Bm | D | G | Em |'
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      link: refrain2
+  - id: outro
+    item: !Chords
+      title: outro
+      type: outro
+      rows:
+        - '| G HRest |'

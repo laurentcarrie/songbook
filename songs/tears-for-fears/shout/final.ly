@@ -1,5 +1,8 @@
 \version "2.24.0"
 
+%% Number of 4/4 bars of the melody: used by the beat marks and the MIDI drums.
+nbbars = 19
+
 \header {
   title = "final"
   instrument = "guitare"
@@ -12,6 +15,7 @@ harmonies = \chordmode {
   fis1:m
   fis1:m q q q d1 q b1:m q
   fis1:m q q q d1 q b1:m q
+  fis1:m q
 }
 
 
@@ -101,14 +105,21 @@ melody = {
     % Bm
     e'8\3 fis'8\3
     b'8\2 cis''8\1
-    b'8\2\^ cis''4\2
-    | % bar 18
-    % Fsm
+    b'16\2\^ cis''16\2 e''8\1
+    b'16\2\^ cis''16\2 e''8\1
+    | % bar 18 Fsm
     b'16\2\^ cis''16\2 e''8\1
     b'16\2\^ cis''16\2 e''8\1
     b'16\2\^ cis''16\2 e''8\1
     b'16\2\^ cis''16\2 e''8\1
-
+    | % bar 18 Fsm
+    b'16\2\^ cis''16\2 e''8\1
+    b'16\2\^ cis''16\2 e''8\1
+    b'16\2\^ cis''16\2 e''8\1
+    b'16\2\^ cis''16\2 e''8\1
+    
+    | 
+    % e''8\1
 
 
   }
@@ -118,7 +129,8 @@ melody = {
   <<
     \new ChordNames \harmonies
     \new TabStaff { \boldGlissando \tabDurations \melody }
-    \new Dynamics { \songbookBeatMarks 16 }
+    \new Dynamics { \songbookBeatMarks \nbbars }
+    \new Dynamics { \songbookBeatShade \nbbars }
     % \new TabStaff { \boldGlissando \tabDurations \rythm }
   >>
   \layout {}
@@ -128,6 +140,12 @@ melody = {
 %% it is not played back. \unfoldRepeats expands it, so the MIDI matches what
 %% the score means. Keep it out of the \layout score, or the repeat would be
 %% printed written out.
+%% Number of 4/4 bars once the repeats are unrolled: that is what the MIDI plays,
+%% so the drums must cover it (nbbars is the written length, for the beat marks).
+#(define (bars-of name)
+   (ly:moment-main (ly:music-length (unfold-repeats-fully (ly:parser-lookup name)))))
+nbbarsUnrolled = #(inexact->exact (ceiling (max (bars-of 'melody))))
+
 \score {
   \unfoldRepeats <<
     %% MIDI balance, \midi score only - none of this affects the engraving.
@@ -145,7 +163,7 @@ melody = {
     \new DrumStaff \with {
       midiMinimumVolume = #0.9
       midiMaximumVolume = #1.0
-    } { \songbookDrums 3 }
+    } { \songbookDrums \nbbarsUnrolled }
   >>
   \midi {}
 }

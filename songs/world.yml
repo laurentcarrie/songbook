@@ -5157,7 +5157,7 @@ items:
         section_body: null
         color: null
         rows:
-        - ' | E | E |E |E |'
+        - ' | Fm Ab | Eb Bb |Fm Ab | Eb Bb |'
         drum_sequence: null
     - id: couplet1
       item: !Chords
@@ -5166,9 +5166,10 @@ items:
         section_body: null
         color: null
         rows:
-        - '|E|E|Csm|Csm'
-        - '|E|E|Csm|Csm'
-        - ' | A |A | B | B |'
+        - ' | Fm Ab | Eb Bb |Fm Ab | Eb Bb |'
+        - ' | Fm Ab | Eb Bb |'
+        - ' | Fm Ab | Eb Bb |Fm Ab | Eb Bb |'
+        - ' | Fm Ab | Eb Bb | Fm Ab | Eb Bb |'
         drum_sequence: null
     - id: refrain1
       item: !Chords
@@ -5177,8 +5178,17 @@ items:
         section_body: null
         color: null
         rows:
-        - '|E|E|Csm|Csm'
-        - '|A|A|B|B|'
+        - '| Df Af | Ef Fm | Df Af | Ef Fm |'
+        - '| Df Af | Ef Fm | Df Af | C |'
+        drum_sequence: null
+    - id: interlude
+      item: !Chords
+        title: interlude
+        type: interlude
+        section_body: null
+        color: null
+        rows:
+        - ' | Fm Ab | Eb Bb |Fm Ab | Eb Bb |'
         drum_sequence: null
     - id: couplet2
       item: !Ref
@@ -5194,6 +5204,26 @@ items:
         section_body: null
         color: null
         link: refrain1
+    - id: interlude2
+      item: !Ref
+        title: interlude
+        type: null
+        section_body: null
+        color: null
+        link: interlude
+    - id: pont
+      item: !Chords
+        title: solo
+        type: solo
+        section_body: null
+        color: null
+        rows:
+        - '| Df Af | Ef Fm | Df Af | Ef Fm |'
+        - '| Df Af | Ef Fm | Df Af | C |'
+        - ' | C |'
+        drum_sequence: null
+    - id: cb
+      item: NewColumn
     - id: pont
       item: !Chords
         title: pont
@@ -5201,20 +5231,7 @@ items:
         section_body: null
         color: null
         rows:
-        - '|D|D|E|E|'
-        - '|D|D|E|E|'
-        drum_sequence: null
-    - id: cb
-      item: NewColumn
-    - id: couplet3
-      item: !Chords
-        title: couplet 3
-        type: couplet
-        section_body: null
-        color: null
-        rows:
-        - E|E|Csm|Csm
-        - A|A|B|B
+        - '| Fm Af | Ef Bf | Fm Af | Ef Bf |'
         drum_sequence: null
     - id: refrain3
       item: !Ref
@@ -5223,10 +5240,22 @@ items:
         section_body: null
         color: null
         link: refrain1
-    - id: refrain4
-      item: !Ref
-        title: refrain 4
-        type: null
+    - id: fill
+      item: !Chords
+        title: fill
+        type: fill
         section_body: null
         color: null
-        link: refrain1
+        rows:
+        - '| C | '
+        drum_sequence: null
+    - id: final
+      item: !Chords
+        title: final
+        type: couplet2
+        section_body: null
+        color: null
+        rows:
+        - '| Fm Db | Eb D | Ab Em | x3'
+        - '| Fm Db | Eb D | Ab Em | '
+        drum_sequence: null

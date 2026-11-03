@@ -1,0 +1,6 @@
+% One tone higher, then capo, under the title, aligned with the left edge of the chord grid.
+\node[anchor=north west](b) at (0,-.4) { \fontsize{14pt}{14pt}\selectfont\bfseries{\color{red} 1 ton plus haut}\quad{\color{green!50!black} capo 4\`eme frette} } ;
+
+% First row: comment to the right of the "x2".
+\path (\BAR{4}) ++(.5*\xr+1.1,0) coordinate (A) ;
+\node[anchor=west](b) at (A) { \fontsize{10pt}{10pt}\selectfont\itshape 4 doux / 4 dur } ;

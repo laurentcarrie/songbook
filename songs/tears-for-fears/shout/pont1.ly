@@ -1,5 +1,8 @@
 \version "2.24.0"
 
+%% Number of 4/4 bars of the melody: used by the beat marks and the MIDI drums.
+nbbars = 8
+
 \header {
   title = "pont guitare 2"
   instrument = "guitare"
@@ -18,43 +21,40 @@ melody = {
     fis,4^.\6
     r8. cis16\5
     e16\4 cis16\5 fis\4 r16
-    fis,4^.\6 
+    fis,4^.\6
     |
     r16 fis,16\6 b,16\5 cis16\5 e16\4 r16 fis16\4
     r8 cis16\5 e16\4 cis16\5 e16\4 fis16\4 fis,16\6 r16
     |
     %fis16\4 r4 cis16\5 e16\4 cis16\5 fis16\4 r16
-    fis4^.\4 r16 cis16\5 e16\4 cis16\5 fis4^.\4 
+    fis4^.\4 r16 cis16\5 e16\4 cis16\5 fis4^.\4
     r4
     |
-    fis,16\6 fis,16\6 fis,16\6 r8
-    cis16\5 e16\4 cis16\5 fis16\4 fis,16\6 r8
-    fis,4^.\6 
-
+    fis,16\6 fis,16\6 fis,16\6 r16
+    r16 cis16\5 e16\4 cis16\5 fis16\4 fis,16\6 r8
+    fis,4^.\6
     |
   }
 
-
   \repeat volta 2 {
 
-    a4^.\3 
+    a4^.\3
     r8. fis16\4
     gis16\3 fis16\4 a\3 r16
-    fis4^.\4 
+    fis4^.\4
     |
     r8. e16\4 fis16\4 gis16\3 r16 a16\3 r16
     fis16\4 gis16\3 fis16\4 gis16\3 a16\3 fis16\4 r16
     |
-    a4^.\3 
+    a4^.\3
     r8. fis16\4
     gis16\3 fis16\4 a\3 r16
     r4
     |
-
-    fis16\4 fis16\4 fis16\4  r4
-    fis16\4 gis16\3 fis16\4 a16\3
-    fis16\4 r4
-
+    fis16\4 fis16\4 fis16\4  r16
+    r16 fis16\4 gis16\3 fis16\4 
+    a16\3 fis16\4 r8
+    r4
     |
   }
 
@@ -65,7 +65,8 @@ melody = {
   <<
     \new ChordNames \harmonies
     \new TabStaff { \boldGlissando \tabDurations \melody }
-    \new Dynamics { \songbookBeatMarks 8 }
+    \new Dynamics { \songbookBeatMarks \nbbars }
+    \new Dynamics { \songbookBeatShade \nbbars }
     % \new TabStaff { \boldGlissando \tabDurations \rythm }
   >>
   \layout {}
@@ -75,6 +76,12 @@ melody = {
 %% it is not played back. \unfoldRepeats expands it, so the MIDI matches what
 %% the score means. Keep it out of the \layout score, or the repeat would be
 %% printed written out.
+%% Number of 4/4 bars once the repeats are unrolled: that is what the MIDI plays,
+%% so the drums must cover it (nbbars is the written length, for the beat marks).
+#(define (bars-of name)
+   (ly:moment-main (ly:music-length (unfold-repeats-fully (ly:parser-lookup name)))))
+nbbarsUnrolled = #(inexact->exact (ceiling (max (bars-of 'melody))))
+
 \score {
   \unfoldRepeats <<
     %% MIDI balance, \midi score only - none of this affects the engraving.
@@ -92,7 +99,7 @@ melody = {
     \new DrumStaff \with {
       midiMinimumVolume = #0.9
       midiMaximumVolume = #1.0
-    } { \songbookDrums 8 }
+    } { \songbookDrums \nbbarsUnrolled }
   >>
   \midi {}
 }

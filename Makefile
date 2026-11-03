@@ -1,4 +1,4 @@
-.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive
+.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb
 .DEFAULT_GOAL := help
 
 -include .env
@@ -99,7 +99,7 @@ upload-prod-or-dev: check-mp3
 	aws s3 cp --recursive $(delivery) s3://$(BUCKET)/$(BPATH)/delivery
 	aws s3 cp --recursive drums s3://$(BUCKET)/$(BPATH)/drums
 	@printf 'header = "X-Write-Password: %s"\n' "$$WRITE_PASSWORD" \
-		| curl -sk -K - -X POST https://$(URL)/api/world
+		| curl -sk -K - -X POST $(if $(filter localhost%,$(URL)),http,https)://$(URL)/api/world
 
 
 upload-prod: ## upload songs to S3 prod
@@ -107,7 +107,7 @@ upload-prod: ## upload songs to S3 prod
 
 
 upload-dev: ## upload songs to S3 dev
-	@WRITE_PASSWORD="$$WRITE_PASSWORD" $(MAKE) upload-prod-or-dev BPATH=dev URL=localhost:3000
+	@WRITE_PASSWORD="$$WRITE_PASSWORD" $(MAKE) upload-prod-or-dev BPATH=dev URL=localhost:6662
 
 
 upload-mp3: ## upload only the mp3 under songs/ to S3, needs BPATH
@@ -257,6 +257,9 @@ upload-zip: all ## build all songs, zip delivery/pdf, and upload it to gdrive:/z
 	rclone copyto pdf.zip gdrive:/zik/pdf.zip
 
 upload-gdrive: all ## build all songs and books, then upload the book PDFs from delivery/pdf to gdrive:/zik
-	rclone copy $(delivery)/pdf gdrive:/zik --include "book-*.pdf"
+	rclone copy $(delivery)/pdf gdrive:/zik/books --include "book-*.pdf"
 
-
+# Builds the MobileSheets backup (one collection per song.yml tag) from delivery/pdf and copies it to the
+# tablet as /sdcard/Download/songbook/current.msb over ssh.
+upload-msb: all ## build current.msb (MobileSheets backup) and copy it to the tablet (ssh tablet)
+	$(MAKE) -C musicsheets-msb push
