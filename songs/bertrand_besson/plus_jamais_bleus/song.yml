@@ -1,0 +1,68 @@
+files:
+  lilypond: []
+  tex: []
+  mp3: []
+info:
+  title: "Plus jamais bleus"
+  author: Bertrand Besson
+  tempo: 100
+  tags: [move-the-line]
+structure:
+  - id: intro
+    item: !Chords
+      title: intro
+      type: intro
+      rows:
+        - '| G Bb | F | G Bb | F | x2,2'
+  - id: couplet1
+    item: !Chords
+      title: couplet 1
+      type: couplet
+      rows:
+        - '| G Bb | F | G Bb | F |'
+        - '| G Bb | F | HRest | HRest 2/4 |'
+  - id: refrain1
+    item: !Chords
+      title: refrain 1
+      type: refrain
+      rows:
+        - '| C | C | G | G |'
+        - '| C | C | D | D7 |'
+  - id: couplet2
+    item: !Ref
+      title: couplet 2
+      link: couplet1
+  - id: refrain2
+    item: !Ref
+      title: refrain 2
+      link: refrain1
+  - id: solo
+    item: !Chords
+      title: solo
+      type: solo
+      rows:
+        - '| G Bb | F | G Bb | F | x2,2'
+  - id: couplet3
+    item: !Ref
+      title: couplet 3
+      link: couplet1
+  - id: refrain3
+    item: !Ref
+      title: refrain 3
+      link: refrain1
+  - id: cb
+    item: !NewColumn
+  - id: couplet4
+    item: !Chords
+      title: couplet 4
+      type: couplet
+      rows:
+        - '| G Bb | F | G Bb | F |'
+        - '| G Bb | F | G Bb | F |'
+        - '| G Bb | F |'
+  - id: outro
+    item: !Chords
+      title: outro
+      type: outro
+      rows:
+        - '| G Bb | F C |'

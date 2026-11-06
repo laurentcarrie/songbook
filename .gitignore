@@ -5,6 +5,8 @@ delivery/
 # LilyPond artifacts from VSLilyPond's compile-on-save, written next to the
 # .ly sources. The real build outputs to sandbox/ and delivery/ instead.
 songs/**/*.pdf
+# ...except the ready-made pdfs (`raw` in song.yml): those are sources
+!songs/the_beatles/**/*.pdf
 songs/**/*.midi
 # Editor backup files
 *~
@@ -23,3 +25,5 @@ songs/**/song.html
 # musicsheets-msb: Rust build output and generated MobileSheets backups
 target/
 *.msb
+audio/
+delivery-*.tar.gz

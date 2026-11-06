@@ -1,4 +1,4 @@
-.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb
+.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb upload-tablet upload-prod-tarball
 .DEFAULT_GOAL := help
 
 -include .env
@@ -105,6 +105,28 @@ upload-prod-or-dev: check-mp3
 upload-prod: ## upload songs to S3 prod
 	@WRITE_PASSWORD="$$WRITE_PROD_PASSWORD" $(MAKE) upload-prod-or-dev BPATH=prod URL='move-the-line.org'
 
+
+# Packs three parts of the delivery into tarballs (paths inside start with "delivery/<part>/") and uploads them to
+# s3://$(BUCKET)/prod/delivery-<part>.tar.gz, for part in pdf, mp3, mp3-renders.
+# The pdf tarball also holds delivery/raw and delivery/pdfcellpositions.
+# Needs BUCKET (from .env) and AWS credentials (AWS_PROFILE).
+tarball_parts := pdf mp3 mp3-renders
+upload-prod-tarball: all ## build all songs, make 3 tar.gz (pdf, mp3, mp3-renders) of the delivery and upload them to the prod bucket
+	@[ -n "$(BUCKET)" ] || { echo "BUCKET is not set (set it in .env)"; exit 1; }
+	@for part in $(tarball_parts); do \
+		dirs="$$part"; [ "$$part" = pdf ] && dirs="pdf raw pdfcellpositions"; \
+		for d in $$dirs; do \
+			[ -d "$(delivery)/$$d" ] || { echo "$(delivery)/$$d does not exist"; exit 1; }; \
+		done; \
+	done
+	@for part in $(tarball_parts); do \
+		dirs="$$part"; [ "$$part" = pdf ] && dirs="pdf raw pdfcellpositions"; \
+		paths=""; for d in $$dirs; do paths="$$paths $(delivery)/$$d"; done; \
+		echo "delivery-$$part.tar.gz:$$paths"; \
+		rm -f delivery-$$part.tar.gz; \
+		tar -czf delivery-$$part.tar.gz $$paths || exit 1; \
+		aws s3 cp delivery-$$part.tar.gz s3://$(BUCKET)/prod/delivery-$$part.tar.gz || exit 1; \
+	done
 
 upload-dev: ## upload songs to S3 dev
 	@WRITE_PASSWORD="$$WRITE_PASSWORD" $(MAKE) upload-prod-or-dev BPATH=dev URL=localhost:6662
@@ -262,4 +284,9 @@ upload-gdrive: all ## build all songs and books, then upload the book PDFs from 
 # Builds the MobileSheets backup (one collection per song.yml tag) from delivery/pdf and copies it to the
 # tablet as /sdcard/Download/songbook/current.msb over ssh.
 upload-msb: all ## build current.msb (MobileSheets backup) and copy it to the tablet (ssh tablet)
-	$(MAKE) -C musicsheets-msb push
+	$(MAKE) -C musicsheets-msb msb
+	scp musicsheets-msb/current.msb tablet:/sdcard/Download/songbook/current.msb
+
+# Mirrors the delivery folder to /sdcard/Download/songbook/delivery on the tablet over ssh (needs rsync on both ends).
+upload-tablet: all ## build all songs and rsync delivery/ to the tablet (ssh tablet)
+	rsync -rtv --delete $(delivery)/ tablet:/sdcard/Download/songbook/delivery/

@@ -1,0 +1,10 @@
+files:
+  lilypond: []
+  tex: []
+  mp3: []
+info:
+  title: "Ticket to Ride"
+  author: The Beatles
+  tempo: 124 # Deezer bpm
+  tags: []
+raw: ticket-to-ride.pdf
