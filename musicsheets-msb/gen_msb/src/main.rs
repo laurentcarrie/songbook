@@ -105,6 +105,21 @@ fn pdf_pages(path: &str) -> u32 {
     ));
 }
 
+/// Duration of an audio file in milliseconds (truncated), via ffprobe.
+fn mp3_duration_ms(path: &str) -> i64 {
+    let out = run(
+        "ffprobe",
+        &["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],
+    );
+    match out.and_then(|o| o.trim().parse::<f64>().ok()) {
+        Some(sec) => (sec * 1000.0) as i64,
+        None => {
+            eprintln!("warning: cannot get duration of {} (need ffprobe), using 0", path);
+            0
+        }
+    }
+}
+
 fn title_from_name(fname: &str) -> String {
     // alannah_myles--@--black_velvet.pdf -> "alannah myles--@--black velvet"
     let stem = Path::new(fname)
@@ -138,6 +153,11 @@ struct Args {
     prefix: String,
     setlists: Vec<(String, Vec<String>)>,
     songs_dir: Option<String>,
+    raw_dir: Option<String>,
+    books_dir: Option<String>,
+    snippets_dir: Option<String>,
+    install_dir: Option<String>,
+    audio_path: String,
 }
 
 fn parse_args() -> Args {
@@ -148,6 +168,11 @@ fn parse_args() -> Args {
     let mut prefix = String::new();
     let mut setlists = Vec::new();
     let mut songs_dir = None;
+    let mut raw_dir = None;
+    let mut books_dir = None;
+    let mut snippets_dir = None;
+    let mut install_dir = None;
+    let mut audio_path = String::from("/storage/emulated/0/Download/songbook/mp3");
 
     let mut it = std::env::args().skip(1);
     while let Some(a) = it.next() {
@@ -163,6 +188,11 @@ fn parse_args() -> Args {
             }
             "--prefix" => prefix = val("--prefix"),
             "--songs-dir" => songs_dir = Some(val("--songs-dir")),
+            "--raw-dir" => raw_dir = Some(val("--raw-dir")),
+            "--books-dir" => books_dir = Some(val("--books-dir")),
+            "--install-dir" => install_dir = Some(val("--install-dir")),
+            "--snippets-dir" => snippets_dir = Some(val("--snippets-dir")),
+            "--audio-path" => audio_path = val("--audio-path"),
             "--setlist" => {
                 let spec = val("--setlist");
                 let (name, files) = spec.split_once('=').unwrap_or(("", ""));
@@ -178,7 +208,12 @@ fn parse_args() -> Args {
                 println!(
                     "usage: gen_msb --template T.msb --pdf-dir DIR --out OUT.msb \
                      [--file-hash N] [--prefix P] [--setlist NAME=a.pdf,b.pdf]... \
-                     [--songs-dir DIR  (one collection per tag found in DIR/<artist>/<song>/song.yml)]"
+                     [--songs-dir DIR  (one collection per tag found in DIR/<artist>/<song>/song.yml)] \\
+                     [--raw-dir DIR  (where the build delivers the `raw` pdf of the songs without a structure; needs --songs-dir)] \\
+                     [--books-dir DIR  (one setlist per DIR/*.yml book, in the book's song order)] \\
+                     [--snippets-dir DIR  (where the build renders <stem>-<snippet>.mp3; needs --songs-dir)] \\
+                     [--install-dir DIR  (symlink the audio files as DIR/mp3/*, DIR/mp3-renders/* for upload)] \\
+                     [--audio-path P  (device folder recorded in AudioFiles.File)]"
                 );
                 process::exit(0);
             }
@@ -194,6 +229,11 @@ fn parse_args() -> Args {
         prefix,
         setlists,
         songs_dir,
+        raw_dir,
+        books_dir,
+        snippets_dir,
+        install_dir,
+        audio_path,
     }
 }
 
@@ -254,10 +294,49 @@ fn info_field(text: &str, key: &str) -> Option<String> {
     })
 }
 
-/// tag -> PDF filenames, from DIR/<artist>/<song>/song.yml.
+struct SongMeta {
+    dir: std::path::PathBuf,
+    tags: Vec<String>,
+    has_mp3: bool,
+    snippets: Vec<String>,
+    /// `raw` of a song.yml: ready-made pdf file name, delivered in the raw dir.
+    raw: Option<String>,
+    tempo: Option<i64>,
+    author: String,
+    title: String,
+}
+
+/// `files.mp3` of a song.yml: snippet names such as `solo.mp3`.
+fn parse_snippets(text: &str) -> Vec<String> {
+    let clean = |t: &str| t.trim().trim_matches(|c| c == '\'' || c == '"').trim().to_string();
+    let mut lines = text.lines();
+    while let Some(l) = lines.next() {
+        let Some(rest) = l.strip_prefix("  mp3:") else { continue };
+        let rest = rest.trim();
+        if let Some(inner) = rest.strip_prefix('[').and_then(|r| r.strip_suffix(']')) {
+            return inner.split(',').map(clean).filter(|t| !t.is_empty()).collect();
+        }
+        return lines
+            .map(|l| l.trim())
+            .take_while(|l| l.starts_with('-'))
+            .map(|l| clean(&l[1..]))
+            .filter(|t| !t.is_empty())
+            .collect();
+    }
+    Vec::new()
+}
+
+/// `raw` of a song.yml: the file name of a ready-made pdf, if any.
+fn parse_raw(text: &str) -> Option<String> {
+    let v = text.lines().find_map(|l| l.strip_prefix("raw:"))?;
+    let v = v.trim().trim_matches(|c| c == '\'' || c == '"').trim();
+    (!v.is_empty()).then(|| v.to_string())
+}
+
+/// PDF filename -> metadata, from DIR/<artist>/<song>/song.yml.
 /// The PDF is named `<author>--@--<title>.pdf` (info.author / info.title, normalized).
-fn collect_tags(dir: &str) -> std::collections::BTreeMap<String, Vec<String>> {
-    let mut map: std::collections::BTreeMap<String, Vec<String>> = Default::default();
+fn load_songs(dir: &str) -> HashMap<String, SongMeta> {
+    let mut map = HashMap::new();
     let rd = |p: &Path| fs::read_dir(p).map(|r| r.filter_map(|e| e.ok()).collect::<Vec<_>>()).unwrap_or_default();
     for artist in rd(Path::new(dir)) {
         for song in rd(&artist.path()) {
@@ -267,12 +346,72 @@ fn collect_tags(dir: &str) -> std::collections::BTreeMap<String, Vec<String>> {
                 continue;
             };
             let pdf = format!("{}--@--{}.pdf", normalize_name(&author), normalize_name(&title));
-            for tag in parse_tags(&text) {
-                map.entry(tag).or_default().push(pdf.clone());
-            }
+            map.insert(
+                pdf,
+                SongMeta {
+                    dir: song.path(),
+                    tags: parse_tags(&text),
+                    has_mp3: text.lines().any(|l| l.trim() == "has_mp3: true"),
+                    snippets: parse_snippets(&text),
+                    raw: parse_raw(&text),
+                    author: author.clone(),
+                    title: title.clone(),
+                    tempo: info_field(&text, "tempo").and_then(|t| t.parse().ok()).filter(|&t| t > 0),
+                },
+            );
         }
     }
     map
+}
+
+/// Collection holding every song that has a `raw` pdf.
+const RAW_COLLECTION: &str = "brut";
+
+/// tag -> PDF filenames. The raw songs also go in the `brut` collection.
+fn collect_tags(songs: &HashMap<String, SongMeta>) -> std::collections::BTreeMap<String, Vec<String>> {
+    let mut map: std::collections::BTreeMap<String, Vec<String>> = Default::default();
+    for (pdf, meta) in songs {
+        for tag in &meta.tags {
+            map.entry(tag.clone()).or_default().push(pdf.clone());
+        }
+        if meta.raw.is_some() {
+            map.entry(RAW_COLLECTION.to_string()).or_default().push(pdf.clone());
+        }
+    }
+    map
+}
+
+/// A book yml: (name, [pdf filename, ...]) in book order.
+fn load_books(dir: &str) -> Vec<(String, Vec<String>)> {
+    let clean = |t: &str| t.trim().trim_matches(|c| c == '\'' || c == '"').trim().to_string();
+    let mut files: Vec<_> = fs::read_dir(dir)
+        .unwrap_or_else(|e| die(format!("cannot read {}: {}", dir, e)))
+        .filter_map(|e| e.ok())
+        .map(|e| e.path())
+        .filter(|p| p.extension().map_or(false, |x| x == "yml"))
+        .collect();
+    files.sort();
+    let mut books = Vec::new();
+    for f in files {
+        let text = fs::read_to_string(&f).unwrap_or_default();
+        let mut name = f.file_stem().unwrap().to_string_lossy().into_owned();
+        let mut songs = Vec::new();
+        let mut in_songs = false;
+        for l in text.lines() {
+            if let Some(v) = l.strip_prefix("name:") {
+                name = clean(v);
+            }
+            if !l.starts_with(' ') && !l.starts_with('-') {
+                in_songs = l.trim_end() == "songs:";
+            } else if in_songs {
+                if let Some(v) = l.trim().strip_prefix('-') {
+                    songs.push(format!("{}.pdf", clean(v)));
+                }
+            }
+        }
+        books.push((name, songs));
+    }
+    books
 }
 
 fn millis(t: SystemTime) -> i64 {
@@ -292,6 +431,20 @@ fn main() {
             l.ends_with(".pdf") && l.starts_with(&prefix_lc)
         })
         .collect();
+    // Songs without a structure have no pdf in the pdf dir: their `raw` pdf is
+    // in the raw dir, and goes in under the usual <author>--@--<title>.pdf name.
+    if let (Some(songs_dir), Some(raw_dir)) = (&args.songs_dir, &args.raw_dir) {
+        for (name, meta) in load_songs(songs_dir) {
+            let Some(raw) = &meta.raw else { continue };
+            if !Path::new(raw_dir).join(raw).is_file() {
+                eprintln!("warning: {}: raw pdf {} not found in {}", meta.dir.display(), raw, raw_dir);
+                continue;
+            }
+            if name.to_lowercase().starts_with(&prefix_lc) && !pdfs.contains(&name) {
+                pdfs.push(name);
+            }
+        }
+    }
     pdfs.sort();
     if pdfs.is_empty() {
         die(format!("no PDF found in {}", args.pdf_dir));
@@ -323,9 +476,16 @@ fn build(
 
     let now = millis(SystemTime::now());
     let mut records: Vec<(i64, String)> = Vec::new();
+    // song id -> mp3 path, embedded right after the song's PDF record
+    let mut audio: HashMap<i64, Vec<String>> = HashMap::new();
+    let mut audio_id = 0i64;
+    let songs = args.songs_dir.as_deref().map(load_songs).unwrap_or_default();
     for (i, fname) in pdfs.iter().enumerate() {
         let n = i as i64 + 1;
-        let path = Path::new(&args.pdf_dir).join(fname);
+        let path = match (songs.get(fname).and_then(|m| m.raw.as_ref()), &args.raw_dir) {
+            (Some(raw), Some(raw_dir)) => Path::new(raw_dir).join(raw),
+            _ => Path::new(&args.pdf_dir).join(fname),
+        };
         let path_s = path.to_string_lossy().into_owned();
         let meta = fs::metadata(&path)?;
         let size = meta.len() as i64;
@@ -337,7 +497,12 @@ fn build(
              Duration,Stars,VerticalZoom,SortTitle,Sharpen,SharpenLevel,CreationDate,\
              LastModified,Keywords,AutoStartAudio,SongId) \
              values(?,?,0,'','',0,0,0,0,1.0,'',0,7,?,?,'',0,0)",
-            params![n, title_from_name(fname), ts, ts],
+            params![
+                n,
+                songs.get(fname).map(|m| m.title.clone()).unwrap_or_else(|| title_from_name(fname)),
+                ts,
+                ts
+            ],
         )?;
         con.execute(
             "insert into Files(Id,SongId,Path,PageOrder,FileSize,LastModified,Source,Type,\
@@ -380,6 +545,72 @@ fn build(
                 params![n, page],
             )?;
         }
+        if let Some(tempo) = songs.get(fname).and_then(|m| m.tempo) {
+            con.execute(
+                "insert into Tempos(Id,SongId,Tempo,TempoIndex) values(?,?,?,0)",
+                params![n, n, tempo],
+            )?;
+        }
+        let stem = fname.strip_suffix(".pdf").or_else(|| fname.strip_suffix(".PDF")).unwrap_or(fname);
+        // (source file, device file name, is snippet): the full song first, then the snippets
+        let mut mp3s: Vec<(std::path::PathBuf, String, bool)> = Vec::new();
+        if let Some(meta) = songs.get(fname) {
+            if meta.has_mp3 {
+                let f = meta.dir.join("song.mp3");
+                if f.is_file() {
+                    mp3s.push((f, format!("{}.mp3", stem), false));
+                } else {
+                    eprintln!("warning: {}: has_mp3 is true but song.mp3 is missing", meta.dir.display());
+                }
+            }
+            if let Some(dir) = &args.snippets_dir {
+                for sn in &meta.snippets {
+                    let name = format!("{}-{}", stem, sn);
+                    let f = Path::new(dir).join(&name);
+                    if f.is_file() {
+                        mp3s.push((f, name, true));
+                    } else {
+                        eprintln!("warning: {}: snippet {} not rendered in {}", fname, sn, dir);
+                    }
+                }
+            }
+        }
+        for (mp3, name, snippet) in mp3s {
+            let m = fs::metadata(&mp3)?;
+            let mp3_s = mp3.to_string_lossy().into_owned();
+            let dur = mp3_duration_ms(&mp3_s);
+            audio_id += 1;
+            con.execute(
+                "insert into AudioFiles(Id,SongId,Title,File,FileSource,StartPos,EndPos,FileSize,\
+                 LastModified,APosition,BPosition,ABEnabled,FullDuration,Volume,Artist,PitchShift,\
+                 TempoSpeed,AudioFileHash) values(?,?,?,?,1,0,?,?,?,-1,-1,0,?,0.75,'',0,1.0,0)",
+                params![
+                    audio_id,
+                    n,
+                    name,
+                    // snippets live in a sibling "mp3-renders" folder on the device
+                    if snippet {
+                        let base = args.audio_path.trim_end_matches('/');
+                        let parent = base.rsplit_once('/').map(|x| x.0).unwrap_or("");
+                        format!("{}/mp3-renders/{}", parent, name)
+                    } else {
+                        format!("{}/{}", args.audio_path.trim_end_matches('/'), name)
+                    },
+                    dur,
+                    m.len() as i64,
+                    millis(m.modified()?),
+                    dur
+                ],
+            )?;
+            if let Some(inst) = &args.install_dir {
+                let sub = Path::new(inst).join(if snippet { "mp3-renders" } else { "mp3" });
+                fs::create_dir_all(&sub)?;
+                let link = sub.join(&name);
+                let _ = fs::remove_file(&link);
+                std::os::unix::fs::symlink(fs::canonicalize(&mp3)?, &link)?;
+            }
+            audio.entry(n).or_default().push(mp3_s);
+        }
         records.push((n, path_s));
     }
 
@@ -388,7 +619,19 @@ fn build(
         .enumerate()
         .map(|(i, f)| (f.as_str(), i as i64 + 1))
         .collect();
-    for (i, (name, files)) in args.setlists.iter().enumerate() {
+    let mut setlists = args.setlists.clone();
+    if let Some(dir) = &args.books_dir {
+        for (name, files) in load_books(dir) {
+            let (found, missing): (Vec<_>, Vec<_>) =
+                files.into_iter().partition(|f| song_id.contains_key(f.as_str()));
+            for m in &missing {
+                eprintln!("warning: book {:?}: {} not in PDF set, skipped", name, m);
+            }
+            println!("setlist {:?}: {} songs", name, found.len());
+            setlists.push((name, found));
+        }
+    }
+    for (i, (name, files)) in setlists.iter().enumerate() {
         let sid = i as i64 + 1;
         let missing: Vec<&str> = files
             .iter()
@@ -411,9 +654,9 @@ fn build(
             )?;
         }
     }
-    if let Some(dir) = &args.songs_dir {
+    {
         let mut row = 0i64;
-        for (i, (tag, files)) in collect_tags(dir).iter().enumerate() {
+        for (i, (tag, files)) in collect_tags(&songs).iter().enumerate() {
             let cid = i as i64 + 1;
             let mut ids: Vec<i64> = files.iter().filter_map(|f| song_id.get(f.as_str()).copied()).collect();
             for f in files.iter().filter(|f| !song_id.contains_key(f.as_str())) {
@@ -439,6 +682,34 @@ fn build(
             println!("collection {:?}: {} songs", tag, ids.len());
         }
     }
+    // one artist per distinct info.author, linked to its songs
+    {
+        let mut by_author: std::collections::BTreeMap<&str, Vec<i64>> = Default::default();
+        for (pdf, meta) in &songs {
+            if let Some(&sid) = song_id.get(pdf.as_str()) {
+                if !meta.author.is_empty() {
+                    by_author.entry(meta.author.as_str()).or_default().push(sid);
+                }
+            }
+        }
+        let mut row = 0i64;
+        for (i, (name, ids)) in by_author.iter_mut().enumerate() {
+            let aid = i as i64 + 1;
+            ids.sort();
+            con.execute(
+                "insert into Artists(Id,Name,SortBy,Ascending,DateCreated,LastModified) values(?,?,1,1,?,?)",
+                params![aid, name, now, now],
+            )?;
+            for sid in ids.iter() {
+                row += 1;
+                con.execute(
+                    "insert into ArtistsSongs(Id,ArtistId,SongId) values(?,?,?)",
+                    params![row, aid, sid],
+                )?;
+            }
+        }
+        println!("{} artists", by_author.len());
+    }
     con.execute_batch("vacuum")?;
     con.close().map_err(|(_, e)| e)?;
     let newdb = fs::read(dbpath)?;
@@ -453,14 +724,21 @@ fn build(
         out.write_all(&(*fid as u64).to_be_bytes())?;
         out.write_all(&(blob.len() as u64).to_be_bytes())?;
         out.write_all(&blob)?;
+        for mp3 in audio.get(fid).into_iter().flatten() {
+            let blob = fs::read(mp3)?;
+            out.write_all(&(blob.len() as u64).to_be_bytes())?;
+            out.write_all(&blob)?;
+        }
     }
     out.write_all(&[0xff; 8])?;
     out.flush()?;
     drop(out);
     println!(
-        "wrote {}: {} songs, {:.1} MB",
+        "wrote {}: {} songs, {} audio files ({} songs), {:.1} MB",
         args.out,
         records.len(),
+        audio_id,
+        audio.len(),
         fs::metadata(&args.out)?.len() as f64 / 1e6
     );
     Ok(())
