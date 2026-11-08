@@ -59,7 +59,7 @@ structure:
       type: refrain
 
       rows :
-        - ' | F | Em Dm | B | G |x2'
+        - ' | F Dm | Em | B7 | G |x2'
         - '|G|'
   - id: couplet2
     item: !Ref
@@ -75,8 +75,8 @@ structure:
       type: refrain
 
       rows :
-        - ' | F | Em Dm | B | G |'
-        - ' | F | Em Dm | B | G HRest |'
+        - ' | F Dm | Em | B7 | G |'
+        - ' | F Dm | Em | B7 | G HRest |'
         - '|HRest|'
   - id: pont
     item: !Chords
@@ -93,7 +93,7 @@ structure:
       type: couplet
 
       rows :      
-        - ' | A | G | Fsm | G |'
+        - ' | A | G | Fsm | G9 |'
         - ' |A|B|D|'
 
   - id: refrain3
@@ -102,7 +102,7 @@ structure:
       type: refrain
 
       rows :
-        - ' | G | Fsm | Cs | A |x4'
+        - ' | G Em | Fsm | Cs | A |x4'
 
   - id: fin
     item: !Chords
