@@ -49,7 +49,7 @@ structure:
       section_body: \songly{chordscouplet}
 
       rows :      
-        - ' | G | F | Em | F |x2'
+        - ' | G | F | Em | F9 |x2'
         - ' |G|A|C|'
 
 
@@ -59,7 +59,7 @@ structure:
       type: refrain
 
       rows :
-        - ' | F | Em | B | G |x2'
+        - ' | F | Em Dm | B | G |x2'
         - '|G|'
   - id: couplet2
     item: !Ref
@@ -75,8 +75,8 @@ structure:
       type: refrain
 
       rows :
-        - ' | F | Em | B | G |'
-        - ' | F | Em | B | G HRest |'
+        - ' | F | Em Dm | B | G |'
+        - ' | F | Em Dm | B | G HRest |'
         - '|HRest|'
   - id: pont
     item: !Chords
