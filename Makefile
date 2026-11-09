@@ -108,19 +108,19 @@ upload-prod: ## upload songs to S3 prod
 
 # Packs three parts of the delivery into tarballs (paths inside start with "delivery/<part>/") and uploads them to
 # s3://$(BUCKET)/prod/delivery-<part>.tar.gz, for part in pdf, mp3, mp3-renders.
-# The pdf tarball also holds delivery/raw and delivery/pdfcellpositions.
+# The pdf tarball also holds delivery/raw, delivery/pdfcellpositions and delivery/world.yml.
 # Needs BUCKET (from .env) and AWS credentials (AWS_PROFILE).
 tarball_parts := pdf mp3 mp3-renders
 upload-prod-tarball: all ## build all songs, make 3 tar.gz (pdf, mp3, mp3-renders) of the delivery and upload them to the prod bucket
 	@[ -n "$(BUCKET)" ] || { echo "BUCKET is not set (set it in .env)"; exit 1; }
 	@for part in $(tarball_parts); do \
-		dirs="$$part"; [ "$$part" = pdf ] && dirs="pdf raw pdfcellpositions"; \
+		dirs="$$part"; [ "$$part" = pdf ] && dirs="pdf raw pdfcellpositions world.yml"; \
 		for d in $$dirs; do \
-			[ -d "$(delivery)/$$d" ] || { echo "$(delivery)/$$d does not exist"; exit 1; }; \
+			[ -e "$(delivery)/$$d" ] || { echo "$(delivery)/$$d does not exist"; exit 1; }; \
 		done; \
 	done
 	@for part in $(tarball_parts); do \
-		dirs="$$part"; [ "$$part" = pdf ] && dirs="pdf raw pdfcellpositions"; \
+		dirs="$$part"; [ "$$part" = pdf ] && dirs="pdf raw pdfcellpositions world.yml"; \
 		paths=""; for d in $$dirs; do paths="$$paths $(delivery)/$$d"; done; \
 		echo "delivery-$$part.tar.gz:$$paths"; \
 		rm -f delivery-$$part.tar.gz; \
