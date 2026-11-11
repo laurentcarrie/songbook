@@ -29,7 +29,11 @@ jobs:
       # registries and the host did; --network host and a DNS server in daemon.json did not change it.
       - name: Docker DNS diagnostics
         run: |
-          docker run --rm ubuntu:24.04 sh -c 'grep -v "^#" /etc/resolv.conf; for h in archive.ubuntu.com security.ubuntu.com azure.archive.ubuntu.com ghcr.io; do if getent ahosts $h >/dev/null; then echo "$h: resolves"; else echo "$h: NO"; fi; done' || true
+          t='for h in archive.ubuntu.com mirrors.kernel.org ghcr.io; do if getent ahosts $h >/dev/null; then echo "  $h: resolves"; else echo "  $h: NO"; fi; done'
+          echo "host:"; for h in archive.ubuntu.com azure.archive.ubuntu.com; do getent ahosts $h | head -2 | sed 's/^/  /' || true; done
+          for opt in "" "--dns-opt use-vc" "--dns 8.8.8.8" "--dns 1.1.1.1" "--network host" "--dns-opt single-request-reopen"; do
+            echo "docker run $opt:"; docker run --rm $opt ubuntu:24.04 sh -c "$t" || true
+          done
 
       - name: Log in to ghcr.io
         uses: docker/login-action@v3
