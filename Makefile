@@ -1,4 +1,4 @@
-.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb upload-tablet upload-prod-tarball sanitize
+.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb upload-tablet upload-prod-tarball prod-tarballs upload-prod-sources sanitize
 .DEFAULT_GOAL := help
 
 -include .env
@@ -105,13 +105,29 @@ upload-prod-or-dev: check-mp3
 upload-prod: ## upload songs to S3 prod
 	@WRITE_PASSWORD="$$WRITE_PROD_PASSWORD" $(MAKE) upload-prod-or-dev BPATH=prod URL='move-the-line.org'
 
+# What the CI uploads. Not upload-prod: that one deletes songs/ on S3 and uploads it again, mp3 included, and the
+# mp3 are not in git (the CI checkout has none), so check-mp3 refuses it, rightly. Here the mp3 on S3 are left
+# alone (--exclude applies to the destination too, so --delete does not remove them); the rest is mirrored.
+# No delivery/ to upload: the band-songbook Lambda builds it from these sources.
+upload-prod-sources: ## upload songs (not the mp3), books and drums to S3 prod, deleting what is gone from git (CI)
+	@[ -n "$(BUCKET)" ] || { echo "BUCKET is not set (set it in .env)"; exit 1; }
+	aws s3 sync songs s3://$(BUCKET)/prod/songs --delete --exclude '*.mp3' --only-show-errors
+	aws s3 sync $(booksdir) s3://$(BUCKET)/prod/books --delete --only-show-errors
+	aws s3 sync drums s3://$(BUCKET)/prod/drums --delete --only-show-errors
+
 
 # Packs three parts of the delivery into tarballs (paths inside start with "delivery/<part>/") and uploads them to
 # s3://$(BUCKET)/prod/delivery-<part>.tar.gz, for part in pdf, mp3, mp3-renders.
+# The tarballs are deterministic (sorted members, fixed mtime/owner/mode, no gzip name/timestamp): same content =>
+# same bytes => same S3 ETag, so the app does not see them as modified, whoever builds them (umask included).
 # The pdf tarball also holds delivery/raw, delivery/pdfcellpositions and delivery/world.yml.
 # Needs BUCKET (from .env) and AWS credentials (AWS_PROFILE).
 tarball_parts := pdf mp3 mp3-renders
-upload-prod-tarball: all ## build all songs, make 3 tar.gz (pdf, mp3, mp3-renders) of the delivery and upload them to the prod bucket
+upload-prod-tarball: all prod-tarballs ## build all songs, make 3 tar.gz (pdf, mp3, mp3-renders) of the delivery and upload them to the prod bucket
+
+# The packing and the upload alone, for a delivery already there: the CI downloads it from the prod bucket,
+# where the band-songbook Lambda has built it, instead of building all the songs on the runner.
+prod-tarballs: ## make the 3 tar.gz of the existing delivery/ and upload them to the prod bucket (no build)
 	@[ -n "$(BUCKET)" ] || { echo "BUCKET is not set (set it in .env)"; exit 1; }
 	@for part in $(tarball_parts); do \
 		dirs="$$part"; [ "$$part" = pdf ] && dirs="pdf raw pdfcellpositions world.yml"; \
@@ -123,8 +139,9 @@ upload-prod-tarball: all ## build all songs, make 3 tar.gz (pdf, mp3, mp3-render
 		dirs="$$part"; [ "$$part" = pdf ] && dirs="pdf raw pdfcellpositions world.yml"; \
 		paths=""; for d in $$dirs; do paths="$$paths $(delivery)/$$d"; done; \
 		echo "delivery-$$part.tar.gz:$$paths"; \
-		rm -f delivery-$$part.tar.gz; \
-		tar -czf delivery-$$part.tar.gz $$paths || exit 1; \
+		rm -f delivery-$$part.tar delivery-$$part.tar.gz; \
+		tar --sort=name --mtime='2000-01-01 UTC' --owner=0 --group=0 --numeric-owner --mode='u=rwX,go=rX' -cf delivery-$$part.tar $$paths || exit 1; \
+		gzip -n -9 delivery-$$part.tar || exit 1; \
 		aws s3 cp delivery-$$part.tar.gz s3://$(BUCKET)/prod/delivery-$$part.tar.gz || exit 1; \
 	done
 
