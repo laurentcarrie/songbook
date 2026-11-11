@@ -1,13 +1,31 @@
 name: Deploy Songs to S3
 
+# On every push to main (a merged pull request):
+#   1. mirror songs/, books/ and drums/ to the prod bucket (the mp3 there are left alone: they are not in git),
+#   2. have the band-songbook Lambda build the delivery in the bucket,
+#   3. re-index the site,
+#   4. download the delivery and pack it in the 3 tarballs of the app (delivery-pdf, delivery-mp3,
+#      delivery-mp3-renders), uploaded next to it: `make prod-tarballs`, the packing and upload part of
+#      `make upload-prod-tarball`, which also builds all the songs, here the Lambda has done it.
+#
+# Secrets: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, BUCKET, WRITE_PASSWORD (the prod write password).
+
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-songs
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      BUCKET: ${{ secrets.BUCKET }}
 
     steps:
       - name: Checkout repository
@@ -20,15 +38,27 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_REGION || 'eu-west-1' }}
 
-      - name: Upload to prod
-        run: make upload-prod
-        env:
-          BUCKET: ${{ secrets.BUCKET }}
-          WRITE_PASSWORD: ${{ secrets.WRITE_PASSWORD }}
+      # Not `make upload-prod`: it deletes songs/ on S3 and uploads it again, mp3 included, and the CI
+      # checkout has no mp3 (they are gitignored): its check-mp3 refuses, with 27 audio files at stake.
+      - name: Upload songs, books and drums to prod
+        run: make upload-prod-sources
 
       - name: Invoke band-songbook Lambda
         run: |
           aws lambda invoke --function-name band-songbook --region eu-west-3 --cli-binary-format raw-in-base64-out --cli-read-timeout 900 \
             --payload '{"srcdir":"s3://${{ secrets.BUCKET }}/prod/songs","settings":"s3://${{ secrets.BUCKET }}/prod/songs/settings.yml","delivery":"s3://${{ secrets.BUCKET }}/prod/delivery"}' \
-            /tmp/lambda-output.json
-          cat /tmp/lambda-output.json
+            /tmp/lambda-output.json > /tmp/lambda-invoke.json
+          cat /tmp/lambda-invoke.json /tmp/lambda-output.json
+          # invoke succeeds (HTTP 200) even when the function itself failed: FunctionError says so
+          if grep -q '"FunctionError"' /tmp/lambda-invoke.json; then echo "the Lambda failed"; exit 1; fi
+
+      - name: Re-index the site
+        run: make reindex URL=move-the-line.org
+        env:
+          WRITE_PASSWORD: ${{ secrets.WRITE_PASSWORD }}
+
+      - name: Download the delivery
+        run: aws s3 sync "s3://$BUCKET/prod/delivery" delivery --only-show-errors
+
+      - name: Pack and upload the tarballs
+        run: make prod-tarballs
