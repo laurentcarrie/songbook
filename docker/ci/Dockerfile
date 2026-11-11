@@ -16,6 +16,14 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LANG=C.UTF-8 \
     LC_ALL=C.UTF-8
 
+# Optional apt mirror: the GitHub runners resolve azure.archive.ubuntu.com (the one their own apt uses) but their build
+# containers do not resolve archive.ubuntu.com / security.ubuntu.com. Empty by default (the Ubuntu ones).
+ARG UBUNTU_MIRROR=
+RUN if [ -n "$UBUNTU_MIRROR" ]; then \
+        sed -i "s|http://archive.ubuntu.com/ubuntu|$UBUNTU_MIRROR|g; s|http://security.ubuntu.com/ubuntu|$UBUNTU_MIRROR|g" \
+            /etc/apt/sources.list.d/ubuntu.sources; \
+    fi
+
 # Same TeX Live packages as the dev machine (the recommended ones are installed too, as there).
 RUN apt-get update && apt-get install -y \
         texlive-base texlive-binaries texlive-extra-utils \

@@ -24,17 +24,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # On the ubuntu-26.04 runner /etc/resolv.conf points at the local stub 127.0.0.53: BuildKit drops it from the
-      # resolv.conf of the build containers and falls back to public DNS servers, which the runner does not reach,
-      # so `apt-get update` fails with "Temporary failure resolving 'archive.ubuntu.com'" (the registries resolve, the
-      # host too). Tell Docker which servers to use, the upstream ones of the host (and the Azure one), as one does
-      # on a dev machine in /etc/docker/daemon.json. --network host did not help: same generated resolv.conf.
-      - name: Give Docker a DNS server
+      # What a container resolves on this runner (information only, never fails): on the ubuntu-26.04 runner the build
+      # containers did not resolve archive.ubuntu.com / security.ubuntu.com ("Temporary failure resolving") while the
+      # registries and the host did; --network host and a DNS server in daemon.json did not change it.
+      - name: Docker DNS diagnostics
         run: |
-          ns=$(awk '/^nameserver/ {print $2}' /run/systemd/resolve/resolv.conf 2>/dev/null | grep -v '^127\.' | head -2)
-          printf '%s\n' $ns 168.63.129.16 | python3 -c "import sys,json; print(json.dumps({'dns': [l.strip() for l in sys.stdin if l.strip()]}))" | sudo tee /etc/docker/daemon.json
-          sudo systemctl restart docker
-          docker run --rm ubuntu:24.04 getent hosts archive.ubuntu.com
+          docker run --rm ubuntu:24.04 sh -c 'grep -v "^#" /etc/resolv.conf; for h in archive.ubuntu.com security.ubuntu.com azure.archive.ubuntu.com ghcr.io; do if getent ahosts $h >/dev/null; then echo "$h: resolves"; else echo "$h: NO"; fi; done' || true
 
       - name: Log in to ghcr.io
         uses: docker/login-action@v3
@@ -44,9 +39,11 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       # --provenance=false: a plain image manifest, as for the Lambda image.
+      # UBUNTU_MIRROR: the Azure mirror, the one the runner's own apt uses (see docker/ci/Dockerfile).
       - name: Build and push
         run: |
           docker buildx build --provenance=false --sbom=false --push \
+            --build-arg UBUNTU_MIRROR=http://azure.archive.ubuntu.com/ubuntu \
             -t ghcr.io/laurentcarrie/songbook-ci:latest \
             -t ghcr.io/laurentcarrie/songbook-ci:${{ github.sha }} \
             docker/ci
