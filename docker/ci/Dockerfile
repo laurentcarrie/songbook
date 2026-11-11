@@ -52,9 +52,15 @@ COPY --from=rust:1.88-bookworm /usr/local/rustup /usr/local/rustup
 COPY --from=rust:1.88-bookworm /usr/local/cargo /usr/local/cargo
 ENV RUSTUP_HOME=/usr/local/rustup CARGO_HOME=/usr/local/cargo PATH=/usr/local/cargo/bin:$PATH
 
+# Two LaTeX packages the templates load that no Ubuntu package provides, here the very files of the dev machine
+# (~/texmf): verse.sty, and nicematrix.sty (newer than the one of TeX Live 2023). In TEXMFLOCAL.
+COPY texmf /usr/local/share/texmf
+RUN mktexlsr /usr/local/share/texmf
+
 # Fails the build of the image, not a deploy, when a tool is missing.
 RUN set -e; \
     for t in lilypond lualatex fluidsynth ffmpeg aws cargo make python3 curl; do command -v "$t" >/dev/null || { echo "missing: $t"; exit 1; }; done; \
     test -f /usr/share/sounds/sf2/FluidR3_GM.sf2; \
+    kpsewhich verse.sty nicematrix.sty | grep -c . | grep -qx 2; \
     ffmpeg -hide_banner -encoders 2>/dev/null | grep -q libmp3lame; \
     lilypond --version | head -1; lualatex --version | head -1; aws --version; cargo --version
