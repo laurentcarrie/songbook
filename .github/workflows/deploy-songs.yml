@@ -50,9 +50,14 @@ jobs:
 
       - name: Invoke band-songbook Lambda
         run: |
-          aws lambda invoke --function-name band-songbook --region eu-west-3 --cli-binary-format raw-in-base64-out --cli-read-timeout 900 \
-            --payload '{"srcdir":"s3://${{ secrets.BUCKET }}/prod/songs","settings":"s3://${{ secrets.BUCKET }}/prod/songs/settings.yml","delivery":"s3://${{ secrets.BUCKET }}/prod/delivery"}' \
-            /tmp/lambda-output.json > /tmp/lambda-invoke.json
+          # right after an update the function is "initializing" (CodeArtifactUserPendingException): wait for it, 20 x 30s at most
+          for i in $(seq 1 20); do
+            if aws lambda invoke --function-name band-songbook --region eu-west-3 --cli-binary-format raw-in-base64-out --cli-read-timeout 900 \
+              --payload '{"srcdir":"s3://${{ secrets.BUCKET }}/prod/songs","settings":"s3://${{ secrets.BUCKET }}/prod/songs/settings.yml","delivery":"s3://${{ secrets.BUCKET }}/prod/delivery"}' \
+              /tmp/lambda-output.json > /tmp/lambda-invoke.json 2> /tmp/lambda-invoke.err; then break; fi
+            cat /tmp/lambda-invoke.err
+            if grep -q 'CodeArtifactUserPendingException' /tmp/lambda-invoke.err && [ "$i" -lt 20 ]; then echo "Lambda initializing, retry $i/20 in 30s"; sleep 30; else exit 1; fi
+          done
           cat /tmp/lambda-invoke.json /tmp/lambda-output.json
           # invoke succeeds (HTTP 200) even when the function itself failed: FunctionError says so
           if grep -q '"FunctionError"' /tmp/lambda-invoke.json; then echo "the Lambda failed"; exit 1; fi
