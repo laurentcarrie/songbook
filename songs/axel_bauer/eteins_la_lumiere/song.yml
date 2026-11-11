@@ -13,7 +13,7 @@ info:
   tags: [move-the-line, truskel-2025]
 meta:
   digest: 3b3d94f04697065d8e87947cadba979a
-  date: "2026-10-07"
+  date: "2026-11-03"
 structure:
   - id: intro
     item: !Chords
