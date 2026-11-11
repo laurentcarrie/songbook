@@ -1,4 +1,4 @@
-.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb upload-tablet upload-prod-tarball prod-tarballs upload-prod-sources sanitize
+.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb upload-tablet upload-prod-tarball prod-tarballs upload-prod-sources sanitize check-prod-mp3
 .DEFAULT_GOAL := help
 
 -include .env
@@ -114,6 +114,13 @@ upload-prod-sources: ## upload songs (not the mp3), books and drums to S3 prod, 
 	aws s3 sync songs s3://$(BUCKET)/prod/songs --delete --exclude '*.mp3' --only-show-errors
 	aws s3 sync $(booksdir) s3://$(BUCKET)/prod/books --delete --only-show-errors
 	aws s3 sync drums s3://$(BUCKET)/prod/drums --delete --only-show-errors
+
+# The mp3 are not in git and only `make upload-mp3-prod` puts them in the bucket, so nothing else checks them: this
+# fails when a song with has_mp3: true has no song.mp3 in the prod bucket, or when the bucket holds an mp3 for a
+# song that is no longer in git. Read only.
+check-prod-mp3: ## fail if the prod mp3 do not match the songs in git (missing song.mp3 / orphan mp3), CI step
+	@[ -n "$(BUCKET)" ] || { echo "BUCKET is not set (set it in .env)"; exit 1; }
+	@python3 -I scripts/check-prod-mp3.py
 
 
 # Packs three parts of the delivery into tarballs (paths inside start with "delivery/<part>/") and uploads them to

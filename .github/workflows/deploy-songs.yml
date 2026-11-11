@@ -43,6 +43,11 @@ jobs:
       - name: Upload songs, books and drums to prod
         run: make upload-prod-sources
 
+      # The mp3 come from `make upload-mp3-prod` on a dev machine, nothing in the CI produces them: fail here, before
+      # the Lambda and the tarballs, if one is missing or left over from a deleted song.
+      - name: Check the mp3 in the prod bucket
+        run: make check-prod-mp3
+
       - name: Invoke band-songbook Lambda
         run: |
           aws lambda invoke --function-name band-songbook --region eu-west-3 --cli-binary-format raw-in-base64-out --cli-read-timeout 900 \
