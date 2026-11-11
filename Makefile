@@ -1,4 +1,4 @@
-.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb upload-tablet upload-prod-tarball prod-tarballs upload-prod-sources sanitize check-prod-mp3 download-prod-mp3 upload-prod-delivery
+.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb upload-tablet upload-prod-tarball prod-tarballs upload-prod-sources sanitize check-prod-mp3 download-prod-mp3 upload-prod-delivery update-build-image
 .DEFAULT_GOAL := help
 
 -include .env
@@ -141,6 +141,15 @@ upload-prod-sources: ## upload songs (not the mp3), books and drums to S3 prod, 
 check-prod-mp3: ## fail if the prod mp3 do not match the songs in git (missing song.mp3 / orphan mp3), CI step
 	@[ -n "$(BUCKET)" ] || { echo "BUCKET is not set (set it in .env)"; exit 1; }
 	@python3 -I scripts/check-prod-mp3.py
+
+# The deploy runs in ghcr.io/laurentcarrie/songbook-build:<sha>, built by songbook-lambda (build-image.yml) and tagged
+# with the commit that built it. That workflow only runs when band-songbook or docker/build change, so this takes the
+# sha of its last successful run on main, not the head of main. Needs `gh`. Then commit and open a PR: merging deploys.
+update-build-image: ## pin deploy-songs.yml to the latest songbook-build image built by songbook-lambda
+	@sha=$$(gh run list --repo laurentcarrie/songbook-lambda --workflow build-image.yml --branch main --status success --limit 1 --json headSha --jq '.[0].headSha'); \
+	echo "$$sha" | grep -Eq '^[0-9a-f]{40}$$' || { echo "no successful build-image run found on songbook-lambda main"; exit 1; }; \
+	sed -i -E "s#(songbook-build:)[0-9a-f]{40}#\1$$sha#" .github/workflows/deploy-songs.yml; \
+	grep -n 'songbook-build:' .github/workflows/deploy-songs.yml
 
 # The CI build runs on the runner, which has no mp3 (gitignored): fetch them from the bucket, nothing else.
 download-prod-mp3: ## download only the mp3 under prod/songs in the bucket into songs/ (CI, before the build)
