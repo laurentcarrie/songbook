@@ -2,11 +2,13 @@ name: Deploy Songs to S3
 
 # On every push to main (a merged pull request):
 #   1. mirror songs/, books/ and drums/ to the prod bucket (the mp3 there are left alone: they are not in git),
-#   2. have the band-songbook Lambda build the delivery in the bucket,
-#   3. re-index the site,
-#   4. download the delivery and pack it in the 3 tarballs of the app (delivery-pdf, delivery-mp3,
-#      delivery-mp3-renders), uploaded next to it: `make prod-tarballs`, the packing and upload part of
-#      `make upload-prod-tarball`, which also builds all the songs, here the Lambda has done it.
+#   2. check that the mp3 in the bucket match the songs in git,
+#   3. build everything on the runner, like `make all` on a dev machine: lilypond, lualatex, fluidsynth + ffmpeg
+#      (the mp3 renders), band-songbook from crates.io. The band-songbook Lambda cannot do it: 15 minutes at most
+#      and no fluidsynth/ffmpeg/soundfont in its image,
+#   4. upload the delivery to the bucket and re-index the site,
+#   5. pack the delivery in the 3 tarballs of the app (delivery-pdf, delivery-mp3, delivery-mp3-renders) and
+#      upload them next to it: `make prod-tarballs`, the packing and upload part of `make upload-prod-tarball`.
 #
 # Secrets: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, BUCKET, WRITE_PASSWORD (the prod write password).
 
@@ -23,7 +25,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 120
     env:
       BUCKET: ${{ secrets.BUCKET }}
 
@@ -44,31 +46,66 @@ jobs:
         run: make upload-prod-sources
 
       # The mp3 come from `make upload-mp3-prod` on a dev machine, nothing in the CI produces them: fail here, before
-      # the Lambda and the tarballs, if one is missing or left over from a deleted song.
+      # the long build, if one is missing or left over from a deleted song.
       - name: Check the mp3 in the prod bucket
         run: make check-prod-mp3
 
-      - name: Invoke band-songbook Lambda
+      - name: Install the toolchain
         run: |
-          # right after an update the function is "initializing" (CodeArtifactUserPendingException): wait for it, 20 x 30s at most
-          for i in $(seq 1 20); do
-            if aws lambda invoke --function-name band-songbook --region eu-west-3 --cli-binary-format raw-in-base64-out --cli-read-timeout 900 \
-              --payload '{"srcdir":"s3://${{ secrets.BUCKET }}/prod/songs","settings":"s3://${{ secrets.BUCKET }}/prod/songs/settings.yml","delivery":"s3://${{ secrets.BUCKET }}/prod/delivery"}' \
-              /tmp/lambda-output.json > /tmp/lambda-invoke.json 2> /tmp/lambda-invoke.err; then break; fi
-            cat /tmp/lambda-invoke.err
-            if grep -q 'CodeArtifactUserPendingException' /tmp/lambda-invoke.err && [ "$i" -lt 20 ]; then echo "Lambda initializing, retry $i/20 in 30s"; sleep 30; else exit 1; fi
-          done
-          cat /tmp/lambda-invoke.json /tmp/lambda-output.json
-          # invoke succeeds (HTTP 200) even when the function itself failed: FunctionError says so
-          if grep -q '"FunctionError"' /tmp/lambda-invoke.json; then echo "the Lambda failed"; exit 1; fi
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-luatex texlive-latex-extra texlive-pictures texlive-fonts-recommended texlive-fonts-extra \
+            texlive-lang-french texlive-plain-generic lilypond fluidsynth fluid-soundfont-gm ffmpeg fontconfig
+          lilypond --version | head -1
+
+      # The chord fonts live in the songbook-lambda repo (public); `make install` there does not install them.
+      - name: Checkout the songbook fonts
+        uses: actions/checkout@v4
+        with:
+          repository: laurentcarrie/songbook-lambda
+          path: songbook-lambda
+          sparse-checkout: band-songbook/fonts
+
+      - name: Install the songbook fonts
+        run: |
+          mkdir -p ~/.fonts
+          find songbook-lambda/band-songbook/fonts \( -name '*.ttf' -o -name '*.otf' \) -size +0 -exec cp {} ~/.fonts/ \;
+          fc-cache -f
+          fc-list | grep -ci songbook
+
+      # From the main branch of songbook-lambda, not crates.io: the crate is only published when its version is
+      # bumped, and 7sus4 (G7sus4 in classique/bach) was merged without a bump. A new commit there rebuilds it.
+      - name: Find the latest band-songbook commit
+        id: version
+        run: echo "sha=$(git ls-remote https://github.com/laurentcarrie/songbook-lambda refs/heads/main | cut -f1)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache band-songbook
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cargo/bin/band-songbook
+          key: band-songbook-${{ steps.version.outputs.sha }}
+
+      - name: Install band-songbook
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: cargo install --git https://github.com/laurentcarrie/songbook-lambda --rev "${{ steps.version.outputs.sha }}" band-songbook
+
+      # The audio the build needs (delivery/mp3, the clicks, the mp3 renders): checked above, uploaded by hand.
+      - name: Download the mp3 from the prod bucket
+        run: make download-prod-mp3
+
+      - name: Build all the songs and books
+        run: |
+          band-songbook --version || true
+          make all
+
+      - name: Upload the delivery to prod
+        run: make upload-prod-delivery
 
       - name: Re-index the site
         run: make reindex URL=move-the-line.org
         env:
           WRITE_PASSWORD: ${{ secrets.WRITE_PASSWORD }}
-
-      - name: Download the delivery
-        run: aws s3 sync "s3://$BUCKET/prod/delivery" delivery --only-show-errors
 
       - name: Pack and upload the tarballs
         run: make prod-tarballs
