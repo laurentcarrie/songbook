@@ -1,3 +1,4 @@
+\include "macros.ly"
 \version "2.24.0"
 
 \header {
@@ -42,7 +43,7 @@ tabDurations = {
 melody = {
   \clef "treble_8"
   \time 4/4
-  \tempo 4 = 120
+  \tempo 4 = \songtempo
 
   \repeat percent 3 {
     %% bar 1

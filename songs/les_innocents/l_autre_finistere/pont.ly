@@ -1,3 +1,4 @@
+\include "macros.ly"
 \version "2.24.0"
 
 \header {
@@ -12,7 +13,7 @@
 melody = {
   \clef "treble_8"
   \time 4/4
-  \tempo 4 = 80
+  \tempo 4 = \songtempo
 
   dis'2.\2 \acciaccatura dis'8\2 f'8\2 dis'8\2 |
   d'2\2 ~ d'8.\2 d'16\2 d'16\2 e'16\2 fis'16\1 g'16\1 |
