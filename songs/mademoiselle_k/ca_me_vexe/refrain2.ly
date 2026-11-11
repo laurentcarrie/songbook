@@ -68,7 +68,7 @@ lead = {
 
 
     \new TabStaff {
-      \tempo 4 = 72
+      \tempo 4 = \songtempo
       \tabFullNotation
       \override Score.BarNumber.break-visibility = ##(#t #t #t)
       \lead
@@ -87,6 +87,6 @@ lead = {
   \lead
 
   \midi {
-    \tempo 4 = 72
+    \tempo 4 = \songtempo
   }
 }

@@ -1,4 +1,4 @@
-.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb upload-tablet upload-prod-tarball
+.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb upload-tablet upload-prod-tarball sanitize
 .DEFAULT_GOAL := help
 
 -include .env
@@ -248,6 +248,13 @@ fmt: ## format lyrics files
 	@find $(srcdir) -path '*/lyrics/*.tex' -print0 \
 		| xargs -0 -r sed -i 's/  / /g'
 	@echo "fmt: lyrics .tex normalised"
+
+# Add any new formatter here. The steps run one after the other (not as prerequisites) so that `make -j` cannot
+# interleave them.
+sanitize: ## run all the code formatters: fmt-ly (.ly/.ily with python-ly) and fmt (lyrics .tex)
+	$(MAKE) --no-print-directory fmt-ly
+	$(MAKE) --no-print-directory fmt
+	@echo "sanitize: done, review the changes with git diff"
 
 download-dev: ## download dev data from S3
 	make BPATH=dev download

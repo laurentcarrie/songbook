@@ -1,7 +1,6 @@
 \include "macros.ly"
 \version "2.23.1"
 
-songtempo=114
 
 song_chords = \chordmode {
   a1|a1|a1|a1|a1|a1|
