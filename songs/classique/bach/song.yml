@@ -1,0 +1,27 @@
+files:
+  lilypond:
+    - prelude.ly
+  tex: []
+  mp3: []
+info:
+  title: "Prelude in C Major, BWV 846"
+  author: Johann Sebastian Bach
+  tempo: 118
+  tags: []
+structure:
+  - id: prelude
+    item: !Chords
+      title: prelude
+      type: couplet
+      section_body: \songly{prelude}
+
+      rows:
+        - ' | C | Dm7/C | G7/B | C |'
+        - ' | Am/C | D7/C | G/B | C7M/B |'
+        - ' | Am7 | D7/Fs | G | Dfdim/G |'
+        - ' | Dm/F | Bdim/F | C/E | F7M/E |'
+        - ' | Dm7 | G7 | C | C7 |'
+        - ' | F7M | Gfdim | Bdim/Af | G7 |'
+        - ' | C/G | G7sus4 | G7 | Gfdim/G |'
+        - ' | C/G | G7sus4 | G7 | C7 |'
+        - ' | F/C | G7/C | C |'
