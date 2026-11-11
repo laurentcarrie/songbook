@@ -9,8 +9,28 @@ srcdir:=songs
 booksdir:=books
 delivery:=delivery
 
-all: ## build all songs and books
-	band-songbook --songs-srcdir $(srcdir) --books-srcdir $(booksdir) --sandbox $(sandbox) --settings $(srcdir)/settings.yml --delivery $(delivery)
+# The targets that build the pdf (all, song, and so force, watch, upload-zip, upload-gdrive, upload-msb, upload-tablet,
+# upload-prod-tarball) run band-songbook with the tools installed on this machine (lilypond, lualatex, fluidsynth,
+# ffmpeg), or in the songbook-build image with DOCKER=1, e.g.  make song song="black keys" DOCKER=1
+#   IMAGE=...   the image, default the one the CI uses, built in the songbook-lambda repo (docker/build/Dockerfile): it
+#               has band-songbook, the toolchain and the chord fonts. A local one works too, from a clone of that repo:
+#               docker build -f docker/build/Dockerfile -t songbook-build . && make all DOCKER=1 IMAGE=songbook-build
+# In the container: your user (so the files in sandbox/ and delivery/ are yours), the project mounted on /work, and
+# ~/.cache/songbook-ci as its home, for the font and luaotfload caches between runs. The band-songbook and the fonts
+# are the ones of the image, not yours: `make install` does not change them, a new image does (docker pull).
+IMAGE ?= ghcr.io/laurentcarrie/songbook-build:latest
+ci_home := $(HOME)/.cache/songbook-ci
+ifeq ($(DOCKER),1)
+band_songbook := docker run --rm --user $(shell id -u):$(shell id -g) -e HOME=/home/ci -e RUST_LOG \
+	-v $(ci_home):/home/ci \
+	-v $(CURDIR):/work -w /work $(IMAGE) band-songbook
+$(shell mkdir -p $(ci_home))
+else
+band_songbook := band-songbook
+endif
+
+all: ## build all songs and books, DOCKER=1 to build in the CI image instead of with the local tools
+	$(band_songbook) --songs-srcdir $(srcdir) --books-srcdir $(booksdir) --sandbox $(sandbox) --settings $(srcdir)/settings.yml --delivery $(delivery)
 
 force: ## force rebuild all songs (clears sandbox first)
 	rm -rf $(sandbox)
@@ -23,8 +43,8 @@ help: ## show this help
 # NOT on the directory name. Case-insensitive but accent-sensitive, so
 # song="finist" builds L'Autre Finistere but song="finistere" matches nothing,
 # and song="black keys" works where song="black_keys" does not.
-song: ## build specific song, song=<fuzzy match on "author title">, e.g. song="black keys"
-	RUST_LOG=info band-songbook --songs-srcdir $(srcdir) --sandbox $(sandbox) --settings $(srcdir)/settings.yml \
+song: ## build specific song, song=<fuzzy match on "author title">, e.g. song="black keys" (DOCKER=1: in the CI image)
+	RUST_LOG=info $(band_songbook) --songs-srcdir $(srcdir) --sandbox $(sandbox) --settings $(srcdir)/settings.yml \
 	--pattern "$(song)" \
 	--delivery "$(delivery)"
 
