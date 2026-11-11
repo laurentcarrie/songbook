@@ -29,7 +29,8 @@ jobs:
     # Built by songbook-lambda (docker/build/Dockerfile, build-image.yml) at each change of the tool, its fonts or the
     # image: band-songbook, texlive, lilypond, fluidsynth, ffmpeg, the chord fonts, aws, cargo, make.
     container:
-      image: ghcr.io/laurentcarrie/songbook-build:latest
+      # Pinned to the songbook-lambda commit that built the image (tag = that sha); bump it to take a new image.
+      image: ghcr.io/laurentcarrie/songbook-build:2a519fc749b59b132881eb266e98b7504ac69c1e
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
