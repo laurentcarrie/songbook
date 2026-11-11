@@ -25,19 +25,19 @@ melody = {
   \songTempo
 
   \repeat percent 3 {
-  e'16\2 fis'8\2 gis'16\1 ~
-  gis'16\1 dis'8\2 e'16\2 ~
-  e'16\2 fis'8\2 gis'16\1 ~
-  gis'16\1 
-  dis'8\2 e'16\2 ~
+    e'16\2 fis'8\2 gis'16\1 ~
+    gis'16\1 dis'8\2 e'16\2 ~
+    e'16\2 fis'8\2 gis'16\1 ~
+    gis'16\1
+    dis'8\2 e'16\2 ~
   }
-    |
+  |
   e'16\2 fis'8\2 gis'16\1 ~
   gis'16\1 dis'8\2 e'16\2 ~
   e'16\2 fis'8\2 gis'16\1 ~
-  gis'16\1 
+  gis'16\1
   dis'8.\2
-    |
+  |
 
 }
 

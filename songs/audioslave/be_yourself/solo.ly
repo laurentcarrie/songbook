@@ -44,20 +44,20 @@ melody = {
   fis4\4 fis4\4 fis4\4 fis4\4
   |
   \repeat percent 3 {
-  a16\4 (b16\4) b8\4 b8\4 \deadNote {b16\4} \deadNote {b16\4}
-  d'16\3 b16\4 b8\4 b8\4 \deadNote {b16\4} \deadNote {b16\4}
-  |
+    a16\4 (b16\4) b8\4 b8\4 \deadNote {b16\4} \deadNote {b16\4}
+    d'16\3 b16\4 b8\4 b8\4 \deadNote {b16\4} \deadNote {b16\4}
+    |
   }
   |
   d'8\3 e'8\3 fis'8\2 a'8\2
   fis'8\2 e'8\3 d'8\3 b8\4
   |
   \repeat percent 2 {
-  a16\4 (b16\4) b8\4 b8\4 \deadNote {b16\4} \deadNote {b16\4}
-  d'16\3 (e'16\3) e'8\3 e'8\3 \deadNote {e'16\3} \deadNote {e'16\3}  
+    a16\4 (b16\4) b8\4 b8\4 \deadNote {b16\4} \deadNote {b16\4}
+    d'16\3 (e'16\3) e'8\3 e'8\3 \deadNote {e'16\3} \deadNote {e'16\3}
   }
   |
-    b'16\2 cis''16\2 e''8\1
+  b'16\2 cis''16\2 e''8\1
 }
 
 \score {

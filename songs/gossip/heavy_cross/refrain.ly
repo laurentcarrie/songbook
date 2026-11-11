@@ -17,15 +17,15 @@ melody = {
   \time 4/4
   \songTempo
 
-  f'16\3 f'16\3 f'16\3 f'16\3 
-  f'16\3 \deadNote f'16\3 \deadNote f'16\3 \deadNote f'16\3 
-  <f'\3 a'\2>16 <f'\3 a'\2>16 <f'\3 a'\2>16 <f'\3 a'\2>16 
+  f'16\3 f'16\3 f'16\3 f'16\3
+  f'16\3 \deadNote f'16\3 \deadNote f'16\3 \deadNote f'16\3
+  <f'\3 a'\2>16 <f'\3 a'\2>16 <f'\3 a'\2>16 <f'\3 a'\2>16
   <f'\3 a'\2>16 \deadNote <f'\3 a'\2>16 \deadNote <f'\3 a'\2>16 \deadNote <f'\3 a'\2>16
   |
-  < a'\2  d''\1>16 < a'\2  d''\1>16 < a'\2  d''\1>16 < a'\2  d''\1>16 
+  < a'\2  d''\1>16 < a'\2  d''\1>16 < a'\2  d''\1>16 < a'\2  d''\1>16
   < a'\2  d''\1>16 \deadNote < a'\2  d''\1>16 \deadNote < a'\2  d''\1>16 \deadNote < a'\2  d''\1>16
-  < a'\2  d''\1>16 < a'\2  d''\1>16 \deadNote < a'\2  d''\1>16 \deadNote < a'\2  d''\1>16 
-  < a'\2  d''\1>16 < a'\2  d''\1>16 \deadNote < a'\2  d''\1>16 \deadNote < a'\2  d''\1>16 
+  < a'\2  d''\1>16 < a'\2  d''\1>16 \deadNote < a'\2  d''\1>16 \deadNote < a'\2  d''\1>16
+  < a'\2  d''\1>16 < a'\2  d''\1>16 \deadNote < a'\2  d''\1>16 \deadNote < a'\2  d''\1>16
   |
   c8\6 c8\6 <dis'\3 g'\2>4
   c8\6 c16\6 c16\6
