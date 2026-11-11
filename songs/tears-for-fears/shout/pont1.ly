@@ -52,7 +52,7 @@ melody = {
     r4
     |
     fis16\4 fis16\4 fis16\4  r16
-    r16 fis16\4 gis16\3 fis16\4 
+    r16 fis16\4 gis16\3 fis16\4
     a16\3 fis16\4 r8
     r4
     |

@@ -23,7 +23,7 @@ info:
   tags: ['move-the-line']
 
 meta:
-  date: "2026-10-07"
+  date: "2026-11-11"
 structure:
 
   - id: intro
@@ -102,7 +102,7 @@ structure:
       type: refrain
 
       rows :
-        - ' | G Em | Fsm | Cs | A |x4'
+        - ' | G Em | Fsm | Cs7 | A |x4'
 
   - id: fin
     item: !Chords

@@ -7,6 +7,7 @@ delivery/
 songs/**/*.pdf
 # ...except the ready-made pdfs (`raw` in song.yml): those are sources
 !songs/the_beatles/**/*.pdf
+!songs/classique/beethoven/*.pdf
 songs/**/*.midi
 # Editor backup files
 *~

@@ -17,12 +17,12 @@ nbbars = 12
 
 songTempo = { \tempo 4 = \songtempo }
 
-harmonies = \chordmode { 
+harmonies = \chordmode {
   \repeat percent 2 {
-  e1 e1 cis1:m cis1:m
-  } 
-  a:1 a:1 b:1 b:1
+    e1 e1 cis1:m cis1:m
   }
+  a:1 a:1 b:1 b:1
+}
 
 melody = {
   \clef "treble_8"
@@ -30,32 +30,32 @@ melody = {
   \songTempo
 
   \repeat percent 2 {
-  e'16\2 fis'8\2 gis'16\1 ~
-  gis'16\1 dis'8\2 e'16\2 ~
-  e'16\2 fis'8\2 gis'16\1 ~
-  gis'16\1 
-  dis'8\2 e'16\2 ~
-  
+    e'16\2 fis'8\2 gis'16\1 ~
+    gis'16\1 dis'8\2 e'16\2 ~
+    e'16\2 fis'8\2 gis'16\1 ~
+    gis'16\1
+    dis'8\2 e'16\2 ~
+
     |
-  e'16\2 fis'8\2 gis'16\1 ~
-  gis'16\1 dis'8\2 e'16\2 ~
-  e'16\2 fis'8\2 gis'16\1 ~
-  gis'16\1 
-  dis'8.\2
+    e'16\2 fis'8\2 gis'16\1 ~
+    gis'16\1 dis'8\2 e'16\2 ~
+    e'16\2 fis'8\2 gis'16\1 ~
+    gis'16\1
+    dis'8.\2
     |
-  % C#m
-  cis'16\3 dis'8\2 e'16\2 ~
-  e'16\2 b8\3 cis'16\3 ~
-  cis'16\3 dis'8\2 e'16\2 ~
-  e'16\2 b8\3 cis'16\3 ~
-  |
-  cis'16\3 dis'8\2 e'16\2 ~
-  e'16\2 b8\3 cis'16\3 ~
-  cis'16\3 dis'8\2 e'16\2 ~
-  e'16\2 b8.\3
+    % C#m
+    cis'16\3 dis'8\2 e'16\2 ~
+    e'16\2 b8\3 cis'16\3 ~
+    cis'16\3 dis'8\2 e'16\2 ~
+    e'16\2 b8\3 cis'16\3 ~
+    |
+    cis'16\3 dis'8\2 e'16\2 ~
+    e'16\2 b8\3 cis'16\3 ~
+    cis'16\3 dis'8\2 e'16\2 ~
+    e'16\2 b8.\3
 
   }
-  | 
+  |
 
   % A
   cis'16\3 dis'8\2 e'16\2 ~
@@ -70,16 +70,16 @@ melody = {
   |
   % B
   b16\3 cis'8\2 dis'16\2 ~
-  dis'8\2 b8\3 
+  dis'8\2 b8\3
   b16\3 cis'8\2 dis'16\2 ~
   dis'8\2 b8\3
   |
   % B
   b16\3 cis'8\2 dis'16\2 ~
-  dis'8\2 b8\3 
+  dis'8\2 b8\3
   b16\3 cis'8\2 dis'16\2 ~
   dis'8\2 b8\3
-  
+
 
 }
 

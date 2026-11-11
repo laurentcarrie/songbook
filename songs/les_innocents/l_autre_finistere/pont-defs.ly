@@ -40,12 +40,15 @@ accord_cm =
 #(define-music-function (dur) (ly:duration?)
    #{ <c\5 g\4 c'\3 dis'\2>$dur #})
 
+%% Muted (dead) strokes: the same chord shape, with cross heads and an x in the tab.
+mute_cm = \deadNote { \accord_cm 16 }
+
 mesure_cm = {
   |
-  \accord_cm 16 q16  r16   \accord_cm 16
-  q16 q16 r16 \accord_cm 16
-  q16 q16 r16 \accord_cm 16
-  q16 r16 \accord_cm 16 r16
+  \accord_cm 16 q16  \mute_cm   \accord_cm 16
+  q16 q16 \mute_cm \accord_cm 16
+  q16 q16 \mute_cm \accord_cm 16
+  q16 \mute_cm \accord_cm 16 \mute_cm
   |
 }
 
