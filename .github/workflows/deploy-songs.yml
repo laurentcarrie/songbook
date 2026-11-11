@@ -3,9 +3,9 @@ name: Deploy Songs to S3
 # On every push to main (a merged pull request):
 #   1. mirror songs/, books/ and drums/ to the prod bucket (the mp3 there are left alone: they are not in git),
 #   2. check that the mp3 in the bucket match the songs in git,
-#   3. build everything on the runner, like `make all` on a dev machine: lilypond, lualatex, fluidsynth + ffmpeg
-#      (the mp3 renders), band-songbook from crates.io. The band-songbook Lambda cannot do it: 15 minutes at most
-#      and no fluidsynth/ffmpeg/soundfont in its image,
+#   3. build everything in the songbook-build image, like `make all` on a dev machine: band-songbook, lilypond,
+#      lualatex, fluidsynth + ffmpeg (the mp3 renders), the chord fonts. The image is built in the songbook-lambda
+#      repo (docker/build). The band-songbook Lambda cannot do it: 15 minutes at most and no fluidsynth/ffmpeg,
 #   4. upload the delivery to the bucket and re-index the site,
 #   5. pack the delivery in the 3 tarballs of the app (delivery-pdf, delivery-mp3, delivery-mp3-renders) and
 #      upload them next to it: `make prod-tarballs`, the packing and upload part of `make upload-prod-tarball`.
@@ -26,9 +26,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 120
-    # Built from docker/ci/Dockerfile by ci-image.yml: texlive, lilypond, fluidsynth, ffmpeg, aws, cargo, make.
+    # Built by songbook-lambda (docker/build/Dockerfile, build-image.yml) at each change of the tool, its fonts or the
+    # image: band-songbook, texlive, lilypond, fluidsynth, ffmpeg, the chord fonts, aws, cargo, make.
     container:
-      image: ghcr.io/laurentcarrie/songbook-ci:latest
+      image: ghcr.io/laurentcarrie/songbook-build:latest
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
@@ -62,41 +63,8 @@ jobs:
           lualatex --version | head -1
           fluidsynth --version | head -1
           ffmpeg -version | head -1
-
-      # The chord fonts live in the songbook-lambda repo (public); `make install` there does not install them.
-      - name: Checkout the songbook fonts
-        uses: actions/checkout@v4
-        with:
-          repository: laurentcarrie/songbook-lambda
-          path: songbook-lambda
-          sparse-checkout: band-songbook/fonts
-
-      - name: Install the songbook fonts
-        run: |
-          mkdir -p ~/.fonts
-          find songbook-lambda/band-songbook/fonts \( -name '*.ttf' -o -name '*.otf' \) -size +0 -exec cp {} ~/.fonts/ \;
-          fc-cache -f
-          fc-list | grep -ci songbook
-
-      # From the main branch of songbook-lambda, not crates.io: the crate is only published when its version is
-      # bumped, and 7sus4 (G7sus4 in classique/bach) was merged without a bump. A new commit there rebuilds it.
-      - name: Find the latest band-songbook commit
-        id: version
-        run: echo "sha=$(git ls-remote https://github.com/laurentcarrie/songbook-lambda refs/heads/main | cut -f1)" >> "$GITHUB_OUTPUT"
-
-      - name: Cache band-songbook
-        id: cache
-        uses: actions/cache@v4
-        with:
-          path: /opt/band-songbook
-          key: band-songbook-${{ steps.version.outputs.sha }}
-
-      - name: Install band-songbook
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: cargo install --root /opt/band-songbook --git https://github.com/laurentcarrie/songbook-lambda --rev "${{ steps.version.outputs.sha }}" band-songbook
-
-      - name: Put band-songbook on the PATH
-        run: echo /opt/band-songbook/bin >> "$GITHUB_PATH"
+          band-songbook --help | head -1
+          echo "chord fonts: $(fc-list | grep -ci songbook)"
 
       # The audio the build needs (delivery/mp3, the clicks, the mp3 renders): checked above, uploaded by hand.
       - name: Download the mp3 from the prod bucket
