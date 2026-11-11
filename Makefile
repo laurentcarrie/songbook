@@ -11,18 +11,18 @@ delivery:=delivery
 
 # The targets that build the pdf (all, song, and so force, watch, upload-zip, upload-gdrive, upload-msb, upload-tablet,
 # upload-prod-tarball) run band-songbook with the tools installed on this machine (lilypond, lualatex, fluidsynth,
-# ffmpeg), or in the CI image with DOCKER=1, e.g.  make song song="black keys" DOCKER=1
-#   IMAGE=...   the image, default the one the CI builds (docker/ci/Dockerfile); a local one works too:
-#               docker build -t songbook-ci docker/ci && make all DOCKER=1 IMAGE=songbook-ci
-# In the container: your user (so the files in sandbox/ and delivery/ are yours), the project mounted on /work, your
-# band-songbook (the image is Ubuntu 24.04 like the dev machine, the binary runs there), your chord fonts
-# (~/.fonts, read only), and ~/.cache/songbook-ci as its home, for the font and luaotfload caches between runs.
-IMAGE ?= ghcr.io/laurentcarrie/songbook-ci:latest
+# ffmpeg), or in the songbook-build image with DOCKER=1, e.g.  make song song="black keys" DOCKER=1
+#   IMAGE=...   the image, default the one the CI uses, built in the songbook-lambda repo (docker/build/Dockerfile): it
+#               has band-songbook, the toolchain and the chord fonts. A local one works too, from a clone of that repo:
+#               docker build -f docker/build/Dockerfile -t songbook-build . && make all DOCKER=1 IMAGE=songbook-build
+# In the container: your user (so the files in sandbox/ and delivery/ are yours), the project mounted on /work, and
+# ~/.cache/songbook-ci as its home, for the font and luaotfload caches between runs. The band-songbook and the fonts
+# are the ones of the image, not yours: `make install` does not change them, a new image does (docker pull).
+IMAGE ?= ghcr.io/laurentcarrie/songbook-build:latest
 ci_home := $(HOME)/.cache/songbook-ci
 ifeq ($(DOCKER),1)
 band_songbook := docker run --rm --user $(shell id -u):$(shell id -g) -e HOME=/home/ci -e RUST_LOG \
-	-v $(ci_home):/home/ci -v $(HOME)/.fonts:/home/ci/.fonts:ro \
-	-v $(shell command -v band-songbook):/usr/local/bin/band-songbook:ro \
+	-v $(ci_home):/home/ci \
 	-v $(CURDIR):/work -w /work $(IMAGE) band-songbook
 $(shell mkdir -p $(ci_home))
 else
