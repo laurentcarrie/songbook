@@ -32,11 +32,13 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       # --provenance=false: a plain image manifest, as for the Lambda image.
-      # --network host: on the ubuntu-26.04 runner the build containers cannot resolve archive.ubuntu.com (the
-      # registries resolve, the host too), so apt-get update fails; the host network uses the host's DNS.
+      # UBUNTU_MIRROR: on the ubuntu-26.04 runner archive.ubuntu.com, security.ubuntu.com and azure.archive.ubuntu.com
+      # do not resolve (in the build containers: "Temporary failure resolving"; tried: --network host, other DNS
+      # servers in daemon.json), mirrors.kernel.org does and carries the noble and noble-security pockets.
       - name: Build and push
         run: |
-          docker buildx build --network host --provenance=false --sbom=false --push \
+          docker buildx build --provenance=false --sbom=false --push \
+            --build-arg UBUNTU_MIRROR=http://mirrors.kernel.org/ubuntu \
             -t ghcr.io/laurentcarrie/songbook-ci:latest \
             -t ghcr.io/laurentcarrie/songbook-ci:${{ github.sha }} \
             docker/ci
