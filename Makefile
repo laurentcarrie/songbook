@@ -1,4 +1,4 @@
-.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb upload-tablet upload-prod-tarball prod-tarballs upload-prod-sources sanitize check-prod-mp3
+.PHONY: all force help clean clean-songs watch fmt-ly song upload-prod upload-dev download-prod download-dev run-from-s3 prod dev sync-prod sync-dev fmt a b check-mp3 upload-prod-or-dev sync download reindex refresh-prod refresh-dev upload-mp3 upload-mp3-prod upload-mp3-dev dates upload-zip upload-gdrive upload-msb upload-tablet upload-prod-tarball prod-tarballs upload-prod-sources sanitize check-prod-mp3 download-prod-mp3 upload-prod-delivery
 .DEFAULT_GOAL := help
 
 -include .env
@@ -121,6 +121,17 @@ upload-prod-sources: ## upload songs (not the mp3), books and drums to S3 prod, 
 check-prod-mp3: ## fail if the prod mp3 do not match the songs in git (missing song.mp3 / orphan mp3), CI step
 	@[ -n "$(BUCKET)" ] || { echo "BUCKET is not set (set it in .env)"; exit 1; }
 	@python3 -I scripts/check-prod-mp3.py
+
+# The CI build runs on the runner, which has no mp3 (gitignored): fetch them from the bucket, nothing else.
+download-prod-mp3: ## download only the mp3 under prod/songs in the bucket into songs/ (CI, before the build)
+	@[ -n "$(BUCKET)" ] || { echo "BUCKET is not set (set it in .env)"; exit 1; }
+	aws s3 sync s3://$(BUCKET)/prod/songs songs --exclude '*' --include '*.mp3' --only-show-errors
+
+# Mirrors delivery/ to the bucket (what upload-prod-or-dev does with rm + cp), after a full build (the CI).
+upload-prod-delivery: ## mirror delivery/ to the prod bucket, deleting what is not in it any more (CI)
+	@[ -n "$(BUCKET)" ] || { echo "BUCKET is not set (set it in .env)"; exit 1; }
+	@[ -d "$(delivery)/pdf" ] || { echo "$(delivery)/pdf does not exist: build first (make all)"; exit 1; }
+	aws s3 sync $(delivery) s3://$(BUCKET)/prod/delivery --delete --only-show-errors
 
 
 # Packs three parts of the delivery into tarballs (paths inside start with "delivery/<part>/") and uploads them to
